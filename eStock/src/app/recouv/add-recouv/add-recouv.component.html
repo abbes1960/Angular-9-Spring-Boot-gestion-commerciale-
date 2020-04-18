@@ -1,0 +1,89 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+     Reglement Client
+    </div>
+</mat-toolbar>
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+<input type="hidden"  formControlName="id" id="id">
+<input type="hidden"  formControlName="annee" id="annee">
+<input type="hidden"  formControlName="lib_client" id="lib_client">
+<div class = "row">
+  <div class="form-group col-md-6">
+    <label>Num Bon   : </label>
+    <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Date</label>
+    <input  type="date" min="{{minDate}}" class="form-control" formControlName="date_mvt" id="date_cde">
+  </div>
+  <div class="form-group col-md-6">
+    <label>Client</label>
+    <select name="code_client" class="form-control" formControlName="code_client" id="code_client"
+    (change)="onSelectClient($event.target.value)">
+    <option value="0">-Select-</option>
+    <option *ngFor="let item of this.clientList" value="{{item.code}}">{{item.libelle}}</option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+      <label>Libelle</label>
+      <input class="form-control" formControlName="libelle" id="libelle">
+  </div>
+  </div>
+<hr>
+ <table class="table table-borderless">
+    <thead class="thead-light">
+      <th>Mode</th>
+      <th>N° Piéce</th>
+      <th>Banque</th>
+      <th>Echeance</th>
+      <th>Date Reg</th>
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+      </th>
+      
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let item of service.list;let i=index;">
+    
+      <td>{{item.libart}}</td>
+      <td>{{item.pu}}</td>
+      <td>{{item.qte}}</td>
+      <td>{{item.totht}}</td>
+      <td>
+          <a class="btn btn-sm btn-info text-white" (click)="AddData(item,item.id)"><i class="fa fa-pencil"></i></a>
+          <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+
+          
+        </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Total  : </label>
+            <input type="text" class="form-control" id="total" formControlName="totht" readonly>
+        </div>
+        </div> 
+       
+              
+        
+      </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/commandes"><i class="fa fa-plus-square"></i> Liste </a>
+
+  </div>
+
+  
+</form> 
+
+
+
+

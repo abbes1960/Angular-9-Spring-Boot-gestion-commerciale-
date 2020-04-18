@@ -1,0 +1,113 @@
+
+<div class="col-md-12 col-md-offset-2 scroll">
+        <h1>Article</h1>   
+        <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+          <input type="hidden"  formControlName="id" id="id">
+          <div class ="form-group">
+                <div class="form-group">
+                        <label>Num facture : </label>
+                        <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+                        <input  type="hidden"  class="form-control" formControlName="lib_four" id="lib_four" readonly>
+                    </div>
+                  </div>
+          <div class="form-group row col-md-12">
+          <div class="col-md-6">
+            <div class="form-group">
+                <label>Date</label>
+                <input  type="date" min="{{minDate}}" class="form-control" formControlName="date_mvt" id="date_mvt">
+            </div>
+          </div>
+         <div class="col-md-6">
+        <div class="form-group">
+          <label>Client</label>
+          <select name="code_four" class="form-control" formControlName="code_four" id="code_client"
+          (change)="SelectFour($event.target.value)">
+                
+          <option value="0">-Select-</option>
+          <option *ngFor="let item of this.fourList" value="{{item.code}}">{{item.libelle}}</option>
+          </select>
+        </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label>Libelle</label>
+                <input class="form-control" formControlName="libelle" id="libelle">
+            </div>
+        </div>
+        <div class="col-md-6">
+                <div class="form-group row">
+                    <label>date reg</label>
+                    <input type="date" min="{{minDate}}"class="form-control" formControlName="date_reg" id="date_reg">
+                </div>
+            </div>
+          <div class="form-group col-md-6">
+            <label>Type Facture  </label>
+            <select class="form-control" formControlName="typef" id="typef">
+            <option value="0">-Select-</option>
+            <option *ngFor="let item of typefList" value="{{item.code}}">{{item.libelle}}</option>
+            </select>
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label>Montant Ht </label>
+            <input type="text" class="form-control" formControlName="totht" id="totht">
+          </div>
+          <div class="form-group col-md-6">
+                <label>Montant Remise  </label>
+                <input type="text" class="form-control" formControlName="totrem" id="totrem">
+          </div>
+
+          <div class="form-group col-md-6">
+                    <label>Montant Fodec </label>
+                    <input type="text" class="form-control" formControlName="totfodec" id="totfodec">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Montant tva  </label>
+            <input type="text" class="form-control" formControlName="tottva" id="tottva">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Timbre  </label>
+            <input type="text" class="form-control" formControlName="timbre" id="timbre">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Total TTc   </label>
+            <input type="text" class="form-control" formControlName="totttc" id="totttc">
+          </div>
+         
+          <div class="form-group col-md-6">
+            <label>Rs  </label>  
+            <input type="text" class="form-control" formControlName="rs" id="rs">
+          </div>
+          <div class="form-group">
+            <label>Montant Rs :   </label>  
+            <input type="text" class="form-control" formControlName="totrs" id="totrs" readonly>
+          </div>
+          <div class="form-group col-md-6">
+                <label>Nét :   </label>  
+                <input type="text" class="form-control" formControlName="net" id="net" readonly>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+            <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                          <i class="fa fa-close"></i> Close</button>
+          </div>
+          </div>
+        </form>
+      </div>
+          
+          
+          
+      
+          
+          
+            
+           
+              
+            
+      
+      
+      
+      
+      
+      

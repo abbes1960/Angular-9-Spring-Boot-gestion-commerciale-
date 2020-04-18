@@ -1,0 +1,98 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+          <button mat-icon-button >
+              <mat-icon>menu</mat-icon>
+          </button>
+    </div>
+    <div>
+       Facture Client
+    </div>
+  </mat-toolbar>
+  <form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+          <input  type="text"  class="form-control" formControlName="lib_client" id="lib_client" readonly>
+    <div class="form-group row col-md-12">
+      <div class="form-group col-md-6">
+          <label>Num Facture : </label>
+          <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+      </div>  
+      <div class="col-md-6 form-group">
+            <label>Date</label>
+          <input  type="date" min="{{minDate}}" class="form-control" formControlName="date_mvt" id="date_mvt">
+      </div>
+      <div class="col-md-6 form-group">
+        <label>Client</label>
+        <select name="code_client" class="form-control" formControlName="code_client" id="code_client"
+        (change)="OnSelectClient($event.target.value)">
+        <option value="0">-Select-</option>
+        <option *ngFor="let client of this.ClientList" value="{{client.id}}">{{client.libelle}}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+          <label>Libelle</label>
+          <input class="form-control" formControlName="libelle" id="libelle">
+      </div>
+      </div>
+    <table class="table table-borderless">
+      <thead class="thead-light">
+        <th>Code</th>
+        <th>Article</th>
+        <th>Pu</th>
+        <th>Qte</th>
+        <th>Fodec</th>
+        <th>Rem</th>
+        <th>Tva</th>
+        <th>Total Ht</th>
+        <th>
+          <a class="btn btn-sm btn-success text-white" (click)="Add(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+        </th>
+        
+      </thead>
+      <tbody>
+       
+        <tr *ngFor="let item of service.list;let i=index;">
+        <td class = "hidden">{{item.id}}</td>
+        <td>{{item.code_art}}</td>
+        <td>{{item.libart}}</td>
+        <td>{{item.pu}}</td>
+        <td>{{item.qte}}</td>
+        <td>{{item.rem}}</td>
+        <td>{{item.fodec}}</td>
+        <td>{{item.tva}}</td>
+        <td>{{item.totht}}</td>
+        <td>
+            <a class="btn btn-sm btn-info text-white" (click)="Add(item,item.id)"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-sm btn-danger text-white ml-1" (click)="OnDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+  
+            
+          </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="form-group row">
+          <div class="form-group col-sm-3 mb-3 mb-sm-0">
+            <label>Total Ht : </label>
+            <input type="text" class="form-control" id="totht" formControlName="totht" readonly>
+          </div> <div class="form-group col-sm-2 mb-3 mb-sm-0">
+            <label>Total Remise : </label>
+            <input type="text" class="form-control" id="tottva" formControlName="tottva" readonly>
+          </div>
+          <div class="form-group col-sm-2 mb-3 mb-sm-0">
+                <label>Total Fodec  : </label>
+                <input type="text" class="form-control" id="tottva" formControlName="tottva" readonly>
+          </div>
+          <div class="form-group col-sm-2 mb-3 mb-sm-0">
+              <label>Total Tva  : </label>
+              <input type="text" class="form-control" id="tottva" formControlName="tottva" readonly>
+          </div>
+          <div class="form-group col-sm-3 mb-3 mb-sm-0">
+              <label>Total TTC : </label>
+              <input type="text" class="form-control" id="totttc" formControlName="totttc" readonly>
+          </div>        
+         </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <a class="btn btn-outline-dark ml-1" routerLink="/commandes"><i class="fa fa-plus-square"></i> Liste </a>
+  
+    </div>
+  </form> 
+  

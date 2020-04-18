@@ -1,0 +1,84 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+     Gestion Bon Prelevement
+    </div>
+    
+  </mat-toolbar>
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+<input type="hidden"  formControlName="id" id="id">
+<input type="hidden"  formControlName="annee" id="annee">
+<input type="hidden"  formControlName="id" id="id">
+<div class = "row">
+  <div class="form-group col-md-6">
+    <label>Num Prelevement   : </label>
+    <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Date</label>
+    <input  type="date" min="{{minDate}}" class="form-control" formControlName="date_mvt" id="date_mvt">
+  </div>
+  <div class="form-group col-md-6">
+    <label>Agent </label>
+    <input class="form-control" formControlName="mat" id="mat" (keyup)="rechAgent($event.target.value)"
+        [class.is-invalid]="!isValid && this.service.formData.value.mat==0" >
+  </div>  
+  <div class="form-group col-md-6">
+      <label>Nom : </label>
+      <input class="form-control" formControlName="nom" id="nom">
+  </div>
+  </div>
+<hr>
+ <table class="table table-borderless">
+    <thead class="thead-light">
+      <th>Article</th>
+      <th>Pu</th>
+      <th>Quantite</th>
+      <th>Total</th>
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+      </th>
+      
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let item of service.list;let i=index;">
+    
+      <td>{{item.libart}}</td>
+      <td>{{item.pu}}</td>
+      <td>{{item.qte}}</td>
+      <td>{{item.totht}}</td>
+      <td>
+          <a class="btn btn-sm btn-info text-white" (click)="AddData(item,item.id)"><i class="fa fa-pencil"></i></a>
+          <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+
+          
+        </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Total  : </label>
+            <input type="text" class="form-control" id="total" formControlName="totht" readonly>
+        </div>
+        </div> 
+       
+              
+        
+      </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/commandes"><i class="fa fa-plus-square"></i> Liste </a>
+
+  </div>
+
+  
+</form> 
+
+

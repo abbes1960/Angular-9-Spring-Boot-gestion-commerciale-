@@ -1,0 +1,52 @@
+
+  <mat-toolbar color="primary">
+        <div fxHide.gt-xs>
+            <button mat-icon-button >
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div>
+          Liste Type facture
+        </div>
+        <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+            <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+                 <li>
+                    <a class="btn btn-sm btn-success text-white pull-right" (click)="addCategorie()">
+                        <i class="fa fa-plus"></i>Add Type Facture </a>
+              </li>
+                <li>
+                    <a routerLink="/account">Log Out</a>
+                </li>
+            </ul>
+        </div>
+      </mat-toolbar>
+     <div class="pricing-header mx-auto">
+       <div class="table-responsive">
+        <table class="table table-bordered table-responsive-sm table-responsive-md
+       table-responsive-lg">
+        <thead>
+        <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Libelle </th>
+        <th class="text-center" scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of crudApi.list ">
+        <th class ="hidden">{{item.id}}</th>
+        <td>{{item.code}}</td>
+        <td>{{item.libelle}}</td>
+        
+       
+        <td><button class="btn btn-warning"  (click) = "selectData(item)">
+          <i class="fa fa-pencil-square-o" ></i></button></td>
+       <td><button class="btn btn-danger" (click) = "removeData(item.id)">
+          <i class="fa fa-trash-o"></i></button></td>
+           </tr>
+             </tbody>
+             </table>
+             </div>
+           </div>
+  
+  
+  

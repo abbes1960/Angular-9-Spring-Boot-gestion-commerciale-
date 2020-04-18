@@ -1,0 +1,93 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+      <button mat-icon-button >
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div>
+  <h1>Bon 1016</h1> 
+  </div>
+  
+</mat-toolbar>
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+<input type="hidden"  formControlName="id" id="id">
+<input type="hidden"  formControlName="lib_direction" id="lib_direction">
+<input type="hidden"  formControlName="lib_residence" id="lib_residence">
+<div class = "row">
+  <div class="form-group col-md-6">
+    <label><strong>Num Bon 1016  :</strong> </label>
+    <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Date</label>
+    <input  type="date" min="{{minDate}}" class="form-control" formControlName="date_mvt" id="date_mvt">
+  </div>
+  <div class="form-group col-md-6">
+    <label>Direction</label>
+    <select class="form-control" formControlName="code_dir" id="code_dir"
+    (change)="OnSelectDir($event.target)">
+    <option value="0">-Select-</option>
+    <option *ngFor="let direction of this.directionList" value="{{direction.code}}">{{direction.libelle}}</option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Residence </label>
+    <select class="form-control" formControlName="code_res" id="code_res"
+    (change)="onSelectRes($event.target)">
+    <option value="0">-Select-</option>
+    <option *ngFor="let residence of this.residenceList" value="{{residence.code}}">{{residence.libelle}}</option>
+    </select>
+  </div>
+  <div class="form-group col-md-12">
+      <label>Libelle</label>
+      <input class="form-control" formControlName="libelle" id="libelle">
+  </div>
+  </div>
+<hr>
+ <table class="table table-borderless">
+    <thead class="thead-light">
+      <th>Code</th>
+      <th>Article</th>
+      <th>Pu</th>
+      <th>Quantite</th>
+      <th>Total</th>
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngIf="service.list.length==0"  [class.text-danger]="!isValid && service.list.length ==0">
+        <td class="font-italic text-center" colspan="5">
+          Aucune Ligne sélectionnée ...
+        </td>
+      </tr>
+  <tr *ngFor="let item of service.list;let i=index;">
+   
+  <td>{{item.libart}}</td>
+  <td>{{item.pu}}</td>
+  <td>{{item.qte}}</td>
+  <td>{{item.total}}</td>
+  <td>{{item.code_article}}</td> 
+  <td>
+      <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)"><i class="fa fa-pencil"></i></a>
+      <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+  </td>
+</tr>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Total  : </label>
+            <input type="text" class="form-control" id="total" formControlName="total" readonly>
+        </div>
+        </div> 
+        </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/lb1016"><i class="fa fa-plus-square"></i> Liste </a>
+
+  </div>
+
+  
+</form> 
+

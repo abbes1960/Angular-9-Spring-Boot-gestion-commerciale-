@@ -1,0 +1,57 @@
+
+  <mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+      Liste Article
+    </div>
+    </mat-toolbar>
+ <div class="pricing-header mx-auto">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg">
+    <thead>
+    <tr>
+    <th scope="col">Code</th>
+    <th scope="col">Libelle </th>
+    <th scope="col">Prix Achat</th>
+    <th scope="col">Prix Vente </th>
+    <th scope="col">TVa </th>
+    <th scope="col">Fodec </th>
+    <th scope="col">Image </th>
+    <th>
+        <a class="btn btn-outline-success" routerLink="/article"><i class="fa fa-plus-square"></i> Create New</a>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr *ngFor="let item of crudApi.listData ">
+    <th class ="hidden">{{item.id}}</th>
+    <td>{{item.code}}</td>
+    <td>{{item.libelle}}</td>
+    <td>{{item.pa}}</td>
+    <td>{{item.pv}}</td>
+    <td>{{item.tva}}</td>
+    <td>{{item.fodec}}</td>
+    <td><a href="#"><img class="card-img-top img-responsive"
+      src = "{{this.crudApi.host+'/api/Imgarticles/'+item.id}}" 
+      style = "height :200px;width:fil-content"
+     alt=""></a></td>
+   
+    <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">
+      <i class="fa fa-pencil-square-o" ></i></button></td>
+   <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.id)">
+      <i class="fa fa-trash-o"></i></button></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+       </div>
+
+
+

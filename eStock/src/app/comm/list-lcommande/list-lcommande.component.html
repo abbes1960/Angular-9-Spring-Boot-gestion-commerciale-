@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+     Liste Commande
+    </div>
+    
+  </mat-toolbar>
+<input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-0 small" placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+<table class="table table-hover">
+<thead class="thead-light">
+<th>id</th>  
+<th>Date commande</th>
+<th>Client</th>
+<th>Libelle</th>
+<th>Total Ht</th>
+<th>Total Tva</th>
+<th>Total TTC</th>
+
+<th>
+<a class="btn btn-outline-success" routerLink="/commande"><i class="fa fa-plus-square"></i> Create New</a>
+</th>
+</thead>
+<tbody>
+<tr *ngFor="let comm of commandeListe">
+<td>{{comm.id}}</td>
+<td (click)="openForEdit(comm.id)">{{comm.date_cde| date:'dd/MM/yyyy'}}</td>
+<td>{{comm.id_client}}</td>
+<td>{{comm.libelle}}</td>
+<td >{{comm.totht}}</td>
+<td >{{comm.tottva}}</td>
+<td >{{comm.totttc}}</td>
+
+
+<td>
+<a class="btn text-danger" (click)="onCommandeDelete(comm.id)"><i class="fa fa-trash fa-lg"></i> </a>
+<a class="btn text-danger" (click)="selectCommande(comm)"><i class="fa fa-pencil fa-lg"></i> </a>
+
+
+</td>
+</tr>
+<div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite"></div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"></ul></div></div></div>
+</tbody>
+</table>
+
+
+
+
+

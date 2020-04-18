@@ -1,0 +1,47 @@
+
+<div class="col-md-12 col-md-offset-2 scroll">
+        <h1>Article</h1>    
+        <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+          <input type="hidden"  formControlName="id" id="id">
+          <input type="hidden"  formControlName="lib_grade" id="lib_grade">
+          <div class="form-group">
+            <label>Matricule :  </label>
+            <input type="text" class="form-control" formControlName="mat" id="mat" readonly  >
+          </div>
+          <div class="form-group">
+            <label>Nom :  </label>
+            <input type="text" class="form-control" formControlName="nom" id="nom">
+          </div>
+          <div class="form-group">
+            <label>Code Grade </label>
+            <select class="form-control" formControlName="code_grade" id="code_grade"
+            (change)="OnSelectGrade($event.target.value)">
+            <option value="0">-Select-</option>
+            <option *ngFor="let item of grade.List" value="{{item.code}}">{{item.libelle}}</option>
+            </select>
+          </div>
+          
+      
+        <div class="form-group">
+            <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+            <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                          <i class="fa fa-close"></i> Close</button>
+          </div>
+        </form>
+      </div>
+          
+          
+          
+      
+          
+          
+             
+           
+              
+            
+      
+      
+      
+      
+      
+      

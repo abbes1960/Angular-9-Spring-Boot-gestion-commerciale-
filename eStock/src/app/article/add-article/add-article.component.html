@@ -1,0 +1,92 @@
+
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+      <button mat-icon-button >
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div>
+  <h1>Gestion Article</h1> 
+  </div>
+</mat-toolbar>  
+  <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+    <input type="hidden"  formControlName="id" id="id">
+    <div class="form-group">
+      <label>Code Catégorie </label>
+      <select class="form-control" formControlName="code_categ" id="code_categ"
+      (change)="onSelectCateg($event.target.value)">
+      <option value="0">-Select-</option>
+      <option *ngFor="let item of CategorieList" value="{{item.code}}">{{item.libelle}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Code SCatégorie </label>
+      <select class="form-control" formControlName="code_scateg" id="code_scateg" (change)="onSelectScateg($event.target.value)">
+      <option value="0">-Select-</option>
+      <option *ngFor="let item of ScategorieList" value="{{item.code}}">{{item.libelle}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Code Article </label>
+      <input type="text" class="form-control" formControlName="code" id="code" readonly  >
+    </div>
+    <div class="form-group">
+      <label>Code Barre </label>
+      <input type="text" class="form-control" formControlName="code_b" id="code_b"   >
+    </div>
+    <div class="form-group">
+      <label>Libelle </label>
+      <input type="text" class="form-control" formControlName="libelle" id="libelle">
+    </div>
+    <div class="form-group">
+      <label>Prix Achat  </label>
+      <input type="text" class="form-control" formControlName="pa" id="pa">
+    </div>
+    <div class="form-group">
+      <label>Prix Vente  </label>
+      <input type="text" class="form-control" formControlName="pv" id="pv">
+    </div>
+    <div class="form-group">
+      <label>TVA </label>
+      <select class="form-control" formControlName="tva" id="tva">
+        <option value=0>0</option>
+        <option value=7>7</option>
+        <option value=13>13</option>
+        <option value=19>19</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Fodec </label>  
+      <input type="text" class="form-control" formControlName="fodec" id="fodec">
+    </div>
+    <div class="form-group">
+      <label>Stock Init  </label>  
+      <input type="text" class="form-control" formControlName="stkinit" id="stkinit">
+    </div>
+
+    <div class="form-group">
+        <label>File Upload  </label>
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <a class="btn btn-outline-success" routerLink="/articles"><i class="fa fa-plus-square"></i> Liste</a>
+    </div>
+  </form>
+ 
+    
+    
+    
+
+    
+    
+      
+     
+        
+      
+
+
+
+
+

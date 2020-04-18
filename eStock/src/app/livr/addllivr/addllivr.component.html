@@ -1,0 +1,53 @@
+<h1 class="dislay-4">Livraison </h1>
+<hr>
+<form [formGroup]="this.formData"  (ngSubmit)="onSubmit()">
+    <input type="hidden" class="form-control" formControlName="id" id="id">
+    <input type="hidden" class="form-control" formControlName="libart" id="libart">
+ 
+    <div class="form-group">
+        <label>Article </label>
+        <select  class="form-control" formControlName="code_article" id="code_article" 
+         (change)="selectPrice($event.target)">
+            <option value="0">-Select-</option>
+            <option *ngFor="let item of articleList" value="{{item.code}}">{{item.libelle}}</option>
+       </select>
+    </div>
+    <div class="form-group">
+    <label>Prix Unitaire </label>
+    <div class="input-group">
+          <input class="form-control" formControlName="pu" id="pu" (keyup)="cal()"
+          [class.is-invalid]="!isValid && formData.value.pu==0" >
+    </div>
+    </div>
+
+    <div class="form-group">
+       <label>Quantité</label>
+      <div class="input-group">
+        <input name="qte"  class="form-control" formControlName="qte" id="qte" (keyup)="cal()"
+        [class.is-invalid]="!isValid && formData.value.qte==0">
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Tva</label>
+      <div class="input-group">
+        <input class="form-control" formControlName="tva" id="tva" readonly >
+      </div>
+    </div>    
+    
+    <div class="form-group">
+      <label>Totht </label>
+      <div class="input-group">
+        <input type = "text" class="form-control" formControlName="totht" id="totht" readonly>
+     </div>
+    </div>
+    
+    <input type="hidden" class="form-control" formControlName="tottva" id="tottva" readonly>
+    <input type="hidden" class="form-control" formControlName="totttc" id="totttc" readonly>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    </div>
+  
+</form>

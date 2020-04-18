@@ -1,0 +1,86 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+     Consommation Sonede
+    </div>
+</mat-toolbar>
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+<input type="hidden"  formControlName="id" id="id">
+
+<input type="text" class="form-control" formControlName="lib_direction" id="lib_direction">
+ 
+  <div class="form-group">
+    <label>Num Consommation : </label>
+    <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+</div>
+<div class="form-group row col-md-12">
+    
+    <div class="form-group col-md-6">
+      <label>Direction : </label>
+      <select name="code_direction" class="form-control" formControlName="code_direction" id="code_direction"
+      (change)="OnSelectDir($event.target)">
+        
+     <option value="0">-Select-</option>
+     <option *ngFor="let item of this.directionList" value="{{item.code}}">{{item.libelle}}</option>
+     </select>
+    </div>
+    <div class="form-group col-md-6">
+    <label>Année : </label>
+    <input  type="text"  class="form-control" formControlName="annee" id="annee">
+    </div>
+    <div class="form-group col-md-6">
+        <label>Mois : </label>
+        <input  type="text"  class="form-control" formControlName="mois" id="mois">
+        </div>
+</div>
+
+    <div class="form-group row col-md-12">
+        <label>Libelle</label>
+        <input class="form-control" formControlName="libelle" id="libelle">
+    </div>
+  
+  <table class="table table-borderless">
+    <thead class="thead-light">
+      <th>Code</th>
+      <th>Residence</th>
+      <th>Quantité</th>
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of service.list ;let i=index;">
+      <td>{{item.code_residence}}</td>    
+      <td>{{item.lib_residence}}</td>
+      <td>{{item.qte}}</td>
+      <td>
+            <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Total  : </label>
+            <input type="text" class="form-control" id="total" formControlName="total" readonly>
+        </div>
+        </div> 
+        
+      </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/avoirs"><i class="fa fa-plus-square"></i> Liste </a>
+
+  </div>
+
+  
+</form> 
+
+
+

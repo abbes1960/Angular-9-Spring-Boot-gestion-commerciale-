@@ -1,0 +1,58 @@
+<body class="bg-gradient-primary">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-xl-8 col-lg-10 col-md-7">
+<div class="card o-hidden border-0 shadow-lg my-5">
+<div class="card-body p-0">
+<div class="row">
+<div class="col-lg-4 justify-content-center">
+  <img src="assets/login/img/login8.jpg" class="img-circle " alt="User Image">
+</div>
+<div class="col-lg-8">
+<div class="p-5">
+<div class="text-center">
+  <h1 class="h4 text-gray-900 mb-4">Connection</h1>
+</div>
+<form class="user">
+  <div class="input-group mb-3">  
+   <div class="input-group-prepend">  
+    <span class="input-group-text"><i class="icon-user"></i></span>  
+   </div>  
+   <input type="text" class="form-control sty1" id="loginname" required [(ngModel)]="loginname" 
+   name="loginname" placeholder="Taper your login" required>
+  </div>  
+  <div class="input-group mb-4">  
+   <div class="input-group-prepend">  
+    <span class="input-group-text"><i class="icon-lock"></i></span>  
+   </div>
+    <input type="password" class="form-control sty1" id="password" required [(ngModel)]="password"
+     name="Taper password" placeholder="Taper your Passward" required>
+   </div>  
+  <div class="form-group">
+    <div class="custom-control custom-checkbox small">
+      <input type="checkbox" class="custom-control-input" id="customCheck">
+      <label class="custom-control-label" for="customCheck">Remember Me</label>
+    </div>
+  </div>
+    <button class="btn btn-primary btn-user btn-block" (click)="login()">Login</button>
+    <hr>
+</form>
+    <hr>
+<div class="text-center">
+  <a class="small" href="">Forgot Password?</a>
+</div>
+<div class="text-center">
+  <a class="small" href="">Create an Account!</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+
+

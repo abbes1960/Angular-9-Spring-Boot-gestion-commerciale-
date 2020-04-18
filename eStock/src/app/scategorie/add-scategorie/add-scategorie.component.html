@@ -1,0 +1,56 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+    <h1>Gestion Article</h1> 
+    </div>
+  </mat-toolbar> 
+        <div class="col-md-12 col-md-offset-2">
+               
+            <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+              <input type="hidden"  formControlName="id" id="id">
+              <div class="form-group">
+                <label>Code Scatégorie </label>
+                <input type="text" class="form-control" formControlName="code" id="code">
+                
+              </div>
+              <div class="form-group">
+                <label>Code Catégorie </label>
+                <select class="form-control" formControlName="id_categ" id="id_categ">
+  <option value="0">-Select-</option>
+  <option *ngFor="let item of CategorieList" value="{{item.code}}">{{item.libelle}}</option>
+      </select>
+               
+              </div>
+              <div class="form-group">
+                <label>Libelle</label>
+                <input type="text" class="form-control" formControlName="libelle" id="libelle">
+                
+              </div>
+              <input type="hidden"  formControlName="rang" id="rang">
+              <div class="form-group">
+            
+                <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+                <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+            
+    
+</div>
+            </form>
+        </div>
+    
+    
+    
+
+    
+    
+      
+     
+        
+      
+
+
+
+

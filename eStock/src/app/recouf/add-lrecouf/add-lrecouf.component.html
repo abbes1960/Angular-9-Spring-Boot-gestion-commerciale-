@@ -1,0 +1,56 @@
+<h4 class="dislay-4">Reglement Fournisseur</h4>
+<hr>
+<form #form="ngForm" autocomplete="off"  (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
+    <input type="hidden" name="numero" #numero="ngModel" [(ngModel)]="formData.numero">
+    <div class="form-group">
+      <label>Mode Reglement </label>
+      <select class="form-control" formControlName="mode_reg" id="mode_reg">
+        <option value='Esp'>Esp</option>
+        <option value='Chq'>Chq</option>
+        <option value='Vir'>Vir</option>
+        <option value='CB'>CB</option>
+      </select>
+    </div>
+  <div class="form-group">
+    <label>N° Piéce</label>
+    <div class="input-group">
+          <input class="form-control" name="nump" #nump="ngModel" [(ngModel)]="formData.nump" >
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Banque </label>
+    <div class="input-group">
+          <input class="form-control" name="banque" #banque="ngModel" [(ngModel)]="formData.banque" >
+    </div>
+  </div>
+
+    <div class="form-group">
+       <label>Echéance </label>
+      <div class="input-group">
+        <input type = "date"  name="echeance"  class="form-control" #echeance="ngModel" [(ngModel)]="formData.echeance">
+      </div>
+    </div>
+     
+    
+    <div class="form-group">
+      <label>Date Reglement  </label>
+      <div class="input-group">
+        <input class="form-control" name="date_reg" #date_reg="ngModel" [(ngModel)]="formData.date_reg">
+     </div>
+    </div>
+    <div class="form-group">
+        <label>Montant </label>
+        <div class="input-group">
+          <input class="form-control" name="montant" #montant="ngModel" [(ngModel)]="formData.montant">
+       </div>
+      </div>
+   
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    </div>
+  
+</form>
+
+

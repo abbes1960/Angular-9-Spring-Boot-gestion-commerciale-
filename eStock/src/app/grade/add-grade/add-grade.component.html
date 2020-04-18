@@ -1,0 +1,38 @@
+
+        <div class="col-md-12 col-md-offset-2">
+                <h1>Catégorie</h1>    
+                <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+                  <input type="hidden"  formControlName="id" id="id">
+                  <div class="form-group">
+                    <label>Code </label>
+                    <input type="text" class="form-control" formControlName="code" id="code">
+                    
+                  </div>
+                  <div class="form-group">
+                    <label>Libelle</label>
+                    <input type="text" class="form-control" formControlName="libelle" id="libelle">
+                    
+                  </div>
+                  <div class="form-group">
+                
+                    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+                    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+                
+        
+    </div>
+                </form>
+            </div>
+        
+        
+        
+    
+        
+        
+          
+         
+            
+          
+    
+    
+    
+    

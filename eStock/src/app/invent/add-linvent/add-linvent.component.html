@@ -1,0 +1,71 @@
+<h4 class="dislay-4">Commande </h4>
+<hr>
+<form [formGroup]="this.formData"  (ngSubmit)="onSubmit()">
+  
+    <input type="hidden" class="form-control" formControlName="id" id="id">
+    <input type="hidden" class="form-control" formControlName="numero" id="id_commande">
+    <input type="hidden" class="form-control" formControlName="libart" id="libart">
+ 
+    <div class="form-group">
+      <label>Article </label>
+      <select  class="form-control" formControlName="code_article" id="code_article" 
+       (change)="updatePrice($event.target)">
+        <option value="0">-Select-</option>
+        <option *ngFor="let item of articleList" value="{{item.code}">{{item.libelle}}</option>
+      </select>
+    </div>
+ 
+  <div class="form-group">
+    <label>Price</label>
+    <div class="input-group">
+          <input class="form-control" formControlName="pu" id="pu" readonly >
+    </div>
+  </div>
+
+    <div class="form-group">
+       <label>Quantité 1</label>
+      <div class="input-group">
+        <input name="qte"  class="form-control" formControlName="qte1" id="qte1" 
+        [class.is-invalid]="!isValid && formData.value.qte1==0">
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Quantité 1</label>
+     <div class="input-group">
+       <input name="qte"  class="form-control" formControlName="qte2" id="qte2" 
+       [class.is-invalid]="!isValid && formData.value.qte2==0">
+
+     </div>
+   </div>
+   <div class="form-group">
+    <label>Quantité 1</label>
+   <div class="input-group">
+     <input name="qte"  class="form-control" formControlName="qte3" id="qte3" 
+     [class.is-invalid]="!isValid && formData.value.qte3==0">
+
+   </div>
+ </div>
+ <div class="form-group">
+  <label>Quantité 1</label>
+ <div class="input-group">
+   <input name="qte"  class="form-control" formControlName="qte4" id="qte4" 
+   [class.is-invalid]="!isValid && formData.value.qte4==0">
+ </div>
+</div> 
+    
+    <div class="form-group">
+      <label>Total : </label>
+      <div class="input-group">
+        <input type = "text" class="form-control" formControlName="total" id="tottal" readonly>
+     </div>
+    </div>
+   
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    </div>
+  
+</form>
+

@@ -1,0 +1,60 @@
+<body class="bg-gradient-primary">
+  <div class="container">
+  <div class="row justify-content-center">
+  <div class="col-xl-10 col-lg-10 col-md-8">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+  <div class="card-body p-0">
+  <div class="row">
+  <div class="col-lg-4 d-none d-lg-block justify-content-center">
+  <img src="assets/login/img/poste1.jpg" class="img-circle " >
+  </div>
+  <div class="col-lg-8">
+  <div class="p-5">
+  <div class="text-center">
+  <h1 class="h4 text-gray-900 mb-4">Register</h1>
+  </div>
+  <form class = "user" [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input type="text" class="form-control form-control-user" formControlName="nom" id="nom"
+     placeholder="Votre Nom">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control form-control-user" id="login" formControlName="login"
+     placeholder="Login">    
+  </div>
+  <div class="form-group col">
+   <label>Role  : </label>
+   <select name = "role"  formControlName="role"  class="form-control" id = "role">
+       <option value = "Admin">Administrateur</option>
+       <option value = "User">Utilisateur</option>
+   </select>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <input type="password" class="form-control form-control-user" id="pwd" formControlName="pwd" 
+      placeholder="Password">
+    </div> 
+    <div class="col-sm-6">
+      <input type="password" class="form-control form-control-user" id="pwdd" formControlName="pwdd"
+       placeholder="Repeat Password">
+    </div>
+  </div>
+   <button class="btn btn-primary btn-user btn-block">Register Account</button>
+</form>
+ <hr>
+  <div class="text-center">
+   <a class="small" href="">Already have an account? Login!</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+                  </div>
+                </div>
+</body>
+
+
+

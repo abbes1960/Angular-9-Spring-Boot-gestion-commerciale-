@@ -1,0 +1,35 @@
+<h4 class="dislay-4">Commande </h4>
+<hr>
+<form #form="ngForm" autocomplete="off"  (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
+    <input type="hidden" name="numero" #numero="ngModel" [(ngModel)]="formData.numero">
+    <input type="hidden" name="lib_residence" #libart="ngModel" [(ngModel)]="formData.lib_residence">
+    <div class="form-group">
+      <label>Residence </label>
+      <select  class="form-control" name="code_residence" #code_residence="ngModel" [(ngModel)]="formData.code_residence" 
+       (change)="OnSelectRes($event.target)">
+          <option value="0">-Select-</option>
+          <option *ngFor="let item of conssonedeService.listResidence" value="{{item.code}}">{{item.libelle}}</option>
+     </select>
+  </div>
+ 
+
+    <div class="form-group">
+       <label>Quantité</label>
+      <div class="input-group">
+        <input name="qte"  class="form-control" name="qte" #qte="ngModel" [(ngModel)]="formData.qte"
+        [class.is-invalid]="!isValid && formData.qte==0">
+
+      </div>
+    </div>
+     
+  
+    
+   
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    </div>
+  
+</form>
+

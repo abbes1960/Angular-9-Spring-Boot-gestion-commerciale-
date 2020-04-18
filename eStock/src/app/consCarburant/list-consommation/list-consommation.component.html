@@ -1,0 +1,51 @@
+
+  <mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+      Liste Article
+    </div>
+    </mat-toolbar>
+ <div class="pricing-header mx-auto">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg">
+    <thead>
+    <tr>
+    <th scope="col">Annee</th>
+    <th scope="col">Mois </th>
+    <th scope="col">Libelle</th>
+    <th scope="col">Quantité 1</th>
+    <th scope="col">Quantité 2</th>
+    <th scope="col">Quantité 3</th>
+    <th scope="col">Quantité 4</th>
+    <th>
+        <a class="btn btn-outline-success" routerLink="/article"><i class="fa fa-plus-square"></i> Create New</a>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of crudApi.list">
+    <th class ="hidden">{{item.id}}</th>
+    <td>{{item.annee}}</td>
+    <td>{{item.mois}}</td>
+    <td>{{item.libelle}}</td>
+    <td>{{item.qte1}}</td>
+    <td>{{item.qte2}}</td>
+    <td>{{item.qte3}}</td>
+    <td>{{item.qte4}}</td>
+    <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">
+      <i class="fa fa-pencil-square-o" ></i></button></td>
+   <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.id)">
+      <i class="fa fa-trash-o"></i></button></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+       </div>
+
+
+
