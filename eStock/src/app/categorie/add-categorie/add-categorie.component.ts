@@ -64,7 +64,7 @@ addData() {
     this.dialogRef.close();
    
     this.crudApi.getAll().subscribe(
-      response =>{this.crudApi.listData = response;}
+      response =>{this.crudApi.list = response;}
      );
     this.router.navigate(['/categories']); 
   });
@@ -76,7 +76,7 @@ addData() {
       this.dialogRef.close();
    
       this.crudApi.getAll().subscribe(
-        response =>{this.crudApi.listData = response;}
+        response =>{this.crudApi.list = response;}
        );
       this.router.navigate(['/categories']);
     });

@@ -35,12 +35,12 @@ export class AddLavoirComponent implements OnInit {
     this.articleService.getAll().subscribe(
       response =>{this.articleList= response;}
      );
-    if(this.data.Index==null)
+    if(this.data.avoirIndex==null)
     {
       this.InfoForm();
     }
     else 
-    this.formData =this.fb.group(Object.assign({},this.avoirService.list[this.data.Index]));
+    this.formData =this.fb.group(Object.assign({},this.avoirService.list[this.data.avoirIndex]));
 }
 
 
@@ -95,16 +95,16 @@ updateTotal(){
 
 onSubmit() {
   if(this.validateForm(this.service.formData.value)){
-  if(this.data.Index==null)
+  if(this.data.avoirIndex==null)
    this.avoirService.list.push(this.service.formData.value)
   }
-  this.avoirService.list[this.data.Index] = this.formData.value;
+  this.avoirService.list[this.data.avoirIndex] = this.formData.value;
   this.dialogRef.close();
 }
 
 validateForm(formData:Lavoir){
   this.isValid=true;
-  if(formData.code_article=='')
+  if(formData.code =='')
     this.isValid=false;
     else if(formData.qte ==0)
     this.isValid=false;

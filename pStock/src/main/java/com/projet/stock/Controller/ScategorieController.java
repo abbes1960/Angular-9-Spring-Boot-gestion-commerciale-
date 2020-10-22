@@ -48,11 +48,10 @@ public class ScategorieController {
 	 
 	 
 	 
-	 @GetMapping("/scategories/5/{id_categ}")
-	
-	    public ResponseEntity<List<Scategorie>> listCateg(@PathVariable String id_categ) {
-	        
-			List<Scategorie> scategories = repository.findByCateg(id_categ);
+	 @GetMapping("/scategories/5/{code}")
+	 public ResponseEntity<List<Scategorie>> listCateg(@PathVariable String code) {
+		 System.out.println("Get all Scategories fffff...");  
+			List<Scategorie> scategories = repository.findByCcateg(code);
 	       
 	        return new ResponseEntity<List<Scategorie>>(scategories, HttpStatus.OK);
 	    }
@@ -73,6 +72,7 @@ public class ScategorieController {
 	
 	@PostMapping("/scategories")
 	public Scategorie createsCategorie(@Valid @RequestBody Scategorie Scategorie) {
+		  System.out.println("back ok");
 		return repository.save(Scategorie);
 	}
 	

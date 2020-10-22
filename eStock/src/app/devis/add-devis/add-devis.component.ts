@@ -81,12 +81,12 @@ ResetForm() {
 
   
   
-Add(lcommandeIndex,Id){    
+Add(ldevisIndex,Id){    
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data={lcommandeIndex,Id};
+    dialogConfig.data={ldevisIndex,Id};
     this.dialog.open(AddLdevisComponent, dialogConfig).afterClosed().subscribe(b10=>{
     this.calcul();
     });

@@ -24,7 +24,7 @@ public class Devis {
 	  private int annee;
 	  private int numero;
 	  private Date date_mvt;
-	  private int code_client;
+	  private int code;
 	  private String libelle;
 	  private String lib_client;
 	  private float totht;
@@ -58,11 +58,11 @@ public class Devis {
 	public void setDate_mvt(Date date_mvt) {
 		this.date_mvt = date_mvt;
 	}
-	public int getCode_client() {
-		return code_client;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_client(int code_client) {
-		this.code_client = code_client;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLibelle() {
 		return libelle;
@@ -100,14 +100,14 @@ public class Devis {
 	public void setLdeviss(List<Ldevis> ldeviss) {
 		this.ldeviss = ldeviss;
 	}
-	public Devis(long id, int annee, int numero, Date date_mvt, int code_client, String libelle, String lib_client,
+	public Devis(long id, int annee, int numero, Date date_mvt, int code, String libelle, String lib_client,
 			float totht, float tottva, float totttc, @Valid List<Ldevis> ldeviss) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
 		this.date_mvt = date_mvt;
-		this.code_client = code_client;
+		this.code = code;
 		this.libelle = libelle;
 		this.lib_client = lib_client;
 		this.totht = totht;
@@ -121,9 +121,9 @@ public class Devis {
 	}
 	@Override
 	public String toString() {
-		return "Devis [id=" + id + ", annee=" + annee + ", numero=" + numero + ", date_mvt=" + date_mvt
-				+ ", code_client=" + code_client + ", libelle=" + libelle + ", lib_client=" + lib_client + ", totht="
-				+ totht + ", tottva=" + tottva + ", totttc=" + totttc + ", ldeviss=" + ldeviss + "]";
+		return "Devis [id=" + id + ", annee=" + annee + ", numero=" + numero + ", date_mvt=" + date_mvt + ", code="
+				+ code + ", libelle=" + libelle + ", lib_client=" + lib_client + ", totht=" + totht + ", tottva="
+				+ tottva + ", totttc=" + totttc + ", ldeviss=" + ldeviss + "]";
 	}
 
 }

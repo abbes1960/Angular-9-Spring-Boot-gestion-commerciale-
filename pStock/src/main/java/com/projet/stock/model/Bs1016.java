@@ -20,8 +20,10 @@ public class Bs1016 {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_dir;
-	  private int code_res;
+	  private int numbon;
+	  private int code;
+	  private int mat;
+	  private int codres;
 	  private Date date_mvt;
 	  private String libelle;
 	  private float totht;
@@ -51,17 +53,29 @@ public class Bs1016 {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_dir() {
-		return code_dir;
+	public int getNumbon() {
+		return numbon;
 	}
-	public void setCode_dir(int code_dir) {
-		this.code_dir = code_dir;
+	public void setNumbon(int numbon) {
+		this.numbon = numbon;
 	}
-	public int getCode_res() {
-		return code_res;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_res(int code_res) {
-		this.code_res = code_res;
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public int getMat() {
+		return mat;
+	}
+	public void setMat(int mat) {
+		this.mat = mat;
+	}
+	public int getCodres() {
+		return codres;
+	}
+	public void setCode_res(int codres) {
+		this.codres = codres;
 	}
 	public Date getDate_mvt() {
 		return date_mvt;
@@ -111,15 +125,17 @@ public class Bs1016 {
 	public void setLbs1016s(List<Lbs1016> lbs1016s) {
 		this.lbs1016s = lbs1016s;
 	}
-	public Bs1016(long id, int annee, int numero, int code_dir, int code_res, Date date_mvt, String libelle,
-			float totht, float tottva, float totttc, String lib_direction, String lib_residence,
+	public Bs1016(long id, int annee, int numero, int numbon, int code, int mat, int codres, Date date_mvt,
+			String libelle, float totht, float tottva, float totttc, String lib_direction, String lib_residence,
 			@Valid List<Lbs1016> lbs1016s) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_dir = code_dir;
-		this.code_res = code_res;
+		this.numbon = numbon;
+		this.code = code;
+		this.mat = mat;
+		this.codres = codres;
 		this.date_mvt = date_mvt;
 		this.libelle = libelle;
 		this.totht = totht;
@@ -135,11 +151,10 @@ public class Bs1016 {
 	}
 	@Override
 	public String toString() {
-		return "Bs1016 [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_dir=" + code_dir + ", code_res="
-				+ code_res + ", date_mvt=" + date_mvt + ", libelle=" + libelle + ", totht=" + totht + ", tottva="
-				+ tottva + ", totttc=" + totttc + ", lib_direction=" + lib_direction + ", lib_residence="
-				+ lib_residence + ", lbs1016s=" + lbs1016s + "]";
+		return "Bs1016 [id=" + id + ", annee=" + annee + ", numero=" + numero + ", numbon=" + numbon + ", code=" + code
+				+ ", mat=" + mat + ", codres=" + codres + ", date_mvt=" + date_mvt + ", libelle=" + libelle
+				+ ", totht=" + totht + ", tottva=" + tottva + ", totttc=" + totttc + ", lib_direction=" + lib_direction
+				+ ", lib_residence=" + lib_residence + ", lbs1016s=" + lbs1016s + "]";
 	}
-
 
 }

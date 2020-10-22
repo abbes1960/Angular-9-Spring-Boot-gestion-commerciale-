@@ -18,7 +18,8 @@ import { AddClientComponent } from '../../client/add-client/add-client.component
   styleUrls: ['./list-client.component.scss']
 })
 export class ListClientComponent implements OnInit {
-  listData : Client[];
+ 
+  p: number = 1;
   constructor(public crudApi: ClientService, public toastr: ToastrService,
     private router : Router,public fb: FormBuilder,
     private matDialog: MatDialog,
@@ -31,7 +32,7 @@ export class ListClientComponent implements OnInit {
   
   getData() {
     this.crudApi.getAll().subscribe(
-      response =>{this.listData = response;}
+      response =>{this.crudApi.list = response;}
      );
    
   }

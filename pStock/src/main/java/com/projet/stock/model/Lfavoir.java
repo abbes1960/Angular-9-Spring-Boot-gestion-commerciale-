@@ -17,7 +17,7 @@ public class Lfavoir {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
+	  private String code;
 	  private String Libart;
 	  private float pu;
 	  private float qte;
@@ -40,11 +40,11 @@ public class Lfavoir {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
 		return Libart;
@@ -94,12 +94,12 @@ public class Lfavoir {
 	public void setFavoir(Favoir favoir) {
 		this.favoir = favoir;
 	}
-	public Lfavoir(long id, int numero, String code_article, String libart, float pu, float qte, int tva, float rem,
-			int fodec, float totht, Favoir favoir) {
+	public Lfavoir(long id, int numero, String code, String libart, float pu, float qte, int tva, float rem, int fodec,
+			float totht, Favoir favoir) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
+		this.code = code;
 		Libart = libart;
 		this.pu = pu;
 		this.qte = qte;
@@ -115,9 +115,9 @@ public class Lfavoir {
 	}
 	@Override
 	public String toString() {
-		return "Lfavoir [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", pu=" + pu + ", qte=" + qte + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht="
-				+ totht + ", favoir=" + favoir + "]";
+		return "Lfavoir [id=" + id + ", numero=" + numero + ", code=" + code + ", Libart=" + Libart + ", pu=" + pu
+				+ ", qte=" + qte + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht=" + totht
+				+ ", favoir=" + favoir + "]";
 	}
 
 }

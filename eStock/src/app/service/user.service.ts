@@ -14,7 +14,7 @@ export class UserService {
   
   
   private baseUrl = '/api/users';
-  private baseUrl1 = '/api/users/5';
+  private baseUrl1 = '/api/authenticate';
   islogin = false;
   admin = false;
   suser = false;
@@ -22,9 +22,8 @@ export class UserService {
   listData : User[];
   public dataForm:  FormGroup; 
   constructor(private http: HttpClient,private datePipe: DatePipe) { }
-  login(login: String): Observable<Object> {
-    
-     return this.http.get(`${this.baseUrl1}/${login}`);
+  login(username, password) {
+     return this.http.post(`${this.baseUrl1}`,{username, password});
    }  
  
   getData(id: number): Observable<Object> {

@@ -12,7 +12,7 @@ public class Direction {
 	@Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
-	  private String code;
+	  private int code;
 	  private String libelle;
 	public long getId() {
 		return id;
@@ -20,10 +20,10 @@ public class Direction {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 	public String getLibelle() {
@@ -32,7 +32,7 @@ public class Direction {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public Direction(long id, String code, String libelle) {
+	public Direction(long id, int code, String libelle) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -46,6 +46,5 @@ public class Direction {
 	public String toString() {
 		return "Direction [id=" + id + ", code=" + code + ", libelle=" + libelle + "]";
 	}
-	  
-
+	
 }

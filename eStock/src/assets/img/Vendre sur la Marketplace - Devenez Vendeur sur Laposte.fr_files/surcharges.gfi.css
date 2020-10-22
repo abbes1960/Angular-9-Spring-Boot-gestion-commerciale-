@@ -1,0 +1,3807 @@
+@CHARSET "UTF-8";
+
+/* debut modif ggirard 25/07/2012 mantis 60 - QC 121 / calculatrice javascript */
+/*  ajout des classes pour la desactivation de JS */
+
+/***************/
+/* Partie LEL */
+/***************/
+
+#lel .calculer {
+   display: none;
+}
+
+#lel .calculerSansJS {
+   display: inline-block; 
+   text-decoration: none;
+   height: 25px;
+   margin: 17px 0 0 21px;
+   padding: 0 0 0 18px;
+   color: #fff;
+   background: url("/_ui/eboutique/images/btn/btn_sprite.png") no-repeat 0
+      -1756px;
+}
+#lel .calculerSansJS span {
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: normal;
+    padding: 6px 10px 0 5px;
+    cursor: pointer;
+}
+
+#lel .calculerSansJS_submit {
+   display: inline-block;
+   font-size: 1.3em;
+   color: white;
+   height: 25px;
+   font-family: 'DINMediumRegular', Arial, Helvetica, sans-serif;
+   background: url("/_ui/eboutique/images/btn/btn_sprite.png") no-repeat
+      right -1726px;
+      border:none;
+}
+
+/* fin modif ggirard 25/07/2012 mantis 60 - QC 121 / calculatrice javascript */
+
+/***************/
+/* Partie LREL */
+/***************/
+.reshipment .step1 .checkbox-center {width: 50%; margin: auto;text-align :center;}
+.reshipment .step1 .checkbox-center input {float: left;margin-top:3px;*margin-top:1px; }
+.reshipment .step1 .checkbox-center label {float: left;margin-left: 10px; width: auto;}
+
+.blockPrice .linkGreen3 { 
+   display:none; 
+}
+
+.linkGreen3SansJS {
+   display: inline-block; 
+   text-decoration: none;
+   margin: 17px 0 0 21px;
+   padding: 0px 10px 0px 0px;   
+   color: #fff;
+   background:url(../images/btn/btn_sprite.png) no-repeat right -1028px;
+}
+
+.linkGreen3SansJS_submit {
+   display: inline-block;
+   font-size: 1.3em;
+   color: white;
+   height: 25px;
+   padding: 1px 2px 3px 22px;
+   font-family: 'DINMediumRegular', Arial, Helvetica, sans-serif;
+   background:url(../images/btn/btn_sprite.png) no-repeat left -1002px;
+   border:none;
+}
+
+/* fin modif ggirard 25/07/2012 mantis 60 - QC 121 / calculatrice javascript */
+
+/* CheckBox collectioneur - formulaire d'inscription */
+.formRow .jNice{ padding-top: 0; display: inline; float:  left; padding: 10px 0 0 24px !important; margin-right: -14px; }
+.jNiceChk{ width: 250px !important; }
+.blockCompteDonees .blockCompteDoneesInfo .formWrapper .jNiceChk{ width: 210px !important; }
+
+/*styles des popups*/
+#backgroundPopup{
+	position: fixed;
+	_position: absolute;
+	opacity:0.8;
+	filter: alpha(opacity=80);
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.7;
+	background: #000000;
+	border: 1px solid #cecece;
+	height: windowHeight;
+	z-index:98;
+}
+/*znouaoui*/
+#genericPopip{
+position:fixed;
+top:20px;
+left:20px;
+_position:absolute; /* hack for internet explorer 6*/
+background:#FFFFFF;
+border:2px solid #cecece;
+z-index:99;
+padding:12px;
+font-size:13px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+#autoLoginPopup{
+position:fixed;
+top:20px;
+left:20px;
+_position:absolute; /* hack for internet explorer 6*/
+height:94px;
+width:523px;
+background:#FFFFFF;
+border:2px solid #cecece;
+z-index:99;
+padding:12px;
+font-size:13px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+#autoLoginPopup h1{
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+.orangeButton input{
+	background: url("../images/btn/btn_sprite.png") no-repeat scroll right -2347px transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 700;
+    height: 45px;
+    margin: 0;
+    padding: 0 35px 3px 0;
+}
+.closePopButton input{
+	background: url("../images/btn/cancel_right.png") no-repeat scroll right transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 700;
+    height: 50px;
+    margin: 0;
+    padding: 3px 30px 5px 4px;
+}
+#askForChoicePopup .orangeButton span {
+    padding-left: 19px;
+}
+.orangeButton span{
+   background: url("../images/btn/btn_sprite.png") no-repeat scroll 0 -2294px transparent;
+    margin-left: 280px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 1.5em;
+    height: 45px;
+    padding: 0 0 0 22px;
+    text-decoration: none;
+    margin: 0;
+    float:right;
+}
+.closePopButton span{
+   background: url("../images/btn/generic_left.png") no-repeat scroll transparent;
+    margin-left: 280px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 1.5em;
+    height: 50px;
+    padding: 0 0 0 23px;
+    text-decoration: none;
+    margin: 0;
+    float:right;
+}
+.proButton input{
+	background: url("../images/btn/btn_sprite.png") no-repeat scroll right -1313px transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 700;
+    height: 45px;
+    margin: 0;
+    padding: 0 35px 3px 0;
+}
+.proButton span{
+   background: url("../images/btn/btn_sprite.png") no-repeat scroll 0 -1366px transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 1.5em;
+    height: 45px;
+    padding: 0 0 0 22px;
+    text-decoration: none;
+    margin: 0px;
+    float:right;
+}
+
+#deconnexionPopinPro.pro .btn-rgt .linkDecon{
+	 display:inline-block; height:46px; padding:0 0 0 26px; font-size:1.6em; color:#fff; font-weight:700; background:url(../images/btn/btn_sprite.png) no-repeat 0 -1366px; text-decoration:none; 
+}
+#deconnexionPopinPro.pro .btn-rgt .linkDecon span{
+   display:inline-block; height:30px;  padding:13px 35px 0 6px; cursor:pointer; background:url(../images/btn/btn_sprite.png) no-repeat right -1313px;font-size: 0.8em;color:#fff;
+}
+#deconnexionPopin.transverse .btn-rgt .linkDecon{
+	 display:inline-block; height:46px; padding:0 0 0 22px; font-size:1.6em; color:#fff; font-weight:700; background:url(../images/btn/btn_sprite.png) no-repeat 0 -2294px; text-decoration:none; 
+}
+#deconnexionPopin.transverse .btn-rgt .linkDecon span{
+   display:inline-block; height:32px;  padding:13px 35px 0 6px; cursor:pointer; background:url(../images/btn/btn_sprite.png) no-repeat right -2347px;font-size: 0.8em;color:#fff;
+}
+/*table-destinataire*/
+.verif-preuve .green {color:green;}
+.verif-preuve .red {color:red;}
+.verif-preuve .table-destinataire table tbody td.num {padding-left:10px;}
+.verif-preuve .table-destinataire .table-footer {display:none;}
+
+.error {
+	color:#f00;
+	font-size: 13px;
+	margin-bottom: 10px;
+	display: block;}
+
+.mascadiaDownError {
+	color:#f00;
+	font-size: 12px;
+	display: block;
+	margin: 20px 0 0 45px;}
+	
+.selected .error {
+	color:#fff;
+	font-size: 13px;
+	margin-bottom: 10px;
+	display: block;}
+
+/* ========================================== */
+/* ========= CORRECTIONS ET ANOS QC ========= */
+/* ========================================== */
+
+/*correction intertitre table de tarifs*/
+.blockNosTarifsMtel table.tableAffranchissement {border-top:1px solid #E4E4E4; margin-top:10px; }
+.blockNosTarifsMtel div.tableAffranchissement {border-top:0 none;padding-top:10px;margin-top:0;}
+
+/* alignement des résultats csuivi (footer)  */
+.courrierData .showResults td {vertical-align:top;}
+
+/* page modifier mon mot de passe - correction problème d'affichage sous ie 7 et 9 */
+.blockModifPass .formWrapper .formContent .formRow .inputInfo {clear:left;padding-top:0;}
+.blockModifPass .formWrapper .formContent .rightFormItems .formRow {display:block;height:35px;width:100%;}
+
+.showResults tbody td, .showResults tbody td.messageStatut {
+  padding-top: 10px;
+  vertical-align:top;
+}
+
+/* tableau d'affranchissement des tarifs de la lettre recommandée (à compléter avec les styles embarqués dans la page)*/
+#titleDOMOne, a#titleDOMTwo {color:#7C7A7B;text-decoration:none;}
+
+.blockMigration .boxMiddle div.centerIcon, .boxMiddle div.centerIcon, div.centerIcon {width: 100%; overflow: hidden;padding:0;}
+div.centerIcon ul { list-style: none; position: relative; float: left; display: block; left: 33%;margin:5;}
+div.centerIcon ul li { float: left; display: block; } 
+
+.blockMigration .boxMiddle div.centerIconPro, .boxMiddle div.centerIconPro, div.centerIconPro {width: 100%; overflow: hidden;padding:0;}
+div.centerIconPro ul { list-style: none; position: relative; float: left; display: block; left: 50%;margin:5;}
+div.centerIconPro ul li { position: relative; float: left; display: block; right: 50%; } 
+
+/* cacher le caption dans ie7 */
+.table-destinataire caption.hidden {display:none;visible:hidden;}
+.table-conformite caption.hidden {display:none;visible:hidden;}
+.push3cols .item a:focus .desc, .push3cols .item .desc:hover{ text-decoration:none;}
+
+/*QC541: bug ie7-8 sur le background*/
+.blockFichierPreuveContent {float:left;}
+
+/*QC521: coche verte cachée au niveau des adresses email dans Pro et Part*/
+.checkEmail .imgToggle { visibility: hidden; }
+
+.blockAccueilComptepro{ padding:0 50px 0 49px;}
+.blockAccueilComptepro h2{font-family: 'DINMediumRegular'; font-weight:bold; font-size:3.4em; color:#794971; text-transform:uppercase; display:block; padding:38px 0;}
+.blockAccueilComptepro .blockTransferezCompte{ width:829px; padding:18px 0 0 34px; position:relative; height:141px; background:url(../images/bg/bg_transferez-comptes.png) no-repeat left top;}
+.blockAccueilComptepro .blockTransferezCompte h3{font-family: 'JPHandStraight'; font-size:2.5em; font-style:normal; display:block; padding:0 0 18px 0;}
+.blockAccueilComptepro .blockTransferezCompte p{ font-size:1.4em; font-family:Arial, Helvetica, sans-serif; color:#000000; display:block; width:596px;}
+
+.blockAccueilComptepro .blockTransferezCompte img{ position:absolute; top:40px; right:36px;}
+
+.blockTransferezCompte .linkOrange1{ font-size:1.3em; text-transform:none; margin:12px 0 0 0;}
+
+.blockAccueilComptepro .blockConsomationService{ overflow:hidden; min-height:10px;}
+.blockAccueilComptepro .blockConsomationService h3 { font-size: 1.9em; font-weight: bold; padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif; padding-top: 30px; }
+.blockAccueilComptepro .blockConsomationService span{ display:block; font-size:2.1em; color:#363636; font-family:Arial, Helvetica, sans-serif; padding:37px 0 0 0;}
+.blockAccueilComptepro .blockConsomationService em{ display:block; font-size:1.4em; color:#363636; font-family:Arial, Helvetica, sans-serif; font-style:normal; padding:5px 0 40px 0;}
+
+
+.monCompteWrapperlowercase .blockMonCompte em strong {
+    text-transform: none;
+}
+.monCompteWrapperlowercase{ height:62px; position:relative; margin:17px 0 0 0;}
+.monCompteWrapperlowercase .blockMonCompte{ position:absolute; top:0; left:-4px; height:62px; width:970px; background:url(../images/bg/bg_mon-compte-header.png) no-repeat left top; padding:0;}
+.monCompteWrapperlowercase .blockMonCompte span { float:left; display:block; text-transform:uppercase; font-size:1.8em; color:#363636; padding:16px 0 0 54px; text-shadow: -1px 1px #ffffff;}
+.monCompteWrapperlowercase .blockMonCompte em { float:left; display:block; font-style:normal; font-size:1.8em; color:#363636; padding:16px 0 0 9px; text-shadow: -1px 1px #ffffff;}
+.monCompteWrapperlowercase .blockMonCompte em strong{ text-transform:lowercase;}
+
+
+.compteDoneesWrapperlowercase .blockCompteDonees em strong {
+    text-transform: uppercase;
+}
+.compteDoneesWrapperlowercase { height:62px; position:relative; margin:17px 0 0 0;}
+.compteDoneesWrapperlowercase .blockCompteDonees { position:absolute; top:0; left:-4px; height:62px; width:970px; background:url(../images/bg/bg_mon-compte-header-violet.png) no-repeat left top; padding:0;}
+.compteDoneesWrapperlowercase .blockCompteDonees span { float:left; display:block; text-transform:uppercase; font-size:1.8em; color:#fff; padding:16px 0 0 54px; text-shadow: -1px 1px #363636; }
+.compteDoneesWrapperlowercase .blockCompteDonees em{ float:left; display:block; font-style:normal; font-size:1.8em; color:#fff; padding:16px 0 0 9px; text-shadow: -1px 1px #363636;}
+.compteDoneesWrapperlowercase .blockCompteDonees em strong{ text-transform:lowercase;}
+.compteDoneesWrapperlowercase .blockCompteDonees .linkWhiteButton span {color: #363636;}
+
+.compteDoneesWrapperlowercase{ padding:0 50px 0 49px;}
+.compteDoneesWrapperlowercase h4 {font-family: 'DINMediumRegular'; font-weight:700; font-size:3.4em; color:#363636; display:block; padding:38px 0;}
+.compteDoneesWrapperlowercase h2 {font-family: 'DINMediumRegular'; font-weight:700; font-size:3.4em; color:#363636; display:block; padding:38px 0;}
+.compteDoneesWrapperlowercase .blockCompteDoneesInfo .formWrapper { width:629px;}
+.compteDoneesWrapperlowercase .formWrapper .topCorners {  background: url("../images/bg/form_topCorners-big.jpg") no-repeat scroll left top transparent; height: 9px; margin: 0; padding: 0; width: 629px;}
+.compteDoneesWrapperlowercase .formWrapper .bottomCorners { background: url("../images/bg/form_bottomCorners-big.jpg") no-repeat scroll left top transparent; height: 9px; margin: 0; padding: 0; width: 629px;}
+
+.blockCompteDonees .blockCompteDoneesInfo fieldset legend{color:#363636; font-weight:bold; font-size:2em; font-family:Arial, Helvetica, sans-serif; padding:19px 0 25px 0; display:block; line-height:1em;}
+.blockCompteDonees .blockCompteDoneesInfo .coli fieldset legend{color:#363636; font-weight:bold; font-size:2em; font-family:Arial, Helvetica, sans-serif; padding:19px 0 15px 0; display:block; line-height:1em;}
+.blockCompteDonees .blockCompteDoneesInfo  .coli fieldset fieldset legend{color:#363636; font-size:1.3em;  padding:0px 0 25px 0; display:block; line-height:0em;}
+
+
+/*QC359 : nom et prénom de l'utilisateur en minuscule pour ne pas décaler le bouton Informations personelles*/
+.monCompteWrapperlowercase .blockMonCompte em strong {text-transform : lowercase;}
+
+.red{color:red}
+
+/*QC359 : newsletter*/
+#footer .colMap {
+    /*height: 182px;*/
+    margin-bottom: 0;
+    padding: 0 0 0 19px;
+}
+#errorNewsEmail li {list-style:none;}
+
+/*alignement du lien retour au niveau du breadcrumb*/
+.mainContent .retour a {
+	margin-top: 20px;
+}
+
+/* Modification entete UMA */
+.headerContent .myAccount .pro a{ color: #ffffff !important; }
+.headerContent .myAccount .listRound2 a { color: #000;  padding-left: 9px; height: auto; } /* UMA 09072012 */
+.headerContent .myAccount .listRound2 a:hover{ text-decoration: underline; } /* UMA 09072012 */
+.headerContent ul.listRound2 li a{ background: url("../images/btn/btn_sprite.png") no-repeat scroll 0 -85px transparent; }
+.headerContent ul.listRound2 li span{ padding-left: 4px; } /* UMA 09072012 */
+.headerContent .myAccount .listRound2 .name {  background:url(../images/bg/bg_user.png) no-repeat 0 0; padding-left: 13px; } /* UMA 09072012 */
+.headerContent .myAccount .listRound2 .name.pro {color:#fff; background:url(../images/bg/bg_user_pro.png) no-repeat 0 0; padding-left: 13px; }
+.headerContent .myAccount .listRound2 .disconnect {background: url(../images/bg/bg_disconnect.png) no-repeat left 5px; padding-left: 13px; } /* UMA 09072012 */
+.headerContent .myAccount .listRound2 .disconnect.pro {color:#fff; background: url(../images/bg/bg_disconnect-pro.png) no-repeat left 5px; padding-left: 13px; }
+.headerContent .myAccount span.hdrAccount { display:block; font-size:1.3em; color:#363636; padding:0 0 4px 14px; margin-bottom:8px; font-weight:700; background:url(../images/bg/bg_user.png) no-repeat 0 0;}
+
+.blockLEL .blockOneCTA  .imgaidereel {  position:absolute;  top: 28px; right: 27px; }
+
+
+h3.rteTitreSlider {
+    color: #655C53;
+    font-family: 'DINBlackRegular',Arial,Helvetica,sans-serif;
+    font-size: 4em;
+    line-height: 1em;
+    text-transform: uppercase;	
+}
+p.rteSousTitreSlider {
+    color: #655C53;
+    font-family: 'DINLightRegular',Arial,Helvetica,sans-serif;
+    font-size: 3.3em;
+    line-height: 1em;
+}
+span.rtePartirDe {
+    font-family: 'DINMediumRegular',Arial,Helvetica,sans-serif;
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+span.rtePrice, span.rtePrice2, span.rtePrice3 {
+    color: #E05101;
+    font-family: 'DINBlackRegular',Arial,Helvetica,sans-serif;
+    font-size: 5.5em;
+    letter-spacing: -2px;
+    line-height: 1em;
+    margin-right: 20px;
+    display: inline-block;
+}
+span.rteSup {
+    font-size: 0.6em;
+    left: -10px;
+    position: relative;
+    top: -20px;
+}
+span.rteLettre, span.rteLettre2, span.rteLettre3 {
+    color: #E05101;
+    display: inline-block;
+    font-family: 'DINMediumRegular',Arial,Helvetica,sans-serif;
+    font-size: 1.7em;
+    margin-left: -45px;
+}
+h3.rteTitrePush {
+    color: #363636;
+    font-family: 'JPHandStraight',Arial,Helvetica,sans-serif;
+    font-size: 2.5em;
+    font-weight: normal;
+    line-height: 1em;
+}
+span.rteDesc {
+    color: #363636;
+    font-size: 1.65em;
+    line-height: 1.4em;
+}
+h2.rteTitreSliderEservice, h2.rteTitreSliderEservice2, h2.rteTitreSliderEservice3 {
+    color: #E05101;
+    font-family: 'JPHandStraight',Arial,Helvetica,sans-serif;
+    font-size: 3.5em;
+    font-weight: 400;
+    line-height: 1.2em;
+    text-transform: uppercase;
+}
+span.rtePrice2, span.rteLettre2, h2.rteTitreSliderEservice2 {
+    color: #5B8900;
+}
+span.rtePrice3, span.rteLettre3, h2.rteTitreSliderEservice3 {
+    color: #007185;
+}
+p.rteSousTitreSliderEservice {
+    color: #655C53;
+    font-family: 'DINLightRegular',Arial,Helvetica,sans-serif;
+    font-size: 2.4em;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+h3.rteTitreNiveau2 {
+    color: #363636;
+    font-size: 2em;
+}
+h2.rteTitreNiveau1, h2.rteTitreNiveau12, h2.rteTitreNiveau13 {
+    color: #DC5409;
+    font-family: 'DINMediumRegular';
+    font-size: 3.2em;
+    letter-spacing: -1px;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+h4.rteTitreNiveau3, h4.rteTitreNiveau32, h4.rteTitreNiveau33 {
+    color: #DC5409;
+    font-size: 1.6em;
+}
+h2.rteTitreNiveau12, h4.rteTitreNiveau32 {
+    color: #5B8900;
+}
+h2.rteTitreNiveau13, h4.rteTitreNiveau33 {
+    color: #006397;
+}
+h3.rteDispatchTitre {
+    color: #D20077;
+    font-family: 'JPHandStraight';
+    font-size: 2.2em;
+    font-weight: normal;
+}
+h3.rteDispatchTitre2 {
+    color: #006397;
+    font-family: 'JPHandStraight';
+    font-size: 2.2em;
+    font-weight: normal;
+    line-height: 22px;
+}
+span.rteDispatchLienPuce {
+    background: url("../images/btn/btn_arrow-circle-blue.png") no-repeat scroll left top transparent;
+    color: #006397;
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: 700;
+    height: 30px;
+    left: 17px;
+    padding: 3px 10px 0 34px;
+    position: relative;
+    text-decoration: none;
+    top: 5px;
+}
+h2.rteTitreN1SliderFixe {
+    color: #D50078;
+    font-family: 'DINMediumRegular',Arial,Helvetica,sans-serif;
+    font-size: 3.4em;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.2em;
+    text-transform: uppercase;
+}
+p.rteParagrapheSimple {
+    font-size: 1.35em;
+    line-height: 1.4em;
+    padding: 15px 0;
+}
+h3.rteTitreN2Encoche {
+    background: url("../images/icons/icon_check.png") no-repeat scroll left 29px transparent;
+    color: #006397;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin: 0 0 0 47px;
+    padding: 26px 0 0;
+    text-indent: 20px;
+}
+h3.rteTitreN2Encoche2 {
+    background: url("../images/icons/pink_tick.gif") no-repeat scroll left 22px transparent;
+    color: #D50078;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin: 0 0 0 47px;
+    padding: 26px 0 0;
+    text-indent: 20px;
+}
+strong.rteGraissageTexte {
+    font-weight: bold;
+}
+em.rteParagrapheImportant {
+    background: url("../images/icons/alert2.png") no-repeat scroll 25px 3px transparent;
+    color: #000000;
+    display: block;
+    font-size: 1.4em;
+    font-style: normal;
+    line-height: 1.5em;
+    margin-top: 10px;
+    padding-left: 24px;
+    text-indent: 25px;
+}
+p.rteParagrapheManuscrit {
+    color: #000000;
+    font-family: 'JPHandStraight';
+    font-size: 2em;
+    line-height: 1.8em;
+}
+
+.impression-tarif {
+    display: block;
+    float: right;
+    font-size: 0.8em;
+    height: 25px;
+    line-height: 25px;
+}
+
+/*Evolution des styles des pages PMNA et REEX BEGIN*/
+/*Voir QC 495 (PMNA) et QC 327 (REEX) */
+.pmna .articleBox h3.tittle {
+    background: url("../images/icons/pink_tick.gif") no-repeat scroll 0 0 transparent;
+    color: #D50078;
+    font-weight: 700;
+    padding-left: 24px;
+}
+.pmna .articleBox h3.pink {
+    background: none;
+    padding: 24px 0;
+}
+.pmna .articleBox .pinkList {
+    font-size: 1em;
+    float: none;
+    padding-bottom: 10px;
+}
+.pmna .articleBox .pinkList li:first-child {
+    padding-top: 10px;
+}
+.pmna .articleBox .pinkList li {
+    background: none;
+    color: #373636;
+    display: block;
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 1.4em;
+    padding-bottom: 5px;
+	padding-left: 24px;
+}
+.pmna .articleBox ol.pinkList li {
+	display:list-item;
+	list-style-type:decimal;
+	list-style-position:inside;
+}
+.pmna .articleBox p {
+	padding:10px 0 15px 0;
+}
+.pmna .articleBox .pinkList li p {
+	font-size: 1em;
+	padding: 0;
+	margin:0;
+}
+.pmna .articleBox .pinkList li span {
+    background: none;
+    font-weight: normal;
+    color: #373636;
+    display: block;
+    font-size: 1em;
+    padding-bottom:0;
+    display:inline;
+}
+.pmna .notes span {
+    background: url("../images/icons/alert2.png") no-repeat scroll 0 3px transparent;
+    color: #000000;
+    display: block;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    margin-top: 10px;
+    text-indent: 24px;
+    padding-bottom: 0;
+}
+.pmna .articleBox .notes ul.pinkList li {
+	padding-left:0;
+}
+.pmna p.intertitle strong, .reex p.intertitle strong {
+	padding-left: 24px;
+}
+.pmna .collapseBox p strong, .reex .collapseBox p strong {
+	font-size:1em;
+	padding-right:0;
+}
+.pmna p strong, .reex p strong {
+	padding-left: 0;
+}
+div.carte_postale_recto_verso_img {
+	margin-top: 3px;
+	height: 150px;
+	text-align: center;
+}
+div.carte_postale_recto_verso_img_left {
+	width: 262px;
+	height: 140px;
+	float: left;
+}
+div.carte_postale_recto_verso_img_right {
+	width: 262px;
+	height: 140px;
+	float: right;
+}
+.pmna .partenaire2 p, .reex .partenaire2 p {
+	float: left;
+    font-weight: 700;
+    line-height: 15px;
+    padding: 40px 30px 0 190px;
+    width: 250px;
+}
+.pmna .partenaire2 .collapseBox .boxtext.first, .reex .partenaire2 .collapseBox .boxtext.first {
+    padding: 20px 30px 20px;
+}
+.pmna .partenaire2 .collapseBox .boxtext, .reex .partenaire2 .collapseBox .boxtext {
+    clear: both;
+    float: none;
+    font-weight: 400;
+    padding: 0 30px 20px 30px;
+    width: 590px;
+}
+.pmna .partenaire2 .collapseBox p, .reex .pmna .partenaire2 .collapseBox p {
+    float: left;
+    font-weight: 700;
+    line-height: 15px;
+    padding: 40px 30px 0 190px;
+    width: 250px;
+}
+.pmna .partenaire2 .collapseBox .small, .reex .partenaire2 .collapseBox .small {
+	font-size:1.2em;
+	font-weight:400;
+	padding: 0 30px;
+    width: 590px;
+    padding-top:10px;
+}
+.pmna  p.small, .reex p.small {
+	margin-bottom:15px;
+}
+
+.article.pmna .smallButton span {
+    background: url("../images/btn/btn_sprite.png") no-repeat scroll 0 -2147px transparent;
+    color: #FFFFFF;
+    display: block;
+    font-size: 1.6em;
+    font-weight: 700;
+    height: 26px;
+    margin: 8px auto;
+    padding: 0 0 0 18px;
+    text-decoration: none;
+    width: 120px;
+}
+
+.article.pmna .smallButton span a {
+    background: url("../images/btn/btn_sprite.png") no-repeat scroll right -2116px transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 0.8em;
+    height: 20px;
+    padding: 5px 15px 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
+.article.reex .smallButton span {
+    background: url("../images/btn/btn_sprite.png") no-repeat scroll 0 -1177px transparent;
+    color: #FFFFFF;
+    display: block;
+    font-size: 1.6em;
+    font-weight: 700;
+    height: 26px;
+    margin: 0;
+    padding: 10px 0 0 18px;
+    text-decoration: none;
+    width: 90px;
+}
+.article.reex .smallButton span a {
+    background: url("../images/btn/btn_sprite.png") no-repeat scroll right -1925px transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 0.8em;
+    height: 20px;
+    padding: 5px 15px 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
+.autreServices {
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.reexgGardeOffres > p:last-child {
+	padding-bottom:30px;
+}
+.reexgGardeOffres > p {
+	color: #000;
+	display: block;
+	clear: both;
+	font-size: 1.4em;
+	padding: 8px 10px 0 67px;
+}
+.pmna .partenaire2 p, .reex .partenaire2 p {
+    font-weight: 400;
+}
+/*Evolution des styles des pages PMNA et REEX END*/
+
+/*QC 491 BEGIN : blockCentral pour les pages Partenaires MTEL Avery et Dymo (basées sur le template partEditoTemplate)*/
+.blockSectionUnique {
+	padding: 0 50px;
+}
+
+.blockSectionUnique h3 {
+	display: block;
+	color: #565A5C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 4.4em;
+	font-weight: bold;
+	padding: 45px 0;
+}
+
+/* Modifs SEO */
+.blockSectionUnique h1 {
+	display: block;
+	color: #565A5C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 4.4em;
+	font-weight: bold;
+	padding: 45px 0;
+}
+
+.blockSectionUnique h4 {
+   color: #363636;
+    display: block;
+    font-size: 1.6em;
+    font-weight: 700;
+    overflow: hidden;
+    padding: 13px 0 19px;
+}
+
+.blockSectionUnique p, .blockSectionUnique h5  {
+	display: block;
+	color: #363636;
+	font-size: 1.4em;
+	padding: 10px 0;
+}
+
+.floatingBox {
+	position: relative;
+	overflow: hidden;
+	height: 1%;
+	padding-top:15px;
+}
+
+.floatingBox.imgLeft img {
+	float: left;
+}
+
+.floatingBox.imgRight img {
+	float: right;
+}
+
+.floatingBox.imgLeft div.contentBox210px {
+	margin-left: 210px;
+}
+
+.floatingBox.imgRight div.contentBox210px {
+	margin-right: 210px;
+}
+.floatingBox.imgLeft div.contentBox220px {
+	margin-left: 220px;
+}
+
+.floatingBox.imgRight div.contentBox220px {
+	margin-right: 220px;
+}
+div.modelesEtiquettes, .modelesImprimantes {
+	padding: 15px 0;
+}
+.modelesEtiquettes ul, .modelesImprimantes ul {
+	list-style-type: none;
+	padding: 15px 0;
+}
+.modelesEtiquettes li, .modelesImprimantes li {
+	list-style-type: none;
+	color: #363636;
+	font-size: 1.4em;
+}
+/*QC 491 END*/
+
+#encart-pmna-msp.pmna-msp{ width:255px; height:43px; }
+
+/*QC540 : pages partenaires*/
+.articleEditorial {
+	display:block;
+    padding: 40px 30px 50px 50px;
+    width: 882px;
+}
+.articleEditorial h2 {
+    color: #565A5C;
+    font-size: 4.25em;
+    letter-spacing: -0.02em;
+    line-height: 0.85em;
+    padding: 0 0 40px;
+    width: 635px;
+}
+.articleEditorial p {
+    font-size: 1.35em;
+    line-height: 1.4em;
+    padding: 15px 0;
+}
+.articleEditorial span {
+	background: url("../images/bg/bg_article_links_selected.png") no-repeat scroll 7px 0 #E8E8E8;
+    color: #333333;
+    display: block;
+    width: 598px;
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 2px 0 2px 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.articleEditorial .articleLinksContent { 
+	display:block;
+    margin-top: -15px;
+}
+
+/*QC270 : bouton valider*/
+#newsEmail .newsSubmit input {
+	width:auto;
+	padding-bottom:4px; 
+	line-height:26px;
+	height:26px;
+	vertical-align:middle;
+}
+
+/*QC228 : Nom du fichier de preuve*/
+.verif-preuve dl dd {
+	word-wrap:break-word;
+}
+
+/*QC645 titre h2 dans REEL*/
+.wrapCaroucel.eserviceReex .itemCaroucel .description h2 {
+	width:800px;
+}
+
+/* Modifs SEO */
+.wrapCaroucel.eserviceReex .itemCaroucel .description h1 {
+	width:800px;
+}
+
+/*QC141*/
+.LREL a.linkGreen3 span {
+	font-family: Arial,Helvetica,sans-serif;
+	font-weight:700;        
+	padding: 5px 8px 3px 26px;
+}
+
+#lrel .tarifs h3.blue {
+	color:#007185;
+}
+
+/*MSP begin*/
+#mspConfirm .linkGrey2 {
+	float:left;
+	width:120px;
+}
+#mspConfirm .orangeButton {
+	float:right;
+	width:92px;
+}
+#mspConfirm .orangeButton span {
+	margin-left:0;
+}
+#mspConfirm .linkGrey2 span {
+    background: url("../images/btn/btn_sprite.png") no-repeat scroll right -1419px transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    padding: 13px 17px 3px 0px;
+}
+
+#mspConfirm .linkGrey2 input {
+    border: 0 none;
+    outline: none;l
+    background: transparent;
+    font-size: 1em;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+/*MSP end*/
+
+/*QC 710 : style titre vérifier preuve*/
+.fileSubmission .blockFileSubmission h2 {
+	color:#007185;
+}
+.blockNosTarifsMtel span.footerNotes a span {color:#fff;}
+
+/*QC708 : Tarifs LEL : Modification/Correction suite à livraison fiche 592*/
+h4 span.impression, h4 span.impression-tarif {
+	font-size:1.1em;
+}
+.lps-shape-inner div.error {
+    height: 1.2em;
+    text-align: center;
+    font-size: 11pt;
+}
+div.error {
+    height: 1.2em;
+}
+
+/*QC705 : Régression Landing page Réexpédition Professionnels*/
+.REEX .blockCarContainer .blockCarItem h3.lrelTitle1 {
+	color:#006397
+}
+
+.blockModifPass .formWrapper .formContent .leftFormItems .formRow .formRow .insctructions{ position:absolute; font-size: 1em; padding:32px 0 0 0; color:#565a5c; font-family:Arial, Helvetica, sans-serif; clear:both;}
+
+
+.blockMigration .boxMiddle div.blockIcons.centerIcon h3{ width: 375px; font-size: 2.2em ;padding-bottom: 0px;padding-top: 25px;}
+.blockMigration .boxMiddle div.blockIcons.centerIconPro h3{ width: 375px; font-size: 2.2em ;padding-bottom: 25px;padding-top: 5px;}
+.inscription .blockMigration .etapes{ background:#754760 !important; }
+.inscription .blockMigration .etapes p{ color : #ffffff ; }
+.blockMigration .etapesInfo .redirectPro a{color:#ffffff;}
+
+.blockMigration .pickTimbresTopBlue{background: url("/_ui/eboutique/images/emplacement/bg_uploader_pro.jpg") no-repeat scroll 0 0 transparent;}
+.blockMigration .pickTimbresBottomBlue{background: url("/_ui/eboutique/images/emplacement/bg_uploader_pro.jpg") no-repeat scroll 0 bottom transparent; }
+
+/* Evol JIRA 2749 */
+.inscription .blockMigrationPart .etapesPart{ background:#F8B500 !important; }
+.blockMigrationPart .etapesPart .infoBlock { background:url(../images/icons/ico_alert_migration.gif) no-repeat 8px 50%; min-height: 40px; padding: 18px 0 0 60px;}
+.blockMigrationPart .etapesPart .infoBlock p{ color : #000000; font-size: 1.2em; word-spacing: 5px; } 
+.blockMigrationPart .pickTimbresTopBluePart{background: url("/_ui/eboutique/images/emplacement/bg_uploader_part.jpg") no-repeat scroll 0 0 transparent;}
+.blockMigrationPart .pickTimbresBottomBluePart{background: url("/_ui/eboutique/images/emplacement/bg_uploader_part.jpg") no-repeat scroll 0 bottom transparent; }
+/************************/
+
+.blockMigration .boxMiddle.right{padding-bottom: 35px;}
+
+.helpAuth {padding-left: 208px;padding-top: 25px}
+
+.tableAuth{text-align: center;width:860px }
+.tableAuth td.first{width:379px }
+.tableAuth td{width:430px }
+
+#codePromo .errorDisplay{width: 323px;}
+
+/* QC 1135 */
+#declarationHonneur .errorDisplay, #declarationHonneurPro .errorDisplay {display:block}
+
+
+#declarationHonneur .type-checkbox input {
+    float: left;
+    margin-left:2px;
+    padding:0;
+    height: 13px;
+}
+
+.reshipment .typo-din.title2.reel{
+	text-transform: none;	
+};
+
+.content h2.typo-din, .content .typo-din.title2:FIRST-LETTER {
+	text-transform: uppercase;	
+}
+
+.errorMessageUpdateReex {
+color: #ff0000;
+font-size: 0.7em;
+}
+
+.errorSaisieUpdateReex {color:#FF0000; font-size:1.5em; width:500px; padding:0 0 10px 0; overflow:hidden; }
+
+
+.middleTitle{
+	color: #5B8900;
+	font-size: 1em;
+}
+
+.formRow .error .green{color:green;}
+
+/* =T_eService_tarifs2 */
+.blockNosTarifsMtel{ padding:48px 47px 80px 47px;}
+/*.blockNosTarifsMtel h3{font-family: 'DINMediumRegular'; font-size:3.2em; line-height:1em; color:#007185; text-transform:uppercase; letter-spacing:-1px; padding:0 0 35px 0;}
+*/
+.blockNosTarifsMtel h2{font-family: 'DINMediumRegular'; font-size:3.2em; line-height:1em; color:#5B8900; text-transform:uppercase; letter-spacing:-1px; padding:0 0 35x 0;}
+
+/* Modifs SEO */
+.blockNosTarifsMtel h1{font-family: 'DINMediumRegular'; font-size:3.2em; line-height:1em; color:#5B8900; text-transform:uppercase; letter-spacing:-1px; padding:0 0 35x 0;}
+
+.blockNosTarifsMtel h4{font-family: 'DINMediumRegular'; font-size:1.8em; line-height:1em; color:#5B8900;  letter-spacing:-1px; padding:0 0 35x 0;}
+
+/*.blockNosTarifsMtel h4{ font-size:2em; color:#363636; display:block; padding:50px 0 27px 0;}*/
+.blockNosTarifsMtel h3{ font-size:2em; color:#363636; display:block; padding:50px 0 17px 0;}
+.blockNosTarifsMtel .blockTopAnnounce { width:850px; height:60px; padding: 110px 0 0 34px; background:url(../images/img_top-announce.png) no-repeat left top; position:relative; display:block; float:left;}
+.blockNosTarifsMtel .blockTopAnnounce p.title { position:absolute; left:34px; top:33px; width:440px; font-family:'JPHandStraight'; font-size:2em; letter-spacing:0.02em; line-height:1.5em; color:#000;}
+.blockNosTarifsMtel .blockTopAnnounce .cost {position:absolute; left:397px; top:59px; width:200px; height:50px;}
+.blockNosTarifsMtel .blockTopAnnounce .cost span.price { font-family:'DINMediumRegular', Arial, Helvetica, sans-serif; font-size:6.7em; line-height:1em; letter-spacing:-0.09em; color:#007185; font-weight:bold; top:-26px; position:absolute; float:left; width:115px;}
+.blockNosTarifsMtel .blockTopAnnounce .cost span.euros { font-family:'DINMediumRegular', Arial, Helvetica, sans-serif; font-size:3.5em;  line-height:1em;  color:#007185; font-weight:700; padding-left:110px; top:-24px; position:absolute; float:left; }
+.blockNosTarifsMtel .blockTopAnnounce .cost span.txt { font-family:'DINMediumRegular', Arial, Helvetica, sans-serif; font-size:2em;  line-height:1em;  color:#007185; width:115px; left:115px; top:10px; position:absolute; float:left; }
+.blockNosTarifsMtel .formNosTarifs{ width:861px;}
+.blockNosTarifsMtel .formNosTarifs fieldset{}
+.blockNosTarifsMtel .formNosTarifs .formNosTarifsTopCorner{ height:9px; background:url(../images/bg/bg_top-corners-tarifs.png) no-repeat left top;}
+.blockNosTarifsMtel .formNosTarifs .formNosTarifsBottomCorner{ height:9px; background:url(../images/bg/bg_bottom-corners-tarifs.png) no-repeat left top;}
+.blockNosTarifsMtel .formNosTarifs #formNosTarifsContent {background:url(../images/bg/bg_grey-1x1.gif) repeat 0 0; /*overflow:hidden;*/ padding:0 29px;}
+.blockNosTarifsMtel .formNosTarifs #formNosTarifsContent legend{ overflow:hidden; font-size:1.6em; color:#363636; display:block; padding:13px 0 19px 0; font-weight:700;}
+.blockNosTarifsMtel .formNosTarifs #formNosTarifsContent .formRow{ float:left; width:401px; height:30px; padding:0 0 19px 0; position:relative; /*overflow:hidden;*/}
+.blockNosTarifsMtel .formNosTarifs #formNosTarifsContent .formRow label{display:inline-block; width:155px; font-size:1.2em; color:#565a5c; padding:6px 0 0 0;}
+.blockNosTarifsMtel .formNosTarifs #formNosTarifsContent .formRow a{display:inline-block;}
+
+
+.linkPurple1 {
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	height: 25px;
+	padding: 0 0 0 18px;
+	font-size: 0.9em;
+	color: rgb(255, 255, 255);
+	font-family: 'DINMediumRegular', Arial, Helvetica, sans-serif;
+	background: url(../images/btn/btn_sprite.png) no-repeat 0 -1577px;
+}
+
+.linkPurple1 span {
+display: inline-block;
+height: 19px;
+padding: 6px 10px 0 5px;
+cursor: pointer;
+background: url(../images/btn/btn_sprite.png) no-repeat right -1544px;
+}
+
+.linkYellow1 span {
+display: inline-block;
+height: 19px;
+padding: 6px 10px 0 5px;
+cursor: pointer;
+background: url(../images/btn/btn_sprite.png) no-repeat right -113px;
+}
+
+.linkYellow1 {
+display: inline-block;
+text-decoration: none;
+text-transform: uppercase;
+height: 25px;
+padding: 0 0 0 18px;
+font-size: 0.9em;
+color: rgb(0, 0, 0);
+font-family: 'DINMediumRegular', Arial, Helvetica, sans-serif;
+background: url(../images/btn/btn_sprite.png) no-repeat 0 -174px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {/* !hack chrome */
+	h2:focus{
+		 outline: none;
+	}
+}
+
+.secure.scellius + form div {font-size: 1.25em;}
+.user-account .reshipment .packInfoGroup .packInfo span {
+	line-height: 1.25em;
+}
+.reshipment .content fieldset.agreement {
+	background: transparent; 
+}
+
+
+
+/*=TUNNEL PRO */
+.transversePro {}
+.transversePro .step1 .step, .transversePro .step3 .step {margin-bottom: 1em;}
+.transversePro .step-list span {
+    width: 135px;
+}
+.transversePro .step-list .item_actif span,
+.transversePro .step-list .item_actif em {color:  #834E77 !important;}
+/* accueil step */
+/*.transversePro .step-list .first span {
+    width: 135px;
+    padding-top: 24px;
+}*/
+.transversePro .step-list .last span {
+   /* width: 114px;
+    padding: 17px 0 0;*/
+}
+.transversePro .title-color {color: #834E77;}
+.transversePro .step-list .step1 span,
+.transversePro .step-list .step2 span,
+.transversePro .step-list .step3 span,
+.transversePro .step-list .step4 span {padding: 23px 0 0;}
+.transversePro .step-list .step1 span {
+   /* width: 77px;
+    padding-right: 10px;*/
+}
+    /*identifie*/
+    .transversePro .identified .step-list span { width: 186px;}
+    /* accueil step identified */
+    /*.transversePro .identified .step-list .first span {
+        width: 194px;
+        padding-left: 0;
+    }*/
+    /*.transversePro .identified .step-list .last span {width: 122px;}*/
+    .transversePro .identified .step-list span {padding-left: 22px;}
+    .transversePro .identified .step-list em {padding: 27px 0 0 36px;}
+    /*.transversePro .identified .step-list .step1 span {
+        padding-right: 0;
+        padding-top: 22px;
+        width: 112px;
+    }*/
+    /*step1 */
+    .transversePro .secure {
+        display: block;
+        float: right;
+        height: 27px;
+        width: 63px;
+        padding: 25px 0 14px;
+        color: #718504;
+        font-size: 1.2em;
+        text-align: center;
+        background: url(../images/icons/secure.gif) no-repeat center 0 #fff;
+    }
+    .transversePro .step1 .block-bg-corner {
+        padding: 0.5em;
+        clear: both;
+    }
+    .transversePro .step1 table {color: #696760;}
+    .transversePro .step1 .firstRow {border-top: 2px solid #fff;}
+    .transversePro .step1 #services {
+        width: 500px;
+        padding: 0 0 0 2.5em;
+    }
+    .transversePro .step1 th,
+    .transversePro .step1 td {vertical-align: middle; }
+    .transversePro .step1 .value {
+        text-align: center;
+        padding: 0 27px 0 0;
+    }
+    .transversePro .step1 #lettre-ligne,
+    .transversePro .step1 #lettre-recommandee {height: 100px;}
+    .transversePro .step1 .serviceTitle {padding-bottom: 0;}
+	.transversePro .step1 .serviceNom {font-size:1.2em;display:block;}
+    .transversePro .step1 th a {
+        color: #006397;
+        font-size: 1.2em;
+    }
+	
+
+	
+    .transversePro .code_promo,
+    .transversePro .order_total {
+        float: left;
+        width: 400px;
+        margin: 20px 0 0;		
+        color: #696760;
+    }
+    .transversePro .order_total {float: right;}
+    .transversePro .code_promo {
+        float: left;
+        width: 320px;
+        margin: 20px 0 0;
+        padding: 15px 21px;
+        background: #f5f5f2;
+
+    }
+     .transversePro .obligation_comande {
+		float: left;
+		margin-top: 30px;
+		padding: 5px;
+	}
+	
+	.transversePro .obligation_comande label{
+		
+		line-height: 1.2em;
+		width: 300px;
+		 color: #696760;
+       
+        font-size: 1.6em;
+        font-weight: bold;
+	}
+	
+	.transversePro .obligation_comande input{
+		vertical-align: top;
+		margin-top: 0.2em;
+	}
+	
+	
+	      .transversePro .obligation_comande_livraison {
+		float: left;
+		margin-top: 30px;
+		padding: 5px;
+	}
+
+
+    .transversePro .code_promo legend {
+        color: #696760;
+        padding-bottom: 24px;
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+    .transversePro .code_promo label {
+        float: left;
+        padding: 4px 13px 4px 0;
+        font-size: 1.4em;
+    }
+    .transversePro .code_promo .check_code {
+        float: left;
+        position: relative;
+    }
+    .transversePro .code_promo .check_code span {
+        background: url(../images/bg/bg_input-sprite.png) no-repeat left -29px;
+        display: block;
+        height: 24px;
+        padding: 0 0 0 4px;
+        width: 125px;
+    }
+    .transversePro .code_promo .check_code input {
+        background: url(../images/bg/bg_input-sprite.png) no-repeat right 0 #F0F0F0;
+        border: 0;
+        color: #363636;
+        display: block;
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 1.2em;
+        height: 24px;
+        margin: 0;
+        padding: 0 27px 0 0;
+        width: 95px;
+    }
+    .transversePro .code_promo .check_code .check_code_submit {
+        background: url(../images/btn/btn_submit-arrow.png) no-repeat 0 0;
+        border: 0;
+        color: #666;
+        cursor: pointer;
+        display: block;
+        height: 16px;
+        padding: 0 0 0 1em;
+        position: absolute;
+        right: 8px;
+        text-indent: -9000px;
+        top: 4px;
+        width: 18px;      
+    }
+    .transversePro .code_promo .mess_validate1,
+    .transversePro .code_promo .mess_validate2 {
+        color: #834E77;
+        font-size: 1.4em;
+    }
+    .transversePro .code_promo .mess_validate1 {
+        display: block;
+        padding-top: 5px;
+
+    }
+    .transversePro .code_promo .mess_validate2 {
+        clear: both;
+        display: block;
+        padding: 7px 0 10px;
+    }
+    .js-noactive .step1 .code_promo .btn-send {margin-left: 35px;}
+    .js-active .step1 .code_promo .btn-send {display: none;}
+    .transversePro .order_total li {
+        font-size: 1.6em;
+        overflow: hidden;
+    }
+    .transversePro .order_total li .label {
+        float: left;
+        padding: 14px 0 14px 14px;
+        color: #696760;
+    }
+    .transversePro .order_total li .value {
+        float: right;
+        width: 120px;
+        margin-right: 32px;
+        padding: 14px 0;
+        color: #834E77;
+        text-align: right;
+    }
+    .transversePro .order_total .total-ht {background: #f5f5f2;}
+    .transversePro .order_total .total-ttc {
+        font-size: 1.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: url(../images/bg/stamp_total_price.jpg) repeat-y 0 0;
+    }
+    .transversePro .order_total .total-ttc .value {font-size: 1.333em;}
+
+    /*step2 */
+
+    /*step3 */
+    .transversePro .step3 .float-right {padding: 3em 0;}
+    .transversePro .step3 .block-border-corner {
+        width: 418px;
+        margin-left: 40px;
+        float: left;
+        padding: 0 0 3em;
+    }
+    .transversePro .step3 .first {
+            margin-left: 0;
+            margin-bottom: 0em;
+            padding-bottom: 3em;
+            clear: right;
+        }
+    .transversePro .step3 .paie-title {font: normal 1.8em/1.8em Arial, Helvetica, sans-serif;}
+    .transversePro .step3 .paie-title {padding: .5em .7em;}
+    .transversePro .step3 .first .paie-title {padding: .5em 1.6em;}
+    .transversePro .step3 fieldset {
+        background-color: #f5f5f2;
+        padding: 0.5em 3em;
+    }
+    .transversePro .step3 legend {
+        float: left;
+        font-size: 1.4em;
+    }
+    .transversePro .step3 .block-border-corner ul {float: left;}
+    .transversePro .step3 .block-border-corner li {
+        width: 178px;
+        float: left;
+        text-align: center;
+        padding: 0 0 0.6em 0;
+    }
+    .transversePro .step3 .block-border-corner li img {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: 0.4em;
+    }
+    .transversePro .step3 .block-border-corner li label {
+        display: block; 
+        clear: both;
+        padding-top: 4.5em;
+        padding-bottom: 0.3em;
+    }
+	
+	.transversePro .step3 .block-border-corner li label.error {
+		position :absolute;
+		color:red;
+		top:15px;
+		left:30px;
+		font-size:1.5em;
+    }
+	
+	
+    .transversePro .step3 li .cb {background: url(../images/media/carte-bancaire-v3.png) no-repeat center 0;}
+    .transversePro .step3 li .prepaye {background: url(../images/media/compte-prepaye.jpg) no-repeat center 0;}
+    .transversePro .step3 li .paypal {background: url(../images/media/paypal.jpg) no-repeat center 10px;}
+    .transversePro .step3 li .rib {background: url(../images/media/sepa.png) no-repeat center 7px;}
+    .transversePro .step3 li .mandat {background: url(../images/media/mandat.png) no-repeat center 7px;}
+    .transversePro .step3 li input { 
+        display: block;
+        margin: 0 auto;
+    }
+    .transversePro .step3 .moyens {
+        padding: 1em 0 0.5em 1.5em;
+        float: left;
+        text-align: left;
+    }
+    .transversePro .step3 .moyens li {
+    	width:400px;
+    	text-align:left;
+        float: left;
+    }
+    /*
+    .transversePro .step3 .moyens li.first {
+        border-left: 0 none;
+        padding:  0 15px 0 0;
+    }
+    */
+
+    .transversePro .step3 .moyens li.first img {padding: 0.7em 0;}
+    .transversePro .step3 .moyens li .paie-title {padding: 0;}
+    .transversePro .step3 .moyens li span {
+        font-size: 1.2em;
+        display: block;
+    }
+    /* step3 - table2 */
+    .transversePro .step3 table {text-align: left;}
+    .transversePro .step3 thead th {
+        background: none repeat scroll 0 0 #F5F5F2;
+        border-bottom: 3px solid #F5F5F2;
+        border-top: 3px solid #F5F5F2;
+        color: #363636;
+        font-size: 1.2em;
+        text-align: left;
+    }
+    .transversePro .step3 thead #services {
+        padding-left: 1em;
+        border-right: 1px solid #000;
+        font-weight: normal;
+    }
+    .transversePro .step3 thead #sous-total {
+        padding-right: 1em;
+        text-align: right;
+        font-weight: normal;
+    }
+    .transversePro .step3 tbody th { 
+        color: #000;
+        font-size: 1.2em;
+        font-weight: 700;
+        padding: 2.8em 0 2.8em 8em;
+        width: 270px;
+        text-align: left;
+    }
+    .transversePro .step3 tbody td { 
+        color: #834E77;
+        font-size: 1.2em;
+        font-weight: 400;
+        text-align: right;
+        padding-right: 1em;
+    }
+    .transversePro .step3 tbody th.lel {background: url(../images/tooltip/ico-panier.png) no-repeat 10px 17px;}
+    .transversePro .step3 tbody th.rel {background: url(../images/tooltip/ico-panier.png) no-repeat 10px -60px;}
+    .transversePro .step3 tfoot .montant_ht th, .transversePro .step3 tfoot .montant_tva th {
+        color: #565a5c;
+        padding: 0;
+    }
+    .transversePro .step3 tfoot td {
+        color: #834E77;
+        padding: 0;
+        text-align: right;
+    }
+    .transversePro .step3 tfoot th {
+        font-weight: 400;
+        text-align: left;
+    }
+    .transversePro .step3 tfoot .montant_ht th, 
+    .transversePro .step3 tfoot .montant_ht td {
+        padding: 1em 10px;
+        background: #F5F5F2;
+        font-size: 1.6em;
+    }
+    .transversePro .step3 tfoot .montant_tva th, 
+    .transversePro .step3 tfoot .montant_tva td {
+        padding: 1em 10px;
+        font-size: 1.6em;
+    }
+    .transversePro .step3 tfoot .montant_total th, 
+    .transversePro .step3 tfoot .montant_total td {
+        background: url(../images/bg/grey_paiement.png) repeat-x left top;
+        padding: 1em 10px 2em;
+        font-size: 1.8em;
+        font-weight: 700;
+    }
+    .transversePro .step3 tfoot .montant_total th {
+        color: #565a5c;
+        text-transform: uppercase;  
+    }
+    .transversePro .step3 tfoot .montant_total td {
+        font-size: 2em;
+        color: #834E77;
+    }
+    /*step4 */
+    .transversePro .step4 .title3-container {margin-bottom: 2em;}
+    .transversePro .step4 p {
+        margin-bottom: 1.2em;
+        font-size: 1.4em;
+    }
+    .transversePro .step4 .exergue-color {font-size: 1em;}
+    .transversePro .step4 h4 {
+        padding-bottom: 1em;padding-top: 0.2em;
+        font-size: 1.4em;
+        text-transform: uppercase;
+    }
+    .transversePro .step4 dl {font-size: 1.4em;}
+    .transversePro .step4 dt {
+        float: left;
+        padding-bottom: 0.5em;
+        clear: left;
+    }
+    .transversePro .step4 dd {
+        float: left;
+        color: #834E77;
+    }
+
+    /*!IE7 */
+    .transversePro .step4 .list_liens {
+        padding-top: 1em;
+        clear: left;
+    }
+    .transversePro .step4 .list_liens li {padding-bottom: 0.5em;}
+    .transversePro .step4 .list_liens a {
+        color: #006397;
+        font-size: 1.4em;
+    }
+    .transversePro .step4 .block-bg-corner {margin-bottom: 2em;margin-top: 1.7em;}
+    .transversePro .step4 .block-bg-corner h3 {margin: 0.3em 0 36px 0.1em;}
+    .transversePro .visuel_stamps,
+    .transversePro .text_print,
+    .transversePro .visuel_stamps .btn-send {float: left;}
+    .transversePro .visuel_stamps {
+        padding-left: 26px;
+        text-align: center;
+    }
+    .transversePro .visuel_stamps span {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 1.2em;
+    }
+    .transversePro .visuel_stamps img {display: block;}
+    .transversePro .step4 .text_print {
+        width: 315px;
+        margin-top: 1.9em;
+        padding-left: 30px;
+    }
+    .transversePro .step4 .text_print p {
+        margin-bottom: 0;
+        padding: 0;
+        line-height: 1.214em;
+    }
+    .transversePro .step4 .btn-action-major {margin: 57px 0 0 56px;}
+    
+.transversePro .btn-return.btn-generic { background: url(../images/btn/generic_major_left_return.png) repeat-y 0 0; padding-left: 32px;}
+.transversePro .btn-return.btn-generic span { background: url(../images/btn/generic_major_right_return.png) repeat right 0;}
+/* - Bouton Continuer mes achats sur panier step1*/
+.transversePro .panier a.btn-return.btn-generic {
+	background: url("../images/btn/cancel_dir_left.png") no-repeat 0 0 !important;
+	padding: 0 0 0 40px;
+}
+.transversePro .panier a.btn-return.btn-generic span {
+	background: url(../images/btn/cancel_right.png) no-repeat right 0 !important;
+	padding: 17px 22px 18px 7px;
+}
+.transversePro .btn-action-major {background: url(../images/btn/pro-section_major_left.png) no-repeat scroll 0 0 !important;}
+.transversePro .btn-action-major span {background: url(../images/btn/pro-section_major_right.png) no-repeat right 0;}
+.transversePro .btn-action-minor, .transversePro .address-pro .btn-action-minor.add.normalized {background: url(../images/btn/pro-section_minor_left.png) no-repeat scroll 0 0;}
+.transversePro .btn-action-minor span, .transversePro .btn-action-minor input {background: url(../images/btn/pro-section_minor_right.png) repeat right 0;}
+ .transversePro .btn-send {background: url(../images/btn/pro-section_major_left.png) repeat-y 0 0;}
+ .transversePro .btn-send input, .transversePro .btn-send button {background: url(../images/btn/pro-section_major_right.png) no-repeat right 0;}
+ .transversePro .btn-send-minor {background: url(../images/btn/pro-section_major_left_generic.png) repeat-y 0 0;}
+ .transversePro .btn-send-minor input {background: url(../images/btn/pro-section_minor_right_icon.png) repeat right 0;}
+ /**********************/
+ .transversePro .btn-return {background: url(../images/btn/pro-section_major_left_return.png) repeat-y 0 0;}
+ .transversePro .btn-return input, .transversePro .btn-return span {background: url(../images/btn/pro-section_major_right_return.png) repeat right 0;} /* light-green */
+ .transversePro .exergue-color {color: #834E77;}
+ .transversePro .step-list .selected, 
+    .transversePro .step-list .selected span, .transversePro .step-list .selected a, 
+    .transversePro .step-list a:focus, 
+    .transversePro .step-list a:hover, 
+    .transversePro .step-list a:focus span, 
+    .transversePro .step-list a:hover span {color: #834E77;}
+ .transversePro .title-color {color: #834E77;}
+ 
+ #sheetpicker-controls .labelEnveloppeClass{
+	font-size : 1.3em; !important	
+}
+/**Debut modif yzoubiri QC 2282  05/08/2013***/
+.content-inner h2.typo-din , .content-inner .typo-din.title2 {
+    font-size: 3.5em;
+    font-weight: normal;
+}
+/**Debut modif yzoubiri QC 2282  05/08/2013***/
+.blockMigration .boxMiddle .blockIcons ul li{ margin-right: 0; position: initial;}
+
+.blockMigration .boxMiddle .blockIcons ul li.icon_idn{ background:url(../images/icons/picto_idn.gif) no-repeat center top }
+/**Debut modif Kzekani Jira 855 24/03/2014***/
+ a.ccmu{
+	display: inline-block;
+ 	background-size : 72px 90px !important;
+	height: 80px;
+	margin: -4.5em 0 -0.25em 0.5em !important;
+ }
+ 
+ .icon_ccmu
+ {
+ 	width: 80px;
+ }
+
+/**Fin modif Kzekani Jira 855 24/03/2014***/
+
+
+/**Debut modif ahammani QC 2154 LEL 05/08/2013***/
+.content .title3-container .link-tarifs a {color: #006397; font-size:100%}
+/**FIn modif ahammani QC 2154 LEL 05/08/2013***/
+
+.transverse .step4 .btn-update-adress .btn-action-major {
+    margin: 16px 0 41px 56px;
+}
+.address-pro .btn-action-minor.add span, .address-pro .btn-action-minor.add input {background: url("../images/btn/btn_sprite.png") no-repeat scroll right -1544px transparent;}
+
+.address-pro .add,.address-pro .btn-action-minor.add.normalized {background: url("../images/btn/pro-section_minor_generic_left.png") repeat-y scroll 0 0 transparent; }
+.address-pro .btn-action-minor.add.normalized input{ padding-left: 0px;}
+.address-pro .btn-action-minor.cancel.normalized input{ padding-left: 5px;}
+.reshipment #ActivationCode .block-droit label{font-size: 1.2em;font-style: normal; font-weight:normal;}
+
+.user-account-pro.user-account .title-color, .user-account-pro.myaccount_home .recap_order,
+.user-account-pro.user-account .pagination .selected span,.user-account-pro.user-account .exergue-color,
+.user-account-pro.user-account .user-command .order_total li .value,.user-account-pro.user-account .electronic-letter .packStatus h3,
+.user-account-pro.user-account .electronic-letter .packStatus li {color: #8f2b8c;} /* violet */
+.user-account-pro.user-account .user-command .order_total li .value,.user-account-pro.user-account .detailColis .packStatus h3,
+.user-account-pro.user-account .detailColis .packStatus li {color: #8f2b8c;} /* violet */
+
+.user-account-pro.user-account .help  .btn-action-minor span,.user-account-pro.user-account .btn-help  .btn-action-minor span,
+.user-account-pro.user-account .last_order  .btn-action-minor span {background: url(../images/btn/pro-section_minor_right.png) repeat right 0;} /* violet */
+.user-account-pro.user-account .help .btn-action-minor,.user-account-pro.user-account .btn-help .btn-action-minor,
+.user-account-pro.user-account .last_order .btn-action-minor {background: url(../images/btn/pro-section_minor_left.png) repeat-y 0 0;} /* violet */
+.user-account-pro.user-account div.selector span {background-position: right -65px;}
+.user-account-pro.user-account .type-date .bg-datepicker input {background-position: right -1068px;}
+.user-account-pro.user-account .typedate .bg-datepicker input {background-position: right -1068px;}
+.user-account-pro.user-account .btn-send-minor {background: url(../images/btn/pro-section_minor_generic_left.png) repeat-y 0 0;}
+.user-account-pro.user-account .btn-send-minor input {background: url(../images/btn/pro-section_minor_right_icon.png) repeat right 0;}
+.user-account-pro.user-account .linkDarkOrange span {background:url(../images/btn/btn_sprite.png) no-repeat right -1544px; }
+.user-account-pro.user-account .linkDarkOrange { background:url(../images/btn/btn_sprite.png) no-repeat 0 -1577px; }
+.user-account-pro.user-account .electronic-letter .packStatus li {border-left: 2px solid #8f2b8c;}
+.user-account-pro.user-account .detailColis .packStatus li {border-left: 2px solid #8f2b8c;}
+.user-account-pro.user-account .titleTotal dd span {background: url(../images/btn/pro-user_account_command-total.png) right 0;}
+.user-account-pro.user-account .titleTotal dd {background: url("../images/btn/pro-user_account_command-total.png") repeat scroll 0 -24px transparent;}
+.user-account-pro.user-account .presentation .intro {background: url(../images/bg/pro-bg_user_account_intro.png) no-repeat 0 0;}
+    
+.user-account .block-address{  margin-bottom: 20px;}
+
+.link-to-back {padding-bottom: 8px;}
+.link-to-back a {
+    background: url(../images/icons/arrow_toleft_new_address.png) no-repeat left center;
+    padding: 0 0 0 17px;
+    line-height: 2em;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+.transversePro #tableauCommandePrelevement .totalHT,.transversePro #montantTotalHT .right { color : #8f2b8c; }
+.transversePro #imprimerDocument{font-size: 1.5em;font-style: normal;}
+
+.prop-adresse.type-radio input{margin: 36px 19px 0 0px;}
+.prop-adresse label span{ float : left; width: 180px;}
+.prop-adresse label{ padding: 35px 0 0 0;}
+.recherche-adresse .prop-adresse label {min-height: 80px;}
+
+
+/** avtCommencer **/
+ .step-reshipment .avtCommencer {width: 862px;height: 120px; border-left-width: 20px; margin-left: 0px;}
+.step-reshipment .avtCommencer ul {display: block; padding: 24px;padding-top: 0px;}
+.step-reshipment .avtCommencer ul li{padding-left: 0px;line-height: 1.5em;margin-left: 0px;
+			color: #000000;
+		    display: block;
+		    float: left;
+		    font-size: 1.2em;
+		    width:814px;
+		    }
+/** avtCommencer **/
+ .step-reshipment .avtCommencerpart {width: 850px;height: 108px; border-left-width: 20px; margin-left: 0px; margin-bottom: 1%;margin-top: -13%;}
+.step-reshipment .avtCommencerpart ul {display: block; padding: 0px 24px 24px;padding-top: 0px;}
+.step-reshipment .avtCommencerpart ul li{padding-left: 0px;line-height: 1.5em;margin-left: 0px;
+			color: #000000;
+		    display: block;
+		    float: left;
+		    font-size: 1.2em;
+		    width:814px;
+		    font-size: 10pt;		    
+		    
+		    }
+.step-reshipment .avtCommencerpart .avtcommence {
+		font-size: 12pt;
+		font-weight: bold;
+		margin-bottom: 2%;
+}		    
+ .htmltooltip_header .tooltip_img-none {
+        background: #F3CF45;    
+        height: 80%;
+        width: 90%;
+        margin: 2em;
+        position: absolute;
+        z-index: -1;
+    }
+    
+.majuscule {
+	text-transform: uppercase;
+	width: 200px;
+	}
+ht 
+/** Saisie contract: rappel code d'activation**/
+ .block-droit .rappelCodeActi  {font-size: 1.2em;
+    	font-style: normal;
+    	margin-left: 30px;
+    	width: auto;
+    	color: #565A5C;
+    	}
+  .rappelCodeActiDI  {font-size: 1.2em;
+    	font-style: normal;
+    	margin-left: 30px;
+    	width: 90%;
+    	color: #565A5C;
+    	}
+  .activationInfo { font-size: 1.4em;
+    				margin-bottom: 0.2em;
+					list-style-type: none;
+    				}
+  .activationInfo li{margin-bottom: 0.2em;
+    				line-height:1.2em;}
+.activationInfo li:before{
+  content:"- ";
+}
+    	
+
+    	
+/* Abonnemnt Mobilité */
+ .step-reshipment .stepAM {padding-left: 8px; margin-bottom: 4em;}
+   /* .step-list {list-style: none;}
+    .step-list li {background: url(../images/bg/step_separator.gif) no-repeat right center #F5F5F2;color: #363636;float: left;font-size: 1em;font-weight: 700;line-height: 1.3em;min-height: 56px;padding-right: 31px;text-decoration: none;}
+    .step-list a {color: #363636; text-decoration: none;}
+    .step-list em {display: block; float: left; padding: 27px 17px 0; font-family: "DINMediumRegular",Arial,Helvetica,sans-serif; font-size: 4.8em; font-style: normal; font-weight: normal;}
+    .step-list span {font-size: 1.5em; display: inline-block;width: 130px;}
+	.step-list.logo span {width: 208px;}
+    .step-list .selected, 
+    .step-list .selected span, 
+    .step-list a:focus, 
+    .step-list a:hover, 
+    .step-list a:focus span, 
+    .step-list a:hover span {color: #5B8900; zoom: 1; border-bottom: 1px solid transparent;}
+    .step-list .first span {width: 185px; text-align: center; padding-top: 24px;}
+	.step-list.logo .first span {width:275px; }
+	.step-list .step1 span {padding: 12px 0 0 0;}
+	.step-list.logo .step1 span {padding: 18px 0 0 0;}
+    .step-list .step2 span {padding: 18px 0 0 0;}
+    .step-list .last {background: #f5f5f2 url(../images/bg/step_last.gif) no-repeat right center; padding-right: 0;}
+    .step-list .last span {padding: 25px 0 0 0; width: 156px;}
+	.step-list.logo  .last span {width: 208px;}*/
+	 .step-list .stepListABM span  {width: 200px;}
+   
+ .souscripteur .type-select {margin-bottom: 0;}
+    .souscripteur .type-select,
+    .souscripteur .type-text {
+        float: left;
+        width: 332px;
+    }
+    .souscripteur .type-select label,
+    .souscripteur .type-text label {
+        width: 110px;
+        margin-right: 10px;
+        text-align: right;
+    }
+     .reshipment .block-nameSous {padding-left: 75px;}
+ 
+ .reshipment .content fieldset, .popin fieldset, .content .form-content, .content .block-bg-cornerABM {
+    background: url("../images/bg/px_grey.gif") repeat scroll 0 0 transparent;
+}
+.user-account .reshipment .packInfoGroup .packInfo  .block-bg-cornerABM {
+    margin: 6px 0 0;
+    margin-left: 12px;
+    margin-right: 12px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.linkGreen, .linkBlue, .linkGrey, .linkGreenSmall, .linkOrange2, .linkDarkOrange, .linkGreenBig, .linkGreen3, .linkPink, .linkDarkGrey  {
+  color:#363636;
+}
+
+.linkGreen span, .linkBlue span, .linkGrey span, .linkGreenSmall span,.linkOrange2 span, .linkDarkOrange span, .linkGreenBig span, .linkGreen3 span, .linkPink span{
+  color:#FFFFFF;	
+}
+
+/*QC 2698*/
+.myaddress .list-address p {    
+    word-wrap: break-word;
+}
+
+/*
+regression confirm mot de passe oublié
+.navEtapes li.right.pro em {
+background: url("../images/btn/btn_sprite.png") no-repeat scroll 0 -1853px rgba(0, 0, 0, 0);
+}
+.navEtapes li.right.pro em input {
+    background: url("../images/btn/btn_sprite.png") no-repeat scroll right -1803px rgba(0, 0, 0, 0);
+}
+*/
+
+.transverse .btn-action-major-abm {
+            background: url(../images/btn/stamps-online_major_left.png) repeat-y 0 0;
+            color: #363636;
+            display: inline-block;
+            padding: 0 0 0 24px;
+            text-decoration: none; 
+        }
+ 
+  .btn-action-major-abm span {
+                background: url(../images/btn/stamps-online_major_right.png) repeat right 0;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 1.6em;
+                font-weight: 700;
+                padding: 17px 42px 18px 0;
+            }
+.btn-action-major-abm {margin: 57px 0 0 56px;}
+.transversePro .btn-action-major-abm {
+    background: url("../images/btn/pro-section_major_left.png") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
+    color: #363636;
+    display: inline-block;
+    padding: 0 0 0 24px;
+    text-decoration: none;
+}
+
+.transversePro .btn-action-major-abm span {
+    background: url("../images/btn/pro-section_major_right.png") repeat scroll right 0 rgba(0, 0, 0, 0);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: 700;
+    padding: 17px 42px 18px 0;
+}
+
+.user-account .reshipment .packInfoGroup .packNature .block-bg-cornerABMS li {
+    padding-top: 2px;
+}
+
+.user-account .reshipment .packInfoGroup .block-bg-cornerABMS h5{
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    padding-bottom: 2px;
+    padding-right: 0;
+}
+
+.user-account .user-commands h2.titleABM {
+    clear: both;
+    letter-spacing: -0.04em;
+    line-height: 0.9em;
+    margin: 0 0 26px;
+}
+.content-inner .typo-din.titleABM {
+    font-size: 2.5em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+ .user-account .reshipment .packInfoGroup .packInfoABM {
+            float: left;
+            width: 50%;
+  }
+  
+  .user-account .reshipment .packInfoGroup .packInfoABM h5,
+        .user-account .reshipment .packInfoGroup .packInfoABM ul,
+        .user-account .reshipment .packInfoGroup .packInfoABM p {
+            line-height: 1.25em;
+            padding: 0 14px 0 34px;
+  }
+  
+  .user-account .reshipment .packInfoGroup .packInfoABM h5 {
+            font-size: 1.4em;
+            font-weight: 700;
+            padding-bottom: 5px;
+            padding-right: 0;
+            letter-spacing: -.02em;
+   }
+   .user-account .reshipment .packInfoGroup .packInfoABM li {
+            font-size: 1.4em;
+            padding-top: 0px;
+            padding-bottom: 5px;
+        }
+        
+        
+        
+        
+        
+        
+ /*znouaoui Start Integration V3*/
+ 
+/*********************** TUNNEL ACHAT *******************/
+ /*=TUNNEL */
+.transversePro .step1 .step, .transversePro .step3 .step {margin-bottom: 1em;}
+.transversePro .step-list span {
+    width: 130px;
+}
+.transversePro .step-list .item_actif span,
+.transversePro .step-list .item_actif em {color: #e54a06;}
+/* accueil step */
+/*.transversePro .step-list .first span {
+    width: 135px;
+    padding-top: 24px;
+}*/
+.transversePro .step-list .last span {
+    /*width: 114px;
+    padding: 17px 0 0;*/
+}
+.transversePro .step-list .step1 span,
+.transversePro .step-list .step2 span,
+.transversePro .step-list .step3 span,
+.transversePro .step-list .step4 span {
+    padding: 23px 0 0;
+    width: inherit;
+}
+
+    /*identifie*/
+    .transversePro .identified .step-list span {width: inherit;}
+    /* accueil step identified */
+    /*.transversePro .identified .step-list .first span {
+        width: 194px;
+        padding-left: 0;
+    }*/
+    /*.transversePro .identified .step-list .last span {width: 122px;}*/
+    .transversePro .identified .step-list span {padding-left: 22px;}
+    .transversePro .identified .step-list em {padding: 27px 0 0 36px;}
+    /*.transversePro .identified .step-list .step1 span {
+        padding-right: 0;
+        padding-top: 22px;
+        width: 112px;
+    }*/
+    /* =v3 steps logged */
+    .transversePro .logged .step-list em {
+        padding: 27px 14px 0 15px;
+    }
+    .transversePro .logged .step-list .step1 span {
+        width: inherit;
+        padding: 23px 0 0;
+    }
+    .transversePro .logged .step-list .step2 span {
+         width: 92px;
+    }
+    .transversePro .logged .step-list .step3 span {
+		/* JIRA 2893 - commentaire du padding pour fixer un pb d'affichage sur le 3ème élément */
+		/* padding: 15px 0 0; */
+        width: 120px;
+    }
+    .transversePro .logged .step-list .step4 span {
+        width: 68px;
+    }
+    .transversePro .logged .step-list .step5 span {
+        padding-top: 23px;
+        width: 110px;
+    }
+
+    /*step1 */
+    .transversePro .secure {
+        display: block;
+        float: right;
+        height: 27px;
+        width: 63px;
+        padding: 25px 0 14px;
+        color: #718504;
+        font-size: 1.2em;
+        text-align: center;
+        background: url(../images/icons/secure.gif) no-repeat center 0 #fff;
+    }
+    .transversePro .step1 .block-bg-corner {
+        padding: 0.5em;
+        clear: both;
+    }
+    .transversePro .step1 table {color: #696760;}
+	table#tableProduitItems {background:#fff none;}
+    
+
+    /*.transversePro .step1 #services {
+        width: 345px;
+        padding: 0 0 0 2.5em;
+    }
+    .transversePro .step1 th,
+    .transversePro .step1 td {vertical-align: middle;}
+    .transversePro .step1 td {padding: 0;}
+    .transversePro .step1 .value {
+        text-align: right;
+        padding: 0 27px 0 0;
+    }*/
+    /*
+    .transversePro .step1 #lettre-ligne,
+    .transversePro .step1 #lettre-recommandee {height: 60px;}
+    */
+    .transversePro .btn-return.btn-generic {
+        background: url(../images/btn/generic_major_left_return.png) repeat-y 0 0;
+        padding-left: 32px;
+    }
+    .transversePro .btn-return.btn-generic span {
+        background: url(../images/btn/generic_major_right_return.png) repeat right 0;
+    }
+
+    .transversePro .step1 .serviceTitle {padding-bottom: 0;}
+	.transversePro .step1 .serviceNom {font-size:1.2em;display:block;}
+    .transversePro .step1 th a {
+        color: #006397;
+        font-size: 1.2em;
+    }
+    .transversePro .code_promo,
+    .transversePro .order_total {
+        float: left;
+        width: 400px;
+        margin: 20px 0 0;
+        color: #696760;
+    }
+	
+	.tableMyCommands tbody span.remittee  {
+		padding-bottom:10px;
+	}
+	
+	.tableMyCommands tbody div.placer {
+		position:absolute;
+	}
+	.user-account .tableMyCommands tbody div.placer {
+		top:88px;
+		right:208px;
+	}
+	.transversePro .tableMyCommands tbody div.placer {
+		top:52px;
+		right:195px;
+	}
+	
+    .transversePro .order_total {float: right;}
+    .transversePro .code_promo {
+        float: left;
+        width: 320px;
+        margin: 20px 0 0;
+        padding: 15px 21px;
+        background: #f5f5f2;
+    }
+    .transversePro .code_promo legend {
+        color: #696760;
+        padding-bottom: 24px;
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+    .transversePro .code_promo label {
+        float: left;
+        padding: 4px 13px 4px 0;
+        font-size: 1.4em;
+    }
+    .transversePro .code_promo .check_code {
+        float: left;
+        position: relative;
+    }
+    .transversePro .code_promo .check_code span {
+        background: url(../images/bg/bg_input-sprite.png) no-repeat left -29px;
+        display: block;
+        height: 24px;
+        padding: 0 0 0 4px;
+        width: 125px;
+    }
+    .transversePro .code_promo .check_code input {
+        background: url(../images/bg/bg_input-sprite.png) no-repeat right 0 #F0F0F0;
+        border: 0;
+        color: #363636;
+        display: block;
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 1.2em;
+        height: 24px;
+        margin: 0;
+        padding: 0 27px 0 0;
+        width: 95px;
+		line-height:24px;
+    }
+    .transversePro .code_promo .check_code .check_code_submit {
+        background: url(../images/btn/btn_submit-arrow.png) no-repeat 0 0;
+        border: 0;
+        color: #666;
+        cursor: pointer;
+        display: block;
+        height: 16px;
+        padding: 0 0 0 1em;
+        position: absolute;
+        right: 8px;
+        text-indent: -9000px;
+        top: 4px;
+        width: 18px;       
+    }
+    .transversePro .step1 .code_promo .disagree {
+        margin-top: 10px;
+    }
+    .transversePro .code_promo .mess_validate1,
+    .transversePro .code_promo .mess_validate2 {
+        color: #e54a06;
+        font-size: 1.4em;
+    }
+    .transversePro .code_promo .mess_validate1 {
+        display: block;
+        padding-top: 5px;
+
+    }
+    .transversePro .code_promo .mess_validate2 {
+        clear: both;
+        display: block;
+        padding: 7px 0 10px;
+    }
+    .js-noactive .step1 .code_promo .btn-send {margin-left: 35px;}
+    .js-active .step1 .code_promo .btn-send {display: none;}
+    .transversePro .order_total li {
+        font-size: 1.6em;
+        overflow: hidden;
+    }
+	
+	
+	.transversePro .order_total li.total_ht {
+		background: #F5F5F2;
+	}
+	
+	.transversePro .order_total li.total_ttc {
+		background: url(../images/bg/stamp_total_price.jpg) repeat-y 0 0;
+		font-size: 1.8em;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	
+    /* =step1 mixte */
+    .transversePro .alert,
+    .user-account .alert {
+        background: url(../images/icons/ico_alert_24x24.png) no-repeat left center;
+        font-weight: 700;
+        padding: 2px 0 0 30px;
+        min-height: 24px;
+    }
+     .transversePro .alert-top {
+         float: left;
+         margin: 30px 0;
+         max-width: 340px;
+     }
+     .transversePro .alert-bottom .exergue-color,
+     .user-account .alert-bottom .exergue-color,
+     .info-produit-livraison .alert-top .exergue-color {
+         font-size: 1.4em;
+		 font-style:normal;
+     }
+     .transversePro .alert-bottom,
+     .user-account .alert-bottom {
+         line-height: 24px;
+         margin-top: 20px;
+     }
+        
+      .transversePro .alert-confirmation{
+      background: url(../images/icons/icon-alert.png) no-repeat left center;
+      font-weight: 700;
+      padding: 2px 0 0 30px;
+      min-height: 24px;
+  	  }        
+        
+      .transversePro .alert-confirmation-bottom .exergue-color {
+         font-size: 1.4em;
+         color: #ff0000;
+		 font-style:normal;
+      }
+     .transversePro .alert-confirmation-bottom {
+         line-height: 24px;
+         margin-top: 20px;
+      }
+    .transversePro .info-reassurance {
+        float: right;
+        padding: 30px 0;
+    }
+    
+    .transversePro .reassurance-wrap{
+    	zoom:1;
+    	clear:both;
+    	height:100px;
+    }
+    
+    .transversePro .info-reassurance > span {
+        color: #718504;
+        float: left;
+        font-size: 1.2em;
+        padding: 25px 0 14px;
+        text-align: center;
+        margin-left: 22px;
+    }
+    .transversePro .info-reassurance .delivery-48h {
+        background: url(../images/icons/ico_48h.png) no-repeat center 0;
+        width: 7em;
+    }
+    .transversePro .info-reassurance .delivery-40eur {
+        background: #fff url(../images/icons/ico_40eur.png) no-repeat center 0;
+        width: 8em;
+    }
+    .transversePro .step1 .block-bg-corner {
+        padding: .5em 0 0;
+    }
+    
+    .transversePro .submitAddress {
+		text-align: right;
+	}
+    /*znouaoui END Integration V3*/
+	 
+	
+	/* znouaoui : Start Integration V3 Step 3 Coordonnees*/
+
+#tunnel_achat_coordonnees fieldset {
+	background-color: transparent;
+	padding: 0px;
+}
+    /*
+    ------------------------------------------------
+        bas de panier pour totaux
+    ------------------------------------------------
+    */
+    .transversePro .step1 .save-cart {
+        border-right: 1px solid #B2B2B2;
+        float: left;
+        margin: 8px 0 0 0;
+        text-align: right;
+        width: 360px;
+    }
+    .transversePro .step1 .save-cart a,
+    .transversePro .step1 .code_promo .disagree {
+        color: #006397;
+        display: inline-block;
+        font-size: 1.2em;
+        padding: 0 0 0 0;
+        text-decoration: none; 
+        width: 100%;
+    }
+    .transversePro .step1 .code_promo .errorDisplay {
+      width: auto;
+    }
+    .transversePro .step1 .order_total .total-tva,
+    .transversePro .step1 .order_total .total-frais-port {
+        border-top: 1px solid #e5e5e5;
+    }
+    .transversePro .step1 .code_promo .btn-send-minor {
+        margin: 20px 0 0 82px;
+    }
+    .js-active.transversePro .step1 .recalcule,
+    .js-active.transversePro .step1 .code_promo .btn-send-minor {
+        display: none;
+    }
+    .transversePro .step1 .recalcule {
+        margin-top: 15px;
+    }
+    /*step2 */
+
+    /*step3 */
+    .transversePro .step3 .float-right {padding: 3em 0;}
+    .transversePro .step3 .block-border-corner {
+        width: 438px;
+        margin-left: 20px;
+        float: left;
+        padding: 0;
+    }
+    .transversePro .step3 .block-border-corner.cpp{
+    height: 350px;
+    }
+    
+    .transversePro .step3 .first {
+            margin-left: 0;
+            clear: right;
+			width:418px;
+        }
+    .transversePro .step3 .paie-title {font: normal 1.8em/1.8em Arial, Helvetica, sans-serif;}
+    .transversePro .step3 .paie-title {padding: .5em .7em;}
+    .transversePro .step3 .first .paie-title {padding: .5em 1.6em;}
+    
+    .transversePro .step3 legend {
+        float: left;
+        font-size: 1.4em;
+    }
+    .transversePro .step3 .block-border-corner ul {float: left;}
+    .transversePro .step3 .block-border-corner li {
+        width: 178px;
+        float: left;
+        text-align: center;
+        padding: 0;
+    }
+    .transversePro .step3 .block-border-corner li img {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: 0.4em;
+    }
+    .transversePro .step3 .block-border-corner li label {
+        display: block; 
+        clear: both;
+        padding-top: 4.5em;
+        padding-bottom: 0.3em;
+
+    }
+	
+	 .transversePro .step3 .block-border-corner li label.error {
+		position :absolute;
+		color:red;
+		top:6px;
+		left:20px;
+		font-size:1.5em;
+    }
+	
+	
+	.transversePro .step3 tbody th .visual.visualMtam img {
+		display:inline-block;
+		width: auto;
+		height: auto;
+		max-width:100%;
+	
+	}
+	.transversePro .step3 tbody th .visual.visualMtam img {
+		width: 55px;	
+	}
+	.transversePro .step3 tbody th span {
+		display:inline-block;
+		margin-top:2px;
+		/*line-height:29px;*/
+		vertical-align:top;
+		width:120px;
+	}
+	
+    .transversePro .step3 li .cb {background: url(../images/media/carte-bancaire-v2-6.png) no-repeat center 10px;}
+    .transversePro .step3 li .prepaye {background: url(../images/media/compte-prepaye-v2.png) no-repeat center 0;}
+    .transversePro .step3 li .rib {background: url(../images/media/rib-v2.png) no-repeat center 7px;}
+    .transversePro .step3 li .ma {background: url(../images/media/mandat-administratif.png) no-repeat center 4px;}
+    .transversePro .step3 li .cheque {background: url(../images/media/cheque.png) no-repeat center 7px;}
+    .transversePro .step3 li .prepaye-violet {background: url(../images/media/compte-prepaye-v2-violet.png) no-repeat center 0;}
+    .transversePro .step3 li .rib-violet {background: url(../images/media/rib-v2-violet.png) no-repeat center 7px;}
+    .transversePro .step3 li .ma-violet {background: url(../images/media/mandat-administratif-violet.png) no-repeat center 4px;}
+    .transversePro .step3 li .cheque-violet {background: url(../images/media/cheque-violet.png) no-repeat center 7px;}
+    .transversePro .step3 li input { 
+        display: block;
+        margin: 0 auto;
+    }
+    .transversePro .step3 .moyens {
+        padding: 1em 0 0.5em 1.5em;
+        float: left;
+        text-align: left;
+    }
+    .transversePro .step3 .moyens li {
+        width: 400px;
+        text-align: left;
+        float: left;
+    }
+    /*
+    .transversePro .step3 .moyens li.first {
+        border-left: 0 none;
+        padding:  0 15px 0 0;
+    }
+    */
+    .transversePro .step3 .moyens li.first img {padding: 0.7em 0;}
+    .transversePro .step3 .moyens li .paie-title {padding: 0;}
+    .transversePro .step3 .moyens li span {
+        font-size: 1.2em;
+        display: block;
+    }
+
+
+ /* step3 - table2 */
+    .transversePro .step3 table {text-align: left;}
+    .transversePro .step3 thead th {
+        background: none repeat scroll 0 0 #F5F5F2;
+        border-bottom: 3px solid #F5F5F2;
+        border-top: 3px solid #F5F5F2;
+        color: #363636;
+        font-size: 1.2em;
+        text-align: left;
+    }
+    .transversePro .step3 thead #services {
+        padding-left: 1em;
+        border-right: 1px solid #000;
+        font-weight: normal;
+    }
+    .transversePro .step3 thead #sous-total {
+        padding-right: 1em;
+        text-align: right;
+        font-weight: normal;
+    }
+    .transversePro .step3 tbody th { 
+        color: #000;
+        font-size: 1.2em;
+        font-weight: 700;
+        padding: 2em 0 2em 0;
+        width: 377px;
+        text-align: left;
+    }
+    .transversePro .step3 tbody td { 
+        color: #e24614;
+        font-size: 1.2em;
+        font-weight: 400;
+        text-align: right;
+        padding-right: 1em;
+    }
+    .transversePro .step3 tbody th.lel {
+        padding-bottom: 1.5em;
+    }
+    .transversePro .step3 tbody th.rel {}
+    .transversePro .step3 tfoot .montant_ht th, .transversePro .step3 tfoot .montant_tva th {
+        color: #565a5c;
+        padding: 0;
+    }
+    .transversePro .step3 tfoot td {
+        color: #e24614;
+        padding: 0;
+        text-align: right;
+    }
+    .transversePro .step3 tfoot th {
+        font-weight: 400;
+        text-align: left;
+    }
+    .transversePro .step3 tfoot .montant_ht th, 
+    .transversePro .step3 tfoot .montant_ht td {
+        padding: 1em 10px;
+        background: #F5F5F2;
+        font-size: 1.6em;
+    }
+    .transversePro .step3 tfoot .montant_tva th, 
+    .transversePro .step3 tfoot .montant_tva td {
+        padding: 1em 10px;
+        font-size: 1.6em;
+    }
+    .transversePro .step3 tfoot .montant_total th, 
+    .transversePro .step3 tfoot .montant_total td {
+        background: url(../images/bg/grey_paiement.png) repeat-x left top;
+        padding: 1em 10px 2em;
+        font-size: 1.8em;
+        font-weight: 700;
+    }
+    .transversePro .step3 tfoot .montant_total th {
+        color: #565a5c;
+        text-transform: uppercase;  
+    }
+    .transversePro .step3 tfoot .montant_total td {
+        font-size: 2.3em;
+        color: #e24614;
+    }
+    /* =step3 coordenees */
+    .transversePro .step3.coordenees .coordonnees-inner {
+        padding-top: 20px;
+    }
+
+/* =step3 coordenees */
+    .transversePro .step3.coordenees .coordonnees-inner {
+        padding-top: 20px;
+    }
+    .transversePro .step3.coordenees .deliveryAddress,
+    .transversePro .step3.coordenees .billingAddress {
+        background: url(../images/bg/bg_fieldset-livraison.png) no-repeat right top;
+        float: left;
+        min-width: 420px;
+        padding: 0;
+    }
+    .transversePro .step3.coordenees .deliveryAddress fieldset,
+    .transversePro .step3.coordenees .billingAddress fieldset {
+        padding: 0;
+        background-color: transparent;
+    }
+    .transversePro .step3.coordenees .deliveryAddress .block-border-corner,
+    .transversePro .step3.coordenees .billingAddress .block-border-corner {
+        margin-left: 0;
+        padding: 2em;
+        width: 380px;
+    }
+    .transversePro .step3.coordenees .legendAddress {
+        display: block;
+        float: none;
+        font-size: 1.8em;
+        padding: 0 0 20px;
+    }
+    .transversePro .step3.coordenees .deliveryAddress label,
+    .transversePro .step3.coordenees .billingAddress label {
+        display: none;
+    }
+    .transversePro .step3.coordenees .input-white span {
+        border: none;
+    }
+    .transversePro .step3.coordenees .input-white div.selector {
+        border: 3px solid #fff;
+    }
+    .transversePro .step3.coordenees .input-white div.selector.focus {
+        border: 3px solid #B5CFE7;
+    }
+
+    .transversePro .step3.coordenees .input-white div.selector span {
+        padding-left: 0;
+    }
+        .transversePro .step3.coordenees .input-white div.selector:active, 
+        .transversePro .step3.coordenees .input-white div.selector.active, 
+        .transversePro .step3.coordenees .input-white div.selector.hover, 
+        .transversePro .step3.coordenees .input-white div.selector:hover, 
+        .transversePro .step3.coordenees .input-white div.selector:hover:active, 
+        .transversePro .step3.coordenees .input-white div.selector.active:hover {
+            border: 3px dashed #B5CFE7;
+        }
+    .transversePro .step3.coordenees .detailsAddress {
+        display: none;
+}
+    .js-active.transversePro .step3.coordenees .detailsAddress {
+        display: block;
+        padding: 20px 0px 10px;
+    }
+    .transversePro .step3.coordenees .detailsAddress > span {
+        display: block;
+        font-size: 1.4em;
+    }
+    .transversePro .step3.coordenees .detailsAddress .display-address-name,
+    .transversePro .step3.coordenees .detailsAddress .display-address-companyName  {
+        font-weight: 700;
+    }
+    .transversePro .step3.coordenees .addAddressLink {
+        padding-top: 20px;
+    }
+    .transversePro .step3.coordenees .billingAddress {
+        margin-left: 36px;
+    }
+    .transversePro .step3.coordenees .modeShipping {
+        background: none;
+        clear: both;
+        padding: 0;
+    }
+    .transversePro .step3.coordenees .modeShipping .errorDisplay {
+        display: block;
+        min-height: 24px;
+    }
+    .transversePro .step3.coordenees .modeShipping h3 {
+        float: none;
+        font-size: 1.8em;
+        padding: 40px 20px 0;
+    }
+    .transversePro .step3.coordenees .modeShipping .text-1 {
+      font-size: 1.3em;
+      font-weight: 400;
+      color: #565a5c;
+      padding: 0 20px 0;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li {
+        border-left: 1px solid #ccc;
+        float: left;
+        min-height: 68px;
+        padding: 112px 0 0;
+        text-align: center;
+        width: 296px;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li:first-child {
+        border-left: none;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li.standard {
+        background: url(../images/bg/bg-logo-laposte.png) no-repeat 50% 27px;
+        width: 274px;
+        margin-left: 20px;
+    }
+    .transversePro .step3.coordenees .colissimo {
+        background: url(../images/bg/bg-logo-colissimo.png) no-repeat center 37px;
+    }
+    .transversePro .step3.coordenees .so-colissimo {
+        background: url(../images/bg/bg-logo-so-colissimo.png) no-repeat center 37px;
+    }
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer {
+      background-color: #fff;
+      clear: both;
+      padding-top: 30px;
+      display: none;
+    }
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer > .outer{
+      border: 1px solid #ccc;
+      position: relative;
+      width: 600px;
+      margin: 0 auto;
+    }
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer > .outer iframe {
+      width: 580px;
+      height: 1100px;
+    }
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer > .outer > .inner {
+      margin: 10px 0;
+      padding: 0 10px;
+    }
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer .arrow-top,
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer .arrow-top:after {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+    }
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer .arrow-top {
+      top: -22px;
+      left: 50%;
+      margin-left: -11px;
+      border-bottom-color: #ccc;
+      border-top-width: 0;
+      border-width: 11px;
+    }
+    .transversePro .step3.coordenees .modeShipping .so-colissimo-layer .arrow-top:after {
+      top: 1px;
+      margin-left: -10px;
+      border-width: 10px;
+      border-bottom-color: #ffffff;
+      border-top-width: 0;
+      content: " ";
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li.chronopost {
+        background: url(../images/bg/bg-logo-chronopost.png) no-repeat 50% 27px;
+        width: 290px;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li .type {
+        display: inline-block;
+        margin: 0 0 0 16px;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li label {
+        display: inline-block;
+        font-size: 1.4em;
+        font-weight: 700;
+        padding-right: 16px;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li input {
+        display: inline-block;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li label > span {
+        display: block;
+        font-size: .8em;
+        font-weight: 400;
+    }
+    .transversePro .step3.coordenees .modeShipping .type-radio li label .price {
+        font-weight: bold;
+         color: #834E77;
+	    font-size: 18px;
+	    line-height: 29px;
+	    text-align: center;
+    }
+        /* =step3/4 - paiement */
+        .transversePro .step3.payment fieldset {
+            background-color: #f5f5f2;
+            padding: 0.5em 3em;
+        }
+        .transversePro .step3.payment legend {
+            float: left;
+            font-size: 1.4em;
+        }
+		
+		
+		#formModePaiement fieldset {
+			background-color: #f5f5f2;
+            padding: 0.5em 30px 2em;
+		}
+        .transversePro .step3.payment .info-reassurance{
+            padding: 10px 0;
+        }
+        .transversePro .step3.payment .moyens li {
+            border: none;
+            float: none;
+            padding: 0 0 2.2em;
+            text-align: left;
+            width: auto;
+        }
+        .transversePro .step3.payment table {
+            position: relative;
+        }
+        .transversePro .step3.payment thead th {
+            border-bottom: none;
+            border-top: none;
+            line-height: 1.7em;
+        }
+        .transversePro .step3.payment thead #produits,
+        .transversePro .step3.payment thead #services {
+            padding-left: 2em;
+        }
+        .transversePro .step3.payment thead #services {
+            background: #F5F5F2 url(../images/bg/bg_line-vert.png) no-repeat right 50%;
+            border-right: none;
+        }
+        .transversePro .step3.payment thead th .rounded-left {
+            /*background: url(../images/bg/bg_rounded-left.png) no-repeat 0 0;*/
+            display: block;
+            height: 21px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+        }
+        .transversePro .step3.payment thead #sous-total {
+            padding-right: 2em;
+            *padding-right: 1em;
+            width: 80px;
+            text-align: right;
+        }
+        .transversePro .step3.payment thead th .rounded-right {
+              /*background: url(../images/bg/bg_rounded-right.png) no-repeat 0 0;*/
+            display: block;
+            /*float: right;*/
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 21px;
+            width: 20px;
+        }
+         .transversePro .step3.payment tbody td {
+           /* padding-right: 2em;*/
+           color: #000;
+        }
+        .transversePro .step3.payment tbody td.total {
+            padding-right: 2em;
+            *padding-right: 1em;
+            width: 80px;
+        }
+        .transversePro .step3.payment .produits-payment thead th {
+            font-weight: 400;
+        }
+        .transversePro .step3.payment .produits-payment .produit {
+            text-align: left;
+            width: 318px;
+            padding-left:10px;
+        }
+            .transversePro .step3.payment .produits-payment td.produit {
+                padding-right: 0;
+            }
+        .transversePro .step3.payment .produits-payment th.produit-prix-un,
+        .transversePro .step3.payment .produits-payment th.produit-prix-ht {
+            background: #F5F5F2 url(../images/bg/bg_line-vert.png) no-repeat 0 50%;
+        }
+        .transversePro .step3.payment .produits-payment td.produit > span {
+             display: block;
+             font-weight: 700;
+             padding: 2em 0 1em 8em;
+        }
+        .transversePro .step3.payment .produits-payment .produit-desc {
+            font-weight: 400;
+            display: block;
+        }
+        .transversePro .step3.payment .produits-payment .produit-quantite {
+            padding-right: 0;
+            text-align: center;
+            width: 90px;
+        }
+        .transversePro .step3.payment .produits-payment .produit-prix-un {
+            padding-right: 0;
+            text-align: center;
+            width: 140px;
+        }
+        .transversePro .step3.payment .produits-payment .produit-prix-ht {
+            text-align: right;
+            padding-right: 2em;
+            width: 84px;
+        }
+        .transversePro .step3.payment .services-payment th:first-child {
+            width: 300px;
+            padding-left:10px;
+        }
+        .transversePro .step3.payment .services-payment th.total {
+            font-weight: 400;
+            text-align: center;
+            width: 84px;
+        }
+            .transversePro .step3.payment .produits-payment td.produit-prix-ht,
+            .transversePro .step3.payment .services-payment td.total {
+                color: #E24614;
+        }
+        .transversePro .step3.payment .line-break {
+            background: #6B6B6B;
+            height: 1px;
+            margin: 0 2em 2em;
+        }
+        .transversePro .step3.payment .produits-payment tbody th span,
+        .transversePro .step3.payment .services-payment tbody th span {
+            display: inline-block;
+            /*width: 111px;*/
+            vertical-align: top;
+        }
+        .transversePro .step3.payment .produits-payment .visual,
+        .transversePro .step3.payment .services-payment .visual {
+            padding-bottom: 3px;
+            width: 92px;
+            text-align: center;
+        }
+        .transversePro .step3.payment .produits-payment .visual img,
+        .transversePro .step3.payment .services-payment .visual img {
+        	max-width:100%;
+        }
+        /*.transversePro .step3.payment .order-total-small {
+            background-color: #F5F5F2;
+        }*/
+        .transversePro .step3.payment .order-total-small ul {
+            float: none;
+        }
+        .transversePro .step3.payment .order-total-small li {
+            float: none;
+            font-size: 1.6em;
+            overflow: hidden;
+            width: auto;
+        }
+            .transversePro .step3.payment .order-total-small .total-frais-port {
+                border-top: 1px solid #CECECE;
+                margin: 0 24px;
+            }
+            .transversePro .step3.payment .order-total-small .total-ht,
+            .transversePro .step3.payment .order-total-small .total-ttc {
+                background-color: #F5F5F2;
+            }
+
+        .transversePro .step3.payment .order-total-small li .label {
+            color: #696760;
+            float: left;
+            padding: 14px 0 14px 24px;
+        }
+        .transversePro .step3.payment .order-total-small li .value {
+            color: #E54A06;
+            float: right;
+            margin-right: 23px;
+            padding: 14px 0;
+            text-align: right;
+            width: 140px;
+        }
+            .transversePro .step3.payment .order-total-small .total-frais-port .label,
+            .transversePro .step3.payment .order-total-small .total-frais-port .value {
+                color: #696760;
+                margin-right: 0;
+                padding: 14px 0;
+            }
+            .transversePro .step3.payment .order-total-small .total-ttc .label,
+            .transversePro .step3.payment .order-total-small .total-ttc .value {
+                font-weight: 700;
+            }
+            
+        .transversePro .step3.payment .payment-delivery-adress {
+            background-color: #F5F5F2;
+            padding: 1em;
+        }
+        .transversePro .step3.payment .payment-delivery-adress h3 {
+            font-size: 1.2em;
+            font-weight: 400;
+            padding: 0 0 1em 1.2em;
+        }
+        .transversePro .step3.payment .payment-delivery-adress .block-bg-invert {
+            overflow: hidden;
+            padding: 1em 1.4em 1em 3em;
+        }
+        .transversePro .step3.payment .payment-delivery-adress .adress-content {
+            float: left;
+        }
+        .transversePro .step3.payment .payment-delivery-adress .adress-content > span {
+            display: block;
+            font-size: 1.2em;
+        }
+            .transversePro .step3.payment .payment-delivery-adress .adress-name {
+                font-weight: 700;
+            }
+        .transversePro .step3.payment .payment-delivery-adress .modify-link {
+            color: #006397;
+            display: block;
+            font-size: 1.2em;
+            font-weight: 700;
+            float: right;
+        }
+
+    /*step4 */
+    .transversePro .step4 .title3-container {margin-bottom: 2em;}
+    .transversePro .step4 p {
+        margin-bottom: 1.2em;
+        font-size: 1.4em;
+    }
+    .transversePro .step4 .exergue-color {font-size: 1em;}
+    .transversePro .step4 h4 {
+        padding-bottom: 1em;padding-top: 0.2em;
+        font-size: 1.4em;
+        text-transform: uppercase;
+    }
+    .transversePro .step4 dl {font-size: 1.4em;}
+    .transversePro .step4 dt {
+        float: left;
+        padding-bottom: 0.5em;
+        clear: left;
+    }
+    .transversePro .step4 dd {
+        float: left;
+        color: #e54a06;
+    }
+
+    /*!IE7 */
+    .transversePro .step4 .list_liens {
+        padding-top: 1em;
+        clear: left;
+    }
+    .transversePro .step4 .list_liens li {padding-bottom: 0.5em;}
+    .transversePro .step4 .list_liens a {
+        color: #006397;
+        font-size: 1.4em;
+    }
+    .transversePro .step4 .block-bg-corner {margin-bottom: 2em;margin-top: 1.7em;}
+    .transversePro .step4 .block-bg-corner h3 {margin: 0.3em 0 36px 0.1em;}
+    .transversePro .visuel_stamps,
+    .transversePro .text_print,
+    .transversePro .visuel_stamps .btn-send {float: left;}
+    .transversePro .visuel_stamps {
+        padding-left: 26px;
+        text-align: center;
+    }
+    .transversePro .visuel_stamps span {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 1.2em;
+    }
+    .transversePro .visuel_stamps img {display: block;}
+    .transversePro .step4 .text_print {
+        width: 315px;
+        margin-top: 1.9em;
+        padding-left: 30px;
+    }
+    .transversePro .step4 .text_print p {
+        margin-bottom: 0;
+        padding: 0;
+        line-height: 1.214em;
+    }
+    .transversePro .step4 .btn-action-major {margin: 57px 0 0 56px;}
+
+/* =MA NOUVELLE ADRESSE (new-address) */
+.new-address .step-list .step1 span,
+.new-address .step-list .step2 span,
+.new-address .step-list .last span {padding: 18px 0 0;}
+.new-address .content-num {padding: 0;}
+.new-address .content-num span {color: #D20077;}
+.new-address form .block-bg-corner {margin-bottom: 3.9em;}
+.new-address form .no-margin {margin-bottom: 0;}
+/*.new-address p,  Laisser ce comentaire*/
+.new-address .main p { /*TODO - selecteur plus précis pour la fusion*/
+    clear: both;
+    padding: 0;
+    font-size: 1.4em;
+    line-height: 1.5em;
+}
+.new-address .float-right {padding: 0 0 2em 2em;}
+.new-address legend.num-list span {color: #D20077;}
+
+    /*=content n.1 */
+    .new-address .desc {padding: 1em 0 2em 2em;}
+    .new-address .desc .pack-chooser {
+        float: left;
+        padding: 2em 0;
+    }
+    .new-address .desc .pack-chooser li {
+        float: left;
+        position: relative;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: white;
+        border: 3px solid #f5f5f2;
+        padding-right: 1.8em;
+    }
+    .new-address .desc .pack-chooser li .bgcorner {
+        display: block;
+        position: absolute;
+        height: 12px;
+        width: 12px;
+        background-image: url(../images/corner/bg_mna_radio.png);
+    }
+    .new-address .desc .pack-chooser li .cornerHG {
+        left: 0;
+        top: 0;
+        background-position: 0 -30px;
+    }
+    .new-address .desc .pack-chooser li .cornerHD {
+        right: 0;
+        top: 0;
+        background-position: 12px -30px;
+    }
+    .new-address .desc .pack-chooser li .cornerBG {
+        bottom: 0;
+        left: 0;
+        background-position: 0 -42px;
+    }
+    .new-address .desc .pack-chooser li .cornerBD {
+        bottom: 0;
+        right: 0;
+        background-position: 12px -42px;
+    }
+    .new-address .desc .pack-chooser li label {
+        padding: 10px 10px 10px 18px;
+        cursor: pointer;
+    }
+    .new-address .desc .pack-chooser li.sep-chooser {
+        padding: 1em 1.1em;
+        background-color: #f5f5f2;
+        font-size: 1.4em;
+    }
+    .new-address .desc .pack-chooser li.selected {border: 3px solid #ea9fc7;}
+    .new-address .desc .pack-chooser li.selected .cornerHG {
+        left: -3px;
+        top: -3px;
+        background-position: 0 0;
+    }
+    .new-address .desc .pack-chooser li.selected .cornerHD {
+        right: -3px;
+        top: -3px;
+        background-position: 12px 0;
+    }
+    .new-address .desc .pack-chooser li.selected .cornerBG {
+        bottom: -4px;
+        left: -3px;
+        background-position: 0 -13px;
+    }
+    .new-address .desc .pack-chooser li.selected .cornerBD {
+    bottom: -3px;
+    right: -3px;
+    background-position: 12px -13px;
+    }
+    .new-address .desc .services {
+        float: left;
+        max-height: 200px;
+        padding-top: 1em;
+    }
+    .new-address .desc .services li {
+        float: left;
+        min-width: 320px;
+        padding: 1em 1em 1.3em 4em;
+        font-size: 1.3em;
+        background-image: url(../images/icons/ico-mna-list.png);
+        background-repeat: no-repeat;
+    }
+    .new-address .desc .services {
+        background-position: 0 5px;
+        clear: left;
+    }
+    .new-address .desc .services li.sms {
+        background-position: 7px -38px;
+        clear: left;
+    }
+
+    .lettres-en-ligne {
+        height: 25px;
+        width: 270px;
+        color: #3C3C3C;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 16px;
+        background-position: 2px -25px;
+        background: url("../images/icons/lettres-en-ligne.png") no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+     }
+
+
+
+    .compte-digiposte-p {
+        height: 25px;
+        width: 270px;
+        color: #3C3C3C;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 16px;
+        background-position: 2px -150px;
+        background: url("../images/icons/ic_digiposte.png") no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .calendrier-memo {
+        height: 25px;
+        width: 270px;
+        color: #3C3C3C;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 16px;
+        background-position: 2px -300px;
+        background: url("../images/icons/ic_calendrier.png") no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .row-custom {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex !important;
+              -webkit-box-orient: horizontal;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+              flex-direction: row !important;
+              flex-grow: 3;
+              justify-content: space-between;
+              margin-top: 20px;
+        }
+
+    .mon-timbre-en-lig {
+        height: 25px;
+        width: 270px;
+        color: #3C3C3C;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 16px;
+        background-position: 2px -25px;
+        background: url("../images/icons/ic_mtel.png") no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .service-margin span{
+        margin-left: 30px ;
+
+    }
+
+    .guide-du-demenagemen {
+        height: 25px;
+        width: 270px;
+        color: #3C3C3C;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 16px;
+        background-position: 2px -150px;
+        background: url("../images/icons/ic_guide.png") no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .simulateur-de-volume {
+        height: 25px;
+        width: 270px;
+        color: #3C3C3C;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 16px;
+        background-position: 2px -300px;
+        background: url("../images/icons/ic_volume.png") no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+   /*  .new-address .desc .services li.guide {
+        background-position: 3px -81px;
+        clear: left;
+    }
+   .new-address .desc .services li.calendrier {
+        background-position: 0 -128px;
+        border: 0 none;
+        clear: left;
+    }*/
+    .new-address .desc .services li.type {
+        margin-left: 3.6em;
+        background-position: 2px -170px;
+    }
+    .new-address .desc .services li.formulaires {
+        margin-left: 3.6em;
+        background-position: 5px -224px;
+    }
+    .new-address .desc .services li.outils {
+        margin-left: 3.6em;
+        background-position: 7px -273px;
+    }
+    .new-address .desc .services li.reductions {
+        margin-left: 3.6em;
+        background-position: 5px -316px;
+        border: 0 none;
+    }
+
+    /*=content n.2 */
+    .new-address .optionsSupplem table {
+        display: block;
+        float: left;
+        width: 820px;
+        padding: 0;
+    }
+    .new-address .optionsSupplem thead th {
+        padding: 1.8em 0 1em 0;
+        text-align: left;
+        font-size: 1.4em;
+    }
+    .new-address .optionsSupplem tbody td.montant-num {
+        padding-top: 0.5em;
+        text-align: right;
+        vertical-align: top;
+    }
+    .new-address .optionsSupplem tbody td .type-text {padding: 0 0 0.5em 0.2em;}
+    .new-address .optionsSupplem tbody td .type-text span input {
+        width: 75px;
+        font-size: 1em;
+    }
+    .new-address .optionsSupplem tbody td.lots {
+        padding: 0.5em 2em 0 0;
+        font-weight: 400;
+        text-align: right;
+        vertical-align: top;
+        font-size: 1.4em;
+    }
+
+    /*=content n.3 */
+    .new-address .code .type-text {padding: 30px 0 10px 219px;}
+    .new-address .code .type-text label {
+        width: 145px;
+        color: #565a5c;
+        font-size: 1em;
+    }
+    .new-address .code .type-text input {
+        width: 80px;
+        font-size: 1em;
+    }
+
+    /*=content n.4 */
+    .new-address .block-bg-corner .montant {
+        float: left;
+        position: relative;
+        min-width: 800px;
+        margin: 1em 0;
+        padding: 1em;
+        background: #fff;
+        font-size: 1.4em;
+    }
+    .new-address .block-bg-corner .montant th {padding-left: 335px;}
+    .new-address .block-bg-corner .montant td {
+        padding-left: 270px;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+    
+	/* znouaoui : END Integration V3 Step 3 Coordonnees*/
+	
+	/* Migration philaposte */
+	.bwt_idn{
+		background: url(../images/icons/logo_bwt.png) no-repeat center top;
+	}
+	.bwt_idn_pro{
+		background: url(../images/icons/logo_bcp.png) no-repeat center top;
+	}
+	 
+
+/* Fraude css*/
+.user-command .tableMyCommands .marquefraudee,
+.user-command-pro .tableMyCommands .marquefraudee {
+      width: 20px;
+      font-size: 1.2em;
+	  padding: 15px 10px;
+	  text-align: center;
+  }
+   .user-command .tableMyCommands tbody .infomarquefraudee,
+   .user-command-pro .tableMyCommands tbody .infomarquefraudee {
+  		background-color: #FFFFFF; 
+  		font-size: 1.2em;
+  		border-bottom: 1px solid #E4E4E4;
+   		width: 20px;
+        text-align: center;
+   }
+  .user-command .tableMyServices tbody .firstRow th.infomarquefraudee,
+  .user-command-pro .tableMyServices tbody .firstRow th.infomarquefraudee {
+         vertical-align: middle;
+  }
+  .user-command .tableMyCommands .lastRow .infomarquefraudee,
+  .user-command-pro .tableMyCommands .lastRow .infomarquefraudee {
+        vertical-align: middle;
+  }
+  
+ .content-inner  .fraude-typo-din , .content-inner .fraude-typo-din.title2 {
+    margin-top: 5px;
+    padding: 0 15px;
+    font-size: 2.4em;
+    line-height: 0.8em;
+    text-transform: none;
+    font-weight: normal;
+    font-family: 'DINMediumRegular',Arial,Helvetica,sans-serif;
+}
+ 
+.user-command .fraude_order_total, .user-command-pro .fraude_order_total {
+         color: #696760;
+         margin: 0;
+         padding: 0;
+     }
+.user-command .fraude_order_total ul , .user-command-pro .fraude_order_total ul{
+        background-color: #FFFFFF;
+ }
+ .user-command .fraude_order_total li, .user-command-pro .fraude_order_total li {
+     border-top: 1px solid #cecece;
+     border-bottom: none;
+     font-size: 1.6em;
+     overflow: hidden;
+ }
+ .user-command .fraude_order_total li:first-child,
+ .user-command-pro .fraude_order_total li:first-child  {
+     border-top: none;
+ }
+ .user-command .fraude_order_total li .label,
+ .user-command-pro .fraude_order_total li .label {
+     float: left;
+     padding: 5px 0 5px 460px;
+     color: #363636;
+     padding-left: 400px; 
+     font-weight: bold;
+ }
+ .user-command .fraude_order_total li .value,
+ .user-command-pro .fraude_order_total li .value {
+     float: right;
+     width: 120px;
+     margin-right: 10px;
+     padding: 5px 0;
+     text-align: center;
+     color: #363636; 
+     font-weight: bold;
+ }
+   .user-command .fraude_order_total .total-ttc,
+    .user-command-pro .fraude_order_total .total-ttc  {
+       background: url(../images/bg/stamp_total_price-big.png) repeat-y 0 0;
+       border-color: #fff;
+       font-size: 1.8em;
+       font-weight: bold;
+       text-transform: uppercase;
+   }
+   .user-command .fraude_order_total .total-ttc .value,
+   .user-command-pro .fraude_order_total .total-ttc .value {
+       font-size: 1.333em;
+   }
+ 
+ .user-command .fraude_block_rappel,
+ .user-command-pro .fraude_block_rappel {
+       padding-left: 10px;
+       font-size: 1.2em; 
+       margin: 0 20px; 
+       padding: 0.5em 0 10px;
+       width:85%
+ }
+.user-command .fraude_block_rappel h3,
+.user-command-pro .fraude_block_rappel h3{
+      padding: 0.5em 0 10px; 
+      font-size: 1.4em;
+ }
+ 
+ .user-command .fraude_block_rappel dt h5,
+ .user-command-pro .fraude_block_rappel dt h5{
+     clear: left;
+    float: left;
+     width: 50%;
+ }
+ 
+ .user-command .fraude_block_rappel dd span,
+ .user-command-pro .fraude_block_rappel dd span{
+      clear: right;
+    float: left;
+    width: 50%; 
+    font-weight: bold;
+ }
+ 
+.user-command .paymentCB,
+.user-command-pro .paymentCB {
+ margin-top: 10px;
+ width:100%;
+ }
+ 
+ .user-command .paymentCB div,
+ .user-command-pro .paymentCB div{
+    text-align:left;
+ }
+ 
+ 
+ .user-command .paymentCB  input[type="image"],
+ .user-command-pro .paymentCB  input[type="image"]{
+ 	margin: 0;
+    vertical-align: middle;
+    height: 35px;
+    width:55px;
+ }
+ 
+ .user-command .paymentModePaiement,
+ .user-command-pro .paymentModePaiement {
+ 	margin-top: 10px;
+	 width:50%;
+ }
+ 
+  .user-command .paymentModePaiement  input[type="image"],
+  .user-command-pro .paymentModePaiement  input[type="image"]{
+ 	margin: 0;
+    vertical-align: middle;
+    height: 35px;
+    width:55px;
+ }
+.user-command .paymentModePaiement .prepaye,
+.user-command-pro .paymentModePaiement .prepaye {
+    background: url(../images/media/compte-prepaye.jpg) no-repeat center 0;
+    clear: both;
+    display: block;
+    padding-bottom: 0.3em;
+    padding-top: 4.5em;
+    color: #565A5C;
+    font-size: 1.2em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.user-command .fraudePaiement,
+.user-command-pro .fraudePaiement {
+       padding-left: 10px;
+       font-size: 1.2em; 
+       margin: 0 5px; 
+       padding: 0.5em 0 10px;
+       width:85%;
+ }
+.user-command .fraudePaiement h3,
+.user-command-pro .fraudePaiement h3{
+      padding: 0.5em 0 10px; 
+      font-size: 1.4em;
+ }
+ 
+ .user-command .fraudePaiement dt h5,
+ .user-command-pro .fraudePaiement dt h5{
+     clear: left;
+    float: left;
+     width: 50%;
+ }
+ 
+ .user-command .fraudePaiement dd span,
+ .user-command-pro .fraudePaiement dd span{
+    clear: right;
+    float: left;
+    width: 50%; 
+    font-weight: bold;
+ }
+ 
+  .user-command .centerText,
+  .user-command .centerText{
+    clear: right;
+    text-align:center;
+ }
+ 
+ .subTitle 
+ h5 {
+  	color: #565A5C;
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    padding-bottom: 10px;
+    padding-right: 0;
+    margin-top: 26px;
+ }
+ 
+ .autresPersonsTitle{
+ color: #363636;
+    display: table;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1em;
+    padding: 1.5em 1em 0em 1em;
+    white-space: normal;
+ }
+ 
+ .user-command .tableMyCommands .item-name {
+    width: 380px;
+}
+
+.validerImport {
+    height: 36px !important;
+    padding: 14px 40px 0 7px !important;
+}
+
+	
+/* Migration Colissimo */
+.bwt_colis{
+	background: url("../images/form/logo-colis.png") no-repeat center top;
+}
+.bwt_colis_pro{
+	background: url("../images/form/logo-colis.png") no-repeat center top;
+}
+#switchSitePopPart .linkGrey2 {
+    background: rgba(0, 0, 0, 0) url("../images/btn/btn_sprite.png") no-repeat scroll 0 -1469px;
+    box-sizing: content-box;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: 700;
+    height: 46px;
+    margin-top: -3px;
+    padding: 0 0 0 26px;
+    text-decoration: none;
+}
+
+#switchSitePopPart .linkGrey2 span {
+    background: rgba(0, 0, 0, 0) url("../images/btn/btn_sprite.png") no-repeat scroll right -1419px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    line-height: 46px;
+    padding: 0 25px 0 6px;
+}
+
+/* REFONTE MTEL */
+#sheet-stamp-list li {
+	width: 78px;
+	height: 48px;
+	font-weight: 100;
+	font-size: 1.4em;
+	padding: 15px 0 0 0;
+	border: 1px solid #cdcdcd;
+}
+
+#sheet-stamp-list li img {
+	width: 78px;
+	height: 48px;
+}
+
+#sheet-stamp-list li.active {
+	height: 48px;
+	border: 2px solid #008a12;
+	cursor: pointer;
+}
+
+.mtel-sheetpicker-text {
+	font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
+	display: block;
+	text-align: right;
+	margin: 35px 30px 0 0;
+	font-size: 1.1em;
+	font-style: normal;
+	color: #000;
+}
+
+#dymoSpecimen {
+	float: none;
+	position: initial;
+	width: auto;
+	margin: 0;
+	height: 187px;
+	background: url(../images/bg/dymo_support2019.png) no-repeat;
+	/*background: url(../images/selection-visuel.png) no-repeat;*/
+	background-size:130%;
+}
+
+#dymoSpecimen.dymoSpecimenV2 {
+    float: none;
+    position: initial;
+    width: auto;
+    margin: 0;
+    height: 187px;
+    background: url(../images/bg/dymo_support.png) no-repeat;
+    background-size: 130%;
+}
+#dymoSpecimen.dymoSpecimenV2 .mtel-dymo-specimen-img {
+    border-radius: 8px;
+    margin: 19px 0 0 30px;
+    width: 244px;
+    height: 135px;
+}
+.mtel-dymo-specimen-img {
+    border-radius: 0;
+    margin: 36px 41px;
+    width: 140px;
+    height: auto;
+}
+
+.sheetstamp-body .cols-num-2 {
+	width: 200px;
+	margin-left: 30px;
+}
+
+.mtel-popup-bg {
+	z-index: 9999;
+	background: rgba(0,0,0,0.7);
+} 
+
+#telechargLogo {
+	position: absolute;
+	z-index: 999;
+	top: 110px;
+	left: 140px;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.blockPicture .stamp-logo img {
+	margin-left: 0;
+	margin-top: 0;
+}
+
+.mtel-popup-dlContainer .blockPicture .stamp-logo .lps-shape-inner .error img {
+	margin-left : 0;
+	margin-top: 0;
+}
+
+.mtel-popup-dlContainer .blockPicture {
+	margin-bottom: 0;
+}
+
+.mtel-popup-img-container {
+	position: relative;
+}
+
+.mtel-popup-img {
+	position: absolute;
+}
+
+
+.mtel-popup-img-container.error {
+	height: 270px;
+}
+
+.mtel-popup-img-container .lps-shape-inner div.error {
+	text-align: inherit;
+}
+
+.mtel-popup-img-container .lps-shape-inner {
+	text-align: inherit;
+}
+
+
+/*.kineticjs-content {*/
+	/*min-width: 490px !important;*/
+	/*min-height: 260px !important;*/
+	/*overflow: hidden;	*/
+/*}*/
+
+/*.kineticjs-content canvas {*/
+	/*max-width: 490px !important;*/
+	/*max-height: 260px !important;*/
+/*}*/
+
+#formStampStep1 > .page-step > li {
+	margin-top: 0;
+}
+
+.mtel-container #testError {
+	height: inherit;
+	margin-bottom: 0;
+}
+
+.mtel-container .error {
+	height: auto;
+	margin-bottom: 10px;
+	font-size: 12px;
+	font-size: 12px;
+}
+
+.mtel-tab-content {
+	padding: 40px 27px;	
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.mtel-step2-link-dest {
+	float: right;
+}
+
+.mtel-step2-specimen-link {
+	color: #0072b5;
+	text-decoration: none;
+	font-size: 1.2em;
+	position: relative;
+	display: inline-block;
+}
+.mtel-step2-specimen-link:hover{
+	text-decoration:underline;
+}
+
+.mtel-step2-link-dest .stamps-online .btn-action-minor {
+	background: none;
+}
+
+.mtel-step2-link-dest .btn-action-minor {
+	background: none;
+}
+
+.mtel-step2-specimen-link:hover {
+	color: #0072b5;
+}
+
+#mtel-step2-adrExp h3 {
+	padding: 0;
+	text-transform: initial;
+	color: #000;
+	font: body;
+	font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 1.4em;
+	font-weight: 700;
+}
+
+.mtel-popin-label {
+	width: 100%;
+	position: relative;
+}
+
+.mtel-popin-label label {
+	font-family: "DINWeb-Bold", Arial, Helvetica, sans-serif, Arial, Helvetica, sans-serif;
+	color: #000;
+	font-size: 14px;
+	margin-left: 0;
+	text-align: right;
+	width: 25.33333% !important;
+}
+
+.mtel-popin-label input {
+	margin-left: 12px;
+	height: 40px !important;
+	width: 288px !important;
+	border: 1px solid #c3c3c3;
+	padding-left: 7px;
+    font: 1.2em/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #777777;
+}
+.mtel-popin-label .square-custom{width:295px; display:inline-block; margin-left:12px;}
+.mtel-popin-label #raisonSocialePro {
+	margin-left: 12px !important;
+}
+
+.mtel-popin-label #codePostal {
+	width: 155px !important;
+}
+
+.mtel-popin-label #codePostalPro {
+	width: 155px !important;
+}
+
+.mtel-popin-input-link {
+	position: absolute;
+	top: -2px;
+	right: 0;
+	font-size: 12px !important;
+	text-decoration: none;
+	font-weight: 100;
+}
+
+#mtel-addExp-inputLink {
+	margin-right: 5px;
+    display: flex;
+    align-items: center;
+    max-width: 266px;
+    padding: 0;
+    height: 100%;
+}
+body.mtel .btn-send input{
+	font-size:0.875rem!important
+}
+#input-link-addDest, .input-link-addDest {
+	top: 12px;	
+}
+
+.form-swicher .square-title {
+	font-size: 16px;
+	color: #0265cb;
+}
+
+.mtel-radio-simulation {
+	font-size: 14px;
+	margin-right: 0;
+}
+
+.mtel-radio-simulation:hover, .mtel-radio-simulation:focus {
+	text-decoration: none;
+}
+
+.mtel-popin-tab-link, .mtel-popin-tab-link:link, .mtel-popin-tab-link:hover, .mtel-popin-tab-link:active,.mtel-popin-tab-link:visited {
+	text-decoration: none;
+}
+
+.mtel-popin-container {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top: 0;
+}
+
+.mtel-addressbook-container {
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+.mtel-addressbook-add {
+	float: initial !important;
+	margin-left: 0 !important;
+}
+
+.mtel-addressbook-lines {
+	padding: 10px 0 10px 15px;
+}
+
+td.mtel-addressbook-body-col.address {
+	border-left: 0;
+}
+
+td.mtel-addressbook-body-col.name {
+	border-left: 0;
+}
+	
+td.mtel-addressbook-body-col.actions.addAddress {
+	border-left: 0;
+}
+
+#mtelRecapAjoutPanier.mtel-btn-disabled {
+	background: #f4f4f4 !important;
+	border: 1px solid #c3c3c3 !important;
+	color: #D6D6D6 !important;
+}
+
+/** ECOMREFPART-1031 **/
+#declarationHonneur ul label {
+    font-size: 12px;   
+}
+.transversePro .step4 .info_cn23 p {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.transversePro .step4 .info_cn23__text .title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}

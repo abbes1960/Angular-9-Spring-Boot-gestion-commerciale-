@@ -1,0 +1,82 @@
+//Intercept.js
+var	MetrixLab_PopupFolderName='p68197_DPM';
+var	MetrixLab_PrivacyLanguage= 'en';
+var Metrixlab_PrivacyLink="nolink";
+//Desktop
+var MetrixLab_Desktop_Intercept=0;//1; 
+var	MetrixLab_Desktop_OverlayType= "exit"; 
+var	MetrixLab_dProjectNumber='p68197_fr';
+var	MetrixLab_dOverlayWidth= 392; 
+var	MetrixLab_dOverlayHeight= 275; 
+var	MetrixLab_Coordinate_dYesButton= '51,172,183,223';
+var	MetrixLab_Coordinate_dNoButton= '210,172,342,223';
+var	MetrixLab_Coordinate_dCloseButton= '347,7,379,38';
+var	MetrixLab_Coordinate_dPrivacyButton= '0,0,0,0';
+var	MetrixLab_Coordinate_dMetrixButton= '0,0,0,0';
+var	MetrixLab_dOverlayImg="overlay.png"; 
+
+//Exit desktop
+var Metrixlab_project_exit_folder="p68197_fr"; 
+var Metrixlab_project_exit_image_width=420; 
+var Metrixlab_project_exit_image_height=330;  
+var Metrixlab_project_exit_privacybutton='0,0,0,0';
+var Metrixlab_project_exit_metrixbutton='0,0,0,0';
+var Metrixlab_project_exit_Img="exit.png";   
+
+//Advanced Settings
+var Metrixlab_Advanced_Desktop=true;   
+var Metrixlab_Desktop_Seconds=0;   
+var Metrixlab_Desktop_OnPage=0;   
+var Metrixlab_Desktop_WithInPage=0;   
+var Metrixlab_Desktop_Referrer_ID="0";   
+var Metrixlab_Desktop_InviteURL_ID="0";   
+var MetrixLab_Desktop_DarkLayer = true;   
+var MetrixLab_GLOB_CookieSetup = false;     
+var MetrixLab_CookieLifeTime = 90;       
+
+
+//Tablet
+var MetrixLab_Tablet_Intercept= 0; 
+var	MetrixLab_Tablet_OverlayType= "entry"; 
+var	MetrixLab_tProjectNumber='p0000';
+var	MetrixLab_tOverlayWidth= 0; 
+var	MetrixLab_tOverlayHeight= 0;  
+var	MetrixLab_Coordinate_tYesButton= '0,0,0,0';
+var	MetrixLab_Coordinate_tNoButton= '0,0,0,0';
+var	MetrixLab_Coordinate_tCloseButton= '0,0,0,0';
+var	MetrixLab_Coordinate_tPrivacyButton= '0,0,0,0';
+var	MetrixLab_Coordinate_tMetrixButton= '0,0,0,0';
+var	MetrixLab_tOverlayImg="dummy.jpg"; 
+
+//Advanced Settings
+var Metrixlab_Advanced_Tablet=false;   
+var Metrixlab_Tablet_Seconds=0;   
+var Metrixlab_Tablet_OnPage=0;   
+var Metrixlab_Tablet_WithInPage=0;   
+var Metrixlab_Tablet_Referrer_ID="0";   
+var Metrixlab_Tablet_InviteURL_ID="0";   
+var MetrixLab_Tablet_DarkLayer = false;   
+
+//Mobile
+var MetrixLab_Mobile_Intercept= 0; 
+var	MetrixLab_Mobile_OverlayType= "entry"; 
+var	MetrixLab_mProjectNumber='p0000';
+var	MetrixLab_mOverlayWidth= 0; 
+var	MetrixLab_mOverlayHeight= 0; 
+var	MetrixLab_Coordinate_mYesButton= '0,0,0,0';
+var	MetrixLab_Coordinate_mNoButton= '0,0,0,0';
+var	MetrixLab_Coordinate_mCloseButton= '0,0,0,0';
+var	MetrixLab_Coordinate_mPrivacyButton= '0,0,0,0';
+var	MetrixLab_Coordinate_mMetrixButton= '0,0,0,0';
+var	MetrixLab_AutoCloseInterval=0;
+var	MetrixLab_mOverlayImg="dummy.jpg";
+//Advanced Settings
+var Metrixlab_Advanced_Mobile=false;   
+var Metrixlab_Mobile_Seconds=0;   
+var Metrixlab_Mobile_OnPage=0;   
+var Metrixlab_Mobile_WithInPage=0;   
+var Metrixlab_Mobile_Referrer_ID="0";   
+var Metrixlab_Mobile_InviteURL_ID="0";   
+var MetrixLab_Mobile_DarkLayer = false;   
+var MetrixLabFileLoaded=true; 
+  

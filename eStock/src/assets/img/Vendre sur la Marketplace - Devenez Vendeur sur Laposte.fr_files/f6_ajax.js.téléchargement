@@ -1,0 +1,1523 @@
+if (!F6) var F6 = {};
+else if (F6 && typeof(F6) != "object") throw new Error("F6 is not an Object type");
+
+F6.namespace('F6.AJAX'); 
+
+(function($){
+
+  var F6_AJAX_LINK = {
+    panier: {
+      recap: {
+        suppr:      EBK.config.contextPath+'/panier/removeItemAjax',
+        price:      EBK.config.contextPath+'/panier/price'
+      },
+	  ajouter:      EBK.config.contextPath+'/cart/addToCartWithAjax',
+	  majQuantite:  EBK.config.contextPath+'/panier/updateWithAjax',
+	  majMtamQuantite:  EBK.config.contextPath+'/panier/updateMtamWithAjax',
+	  save :   		EBK.config.contextPath+'/panier/enregistrerPanierAjax',
+	  recommanderTout :EBK.config.contextPath+'/cart/recommander-tout-Ajax',
+	  recommanderMtam :EBK.config.contextPath+'/cart/recommanderMtam-with-ajax'
+		  
+    },
+    fiche_produit:{
+    	popin: EBK.config.contextPath+'/popinAlerteProduit/envoyer_ajax'
+    },
+    particulier: {
+      user_account: {
+        my_addresses: {
+          suppr:   EBK.config.contextPath+'/adresses-personnelles/delete-address',
+          load:     EBK.config.contextPath+'/adresses-personnelles/load-address',
+          select_item:  EBK.config.contextPath+'/adresses-personnelles/default-address'
+        }
+      },
+      lel: {
+        step1: {
+          suppr:   EBK.config.contextPath+'/lettre-en-ligne/supprimer-document-ajax'//'_ajax/LEL_step1_delete.ajax.php'
+        },
+        step4: {
+          suppr:   '_ajax/LEL_recap_delete.ajax.php',
+          price:    '_ajax/LEL_recap_price.ajax.php'
+        },
+        book: {
+            insert: '_ajax/LEL_destinataires_insert.ajax.php'
+        },
+        draft:		 '_ajax/LEL_draft.ajax.php'
+      },
+      
+      lrel: {
+          step1: {
+              suppr:   EBK.config.contextPath+'/lettre-recommandee-en-ligne/supprimer-document-ajax'//'_ajax/LEL_step1_delete.ajax.php'
+            }
+          },
+      
+      mtel: {
+        recap: { 
+          suppr:   F6.UTILS.getMtelLink()+'/recapitulatif/supprimer-timbre-ajax',
+          price:   F6.UTILS.getMtelLink()+'/recapitulatif/calculer-prix'
+        },
+        support: {
+          destinataires: '_ajax/MTEL_support_impression_destinataires.ajax.php',
+          book:          '_ajax/mtelPopinDestinataireBook.ajax.php',
+          update_part:    'MTEL_popin_visualiser_adresse.php',
+          update_pro:     'MTEL_popin_visualiser_adresse_pro.php',
+          add_to_book:    '_ajax/mtelAjoutDestinataireBook.ajax.php'
+        }
+      }
+    },
+    favoris: {
+        ajouter : EBK.config.contextPath+'/mesproduitsfavoris/ajaxBuyAll',
+        add_to_favoris : EBK.config.contextPath+'/mesproduitsfavoris/ajaxAddToFavoris'
+    },
+    colis : {
+    	supprimer : EBK.config.contextPath+'/supprimer-colis-enregistres-with-ajax'
+    }
+  };
+
+  
+  var F6_AJAX_ACTION = {
+    layout: {
+      footer: {
+        suivi:      '_ajax/footer_suivi_envois.php'
+      }
+    },
+    achat: {
+      panier: {
+        promo:      EBK.config.contextPath+'/panier/voucher.json',
+        /* By NOUAOUI ZAKARIA */
+        price:      EBK.config.contextPath+'/panier/price',//'_ajax/Tunnel_achat_panier_service_price.ajax.php',
+        coordonates: EBK.config.contextPath+'/coordonnees_livraison/getAddress',
+        facturation: EBK.config.contextPath+'/coordonnees_livraison/getFacturation'
+      }
+    },
+    particulier: {
+      lrl: {
+        tarifs:     '_ajax/T_eService_tarifs2.ajax.php'
+      },
+      lel: {
+        options:    EBK.config.contextPath+'/lettre-en-ligne/options-impression/price',
+        tarifs: EBK.config.contextPath+'/lettre-en-ligne/tarifs.json',
+        step3: {
+        	home: 				   EBK.config.contextPath+'/lettre-en-ligne/destinataires',
+            addPartDestinataire:   EBK.config.contextPath+'/lettre-en-ligne/ajouter-destinataires?isAjax=true',
+            addProDestinataire:    EBK.config.contextPath+'/lettre-en-ligne/ajouter-destinataires?isAjax=true',
+            addToAddressBook:      EBK.config.contextPath+'/lettre-en-ligne/destinataires?isAjax=true&addressToSave=',
+            deleteDestinataire:    EBK.config.contextPath+'/lettre-en-ligne/destinataires?isAjax=true&addressToRemove=',
+            deleteAll:    		   EBK.config.contextPath+'/lettre-en-ligne/destinataires?isAjax=true&removeAll',
+            addFromAddressBook:    EBK.config.contextPath+'/lettre-en-ligne/carnet-adresses?isAjax=true',
+            importFile:			   EBK.config.contextPath+'/lettre-en-ligne/telecharger-adresses?isAjax=true',
+            addressBook:		   EBK.config.contextPath+'/lettre-en-ligne/carnet-adresses',
+            authentication: 	   EBK.config.contextPath+'/lettre-en-ligne/destinataires?authentication=true'
+          },
+        step4:      EBK.config.contextPath+'/lettre-en-ligne/destinataires?recapulatif=true'
+      },
+      pmc: {
+          options:    EBK.config.contextPath+'/prevenir-mes-contacts/options-impression/price',
+          tarifs: EBK.config.contextPath+'/prevenir-mes-contacts/tarifs.json',
+          step3: {
+          	home: 				   EBK.config.contextPath+'/prevenir-mes-contacts/destinataires',
+              addPartDestinataire:   EBK.config.contextPath+'/prevenir-mes-contacts/ajouter-destinataires?isAjax=true',
+              addProDestinataire:    EBK.config.contextPath+'/prevenir-mes-contacts/ajouter-destinataires?isAjax=true',
+              addToAddressBook:      EBK.config.contextPath+'/prevenir-mes-contacts/destinataires?isAjax=true&addressToSave=',
+              deleteDestinataire:   EBK.config.contextPath+ '/prevenir-mes-contacts/destinataires?isAjax=true&addressToRemove=',
+              deleteAll:    		   EBK.config.contextPath+'/prevenir-mes-contacts/destinataires?isAjax=true&removeAll',
+              addFromAddressBook:    EBK.config.contextPath+'/prevenir-mes-contacts/carnet-adresses?isAjax=true',
+              importFile:			   EBK.config.contextPath+'/prevenir-mes-contacts/telecharger-adresses?isAjax=true',
+              addressBook:			EBK.config.contextPath+'/prevenir-mes-contacts/carnet-adresses',
+              authentication: 	    EBK.config.contextPath+'/prevenir-mes-contacts/destinataires?authentication=true'
+            },
+          step4:      EBK.config.contextPath+'/prevenir-mes-contacts/destinataires?recapulatif=true'
+        },
+        mtelDest: {
+            options:    F6.UTILS.getMtelLink()+'/support-impression/enveloppes/price',
+            tarifs: F6.UTILS.getMtelLink()+'/support-impression/enveloppes/tarifs.json',
+            step3: {
+            	home: 				   F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires',
+                addPartDestinataire:   F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires/ajouter-destinataires?isAjax=true',
+                addProDestinataire:    F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires/ajouter-destinataires?isAjax=true',
+                addToAddressBook:      F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires?isAjax=true&addressToSave=',
+                deleteDestinataire:    F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires?isAjax=true&addressToRemove=',
+                deleteAll:    		   F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires?isAjax=true&removeAll',
+                
+                addFromAddressBook:    F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires/carnet-adresses?isAjax=true',
+                
+                importFile:			   F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires/telecharger-adresses?isAjax=true',
+                addressBook:		   F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires/carnet-adresses',
+                authentication: 	   F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires?authentication=true',
+                
+                updateSessionListeDest:    F6.UTILS.getMtelLink()+'/support-impression/enveloppes/destinataires/updateSessionListDest?isAjax=true'
+              },
+        	racap:      F6.UTILS.getMtelLink()+'/support-impression/enveloppes/calculer-prix'
+          },
+        paf: {
+            options:    '/prevenir-mes-administrations-fournisseurs/options-impression/price',
+            tarifs: '/prevenir-mes-administrations-fournisseurs/tarifs.json',
+            step3: {
+            	home: 				   EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/destinataires',
+                addPartDestinataire:   EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/ajouter-destinataires?isAjax=true',
+                addProDestinataire:    EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/ajouter-destinataires?isAjax=true',
+                addToAddressBook:      EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/destinataires?isAjax=true&addressToSave=',
+                deleteDestinataire:    EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/destinataires?isAjax=true&addressToRemove=',
+                deleteAll:    		   EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/destinataires?isAjax=true&removeAll',
+                addFromAddressBook:    EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/carnet-adresses?isAjax=true',
+                importFile:			   EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/telecharger-adresses?isAjax=true',
+                addressBook:			EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/carnet-adresses',
+                authentication: 	    EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/destinataires?authentication=true'
+              },
+            step4:      EBK.config.contextPath+'/prevenir-mes-administrations-fournisseurs/destinataires?recapulatif=true'
+            
+          },
+      lrel: {
+    	//Updated by NOUAOUI ZAKARIA 
+        options:    EBK.config.contextPath+'/lettre-recommandee-en-ligne/options-impression/price',
+        tarifs: EBK.config.contextPath+'/lettre-recommandee-en-ligne/tarifs.json',
+        step3: {
+        	home: 				   EBK.config.contextPath+'/lettre-recommandee-en-ligne/votre-recommande',
+            addPartDestinataire:   EBK.config.contextPath+'/lettre-recommandee-en-ligne/ajouter-destinataires?isAjax=true',
+            addProDestinataire:    EBK.config.contextPath+'/lettre-recommandee-en-ligne/ajouter-destinataires?isAjax=true',
+            addToAddressBook:      EBK.config.contextPath+'/lettre-recommandee-en-ligne/votre-recommande?isAjax=true&addressToSave=',
+            deleteDestinataire:    EBK.config.contextPath+'/lettre-recommandee-en-ligne/votre-recommande?isAjax=true&addressToRemove=',
+            deleteAll:    		   EBK.config.contextPath+'/lettre-recommandee-en-ligne/votre-recommande?isAjax=true&removeAll',
+            addFromAddressBook:    EBK.config.contextPath+'/lettre-recommandee-en-ligne/carnet-adresses?isAjax=true',
+            importFile:			   EBK.config.contextPath+'/lettre-recommandee-en-ligne/telecharger-adresses?isAjax=true',
+            authentication: 	   EBK.config.contextPath+'/lettre-recommandee-en-ligne/votre-recommande?authentication=true',
+            addressBook:		   EBK.config.contextPath+'/lettre-recommandee-en-ligne/carnet-adresses'
+          },
+        step4:    EBK.config.contextPath+'/lettre-recommandee-en-ligne/votre-recommande?recapulatif=true'//'_ajax/LEL_recap_price.ajax.php'
+      },
+      // START : Updated by NOUAOUI ZAKARIA 
+      lrtel :{
+    	  step5 :EBK.config.contextPath+'/lettre-recommandee-toute-en-ligne/calculer-prix'
+      },
+      // END : Updated by NOUAOUI ZAKARIA 
+      mtel: {
+        etiquette:  F6.UTILS.getMtelLink()+'/support-impression/etiquettes/calculer-prix',
+        dymo:       F6.UTILS.getMtelLink()+'/support-impression/dymo/calculer-prix',
+        enveloppe:  F6.UTILS.getMtelLink()+'/support-impression/enveloppes/calculer-prix'
+      },
+      user_account: {
+        delete_contact: EBK.config.contextPath+'/mon-compte/carnet-adresses/deleteAddress_ajax'
+      }
+    },
+    account: {
+      edit_contact : EBK.config.contextPath+'/mon-compte/carnet-adresses/getAddress_ajax?addressId='
+    }
+
+  };
+
+
+  F6.AJAX.SuiviEnvoisTempsReel = function(form){
+    F6.UTILS.sendAjaxForm(form, 
+      { url: F6_AJAX_ACTION.layout.footer.suivi}, 
+      '#trackError', 
+      'F6.UI.courrierData', 
+      {
+        'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" ), 
+        'code_4': Globalize.localize("Le numéro saisi est incorrect.", "fr_FR" ), 
+        'code_11': Globalize.localize("Le numéro saisi est incorrect.", "fr_FR" )
+      }
+    );
+  };
+
+
+  F6.AJAX.executeSheetstampPicker = function(object) {
+    object.setAjaxFormId('#mtelImpressionEtiquette');
+    object.setAjaxUrl(F6_AJAX_ACTION.particulier.mtel.etiquette);
+    object.setAjaxCallback('F6.UI.executeSheetstampPickerData');
+    return object;
+  };
+   
+
+  F6.AJAX.executeSheetstampPickerChangePos = function(object) {
+	    object.setAjaxFormId('#mtelReimpression');
+	    object.setAjaxUrl("");
+	    object.setAjaxCallback('F6.UI.executeSheetstampPickerData');
+	    return object;
+	  };
+	  
+  F6.AJAX.DymoSelectorAjax = function(){
+    F6.UTILS.sendAjaxForm('#dymoForm', 
+      {url: F6_AJAX_ACTION.particulier.mtel.dymo}, 
+      '', 
+      'F6.UI.DymoSelectorData', ''
+    );
+  };
+
+  F6.AJAX.EnveloppeSelectorAjax = function(){
+	
+    F6.UTILS.sendAjaxForm('#enveloppeForm', 
+      {url: F6_AJAX_ACTION.particulier.mtelDest.racap}, 
+      '', 
+      'F6.UI.EnveloppeSelectorData', ''
+    );
+  };
+
+  F6.AJAX.sendAlerteFicheProduit = function(data){
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.fiche_produit.popin, send_method: 'POST'}, 
+                '', 
+                'F6.UI.sendAlerteFicheProduit', 
+                '');
+  };
+	  
+  F6.AJAX.userDeleteAddresses = function(e, data){
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.user_account.my_addresses.suppr, send_method: 'POST'}, 
+                '', 
+                'F6.UI.removeItemSelectedAfterPrompt',
+                '');
+  };
+
+  F6.AJAX.userLoadAddresses = function(e, data){
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.user_account.my_addresses.load, send_method: 'GET'}, 
+                '', 'F6.UI.showUserAddress', '');
+
+
+  };
+
+  F6.AJAX.userDefaultAddresses = function(e, data){
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.user_account.my_addresses.select_item, send_method: 'POST'}, 
+                '', 
+                'F6.UI.userDefaultAddressesAfterPrompt', 
+                '');
+  };
+
+  F6.AJAX.lelDeleteReceiverAddresses = function(e, data){
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.lel.step4.suppr, send_method: 'POST'}, 
+                '', 
+                'F6.UI.removeLelItemSelectedAfterPrompt', 
+                '');
+  };
+  
+   F6.AJAX.creerBrouillon = function(form){
+    F6.UTILS.sendAjaxForm(form, 
+      { url: F6_AJAX_LINK.particulier.lel.draft}, 
+      '#trackError', 
+      'F6.UI.draftData', 
+      {
+        'code_1': Globalize.localize("draftname_invalid", "fr_FR" )
+      }
+    );
+  };
+
+  
+  F6.AJAX.LelSummaryBasketAjax = function(form_id){
+	  var link = F6_AJAX_ACTION.particulier.lel.step4;
+	  
+	  if(form_id == 'LrelStep3Recap') {
+		  link = F6_AJAX_ACTION.particulier.lrel.step4;
+	  }else if(form_id == 'PmcStep3Recap') {
+		  link = F6_AJAX_ACTION.particulier.pmc.step4;
+	  }
+	  if(form_id == 'PafStep3Recap') {
+		  link = F6_AJAX_ACTION.particulier.pmc.step4;
+	  }else if(form_id == 'PafStep3Recap') {
+		  link = F6_AJAX_ACTION.particulier.paf.step4;
+		  
+	  }
+	  
+	  F6.UTILS.sendAjaxForm('#' + form_id, 
+      {url: link}, 
+      '', 
+      'F6.UI.LelSummaryBasket', ''
+    );
+  };
+
+  F6.AJAX.LelAddReceiverToAddressBook = function(e, data){
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.lel.book.insert, send_method: 'POST'}, 
+                '', 
+                'F6.UI.LelAddReceiverToAddressBookAfterPrompt', 
+                '');
+  };
+
+  F6.AJAX.mtelDeleteItem = function(e, data){
+	var link = F6_AJAX_LINK.particulier.mtel.recap.suppr;
+	if(data.isProLogo)
+	{
+		link = F6.UTILS.getMtelLink()+"/telecharger-votre-logo/recapitulatif/supprimer-timbre-ajax";
+	}
+    F6.UTILS.sendAjaxlink(data, 
+                {url: link, send_method: 'POST'}, 
+                '', 
+                'F6.UI.mtelDeleteItemAfterPrompt', 
+                '');
+  };
+
+  F6.AJAX.mtelCalculateItemPrice = function(isProLogo){
+    var link = F6_AJAX_LINK.particulier.mtel.recap.price;
+    if(isProLogo)
+    {
+		link = F6.UTILS.getMtelLink()+"/telecharger-votre-logo/recapitulatif/calculer-prix";
+	}
+    F6.UTILS.sendAjaxlink({user: 'none'}, 
+                {url: link, send_method: 'POST'}, 
+                '', 
+                'F6.UI.mtelCalculateItemPrice', 
+                '');
+    if (isProLogo){
+       window.location.reload()
+    }
+  };
+
+  F6.AJAX.userDeleteAddressBook = function(form){
+    F6.UTILS.sendAjaxForm(form, 
+      {url: F6_AJAX_ACTION.particulier.user_account.delete_contact}, 
+      '', 
+      'F6.UI.userDeleteAddressBookAfterPrompt', ''
+    );
+  };
+
+  F6.AJAX.LelRemoveDownloadMail = function(e, data){
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.lel.step1.suppr, send_method: 'POST'}, 
+                '', 
+                'F6.UI.removeItemSelectedAfterPrompt', 
+                '');
+  };
+  
+  
+  F6.AJAX.LrelRemoveDownloadMail = function(e, data){
+      F6.UTILS.sendAjaxlink(data, 
+                  {url: F6_AJAX_LINK.particulier.lrel.step1.suppr, send_method: 'POST'}, 
+                  '', 
+                  'F6.UI.removeItemSelectedAfterPrompt', 
+                  '');
+    };
+
+  F6.AJAX.tunnelAchatPanierCodePromo = function(form){
+    F6.UTILS.sendAjaxForm(form, 
+      { url: F6_AJAX_ACTION.achat.panier.promo}, 
+      '#errorBoxTop', 
+      'F6.UI.tunnelAchatPanierCodePromo',
+      {
+        'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" ), 
+        'code_4': Globalize.localize("Le numéro saisi est incorrect.", "fr_FR" ), 
+        'code_11': Globalize.localize("Le numéro saisi est incorrect.", "fr_FR" )
+      }
+    );
+  };
+
+  /* by NOUAOUI ZAKARIA*/
+  F6.AJAX.tunnelAchatPanierDeleteItem = function(e, data)
+  {
+    F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.panier.recap.suppr, send_method: 'POST'}, 
+                '', 
+                'F6.UI.tunnelAchatPanierDeleteItemAfterPrompt', 
+                '');
+  };
+  
+    F6.AJAX.myBrouillonDeleteItemAfterPrompt = function(e, data) {
+      F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.panier.recap.suppr, send_method: 'POST'}, 
+                '', 
+                'F6.UI.myBrouillonDeleteItemAfterPrompt', 
+                '');
+    };
+	/* by NOUAOUI ZAKARIA*/
+	F6.AJAX.tunnelAchatPanierAdjutPrice = function(data)
+	{
+	  F6.UTILS.sendAjaxlink(data, 
+	            {url: F6_AJAX_ACTION.achat.panier.price, send_method: 'POST'}, 
+	            '', 
+	            'F6.UI.tunnelAchatPanierAdjutPriceCallback', 
+	            '');
+	};
+
+    F6.AJAX.mtelSupportImpressionEnveloppeDestinataire = function(data){
+      
+      F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.mtel.support.destinataires, send_method: 'POST'}, 
+                '', 
+                'F6.UI.mtelSupportImpressionEnveloppeDestinataireCallback', 
+                '');
+    }
+    
+    F6.AJAX.mtelPopinDestinataireUpdate = function(type){
+      if(type === 'particulier') {
+          return F6_AJAX_LINK.particulier.mtel.support.update_part;
+      } else {
+          return F6_AJAX_LINK.particulier.mtel.support.update_pro;
+      }
+    } 
+
+    F6.AJAX.insertReceiverToBookList = function(data){
+      F6.UTILS.sendAjaxlink(data, 
+                {url: F6_AJAX_LINK.particulier.mtel.support.add_to_book, send_method: 'POST'}, 
+                '', 
+                'F6.UI.mtelSupportImpressionEnveloppeAjoutDestinataireCallback', 
+                '');
+    };
+	
+
+    F6.AJAX.getPersonalAddress = function(form){
+      F6.UTILS.sendAjaxForm(form, 
+        {url: F6_AJAX_ACTION.account.edit_contact}, 
+        '', 
+        'F6.UI.AddressBookEditFormAfterAjax', ''
+      );
+    };
+    
+     /** New method for Address book *************** Mhammed ORCH : morch
+     * 
+     **/
+    F6.AJAX.getPersonalAddress2 = function(form, addressId){
+        F6.UTILS.sendAjaxForm(form, 
+          {url: F6_AJAX_ACTION.account.edit_contact + addressId}, 
+          '', 
+          'F6.UI.AddressBookEditFormAfterAjax2', ''
+        );
+      
+      };
+    F6.AJAX.addPartAddressToSessionAjax = function(form){
+	    F6.UTILS.sendAjaxForm(form, 
+	      {url: F6_AJAX_ACTION.particulier.user_account.delete_contact}, 
+	      '', 
+	      'F6.UI.addPartAddressToSession', ''
+	    );
+	  };
+	  
+	  //************************************************************************
+	  // NOUAOUI ZAKARIA 
+	  
+	  F6.AJAX.manageResumeLelEtape2Ajax = function(){
+		    F6.UTILS.sendAjaxForm('#impression-options', 
+		      {url: F6_AJAX_ACTION.particulier.lel.options }, 
+		      '#errorBoxTop', 
+		      'F6.UI.manageResumeLelEtape2Data', 
+		      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+		    );
+		  };
+
+	  F6.AJAX.manageResumePMCEtape2Ajax = function(){
+		    F6.UTILS.sendAjaxForm('#impression-options-pmc', 
+		      {url: EBK.config.contextPath+'/prevenir-mes-contacts/options-impression/price' },
+		      '#errorBoxTop', 
+		      'F6.UI.manageResumeLelEtape2Data', 
+		      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+		    );
+		  };
+	  F6.AJAX.manageResumePAFEtape2Ajax = function(){
+		    F6.UTILS.sendAjaxForm('#impression-options-paf', 
+		      {url: '/prevenir-mes-administrations-fournisseurs/options-impression/price' }, 
+		      '#errorBoxTop', 
+		      'F6.UI.manageResumeLelEtape2Data', 
+		      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+		    );
+		  };
+	  // Updated by NOUAOUI Zakaria (LREL, LRTEL Step2)
+	  F6.AJAX.manageResumeLrelEtape2Ajax = function()
+	  {
+	    F6.UTILS.sendAjaxForm(
+	      /*id_form*/'#impression-options-lrel', 
+	      /* Url Server */{url: F6_AJAX_ACTION.particulier.lrel.options}, 
+	      /*Error Bloc */'#errorBoxTop', 
+	      /*Function that use data*/'F6.UI.manageResumeLrelEtape2Data', 
+	      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+	    );
+	  };
+	  // STEP 5 LRTEL
+	  F6.AJAX.manageResumeLrtelEtape5Ajax = function()
+	  {
+	    F6.UTILS.sendAjaxForm(
+	      /*id_form*/'#LrtelStep5Recap', 
+	      /* Url Server */{url: F6_AJAX_ACTION.particulier.lrtel.step5}, 
+	      /*Error Bloc */'#errorBoxTop', 
+	      /*Function that use data*/'F6.UI.manageResumeLreEtape5Data', 
+	      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+	    );
+	  };
+	// STEP 5 LREL
+	  F6.AJAX.manageResumeLrelEtape5Ajax = function()
+	  {
+	    F6.UTILS.sendAjaxForm(
+	      /*id_form*/'#LelStep3Recap', 
+	      /* Url Server */{url: EBK.config.contextPath+"/lettre-recommandee-en-ligne/calculer-prix"},
+	      /*Error Bloc */'#errorBoxTop', 
+	      /*Function that use data*/'F6.UI.manageResumeLreEtape5Data', 
+	      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+	    );
+	  };
+	  // STEP 5 LREL (Envoi Recap
+	  F6.AJAX.manageResumeLrelEnvoiRecapEtape5Ajax = function()
+	  {
+	    F6.UTILS.sendAjaxForm(
+	      /*id_form*/'#envoiRecuperationIdForm', 
+	      /* Url Server */{url: EBK.config.contextPath+"/lettre-recommandee-en-ligne/calculer-prix-envoie"},
+	      /*Error Bloc */'#errorBoxTop', 
+	      /*Function that use data*/'F6.UI.manageResumeLreEtape5Data', 
+	      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+	    );
+	  };
+	  // STEP 4 LEL PDF GENERATION CALL
+	  F6.AJAX.isPdfGeneratedLelEtape4Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/lettre-en-ligne/verifier-courrier/generer-pdf", send_method: 'POST'},
+	                '', 
+	                	'F6.UI.callBackWaitPdfGenerationStep5', 
+	                '');
+	  };
+	// STEP 4 PMC PDF GENERATION CALL
+	  F6.AJAX.isPdfGeneratedPMCEtape4Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/prevenir-mes-contacts/verifier-courrier/generer-pdf", send_method: 'POST'},
+	                '', 
+	                	'F6.UI.callBackWaitPdfGenerationStep5', 
+	                '');
+	  };
+	// STEP 4 PAF PDF GENERATION CALL
+	  F6.AJAX.isPdfGeneratedPAFEtape4Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/prevenir-mes-administrations-fournisseurs/verifier-courrier/generer-pdf", send_method: 'POST'},
+	                '', 
+	                	'F6.UI.callBackWaitPdfGenerationStep5', 
+	                '');
+	  };
+	  // STEP 5 LREL PDF GENERATION CALL
+	  F6.AJAX.isPdfGeneratedLrelEtape5Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/lettre-recommandee-en-ligne/verifier-courrier/generer-pdf", send_method: 'POST'},
+	                '', 
+	                'F6.UI.callBackWaitPdfGenerationStep5', 
+	                '');
+	  };
+	  // STEP 2 LEL PDF GENERATION CALL
+	  F6.AJAX.isPdfGeneratedLelEtape2Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/lettre-en-ligne/telecharger-document/calculer-nombre-page-ajax", send_method: 'POST'},
+	                '', 
+	                'F6.UI.callBackWaitPdfGenerationStep2LEL',
+	                '');
+	  };
+	  // STEP 2 LREL PDF GENERATION CALL
+	  F6.AJAX.isPdfGeneratedLrelEtape2Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/lettre-recommandee-en-ligne/telecharger-document/calculer-nombre-page-ajax", send_method: 'POST'},
+	                '', 
+	                'F6.UI.callBackWaitPdfGenerationStep2LREL',
+	                '');
+	  };
+	 //iomari fusion steps
+	  F6.AJAX.LRELAddPartExp = function(form){
+	    	 
+	    	 var link =   EBK.config.contextPath+"/lettre-recommandee-en-ligne/ajouter-expediteur";
+	    	 
+	    	 F6.UTILS.sendAjaxForm(form, 
+	    			 {url: link}, 
+	    			 '', 
+	    			 'F6.UI.LRELAddressUpdate', ''
+	    	 );
+	    	 
+	     };
+	  F6.AJAX.LRELAddProExp = function(form){
+	    	 var link =   EBK.config.contextPath+"/lettre-recommandee-en-ligne/ajouter-expediteur-professionnel";
+	    	 F6.UTILS.sendAjaxForm(form,
+	    			 {url: link}, 
+	    			 '', 
+	    			 'F6.UI.LRELAddressUpdate', ''
+	    	 );
+	    	 
+	  };
+	  // STEP 5 LREL add to cart
+	  F6.AJAX.addToCartLrelEtape5Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/lettre-recommandee-en-ligne/ajoutPanier", send_method: 'POST'},
+	                '', 
+	                'F6.UI.callBackWaitForAddToCart',
+	                '');
+	  };
+	  // STEP 4 LEL add to cart
+	  F6.AJAX.addToCartLelEtape4Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath+"/lettre-en-ligne/ajoutPanier", send_method: 'POST'},
+	                '', 
+	                'F6.UI.callBackWaitForLelAddToCart',
+	                '');
+	  };
+	  F6.AJAX.sendAjaxLink = function(serverUrl, callBack)
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: serverUrl, send_method: 'POST'}, 
+	                '', 
+	                callBack,
+	                '');
+	  };
+	  // STEP 2 LREL PDF GENERATION Of TextEditor CALL
+	  F6.AJAX.isPdfGeneratedTextEditorLrelEtape2Ajax = function()
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+	                {url: EBK.config.contextPath + "/lettre-recommandee-en-ligne/editer-document/calculer-nombre-page", send_method: 'POST'},
+	                '', 
+	                'F6.UI.callBackWaitPdfGenerationStep2LRELTextEdit',
+	                '');
+	  };
+	  //Step 1 : caracteristique National: France Outre Mer
+	  F6.AJAX.getCaracteristiqueForFrOM = function() {
+		    F6.UTILS.sendAjaxForm('#formStampStep1', 
+				      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getCaracteristiqueForFrOM" }, 
+				      '#errorBoxTop', 
+				      'F6.UI.callbackStep1MTELProductsAndDestinationData', 
+				      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+				    );
+				  };
+	 //Step 1 : caracteristique International
+	  F6.AJAX.getCaracteristiqueForIntr = function() {
+		    F6.UTILS.sendAjaxForm('#formStampStep1', 
+				      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getCaracteristiqueForIntr" }, 
+				      '#errorBoxTop', 
+				      'F6.UI.callbackStep1MTELProductsAndDestinationData', 
+				      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+				    );
+				  };
+	  // STEP 1 MTEL : liste des produits France OutreMer
+	  F6.AJAX.getProducts = function(){
+		    F6.UTILS.sendAjaxForm('#formStampStep1', 
+		      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getProducts" }, 
+		      '#errorBoxTop', 
+		      'F6.UI.callbackStep1MTELProductsData', 
+		      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+		    );
+		  };
+		  
+		  // VREL : liste des produits France OutreMer
+		  F6.AJAX.getVignetteWeight = function(){
+			  var escervice = $("input[name='serviceCode'][type='hidden']").val();
+			  if (escervice == 'vrel') {
+				    F6.UTILS.sendAjaxForm('#formNosTarifsContent', 
+				      {url: "/vignette-recommandee-en-ligne/tarifs/ajax-update-caraceristique?action=getVignetteWeight" }, 
+				      '#errorBoxTop', 
+				      'F6.UI.callbackWeightsVRELProductsData', 
+				      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+				    );
+			  	}
+			  };
+		//setp 1 Mtel: liste des produits Tnternational
+		  F6.AJAX.getProductsForInternatioanl = function(){
+			    F6.UTILS.sendAjaxForm('#formStampStep1', 
+			      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getProductsForIntr" }, 
+			      '#errorBoxTop',
+			      'F6.UI.callbackStep1MTELProductsData', 
+			      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+			    );
+			  };
+		// STEP 1 MTEL : Pro produits
+		  F6.AJAX.getR1R2R3 = function(recommandeMtel,avisDeReception){
+			    F6.UTILS.sendAjaxForm('#formStampStep1', 
+			      {url: F6.UTILS.getMtelLink()+ "/personalisation/ajax-update-caraceristique?action=getR1R2R3&recommandeMtel="+recommandeMtel+"&isChecked="+avisDeReception },
+			      '#errorBoxTop', 
+			      'F6.UI.callbackStep1MTELR1R2R3Data', 
+			      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+			    );
+			  };
+			  
+		// STEP 1 MTEL : Part produits  
+		  F6.AJAX.getR1 = function(){
+			    F6.UTILS.sendAjaxForm('#formStampStep1', 
+			      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getR1" }, 
+			      '#errorBoxTop', 
+			      'F6.UI.callbackStep1MTELR1Data', 
+			      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+			    );
+			  };
+	  // STEP 1 MTEL : Liste de poids
+	  F6.AJAX.getWeights = function(){
+		    F6.UTILS.sendAjaxForm('#formStampStep1', 
+		      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getWeights" }, 
+		      '#errorBoxTop', 
+		      'F6.UI.callbackStep1MTELWeightsData', 
+		      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+		    );
+		  };
+		  
+		  // STEP 1 MTEL : Liste de poids
+//		  F6.AJAX.getWeightsForVignette = function(){
+//			    F6.UTILS.sendAjaxForm('#formStampStep1', 
+//			      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getWeights" }, 
+//			      '#errorBoxTop', 
+//			      'F6.UI.callbackStep1MTELWeightsData', 
+//			      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+//			    );
+//			  };
+//			  
+//			  
+			  
+		  F6.AJAX.getDestinations = function(){
+			    F6.UTILS.sendAjaxForm('#formStampStep1', 
+			      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=getDestinations" }, 
+			      '#errorBoxTop', 
+			      'F6.UI.callbackStep1MTELDestinationsData', 
+			      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+			    );
+			  };
+		  
+		  
+	
+		  // STEP 2 MTEL : Liste de poids
+		  F6.AJAX.getSpecimen = function(formId){
+			    F6.UTILS.sendAjaxForm(formId, 
+			      {url: F6.UTILS.getMtelLink()+"/support-impression/imprimer-specimen" }, 
+			      '#errorBoxTop', 
+			      'F6.UI.callbackSpecimenData', 
+			      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+			    );
+			  };
+			  
+			  
+			// STEP 1 MTEL : check if lettre suivie is enable  
+			  F6.AJAX.disabledLettreSuivie = function(){
+				    F6.UTILS.sendAjaxForm('#formStampStep1', 
+				      {url: F6.UTILS.getMtelLink()+"/personalisation/ajax-update-caraceristique?action=disabledLettreSuivie" }, 
+				      '#errorBoxTop', 
+				      'F6.UI.callbackStep1MTELDisableLSData', 
+				      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+				    );
+				  };
+	  //****************************************************************************
+	  // MTEL znouaoui
+		  
+	  F6.AJAX.MTELAddPartExp = function(form){
+		  
+		  var link =   F6.UTILS.getMtelLink()+"/support-impression/enveloppes/inserer-expeditaire?isAjax=true&particulier=";
+		  
+	      F6.UTILS.sendAjaxForm(form, 
+	    	  {url: link}, 
+	          '', 
+	          'F6.UI.MTELUpdateExpeditaire', ''
+	        );
+	      
+	      };
+	      
+    F6.AJAX.MTELAddProExp = function(form)
+    {
+    	var link =   F6.UTILS.getMtelLink()+"/support-impression/enveloppes/inserer-expeditaire?isAjax=true&professionnel=";
+	  
+      F6.UTILS.sendAjaxForm(form, 
+         {url: link}, 
+         '', 
+         'F6.UI.MTELUpdateExpeditaire', ''
+       );
+     };
+     
+     F6.AJAX.AELAddPartExp = function(form){
+
+    	 var link =   F6.UTILS.getColissimoLink()+"/votre-envoi/ajouter-expediteur-post-with-ajax?isAjax=true&particulier=";
+
+    	 F6.UTILS.sendAjaxForm(form,
+    			 {url: link},
+    			 '',
+    			 'F6.UI.AelAddressUpdate', ''
+    	 );
+
+     };
+    F6.AJAX.MultiColisAddPartExp = function(form,isPro){
+        var link =   F6.UTILS.getColissimoLink()+"/creez-vos-etiquettes-envois-multiples-de-colis/ajouter-adresse-exp-post-with-ajax?particulier=";
+        if(isPro){
+        	link =   F6.UTILS.getColissimoLink()+"/creez-vos-etiquettes-envois-multiples-de-colis/ajouter-adresse-exp-post-with-ajax?professionnel=";
+        }
+
+        F6.UTILS.sendAjaxForm(form,
+            {url: link},
+            '',
+            'F6.UI.MultiColisAddExp', ''
+        );
+
+    };
+
+    F6.AJAX.MultiColisAddDest = function(form, id_max){
+    	var link = EBK.config.contextPath+"/colissimo-en-ligne";
+    	
+    	if ($('#destinatairepro').is(":checked")) {
+    		link=link+"/creez-vos-etiquettes-envois-multiples-de-colis/ajouter-adresse-dest-post-with-ajax?numEtiquette=" + id_max+"&professionnel=";
+        }else{
+        	link=link+"/creez-vos-etiquettes-envois-multiples-de-colis/ajouter-adresse-dest-post-with-ajax?numEtiquette=" + id_max+"&particulier=";
+        }
+
+        F6.UTILS.sendAjaxFormAddressDestMultiColis(form,
+            {url: link},
+            '',
+            'F6.UI.MultiColisAddDest', ''
+        );
+
+    };
+
+    F6.AJAX.MultiColisEditDest = function(form, id_max){
+
+        var link = EBK.config.contextPath+"/colissimo-en-ligne";
+
+        if ($('#destinatairepro').is(":checked")) {
+        	link=link+"/creez-vos-etiquettes-envois-multiples-de-colis/modifier-adresse-dest-post-with-ajax?numEtiquette=" + id_max+"&professionnel=";
+        }else{
+        	link=link+"/creez-vos-etiquettes-envois-multiples-de-colis/modifier-adresse-dest-post-with-ajax?numEtiquette=" + id_max+"&particulier=";
+        }
+
+        F6.UTILS.sendAjaxFormAddressDestMultiColis(form,
+            {url: link},
+            '',
+            'F6.UI.MultiColisAddDest', ''
+        );
+
+    };
+
+     F6.AJAX.AELAddProExp = function(form)
+     {
+    	 var link =   F6.UTILS.getColissimoLink()+"/votre-envoi/ajouter-expediteur-post-with-ajax?isAjax=true&professionnel=";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.AelAddressUpdate', ''
+    	 );
+     };
+     F6.AJAX.AELAddPartDES = function(form){
+    	 
+    	 var link =   F6.UTILS.getColissimoLink()+"/votre-envoi/ajouter-destinataire-with-ajax?isAjax=true&particulier=";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.AelAddressUpdate', ''
+    	 );
+    	 
+     };
+     //
+     F6.AJAX.AELAddBookDES = function(form){
+    	 
+    	 var link =   F6.UTILS.getColissimoLink()+"/votre-envoi/address-book";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.AelAddressUpdate', ''
+    	 );
+    	 
+     };
+     //
+     F6.AJAX.AELAddProDES = function(form)
+     {
+    	 var link =   F6.UTILS.getColissimoLink()+"/votre-envoi/ajouter-destinataire-with-ajax?isAjax=true&professionnel=";
+    	 				
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.AelAddressUpdate', ''
+    	 );
+     };
+     
+/** VREL ***************************/			
+     
+     F6.AJAX.VRELAddPartExp = function(form){
+    	 
+    	 var link =   EBK.config.contextPath+"/vignette-recommandee-en-ligne/votre-envoi/ajouter-expediteur-post-with-ajax?isAjax=true&particulier=";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.VRELAddressUpdate', ''
+    	 );
+    	 
+     };
+     F6.AJAX.VRELAddProExp = function(form)
+     {
+    	 var link =   EBK.config.contextPath+"/vignette-recommandee-en-ligne/votre-envoi/ajouter-expediteur-post-with-ajax?isAjax=true&professionnel=";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.VRELAddressUpdate', ''
+    	 );
+     };
+	  
+     F6.AJAX.VRELAddPartDES = function(form)
+     {
+    	 var link =   "/vignette-recommandee-en-ligne/votre-envoi/ajouter-destinataire-post-with-ajax?isAjax=true&particulier=";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.VRELAddressUpdate', ''
+    	 );
+     };
+     
+     F6.AJAX.VRELAddProDES = function(form)
+     {
+    	 var link =   EBK.config.contextPath+"/vignette-recommandee-en-ligne/votre-envoi/ajouter-destinataire-post-with-ajax?isAjax=true&professionnel=";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.VRELAddressUpdate', ''
+    	 );
+     };
+     
+     F6.AJAX.VRELAddBookDES = function(form){
+    	 
+    	 var link =   "/vignette-recommandee-en-ligne/votre-envoi/address-book";
+    	 
+    	 F6.UTILS.sendAjaxForm(form, 
+    			 {url: link}, 
+    			 '', 
+    			 'F6.UI.VRELAddressUpdate', ''
+    	 );
+    	 
+     };
+/** LEL 			  *********************************//**  Mhammed ORCH : morch **/
+/** Ajax Operation    ************************************/
+	  F6.AJAX.LELAddPartDestinataire = function(form, data){
+		  var link = F6_AJAX_ACTION.particulier.lel.step3.addPartDestinataire;
+		  
+		  if(data.typeParcours == "LREL") {
+			  link = F6_AJAX_ACTION.particulier.lrel.step3.addPartDestinataire;
+		  }else if(data.typeParcours == "PMC") {
+			  link = F6_AJAX_ACTION.particulier.pmc.step3.addPartDestinataire;
+		  }
+		  else if(data.typeParcours == "PAF") {
+			  link = F6_AJAX_ACTION.particulier.paf.step3.addPartDestinataire;
+		  }else if(data.typeParcours == "MTEL") {
+			  link = F6_AJAX_ACTION.particulier.mtelDest.step3.addPartDestinataire;
+		  }
+		  
+	      F6.UTILS.sendAjaxForm(form, 
+	    	  {url: link, rowId: $('#id', form).val()}, 
+	          '', 
+	          'F6.UI.LELUpdateDestinataireTable', ''
+	        );
+	      
+	      };
+	      
+	    F6.AJAX.LELAddProDestinataire = function(form, data){
+		  var link = F6_AJAX_ACTION.particulier.lel.step3.addProDestinataire;
+		  
+		  if(data.typeParcours == "LREL") {
+			  link = F6_AJAX_ACTION.particulier.lrel.step3.addProDestinataire;
+		  }else if(data.typeParcours == "PMC") {
+			  link = F6_AJAX_ACTION.particulier.pmc.step3.addProDestinataire;
+		  }
+		  else if(data.typeParcours == "PAF") {
+			  link = F6_AJAX_ACTION.particulier.paf.step3.addProDestinataire;
+		  }else if(data.typeParcours == "MTEL") {
+			  link = F6_AJAX_ACTION.particulier.mtelDest.step3.addProDestinataire;
+		  }
+		  
+	      F6.UTILS.sendAjaxForm(form, 
+	         {url: link, rowId: $('#id', form).val()}, 
+	         '', 
+	         'F6.UI.LELUpdateDestinataireTable', ''
+	       );
+	     };
+	     
+	    F6.AJAX.LELDeleteDestinataire = function(e, data){
+		  var link = F6_AJAX_ACTION.particulier.lel.step3.deleteDestinataire;
+		  if(data.typeParcours == "LREL") {
+			  link = F6_AJAX_ACTION.particulier.lrel.step3.deleteDestinataire;
+		  }else if(data.typeParcours == "PMC") {
+			  link = F6_AJAX_ACTION.particulier.pmc.step3.deleteDestinataire;
+		  }else if(data.typeParcours == "PAF") {
+			  link = F6_AJAX_ACTION.particulier.paf.step3.deleteDestinataire;
+		  }else if(data.typeParcours == "MTEL") {
+			  link = F6_AJAX_ACTION.particulier.mtelDest.step3.deleteDestinataire;
+		  }
+			  
+		  F6.UTILS.sendAjaxlink(data, 
+	        {url: link + data.id, send_method: 'POST'}, 
+	        '', 
+	        'F6.UI.LELUpdateDestinataireTable', 
+	        '');
+		  };
+		
+	    F6.AJAX.LELAddDestinataireToAddressBook = function(e, data){
+		  var link = F6_AJAX_ACTION.particulier.lel.step3.addToAddressBook;
+		   
+		  if(data.typeParcours == "LREL") {
+			  link = F6_AJAX_ACTION.particulier.lrel.step3.addToAddressBook;
+		  }else if(data.typeParcours == "PMC") {
+			  link = F6_AJAX_ACTION.particulier.pmc.step3.addToAddressBook;
+		  }else if(data.typeParcours == "PAF") {
+			  link = F6_AJAX_ACTION.particulier.paf.step3.addToAddressBook;
+		  }else if(data.typeParcours == "MTEL") {
+			  link = F6_AJAX_ACTION.particulier.mtelDest.step3.addToAddressBook;
+		  }
+		  
+	  	  F6.UTILS.sendAjaxlink(data, 
+	          {url: link + data.id, send_method: 'POST'}, 
+	          '', 
+	          'F6.UI.LELUpdateDestinataireTable', 
+	          '');
+	  	  };
+		  	  
+	    F6.AJAX.LELDeleteAllDestinataire = function(e, data){
+		  var link = F6_AJAX_ACTION.particulier.lel.step3.deleteAll;
+		  
+		  if(data.typeParcours == "LREL") {
+			  link = F6_AJAX_ACTION.particulier.lrel.step3.deleteAll;
+		  }else if(data.typeParcours == "PMC") {
+			  link = F6_AJAX_ACTION.particulier.pmc.step3.deleteAll;
+		  }
+		  else if(data.typeParcours == "PAF") {
+			  link = F6_AJAX_ACTION.particulier.paf.step3.deleteAll;
+		  }else if(data.typeParcours == "MTEL") {
+			  link = F6_AJAX_ACTION.particulier.mtelDest.step3.deleteAll;
+		  }
+		  
+	  	  F6.UTILS.sendAjaxlink(data, 
+	  	        {url: link, send_method: 'POST'}, 
+	  	        '', 
+	  	        'F6.UI.LELUpdateDestinataireTable', 
+	  	        '');
+	    };
+	   
+	    F6.AJAX.getLelPrice = function(isLel){
+	   		  
+
+		    F6.UTILS.sendAjaxForm(
+		      /*id_form*/'#formNosTarifsContent', 
+		      /* Url Server */{url: isLel ? F6_AJAX_ACTION.particulier.lel.tarifs : F6_AJAX_ACTION.particulier.lrel.tarifs, send_method: 'POST'}, 
+		      /*Error Bloc */'#errorBoxTop', 
+		      /*Function that use data*/'F6.UI.updatePrice', 
+		      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+		    );
+	   	};
+	   	
+	   	   F6.AJAX.getVrelPrice = function(isLel){
+			    F6.UTILS.sendAjaxForm(
+			      /*id_form*/'#formNosTarifsContent', 
+			      /* Url Server */{url: "/vignette-recommandee-en-ligne/tarifs.json", send_method: 'POST'}, 
+			      /*Error Bloc */'#errorBoxTop', 
+			      /*Function that use data*/'F6.UI.updatePrice', 
+			      {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" )}
+			    );
+		   	};
+
+		   	
+	    F6.AJAX.getLelPriceDestination = function(data){
+		    F6.UTILS.sendAjaxlink("", 
+			    {url: EBK.config.contextPath+"/lettre-en-ligne/tarifs-destination.json?envoiSuivi=" +data, send_method: 'POST'},
+	  	        '', 
+	  	        'F6.UI.LELUpdateDestinationOption', 
+	  	        '');
+	   	};
+	    F6.AJAX.LELAddDestinataireFromAddressBook = function(form, data){
+		  var link = F6_AJAX_ACTION.particulier.lel.step3.addFromAddressBook;
+		  
+		  if(data.typeParcours == "LREL") {
+			  link = F6_AJAX_ACTION.particulier.lrel.step3.addFromAddressBook;
+		  }else if(data.typeParcours == "PMC") {
+			  link = F6_AJAX_ACTION.particulier.pmc.step3.addFromAddressBook;
+		  }
+		  else if(data.typeParcours == "PAF") {
+			  link = F6_AJAX_ACTION.particulier.paf.step3.addFromAddressBook;
+		  }else if(data.typeParcours == "MTEL") {
+			  link = F6_AJAX_ACTION.particulier.mtelDest.step3.addFromAddressBook;
+		  }
+		  
+	      F6.UTILS.sendAjaxForm(form, 
+	                {url: link}, 
+	                '', 
+	                'F6.UI.LELUpdateDestinataireTable', ''
+	              );
+	  	   };
+	  	   
+	  	 F6.AJAX.UpdateSessionListeDestinataire = function(){
+			  var link = F6_AJAX_ACTION.particulier.mtelDest.step3.updateSessionListeDest;			  
+		      F6.UTILS.sendAjaxForm('#formAddressFiles', 
+		                {url: link}, 
+		                '', 
+		                'F6.UI.LELUpdateDestinataireTable', ''
+		              );
+		  	   };
+	   F6.AJAX.importDestinataires = function(form, data){
+		  var link = F6_AJAX_ACTION.particulier.lel.step3.importFile;
+		  
+		  if(data.typeParcours == "LREL") {
+			  link = F6_AJAX_ACTION.particulier.lrel.step3.importFile;
+		  }else if(data.typeParcours == "PMC") {
+			  link = F6_AJAX_ACTION.particulier.pmc.step3.importFile;
+		  }
+		  else if(data.typeParcours == "PAF") {
+			  link = F6_AJAX_ACTION.particulier.paf.step3.importFile;
+		  }else if(data.typeParcours == "MTEL") {
+			  link = F6_AJAX_ACTION.particulier.mtelDest.step3.importFile;
+		  }
+		  
+	      F6.UTILS.sendAjaxForm(form, 
+	                {url: link, file: true}, 
+	                '', 
+	                'F6.UI.LELUpdateDestinataireTable', ''
+	              );
+	  	   };
+	  	//digiposte
+	  	   F6.AJAX.archiver = function(callbackfunction, code, signature){
+	  		   if(signature==undefined){signature=false}
+	  		   link = EBK.config.contextPath+"/digiposte/archiver?code="+code+"&signature="+signature;
+	  		    $.ajax({
+	  	          type: 'POST',
+	  	          url: link,
+	  	          success: function(data, textStatus, jqXHR){
+	  	            if(data.success) {
+	  	            	eval(callbackfunction)(data.data);
+	  	            	var txt = '<div class="typo-din title3"></div>' + Globalize.localize( "digiposte.start.msg", "fr_FR" ) ;
+	  	            	$.prompt( txt);
+	  	            } else {
+	  	            	var width  = 600,
+		  	       	    height = 675,
+		  	       	    left   = ($(window).width()  - width)  / 2,
+		  	       	    top    = ($(window).height() - height) / 2,
+		  	       	    urlAssociation =  EBK.config.contextPath+"/digiposte/digiposteAuth?callbackfunction="+callbackfunction+"&code="+data.data.code+"&signature="+data.data.signature,
+		  	       	    opts   = 'status=1' +
+		  	       	        ',width='  + width  +
+		  	       	        ',height=' + height +
+		  	       	        ',top='    + top    +
+		  	       	        ',left='   + left +
+		  	       	     ',toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1';;
+	  	            	 window.open(urlAssociation , 'popup_association', opts);		  
+
+	  	            }
+	  	          },
+	  	          cache: false
+	  	        });
+	  	   }; 
+	  
+	  	   F6.AJAX.archiverFactureAjax = function(data){
+	  		link = EBK.config.contextPath+"/mon-compte/commande-detail/archiver-facture-ajax/"+data.code+"?signature="+data.signature;
+	  		    $.ajax({
+		  	          type: 'POST',
+		  	          url: link,
+		  	          success: function(data, textStatus, jqXHR){
+		  	            if(data.success) {
+		  	            	//alert('success ajax')
+		  	            }
+		  	          },
+		  	          cache: false
+		  	        });
+	  		    
+	  	   }; 
+
+	  	   F6.AJAX.archiverVotreLettreAjax = function(data){
+	  		link = EBK.config.contextPath+"/post-payment/archiver-lettre-ajax?pdfId="+data.code;
+	  		    $.ajax({
+		  	          type: 'POST',
+		  	          url: link,
+		  	          success: function(data, textStatus, jqXHR){
+		  	            if(data.success) {
+		  	            	//alert('success ajax')
+		  	            }
+		  	          },
+		  	          cache: false
+		  	        });
+	  		    
+	  	   };
+	  	   F6.AJAX.archiverMaLelAjax = function(data){
+		  		link = EBK.config.contextPath+"/lel_mescommandes/lel/archiver-lettre-ajax?commandeCode="+data.code;
+		  		    $.ajax({
+			  	          type: 'POST',
+			  	          url: link,
+			  	          success: function(data, textStatus, jqXHR){
+			  	            if(data.success) {
+			  	            	//alert('success ajax')
+			  	            }
+			  	          },
+			  	          cache: false
+			  	        });
+		  		    
+		  	   };
+	  	   F6.AJAX.archiverMaLrelAjax = function(data){
+	  		link = EBK.config.contextPath+"/lrel_mescommandes/lrel/archiver-lettre-ajax?commandeCode="+data.code;
+	  		    $.ajax({
+		  	          type: 'POST',
+		  	          url: link,
+		  	          success: function(data, textStatus, jqXHR){
+		  	            if(data.success) {
+		  	            	//alert('success ajax')
+		  	            }
+		  	          },
+		  	          cache: false
+		  	        });
+	  		    
+	  	   };
+ 
+	  	   F6.AJAX.archiverArAjax = function(data){
+		  		link = EBK.config.contextPath+"/lrtel_mescommandes/archiver-ar-ajax/"+data.code;
+	  		    $.ajax({
+		  	          type: 'POST',
+		  	          url: link,
+		  	          success: function(data, textStatus, jqXHR){
+		  	            if(data.success) {
+		  	            	//alert('success ajax')
+		  	            }
+		  	          },
+		  	          cache: false
+		  	        });
+		  		    
+		  	   };
+ 
+	  	   F6.AJAX.archiverDepotAjax = function(data){
+	  		link = EBK.config.contextPath+"/lrel_mescommandes/archiver-depot-ajax/"+data.code;
+	  		    $.ajax({
+		  	          type: 'POST',
+		  	          url: link,
+		  	          success: function(data, textStatus, jqXHR){
+		  	            if(data.success) {
+		  	            	//alert('success ajax')
+		  	            }
+		  	          },
+		  	          cache: false
+		  	        });
+	  		    
+	  	   }; 
+	  	   //Digiposte
+	  	 //******************************** znouaoui
+	  	F6.AJAX.sendWishlistOrder = function(e){
+	         $.ajax({
+	          url: $('#timbre-ordre').attr('action'),
+	          data: $('#timbre-ordre').serialize(),
+	          success: function(data, textStatus, jqXHR){
+	          	F6.UI.wishlistOrderCallback(data);
+	          }
+	         });
+	    };
+	  	
+	  	F6.AJAX.wishlistRemoveItem = function(id , param_index){
+	    	F6.UTILS.sendAjaxlink({item_id:id , index:param_index}, 
+	                {url: F6_AJAX_LINK.wishlist.delete_item, send_method: 'POST'}, 
+	                '', 
+	                'F6.UI.wishlistRemoveItemAfter', 
+	                '');
+	    	
+	    };
+	  	
+	    F6.AJAX.wishlistEmpty = function(e, data){
+	    	F6.UTILS.sendAjaxlink({empty:true}, 
+	                {url: F6_AJAX_LINK.wishlist.empty, send_method: 'POST'}, 
+	                '', 
+	                'F6.UI.wishlistEmptyAfter', 
+	                '');
+	    };
+	  	
+	  	F6.AJAX.addToCart = function(param_id , param_quantity){
+	  		// call /cart/addToCartWithAjax
+	        F6.UTILS.sendAjaxlink({productCodePost:param_id , qty:param_quantity}, 
+	                  {url: F6_AJAX_LINK.panier.ajouter, send_method: 'POST'}, 
+	                  '', 
+	                  'F6.UI.addToCartCallback',
+	                  '');
+	      };
+	      
+	  	F6.AJAX.addAllFavorisToCart = function(listCodeQty){
+	  		// call /mesproduitsfavoris/ajaxBuyAll
+	        F6.UTILS.sendAjaxlink({listCodeQty:listCodeQty}, 
+	                  {url: F6_AJAX_LINK.favoris.ajouter, send_method: 'POST'}, 
+	                  '', 
+	                  'F6.UI.addAllFavorisToCartCallback',
+	                  '');
+	      };
+
+	  	F6.AJAX.addProductToFavoris = function(){
+
+	  		//Get the input value using javascript. Passing this value in function's parameter don't work
+	  		productToAdd = document.getElementById("productToAdd").value;
+	  		
+	  		// call /mesproduitsfavoris/ajaxAddProductToFavoris
+	        F6.UTILS.sendAjaxlink({productToAdd:productToAdd}, 
+	                  {url: F6_AJAX_LINK.favoris.add_to_favoris, send_method: 'POST'}, 
+	                  '', 
+	                  'F6.UI.addToFavorisCallback',
+	                  '');
+	      };
+		      
+	      // mkaabi v3 recommand All add to cart
+	F6.AJAX.recommandAll = function(orderCode) {
+		// call /cart/addToCartWithAjax
+		F6.UTILS.sendAjaxlink({
+			orderCode : orderCode
+			
+		}, {
+			url : F6_AJAX_LINK.panier.recommanderTout,
+			send_method : 'POST'
+		}, '', 'F6.UI.recommandAllCallback', '');
+	};
+	
+	F6.AJAX.recommanderMtam = function(param_id , code_order , param_quantity){
+  		// call /cart/addToCartWithAjax
+        F6.UTILS.sendAjaxlink({productCodePost:param_id ,orderCode:code_order ,  qty:param_quantity}, 
+                  {url: F6_AJAX_LINK.panier.recommanderMtam, send_method: 'POST'}, 
+                  '', 
+                  'F6.UI.addToCartCallback',
+                  '');
+      };
+
+	/* znouaoui V3 */
+
+      /*iomari */
+        
+        F6.AJAX.tunnelAchatPanierFacturation = function(param_id){
+	        F6.UTILS.sendAjaxlink({idAddress:param_id}, 
+	                  {url: F6_AJAX_ACTION.achat.panier.facturation,send_method: 'POST'}, 
+	                  '', 
+	                  'F6.UI.tunnelAchatPanierCoordonneesCallback', 
+	                  '');
+		  };  
+      
+	  /*znouaoui V3 */
+      F6.AJAX.tunnelAchatPanierCoordonnees = function(form){
+          F6.UTILS.sendAjaxForm(form, 
+                    {url: F6_AJAX_ACTION.achat.panier.coordonates, send_method: 'POST'}, 
+                    '', 
+                    'F6.UI.tunnelAchatPanierCoordonneesCallback', 
+                    '');
+        };
+     /*znouaoui V3 */
+     F6.AJAX.formLivraisonFacturation = function(form , trigger,isPro) {  
+    	
+    	 var link =   EBK.config.contextPath+"/coordonnees_livraison/ajouter-adresse?isAjax=true&particulier=";
+    	 if(isPro)
+    	 { 
+    		 link =  EBK.config.contextPath+ "/coordonnees_livraison/ajouter-adresse?isAjax=true&professionnel=";
+    	 }
+    	 
+        F6.UTILS.sendAjaxForm(form, { url:link}, '', function(datas){F6.UI.formLivraisonFacturationCallback(datas, trigger);});
+      };
+	      
+	  F6.AJAX.updateMtamCartEntryQuantity = function(param_id , param_quantity){
+	        F6.UTILS.sendAjaxlink({entryNumber:param_id , quantity:param_quantity}, 
+	                  {url: F6_AJAX_LINK.panier.majMtamQuantite, send_method: 'POST'}, 
+	                  '', 
+	                  'F6.UI.updateMtamCartEntryQuantityCallback', 
+	                  '');
+     }; 
+	     
+     F6.AJAX.updateCartEntryQuantity = function(param_id , param_quantity){
+	        F6.UTILS.sendAjaxlink({entryNumber:param_id , quantity:param_quantity}, 
+	                  {url: F6_AJAX_LINK.panier.majQuantite, send_method: 'POST'}, 
+	                  '', 
+	                  'F6.UI.updateCartEntryQuantityCallback', 
+	                  '');
+		  };
+
+    F6.AJAX.showMiniCart = function(){
+        console.log('Fonction déportée dans le fichier suivant: \\env-front\\js\\desktop\\fusion\\cart.js');
+		MiniCart.miniCartCall();
+    };
+
+	  F6.AJAX.getLsStatutFromCsuivi = function(param_orderNum) {
+              F6.UTILS.sendAjaxForm({orderCode:param_orderNum},
+                {url:EBK.config.contextPath+ "/mtel_commandes/ajax-update-LsStatutFromCsuivi?orderCode="+param_orderNum,send_method: 'POST'},
+                '',
+                'F6.UI.callbackCommandesUpdateStatut',
+                '');
+      };
+
+	
+	//wait for PostPayment Page : order with lettre suivie entry
+	  F6.AJAX.getPostPaymentPageAjax = function(orderCode, index)
+	  {
+		  F6.UTILS.sendAjaxlink("neverMind",
+            {url: "/post-payment/ajax-callCsuiviNotification?orderCode="+orderCode + "&index=" + index, send_method: 'POST'}, 
+            '', 
+            'F6.UI.postPaymentPageCallback',
+            '');
+	  };
+	  
+	  F6.AJAX.QuestionnaireInfoAjax = function(){
+		  var labanquepostale = $('input[name=labanquepostale]:checked').val();
+		  var lapostemobile = $('input[name=lapostemobile]:checked').val();
+		     var option = {
+     				type: 'GET',
+     			    url: "/questionnaire-ajax?lbp="+labanquepostale+"&lpm="+lapostemobile,
+     			    cache: false
+     		}
+	        	$.ajax(option);
+		  };
+		 
+      F6.AJAX.deleteColis = function(listColisSelected, nbrColisSelected){
+    	  F6.UTILS.sendAjaxlink({listColisSelected:listColisSelected ,nbrColisSelected:nbrColisSelected}, 
+                    {url: F6_AJAX_LINK.colis.supprimer, send_method: 'POST'}, 
+                    '', 
+                    'F6.UI.deleteColisEnregistres',
+                    '');
+		};
+		F6.AJAX.ccuCallCreateCookie = function(ccuAccessToken, targetUrl, callbackUrl, userType) {
+			console.log("get in F6.AJAX.ccuCallCreateCookie function");		
+			 $.ajax(
+					    {
+					      type: "GET",
+					      url: targetUrl + "?client_id=eboutique&access_token=" + ccuAccessToken + "&callback_url=" + callbackUrl + "&login_url=" 
+					      + callbackUrl + "&usertype=" + userType,
+					      dataType: 'jsonp',
+					      crossDomain: true,
+					      success: function(){
+					           console.log("success F6.AJAX.ccuCallCreateCookie function call");
+					      },
+					      error: function () {
+					             console.log("error F6.AJAX.ccuCallCreateCookie function call");
+					      }
+					    }
+					);
+			};
+			
+			F6.AJAX.ShowConnectedHeader = function () {
+			    $.ajax({
+			           type: 'POST',
+			           url: '/inscription/confirmation/ajaxRefreshPage',
+			           success: function(data){	
+			        	   console.log(data);		
+			        	   F6.UI.callBackShowConnectedHeader(data.data);
+			           },
+			           cache: false,
+			           dataType: "json"
+			         });
+			};
+			F6.AJAX.removeSessionParam_ShowConnectedHeader = function () {
+			    $.ajax({
+			           type: 'POST',
+			           url: '/inscription/confirmation/ajaxCleanSession',
+			           success: function(){			
+//			        	   var success = true;
+			           },
+			           cache: false,
+			           dataType: "json"
+			         });
+			};
+			F6.AJAX.ccuCallRefreshCookie = function (targetUrl, callbackUrl) {
+				console.log("get in F6.AJAX.ccuCallRefreshCookie"); 
+				$.ajax(
+						    {
+						      type: "GET",
+						      url: targetUrl + "?client_id=eboutique&callback_url=" + callbackUrl + "&login_url=" + callbackUrl,
+						      dataType: 'jsonp',
+						      crossDomain: true,
+						      success: function(){
+//						           console.log("success F6.AJAX.ccuCallRefreshCookie call");
+						      },
+						      error: function () {
+//						    	  console.log("error F6.AJAX.ccuCallRefreshCookie call");
+						      }
+						    }
+						);
+			};
+		
+//	F6.AJAX.setupZipcodeAutocomplete = function(){
+//		var labanquepostale = $('input[name=labanquepostale]:checked').val();
+//		var lapostemobile = $('input[name=lapostemobile]:checked').val();
+//		var option = {
+//				type: 'GET',
+//				url: "/questionnaire-ajax?lbp="+labanquepostale+"&lpm="+lapostemobile,
+//				cache: false
+//		}
+//		$.ajax(option);
+//	};
+	
+
+		
+		
+}(jQuery));

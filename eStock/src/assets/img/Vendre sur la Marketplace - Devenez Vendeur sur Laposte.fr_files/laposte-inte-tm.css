@@ -1,0 +1,1053 @@
+.bloc {display:block!important;}
+.noBorder {border:none!important;}
+.outScreen, body #wrapper .outLabel label {left:-9999px; position:absolute;}
+.noMargin {margin:0!important;}
+.noMarginTop {margin-top:0!important;}
+.noFloat {float:none!important;}
+.overflow {overflow:hidden!important;}
+.noPadding {padding:0!important;}
+.clear {clear:both;}
+.indent {overflow:hidden; text-indent:300%; white-space:nowrap;}
+.float-right {float:right;}
+.linkSeo:before {content:""; height:100%; left:0; position:absolute; top:0; width:100%;}
+.full-width{ width: 100%!important; }
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1369 > Harmonisation des opt in
+BTKBACKLOG-1449 > Checkbox formulaire inscription pro et part
+---------------------------------------------------------------- */
+.create-account .blockCompteDoneesInfo .formWrapper .formRowCheck label, .user-account .blockCompteDoneesInfo .formWrapper .formRowCheck label {height:auto; font-weight:400; line-height:1.4; margin-bottom:10px; padding-left:25px; position:relative;}
+.create-account .blockCompteDoneesInfo .formWrapper .formRowCheck label input[type="checkbox"], .user-account .blockCompteDoneesInfo .formWrapper .formRowCheck label input[type="checkbox"] {left:0; position:absolute; top:2px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1390 > Compte client :activation onglet CCU
+Navigation secondaire du dashboard Particulier
+---------------------------------------------------------------- */
+/* Navigation secondaire du dashboard pro et part */
+#menuSecondaire #commandeDash .menuLink, #menuSecondaire #infoDash .menuLink {padding:12px 25px 7px; height:31px;}
+/* subMenu > Icon arrrow */
+#menuSecondaire .icon-submenu {position:absolute; right:10px; top:35px;}
+/* Navigation secondaire du dashboard Particulier */
+.particulier #menuSecondaire #compteDash {width:90px;}
+.particulier #menuSecondaire #favorisDash {width:178px;}
+.particulier #menuSecondaire #commandeDash {width:202px;}
+.particulier #menuSecondaire #infoDash {width:202px;}
+.particulier #menuSecondaire #carnetDash {width:153px;}
+.particulier #menuSecondaire #otherServices {width:138px;}
+
+#menuSecondaire #menuListe .menuItem {height:50px;}
+.particulier #menuSecondaire #compteDash .menuLink {padding:12px 10px 22px; height:16px; text-align:center;}
+#menuSecondaire #favorisDash .menuLink {padding:12px 14px 7px; height:31px;}
+.particulier #menuSecondaire #commandeDash .menuLink {padding:12px 30px 7px; height:31px;}
+.particulier #menuSecondaire #infoDash .menuLink {padding:12px 20px 7px; height:31px;}
+#menuSecondaire #carnetDash .menuLink {padding:12px 20px 7px; height:31px;}
+.particulier #menuSecondaire #carnetDash .menuLink {padding:12px 14px 7px; height:31px;}
+.particulier #menuSecondaire #otherServices .menuLink {padding:12px 14px 7px; height:31px;}
+
+#menuSecondaire #compteDash .menuLink {padding:12px 20px 22px 11px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1386 > LEL LRE :Afficher Telecharger ce modele a l'etape redaction
+BTKBACKLOG-1457 > Inte lien pdf (ou rtf va savoir)
+---------------------------------------------------------------- */
+.lettre-wrapper .notice .pdf {background:transparent url("../images/icons/ico_pop_zoom.png") no-repeat scroll -102px 5px; color:#006397; display:block; padding:5px 0px 0px 30px; position:absolute; right:15px; text-decoration:none; top:10px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1430 > Message BAL mode de depot
+BTKBACKLOG-1471 > integration
+---------------------------------------------------------------- */
+#depot-boite-lettres1-warning {color:#000; display:none; font-weight:bold; font-size:11px;}
+#depot-boite-lettres1-warning img {float:left; height:26px; margin-right:5px;}
+#depot-boite-lettres1-warning span {display:block; overflow:hidden;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1321 > optimisations tableau telechargement (ligne total)
+BTKBACKLOG-1478 > Ajouter HTML (lien tout supprimer + total poids)
+---------------------------------------------------------------- */
+.electronic-letter .step1 .courrier-docs tfoot td, .letter-mail .step1 .courrier-docs tfoot td {color:#000; padding:0.8em 0;}
+.electronic-letter .step1 .courrier-docs tfoot td a, .letter-mail .step1 .courrier-docs tfoot td a {color:#006397;}
+.electronic-letter .step1 .courrier-docs tfoot td:first-child, .letter-mail .step1 .courrier-docs tfoot td:first-child {color:#F00; padding:0.8em 0 0.8em 3em;}
+.electronic-letter .step1 .courrier-docs tbody th#poids, .letter-mail .step1 .courrier-docs tbody th#poids {width:80px;}
+.electronic-letter .step1 .courrier-docs td.last, .electronic-letter .step1 .courrier-docs th.last, .electronic-letter .step1 .courrier-docs td.last a,
+.letter-mail .step1 .courrier-docs td.last, .letter-mail .step1 .courrier-docs th.last, .letter-mail .step1 .courrier-docs td.last a {margin:0 auto; text-align:center;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1537-1578 > label bold
+---------------------------------------------------------------- */
+
+
+.letter-mail .step1 .courrier-docs th.last, .letter-mail .step1 .courrier-docs td.last a {margin:0 auto; text-align:center;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1538 > prix unitaire
+---------------------------------------------------------------- */
+.unitPrice {display:block; font-size:12px; line-height:1;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1676 > [EBOUTIQUE-2342] AM PART - Bug affichage "je confirme que"
+---------------------------------------------------------------- */
+.reshipment .step1 .type-checkbox.checkbox-left label {font-weight:normal; width:calc(100% - 30px);}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1638 > Design des visuels au sein de la zone de farandole de produits
+---------------------------------------------------------------- */
+.farandole-product img {border:none;}
+.farandole-product > span {background:#fff; border:1px solid #C2C2C2; display:table-cell; height:172px; text-align:center; vertical-align:middle; width:220px;}
+.farandole-product > span img.js-lazy{display:inline-block}
+
+
+
+.farandole-product img {
+    cursor: pointer
+}
+
+.farandole-product .product-textcontainer {
+    position: relative;
+    height: 180px;
+    margin-right:15px;
+}
+
+.farandole-product .product-textcontainer .bottom-information {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%
+}
+
+.farandole-product .product-textcontainer .bottom-information > p {
+    margin-bottom: 10px;
+}
+
+.farandole-product .product-textcontainer .bottom-information .product-count {
+    display: flex;
+    justify-content: space-between;
+}
+
+.farandole-product .product-textcontainer .bottom-information span {
+    font-weight: 700;
+    font-size: 1.25rem
+}
+
+.farandole-product .product-text {
+    font-size: .8125rem;
+    line-height: 16px;
+}
+.farandole-product .product-textcontainer .bottom-information p{font-size: 1rem}
+.farandole-product .counter {
+    display: inline-block;
+    border: 1px solid #c2c2c2;
+    background-color: #fff;
+    width: 60px;
+    float: left
+}
+
+.farandole-product .counter input, .farandole-product .counter .actions>div
+{
+    height: 24px;
+    line-height: 24px
+}
+
+.farandole-product .counter, .farandole-product .counter * {
+    box-sizing: border-box;
+}
+
+.farandole-product .counter input {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #c2c2c2;
+    padding: 0;
+    background-color: #EBEBEB;
+    width: 100%;
+    margin: 0;
+    font-weight: normal;
+    font-size: 13px;
+    color: #000;
+}
+
+.farandole-product .counter .actions div {
+    cursor: pointer;
+    width: 50%;
+    font-weight: 700
+}
+
+.farandole-product .counter .actions div.add {
+    border-right: 1px solid #c2c2c2
+}
+
+.bg-light .farandole-product .counter input {
+    background-color: #fff
+}
+
+.bg-light .farandole-product .counter img {
+    border: none
+}
+
+.clear-both {
+    clear: both;
+}
+.list-unstyled {
+    font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.31;
+}
+.list-unstyled + .btn {
+    font-size: 13px;
+}
+.list-unstyled * {
+    box-sizing: border-box;
+}
+.list-unstyled .btn {
+    margin: 0!important;
+}
+@media (min-width: 48em) {
+    .list-unstyled p {
+        font-size: .8125em;
+    }
+}
+.empty-search-page .empty-search-text {
+    padding-top: 40px;
+}
+.empty-search-page .empty-search-text a {
+    text-decoration: underline;
+    color: #5758ff;
+}
+.empty-search-page .empty-search-text a:hover {
+    text-decoration: none;
+}
+.empty-search-page .empty-search-text > * {
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.main-product .tab-pane,
+.empty-search-page .tab-pane {
+    margin: 40px -40px 0;
+    padding: 10px 40px 20px;
+    background: #ebebeb;
+}
+.main-product .tab-pane > h3,
+.empty-search-page .tab-pane > h3 {
+    margin-bottom: 20px;
+    line-height: 1.5em;
+    font-size: 3.5em;
+}
+.empty-search-page .tab-pane > h3 {
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-family: 'DINPro-Bold', sans-serif;
+    font-size: 1.25rem;
+    color: #000000;
+}
+.main-product .tab-pane > .list-unstyled {
+    margin: 0 auto;
+    width: 80%;
+}
+.main-product .tab-pane > .list-unstyled > li {
+    width: 33.33%;
+}
+.main-product .tab-pane > .list-unstyled > li:last-child {
+    display: none;
+}
+
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1694
+---------------------------------------------------------------- */
+form a {text-decoration:underline;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1475 > 2285
+---------------------------------------------------------------- */
+.content.payment {position:relative;}
+#errorObligation.error {max-width:630px; position:static; top:180px; margin-bottom: 10px;}
+#obligationComande label {font-weight:normal; margin-left:10px; width:calc(100% - 30px);}
+#obligationComande input[type="checkbox"] {float:left;}
+
+#formModePaiement .col-left {float:left; width:418px;}
+#formModePaiement .col-left > div {margin:0 0 20px; width:418px;}
+
+#formModePaiement .col-right {float:right;}
+#obligationComande a {color:blue;}
+#obligationComande a:visited {color:purple;}
+#obligationComande a:active {color:red;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2126
+---------------------------------------------------------------- */
+.global-offer .go-container:hover .hover {width:100%;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1966
+---------------------------------------------------------------- */
+#header .layered-nav ul.nav.nav-pills, #header .layered-nav ul.nav.nav-pills > li, #header .layered-nav ul.nav.nav-pills > li > a {box-sizing:border-box!important;}
+#header .layered-nav ul.nav.nav-pills {position:relative;}
+#header .layered-nav ul.nav.nav-pills > li {position:static; height:62px;}
+#header .layered-nav ul.nav.nav-pills > li:last-child {border-right:1px solid #ccc!important;}
+#header .layered-nav ul.nav.nav-pills > li > a {display:table-cell; height:62px; padding:0 15px; -webkit-transition:background-color ease 0.3s; transition:background-color ease 0.3s; vertical-align:middle;}
+#header .layered-nav ul.nav.nav-pills > li:hover {background-color:#fff; transition:background-color ease 0.3s;}
+
+#header .col-sm-3:first-child, #header .col-sm-4:first-child, #header .panel-light {border-left:none;!important;}
+#header .row {margin:0!important;}
+#header .header--actions-default > ul > li.dropdown-submenu > .panel {box-sizing:border-box; max-width:962px!important; min-width:962px!important;}
+#header .layered-nav ul.nav.nav-pills .panel.panel-light {background:#EBEBEB;}
+#header .header--actions-default > ul > li.dropdown-submenu > .panel {background-color:#FFF; border-right:1px solid rgb(204, 204, 204)!important; border-bottom:1px solid rgb(204, 204, 204)!important; border-left:1px solid rgb(204, 204, 204)!important; border-radius:0!important; display:block!important; height:0; left:0!important; margin:0!important; opacity:0; overflow:hidden!important; position:absolute; top:62px!important; z-index:1!important; width:900px!important;}
+#header .header--actions-default > ul > li.dropdown-submenu.on .panel {z-index:2!important;}
+#header .col-sm-3, #header .col-sm-4 {border-right:none!important; border-left:1px solid #ccc; padding-left:15px!important; padding-right:15px!important;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1716
+----------------------------------------------------------------*/
+.alert-warning {background:#c00!important; color:#fff!important; display:block!important; font-weight:bold!important; margin:0 -10px!important; padding:10px!important; text-align:center!important;}
+noscript > * {background:#c00!important; box-sizing:border-box!important; color:#fff!important; display:block!important; font-weight:bold!important; padding:10px!important; text-align:center!important;}
+noscript > iframe, #xiti-logo-noscript {display:none!important;}
+
+#dlbi-colis .panel-table-display.table-xl > .panel-cell {padding:30px 19px;}
+#dlbi-colis .panel-table-display a {font-size:1.167em;}
+#dlbi-colis .dotList li {font-size:1.167em; list-style-type:disc; margin:0 0 5px;}
+#dlbi-colis .colisTypeBlock .colisTypePanel label {text-align:center; height:85px; width:130px;}
+#dlbi-colis .colisTypeBlock .colisTypePanel label img {float:none;}
+#dlbi-colis .colisTypeBlock .colisTypePanel input {float:left;}
+#dlbi-colis .colisTypeBlock .colisTypePanel .infoType {display:none;}
+#dlbi-colis .colisTypeBlock .colisTypePanel input:checked + p + .infoType {display:block;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1612
+----------------------------------------------------------------*/
+#impressionDocument .notice {line-height:1.4;}
+#impressionDocument .notice p {margin:0 0 10px;}
+#impressionDocument .notice ul {margin:0 20px;}
+#impressionDocument .notice li {list-style-type:disc; margin:0 0 5px;}
+#impressionDocument .notice address {margin:20px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2026 > lightbox
+----------------------------------------------------------------*/
+.lgtBox {background:#fff; box-sizing:border-box; display:none; height:750px; left:50%; margin:-230px 0 0 -400px; overflow:visible; padding:10px; position:fixed; top:50%; width:800px; z-index:11000;}
+.lgtBoxOverlay {background:rgba(0,0,0,0.6); cursor:pointer; display:none; height:100%; left:0; position:fixed; top:0; width:100%; z-index:10000;}
+.lgtBoxClose {background:url(/_ui/eboutique/scripts/add-ins/fancybox/fancybox.png) no-repeat -40px 0px; cursor:pointer; height:30px; overflow:hidden; position:absolute; right:-15px; text-indent:300%; top:-15px; white-space:no-wrap; width:30px; z-index:12000;}
+.lgtBox.on, .lgtBoxOverlay.on {display:block;}
+
+/* JIRA 2931 */
+/* old */
+.indemnLgbox {height:350px; font-family:arial, sans-serif, verdana;}
+.indemnLgbox p {font-size:1.5em;}
+.indemnLgbox .title {font-size:1.75em;}
+.indemnLgbox .price {display:block; font-size:1.333em;}
+.indemnLgbox small {font-size:100%;}
+.indemnLgbox ul {font-weight:bold; margin:40px 0 0; text-align:center;}
+.indemnLgbox ul li {background:url(/_ui/eboutique/images/colis-sprite-indemR1_5.png) no-repeat; border-left:1px solid #bbb; box-sizing:border-box; display:inline-block; margin:0 -2px; padding:80px 30px 10px; vertical-align:top; width:154px;}
+.indemnLgbox ul li:first-child {border-left:none;}
+.indemnLgbox ul li.r1 {background-position:45px 10px;}
+.indemnLgbox ul li.r2 {background-position:-215px 10px;}
+.indemnLgbox ul li.r3 {background-position:-475px 10px;}
+.indemnLgbox ul li.r4 {background-position:-735px 10px;}
+.indemnLgbox ul li.r5 {background-position:-995px 10px;}
+
+.indemnLgbox p {font-size:1.5em;}
+.indemnLgbox .price {display:block; font-size:1.333em;}
+.indemnLgbox small {font-size:100%;}
+.indemnLgbox ul {font-weight:bold; margin:40px 0 0; text-align:center;}
+.indemnLgbox ul li {background:url(/_ui/eboutique/images/colis-sprite-indemR1_5.png) no-repeat; border-left:1px solid #bbb; box-sizing:border-box; display:inline-block; margin:0 -2px; padding:80px 30px 10px; vertical-align:top; width:153px;}
+.indemnLgbox ul li:first-child {border-left:none;}
+.indemnLgbox ul li.r1 {background-position:45px 10px;}
+.indemnLgbox ul li.r2 {background-position:-215px 10px;}
+.indemnLgbox ul li.r3 {background-position:-475px 10px;}
+.indemnLgbox ul li.r4 {background-position:-735px 10px;}
+.indemnLgbox ul li.r5 {background-position:-995px 10px;}
+
+.indemnLgbox.adValorem {height:auto;}
+.indemnLgbox.adValorem {height:460px;}
+.indemnLgbox.adValorem ul li {background:none; margin:0 -2px 40px; padding:10px 30px;}
+.indemnLgbox.adValorem .price {background:#fff; border:1px solid #333; border-radius:30px; box-sizing:border-box; height:60px; margin:0 auto 10px; overflow:hidden; padding:15px 0px; width:60px;}
+
+/* new */
+.indemnLgbox.newLgbox {height:auto;}
+.indemnLgbox.newLgbox .title {color:#DC5409; font-size:1.75em; }
+.indemnLgbox.newLgbox table {border:2px solid #DC5409; table-layout:fixed; width:100%;  text-align:center;}
+.indemnLgbox.newLgbox tr, .indemnLgbox td  {border:1px solid #DC5409;}
+.indemnLgbox.newLgbox tr {height:3em; width:33%;}
+.indemnLgbox.newLgbox ul {margin:20px 0;}
+.indemnLgbox.newLgbox ul li {background:none; border-left:none; display:list-item!important; list-style-position:inside; list-style-type:disc; padding:0; text-align:left; width:auto;}
+
+.indemnLgbox.newLgbox thead {background:#DC5409; font-weight:bold; font-size:1.33em; padding:10px;}
+.newLgbox .policePlusGrande {font-size:1.33em;}
+.indemnLgbox.newLgbox thead td {border:1px solid white; font-weight:bold!important;}
+.indemnLgbox.newLgbox td:first-child {font-weight:bold;}
+.indemnLgbox.newLgbox td {vertical-align:middle;}
+.indemnLgbox.newLgbox td:not([rowspan]){font-size:1.1em; font-weight:initial;}
+.indemnLgbox.newLgbox td[rowspan] {font-weight:bold; vertical-align:middle;}
+.indemnLgbox.newLgbox table td:last-child {border:1px solid #DC5409;}
+/* FIN JIRA 2931 */
+#insuredValue {border-radius:20px; margin-left:0; margin-right:10px; text-align:center;}
+#confirm-indemnite-sup {margin:0 5px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2266
+----------------------------------------------------------------*/
+input#poids {border-radius:15px; margin-right:5px; overflow:hidden; text-align:center; width:70px!important;}
+input#poids + label {margin-top:-4px;}
+.panel.panelPoids {position:relative;}
+.panel.panelPoids > img {bottom:10px; position:absolute; right:30px;}
+
+.type-text span.wrapInput.itemInput {background-position:right -1px; padding:0 42px 0 0;}
+.type-text span.wrapInput.itemInputPro {background-position:right -65px; padding:0 42px 0 0;}
+.type-text span.wrapInput.itemInput input, .type-text span.wrapInput.itemInputPro input {display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width:70px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2596
+----------------------------------------------------------------*/
+.container .content {padding:15px 30px;}
+.options-wrap a {word-wrap:break-word;}
+.farandole-product .counter .actions div.add {border-left:1px solid #c2c2c2;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2707
+----------------------------------------------------------------*/
+.tableMyCommands .item-element-type span,.tableMyCommands .item-element-type .productImg {display:inline-block; margin:0 10px 10px 0; vertical-align:middle;}
+.tableMyCommands .item-element-type span {width:305px;}
+.tableMyCommands .item-element-type .productImg {text-align:center; width:70px;}
+.tableMyCommands .item-element-type .productImg img {height:auto; max-width:70px;}
+.banner--autopromo {cursor:pointer;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-1345
+----------------------------------------------------------------*/
+.detail-content .expand-detail-advanced-h3 {background-position:0px 10px; cursor:pointer; padding-bottom:10px; padding-top:10px;}
+.detail-content.expand .expand-detail-advanced-h3 {background:url("../images/icons/ico_accordion_circle_arrows.png") no-repeat scroll 0 -17px;}
+
+.check_code .btn-action-minor span {background:url(../images/btn/transverse_major_right.png) repeat right 0!important; background-size:auto 24px!important; -webkit-background-size:auto 24px!important; line-height:1.7; padding:0 21px 0 0!important; text-align:left;}
+.check_code .btn-action-minor {background:url(../images/btn/transverse_major_left.png) no-repeat scroll 0 0 !important; background-size:auto 24px!important; -webkit-background-size:auto 24px!important; padding:0 0 0 11px!important;}
+
+.mine.professionnel .check_code .btn-action-minor span {background:url(../images/btn/pro-section_major_right.png) repeat right 0!important; background-size:auto 24px!important; -webkit-background-size:auto 24px!important;}
+.professionnel .check_code .btn-action-minor {background:url(../images/btn/pro-section_major_left.png) no-repeat scroll 0 0 !important; background-size:auto 24px!important; -webkit-background-size:auto 24px!important;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2859 > mire de connection
+----------------------------------------------------------------*/
+/* reset */
+.blockMigration .boxMiddle.right .formWrapper #formConnect .blockButton.rightBtn, #wrapper .authentBox span, #wrapper .authentBox div {background:none; border:none; display:block; height:auto; left:auto; overflow:hidden; float:none; margin:0; padding:0; position:relative; top:auto; width:auto;}
+/* placeholder */
+#wrapper .authentBox ::-webkit-input-placeholder {font-style:italic;}
+#wrapper .authentBox :-moz-placeholder {font-style:italic:}
+#wrapper .authentBox ::-moz-placeholder {font-style:italic;}
+#wrapper .authentBox :-ms-input-placeholder {font-style:italic;}
+/* form */
+#wrapper .authentBox {background:#ebebeb; border:none; box-sizing:border-box; display:inline-block; float:none; font-family:Verdana, Arial, Helvetica, sans-serif; height:auto; margin:0 0 20px; padding:30px; vertical-align:top; width:300px;}
+#wrapper .authentBox.authentBoxConnect {width:300px; margin:0 16px 20px 0px;}
+#wrapper .authentBox.authentBoxCreate {width:540px;}
+#wrapper .authentBox h3 {color:#333; font-family:"DINWeb-Bold", Arial, Helvetica, sans-serif; font-size:2em; font-weight:normal; margin:0 0 15px; padding:0; text-align:left; text-transform:uppercase; width:auto;}
+#wrapper .authentBox h4 {font-family:"DINWeb", Arial, Helvetica, sans-serif; font-size:1.917em; font-weight:normal; line-height:1.2;}
+#wrapper .authentBox a:not(#passeOublie) {background:url(../images/form/icon-links.png) no-repeat left 8px; color:#0072b5; display:block; font-size:13px; font-style:normal; padding:5px 0 5px 15px; text-decoration:none;}
+#wrapper .authentBox .on .trigger {background-position:left -13px;}
+#wrapper .authentBox a:hover {text-decoration:underline;}
+#wrapper .authentBox ul {padding:15px 20px 36px;}
+#wrapper .authentBox ul li {font-size:1.333em; list-style-type:square; margin:0 0 10px;}
+#wrapper .authentBox .formRow, #wrapper .authentBox .wrapInput , #wrapper .authentBox .wrapInput span, #wrapper .authentBox div {overflow:visible;}
+
+#wrapper .authentBox label {cursor:pointer;}
+#wrapper .authentBox fieldset > div {margin:0 0 10px;}
+
+#wrapper .authentBox input {background:#fff; border:1px solid #ccc; border-radius:0; box-sizing:border-box; font-size:14px; height:50px; margin:0; padding:10px;}
+#wrapper .authentBox .blockButton input {background:#ffca41; border:none; color:#000; font-size:1.417em; font-weight:bold; padding:0px 40px; transition:background-color ease 0.2s; height:50px; line-height:50px;}
+#wrapper .authentBox .blockButton input:hover {background:#febe00; border-color:#eaaf00; text-decoration:none;}
+#wrapper .authentBox input[type="text"]:focus, #wrapper .authentBox input[type="password"]:focus {border-color:#66afe9; box-shadow:0 0 8px rgba(102,175,233,0.6); outline:none;}
+
+#wrapper .authentBox .blockButton input.inverse{ background-color: transparent; border:2px solid #ffca41; }
+#wrapper .authentBox .blockButton input.inverse:hover{ background-color: rgba(255, 202, 65, 0.2); }
+
+#wrapper .authentBox #formConnect .blockButton {margin-top:52px;}
+
+#wrapper .authentBox.authentBoxConnect input {width:100%;}
+
+#wrapper .authentBox .buttons-row{ display: flex;  justify-content: space-between;  flex-wrap: wrap; margin-bottom: 28px;}
+#wrapper .authentBox .buttons-row .button-cell{}
+#wrapper .authentBox .enable-guest-mode .buttons-row input{font-size: 1.16em;  line-height: 1.16em;     width: 230px !important; padding: 0;}
+
+#wrapper.authenticateInTunnel .authentBox h4{ font-weight: bold; font-size: 1.6em; font-family: "DINWeb-Bold", Arial, Helvetica, sans-serif; }
+
+body #wrapper form > .uniqueChk label {color:#fff; font-weight:normal;}
+body #wrapper .uniqueChk input[type="checkbox"] + input + label {color:#000; font-weight:normal; padding:5px 0 10px 35px; position:relative; text-align:left;}
+body #wrapper .uniqueChk .chkSprite {background:url(../images/form/sprite-chk.png) no-repeat left 0; background-size:20px auto; height:20px; left:0; margin:0 15px 0 0; position:absolute; top:0; vertical-align:middle; width:20px;}
+body #wrapper .uniqueChk input[type="checkbox"]:checked + input + label .chkSprite {background-position:left -50px;}
+body #wrapper .uniqueChk input[type="checkbox"]:focus + input + label .chkSprite {background-position:left -100px;}
+body #wrapper .uniqueChk input[type="checkbox"]:checked:focus + input + label .chkSprite {background-position:left -150px;}
+
+#wrapper .authentBox form span.error {background:url(../images/form/icon-error.png) no-repeat #ee2c0c 10px 6px; background-size:25px auto; color:#fff; display:block; font-size:13px; font-style:normal; font-weight:bold; padding:10px 10px 10px 50px; position:relative; width:auto;}
+#wrapper .authentBox form input.error, #wrapper .authentBox form input:focus.error {border-color:#ee2c0c; color:#333;}
+#wrapper .authentBox form input:focus.error {box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #f77d69;}
+
+/* ----------------------------------------------------------------
+LPELTMAEVOL-120 > Email alreadyExist
+----------------------------------------------------------------*/
+#wrongEmail{ background: none !important; color:#990705 !important; text-align: left !important;padding:0px 0px 0px 0px !important;width: 480px !important; font-weight:normal !important;}
+#passeOublie{color: #990705 !important; font-weight:bold !important;}
+
+#wrapper .authentBox form > span.error {margin:0 0 10px; max-width:100%;}
+
+#wrapper .authentBox form .error-input:focus {border-color:#bd230a; box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #f77d69;}
+
+#wrapper .authentBox .accountCreateForm > div {display:inline-block; vertical-align:top;}
+#wrapper .authentBox .accountCreateForm .inputBlock {margin:0; padding:0;}
+#wrapper .authentBox .accountCreateForm .inputBlock input, #wrapper .authentBox #errorBoxTop2 {width:306px;}
+#wrapper .authentBox .enable-guest-mode #errorBoxTop2 {width:auto;}
+#wrapper .authentBox .accountCreateForm .blockButton {padding:0!important;}
+
+/* Acc */
+#wrapper .authentBox .blockIcons ul {height:0; left:auto; opacity:0; overflow:hidden; padding:0; transition:opacity ease 0.2s;}
+#wrapper .authentBox .blockIcons.on ul {height:auto; opacity:1; padding:20px 0 0;}
+#wrapper .authentBox .blockIcons ul li {display:inline-block; float:none; margin:0 0 10px; padding:0; vertical-align:top; width:157px;}
+#wrapper .authentBox .blockIcons ul li a {background:none; min-height:40px; padding:5px 0 5px 60px; text-align:left; width:auto;}
+
+#wrapper .authentBox .blockIcons ul li a i {background:url(../images/form/icon-links.png) no-repeat 0 0; display:inline-block; height:9px; overflow:hidden; width:11px;}
+
+#wrapper .authentBox .blockIcons.on .acc.trigger {color:#333;}
+.blockMigration .boxMiddle .blockIcons ul li.icon_idn {background:url(../images/icons/picto_idn.gif) no-repeat left top;}
+.blockMigration .boxMiddle .blockIcons ul li.bwt_idn {background:url(../images/icons/logo_bwt.png) no-repeat left top;}
+.blockMigration .boxMiddle .blockIcons ul li.bwt_colis {background:url(../images/form/logo-colis.png) no-repeat left top;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2860 > mire de connection > infos perso
+----------------------------------------------------------------*/
+.inscription .blockMigration, .inscription .blockCompteDonees h1 {float:none; overflow:hidden;}
+.inscription .blockMigration, .inscription .blockCompteDonees h2 {float:none; overflow:hidden;}
+
+#wrapper .laposteForm form {background:#717171; display:block; margin:0 0 30px; overflow:hidden; padding:40px 30px 30px; position:relative;}
+#wrapper .laposteForm form fieldset > legend {color:#fff; font-size:1.5em; font-weight:normal; padding:20px 0; position:absolute; text-transform:uppercase; top:-40px; left:0;}
+#wrapper .laposteForm form > div {display:block; overflow:hidden;}
+#wrapper .laposteForm form fieldset {background:#ebebeb; font-size:1.167em; margin:0 0 40px; padding:30px; position:relative; text-align:left;}
+#wrapper .laposteForm form fieldset > div {margin-bottom:15px;}
+#wrapper .laposteForm form fieldset > p {margin:0 0 20px;}
+#wrapper .laposteForm form fieldset label {cursor:pointer; display:inline-block; margin:0 20px 0 0; padding:15px 0 0; text-align:right; vertical-align:top;}
+#wrapper .laposteForm form input, #wrapper .laposteForm form textarea, #wrap form select, #register-composedAddress {background:#fff; border:1px solid #ccc; border-radius:0; box-shadow:none; outline:none; padding:15px 10px; vertical-align:middle;}
+/*#register-composedAddress{    padding: 8px 10px;   border-radius: 18px; }*/
+form input:focus, form textarea:focus, #wrapper .laposteForm form select:focus {border-color:#66afe9; box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); outline:0;}
+
+#wrapper .laposteForm form fieldset label {text-align:right; width:250px;}
+
+#wrapper .laposteForm form textarea {height:100px;}
+#wrapper .laposteForm form select {width:100%;}
+#wrapper .laposteForm form .button {cursor:pointer; transition:background ease 0.2s, border-color ease 0.2s; width:auto;}
+
+#wrapper .laposteForm form .button {background:#ffca41; border:1px solid #f4b700; border-radius:3px; display:inline-block; font-family:verdana; font-size:1.167em; font-weight:bold; margin:10px 0; overflow:hidden; padding:15px 30px; text-align:center; text-decoration:none; vertical-align:top;}
+#wrapper .laposteForm form .button:hover {background:#febe00; border-color:#eaaf00; text-decoration:none;}
+
+#wrapper .laposteForm form .button.grey {background:#f4f4f4; border:1px solid #ccc;}
+#wrapper .laposteForm form .button.grey:hover {background:#eee;}
+
+#wrapper .laposteForm form .button:disabled, .disabled, .disabled:hover {background:#fcfcfc; border:1px solid #bbb; color:#999; cursor:not-allowed;}
+
+
+#wrapper .laposteForm.withRightCol {width:500px;}
+
+/* Btn Help */
+.authentHelp .btn-help a, .authentHelp .btn-help a span {background:none!important; color:#333; font-size:1.167em; font-weight:normal; padding:0; text-decoration:none!important;}
+.authentHelp .btn-help a:hover span {text-decoration:underline!important;}
+.authentHelp .btn-help a:after {content:"?"; display:inline-block; font-family:'posticons',Verdana,Tahoma,Helvetica,Arial,sans-serif; font-size:35px; font-style:normal; font-weight:400; font-variant:normal; line-height:1; padding-left:5px; position:relative; text-decoration:none!important; text-transform:none; top:-1px; vertical-align:middle; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+
+/* Radio */
+#wrapper .laposteForm span.wrapInput, #wrapper .laposteForm .formRow.text-input + p {box-sizing:border-box; display:inline-block; margin:0 0 0 18px; width:450px;}
+#wrapper .laposteForm form input[type="text"],#wrapper .laposteForm form input[type="password"] {width:100%; box-sizing:border-box;}
+#wrapper .laposteForm input:focus {border-color:#66afe9; box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); outline:0;}
+#wrapper .laposteForm .divRadio {display:inline-block; margin:0 0 10px 18px;}
+#wrapper .laposteForm .divRadio label {background:url(../images/form/sprite-radio.png) no-repeat 0 0; background-size:20px auto; padding:5px 0 5px 30px; width:auto;}
+#wrapper .laposteForm .divRadio input:checked + label {background-position:0 -40px;}
+#wrapper .laposteForm .divRadio input:focus + label {background-position:0 -80px;}
+#wrapper .laposteForm .divRadio input:checked:focus + label {background-position:0 -120px;}
+#wrapper .laposteForm .formRow.text-input + p {float:right;margin:5px 0 0;}
+
+/* Unique checkbox */
+#wrapper .laposteForm .uniqueChk input {left:-9999px; position:absolute;}
+#wrapper .laposteForm .uniqueChk label {background:url(../images/form/sprite-chk.png) no-repeat 0 0; background-size:20px auto; padding:5px 0 5px 30px;}
+#wrapper .laposteForm .uniqueChk label.on {background-position:0 -50px;}
+#wrapper .laposteForm .uniqueChk label:focus {background-position:0 -100px;}
+#wrapper .laposteForm .uniqueChk label.on:focus {background-position:0 -150px;}
+#wrapper .laposteForm .blockCompteDoneesInfo2 {margin:20px 0 0;}
+
+/* Error */
+#wrapper .laposteForm label.error-contener {background:url(../images/form/icon-error.png) no-repeat #ee2c0c 10px 6px; background-size:25px auto; color:#fff; display:block!important; font-size:13px; font-style:normal; font-weight:bold; padding:10px 10px 10px 50px; position:relative; text-align:left; width:270px;}
+
+#wrapper .laposteForm .civilityLabel {padding-top:5px;}
+#wrapper .laposteForm .divRadio.radio1 + li {float:right; margin-bottom:10px; overflow:hidden; width:200px;}
+
+#wrapper .laposteForm .uniqueChk > li label {width:100%;}
+
+#wrapper .laposteForm .error-contener {border-color:#bd230a!important;}
+#wrapper .laposteForm .error-contener:focus {box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #f77d69;}
+
+#wrapper .laposteForm .champs {color:#fff; position:absolute; right:30px; text-align:right; top:32px;}
+
+/* Submit */
+#wrapper .laposteForm #registerPartForm .button {float:right;}
+
+#wrapper .laposteForm  #serverErrorBox {font-weight:bold; margin-bottom:30px; padding:0;}
+#wrapper .laposteForm  #serverErrorBox label {background:#f00; color:#fff; padding:5px;}
+
+#wrapper .laposteForm  input[type="password"], #wrapper .laposteForm  input.password {color:#777; font-size:14px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2880 > Feature-OptimAuthent
+----------------------------------------------------------------*/
+.msgAjouterAdresseSiAucune {font-size:1.2em;}
+.msgSavedAddressNotif {font-size:1.3em; margin-bottom:20px}
+.professionnel .check_code .btn-action-minor span {background:url(../images/btn/pro-section_major_right.png) repeat right 0!important; background-size:auto 24px!important; -webkit-background-size:auto 24px!important;}
+.professionnel .check_code .btn-action-minor {background:url(../images/btn/pro-section_major_left.png) no-repeat scroll 0 0 !important; background-size:auto 24px!important; -webkit-background-size:auto 24px!important;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2381
+----------------------------------------------------------------*/
+.bannerEvent {display:block; margin:10px auto; overflow:hidden;}
+.bannerEvent p {font-size:1.333em; line-height:1.5; margin:0 0 30px;}
+
+.titleEvent {margin:0 auto 20px; min-height:110px; position:relative;}
+.titleEvent img {height:auto; width:100%; z-index:1;}
+.titleEvent h2 {font-weight:700;}
+.titleEvent p {font-weight:700;}
+.txtEvent {color:#fff; left:0; padding:20px 5px 0; position:absolute; top:0; z-index:2;}
+
+.bannerEvent > p {font-size:1.5em;}
+.bannerEvent h3 {margin:0 0 10px; text-transform:uppercase;}
+.servicesEvent .col-md-4, .servicesEvent .col-md-4 .banner__wrapper.light.half {box-sizing:border-box;}
+.servicesEvent .col-md-4 .banner__wrapper.light.half h2.h1.banner__title.space-mbm {font-size:1.833em; line-height:1.1; margin-bottom:10px!important;}
+.bannerEvent .servicesEvent p {font-weight:normal; margin:0;}
+.bannerEvent .col-md-4 .banner.banner--autopromo .btn {font-weight:800; font-size:1.333em; margin:10px 0;}
+
+.servicesEvent .col-md-4 {margin:0 5px; padding:0; width:287px;}
+.servicesEvent .col-md-4:first-child {margin-left:0;}
+.servicesEvent .col-md-4:last-child {margin-right:0;}
+.servicesEvent .col-md-4 img {height:auto; width:100%;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-3365
+----------------------------------------------------------------*/
+.scrollList {height:200px; overflow-y:scroll;}
+.scrollList > div {display:inline-block; margin-bottom:10px; width:100%;}
+.scrollList img {float:left; height:auto; margin:0 10px 0 0; width:120px;}
+
+.indispo {display:block; color:red; font-size:12px; font-weight:bold; margin:0;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2
+----------------------------------------------------------------*/
+.US-2879 {color:#000; font-size:1.4em; padding:0 0 0 10px;}
+
+.stamps-online .step .step-list.logo .last span {position:relative!important; width:189px;}
+.stamps-online .step .step-list.logo .last.selected span {width:208px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4071
+----------------------------------------------------------------*/
+
+#wrapper .authentBox #errorBoxTop2 {color:#ee2c0c; font-size:13px; font-style:italic; font-weight:bold; margin:5px 0 5px 0;}
+.popupPanel p{font-weight:bold; font-size:1.4em;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-3357
+----------------------------------------------------------------*/
+.label_suite {cursor:pointer; }
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-3458
+----------------------------------------------------------------*/
+#panierPopin .visual {float:left; margin-right:10px; text-align:center; width:120px;}
+#panierPopin .visual img {height:auto; width:auto; max-width:100%;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-3393
+----------------------------------------------------------------*/
+.atp-moyen-bloc .banner.banner--autopromo p {width:100%!important;}
+/*.atp-petit-bloc-haut .banner.banner--autopromo p, .atp-petit-bloc-bac .banner.banner--autopromo p {width:100%!important;}*/
+
+#wrapper .authentBox #errorBoxTop2 {color:#ee2c0c; font-size:13px; font-style:italic; font-weight:bold; margin:0px 0 10px 0;}
+#wrapper .authentBox #errorBoxTop2 .errorMail {margin:5px 0 5px 0;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-3637 // BTKBACKLOG-11044
+----------------------------------------------------------------*/
+#fancybox-content > div > div {height:auto!important;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4118
+----------------------------------------------------------------*/
+.deliveryAddress {margin-right:36px!important;}
+.transverse .step3.coordenees .billingAddress {margin-left:0!important;}
+.transverse .step3.coordenees .billingAddress > div, .transverse .step3.coordenees .deliveryAddress > div {border-radius:15px; overflow:hidden;}
+.container-footer {background:#fff; padding:20px 0;}
+.container-footer .main {margin:-10px auto 0 auto; padding-bottom:10px; position:relative; width:964px;}
+
+.container-footer p {font-family:Verdana, Tahoma, Helvetica, Arial, sans-serif !important; font-size:13px!important;}
+.container-footer .h4.icon-bloc__description {font-family:"DINWeb-Bold", "Trebuchet MS", "Myriad Pro", sans-serif !important; font-size:17px!important; font-weight:bold!important;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-2894
+----------------------------------------------------------------*/
+.transverse .step-list a span, .transverse .identified .step-list span {padding-left:0!important;}
+/*.transverse .step-list .step2 span {padding:23px 0 0 22px;}*/
+.transverse .identified .step-list em {padding:27px 17px 0;}
+
+.transverse .logged .step-list .step1 span,
+.transverse .logged .step-list .step2 span,
+.transverse .logged .step-list .step3 span,
+.transverse .logged .step-list .step4 span,
+.transverse .step-list .step1 span,
+.transverse .step-list .step2 span,
+.transverse .step-list .step3 span,
+.transverse .step-list .step4 span
+{padding: 23px 0 0 0; width: inherit;}
+/* ----------------------------------------------------------------
+BTKBACKLOG-2699
+----------------------------------------------------------------*/
+.services-result .banner {display:inline-block; height:180px; margin:10px 0 0; overflow:hidden; vertical-align:top; width:285px;}
+.services-result .banner + .banner {margin:10px 10px 0;}
+.services-result .banner + .banner + .banner {margin:10px 0 0;}
+.services-result .banner figure img {height:auto; width:100%;}
+.services-result .banner .banner__wrapper {padding:15px; width:auto;}
+.services-result .banner .h1.banner__title {font-size:20px; line-height:1;}
+.services-result .banner__desc, .services-result .btn {font-family:Verdana,Tahoma,Helvetica,Arial,sans-serif; font-size:13px; line-height:1.2; margin:0 0 10px;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-3909 > 4347
+----------------------------------------------------------------*/
+.blockCompteDoneesInfo2.bottom.uniqueChk > div {color:#fff; margin:15px 0 10px 0;}
+.blockCompteDoneesInfo2.bottom.uniqueChk > div p:last-child {margin:10px 0 0 0}
+.uniqueChk label {font-size:15px!important;}
+.blockCompteDoneesInfo2.bottom.uniqueChk p {font-size:13px; line-height:1.2;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-3989
+----------------------------------------------------------------*/
+.step.lrtel {background:none; margin:0 0 30px; padding:0;}
+.step.lrtel .step-list {background-color:#F5F5F2; border-radius:5px; display:inline-block; width:100%;}
+.step.lrtel .step-list li {box-sizing:border-box; width:20%; border-radius:5px;}
+.step.lrtel .step-list .first {text-align:center;}
+
+#LelStep3Recap h3 {margin:0 0 10px 0;}
+#LelStep3Recap, .block-bg-corner.blockExpediteur {border-radius:5px;}
+#LelStep3Recap, .block-bg-corner.blockExpediteur .btn-action-minor.vr_popin_open.connect-and-save {margin:0 0 0 10px;}
+#LelStep3Recap .messageInfo, .block-bg-corner.blockExpediteur .messageInfo, .block-bg-corner.blockExpediteur p {font-size:13px!important;}
+#LelStep3Recap .myaddress {padding:0; margin:10px 0 10px 0;}
+#LelStep3Recap .blockButtons, #LelStep3Recap .blockButtons .add-block-btn {padding-bottom:0;}
+#LelStep3Recap .messageInfo + .blockButtons .btn-rgt {float:none; text-align:left;}
+#LelStep3Recap .blockButtons .add-block-btn {display:inline-block; margin-right:10px;}
+#LelStep3Recap .defaultSize, .options-wrap.lrtelParticulier .defaultSize {font-size:1.167em; margin:10px 0;}
+#LelStep3Recap .exp.error.actived, #LelStep3Recap .dest.error.actived, .options-wrap.lrtelParticulier .exp.error.actived {margin:10px 0 10px 0;}
+#LelStep3Recap ol.page-step {position:relative;}
+#LelStep3Recap ol li:first-child {margin:0 0 0 0;}
+#LelStep3Recap .addrSave {font-size:1.167em; margin:0 0 10px 0;}
+#LelStep3Recap p.legend {padding:0; position:absolute; right:0; top:10px;}
+
+.errorGlobale.actived {background-image:url(/_ui/eboutique/images/icons/icon-alert.png); background-repeat:no-repeat; color:red; display:inline-block; font-size:12px; font-weight:bold; line-height:1.2em; margin:14px 0 0 0; min-height:29px; padding-left:35px; vertical-align:middle;}
+.letter-mail .destinataires-resume-block {float:right; margin:0 0 0 0;}
+
+.options-wrap.lrtelParticulier {margin:44px 20px 0 0; position:relative;}
+.options-wrap.lrtelParticulier h3 {margin:0 0 10px 0;}
+.options-wrap.lrtelParticulier .messageInfo, .options-wrap.lrtelParticulier p, .exp.expeditionSelectedAddressId {font-size:1.4em; }
+.options-wrap.lrtelParticulier .blockButtons .add-block-btn {display:inline-block; margin-right:10px;}
+.options-wrap.lrtelParticulier p.legend {position:absolute; top:0; right:0;}
+.content.step3 .lrtelDestinatiare {margin:37px 0 0 0;}
+.content.step3 .lrtelDestinatiare .block-bg-corner.filled {position:relative;}
+.lrtelDestinatiare .legend {text-align:right;}
+.lrtelDestinatiare .defaultSize {font-size:13px; margin:10px 0;}
+.lrtelDestinatiare .blockExpediteur .add-block-btn {display:inline-block; margin-right:15px;}
+#formAddressProfessionnel .type-text span span {padding-bottom:5px;}
+
+.content.step3  #lrel-saise-email-part input[type="text"] { margin:0;}
+.content.step3  .options-wrap.lrtelParticulier .messageInfo, .options-wrap.lrtelParticulier p { font-size:1.167em; margin:10px 0 10px 0;}
+.content.step3 #inserer-votre-adresse {margin:0 0 0 0px;}
+
+#formAddressSingleParticulier input[type="text"], #lrel-saise-email-pro input[type="text"]  { height:23px;}
+
+#errorMessageExpediteur {font-size:1.4em;}
+
+.popupWrap.popinExp #errorMessageExpediteurP {font-size:1.167em; margin:10px 0 10px 0;}
+.popupWrap.popinExp .blockPopin .formContent a {clear:both; float:left; margin-left:10px;}
+
+.content.step3 .block-border-corner.destinataires-resume-block.lreColStep3 {margin:28px 0 0 0;}
+.content.step3 .block-border-corner.destinataires-resume-block.lreColEtp3 {margin:72px 0 0 0;}
+.link-tarifs.link-tarifsStep3 {margin:20px 0 0 0;}
+.link-tarifs.link-tarifsEtp3 {margin:20px 0 0 0;}
+
+.popupWrap.popup_lrel_connexion .btn-connexion {background:url(../images/letter-mail_major_left.png) repeat-y 0 0; color:#363636; cursor:pointer; display:inline-block; padding:0 0 0 24px; height:50px; text-decoration:none;}
+.popupWrap.popup_lrel_connexion .btn-connexion {background:url(../images/btn/letter-mail_major_left.png) repeat-y 0 0; color:#363636; cursor:pointer; display:inline-block; padding:0 0 0 24px;height:50px; text-decoration:none; margin:0;}
+.popupWrap.popup_lrel_connexion .btn-connexion span {background:url(../images/btn/letter-mail_major_right.png) repeat right 0; height:auto; padding:17px 42px 18px 0; border:0;color:#FFF;cursor:pointer; display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:1.6em; font-weight:700; margin:0;}
+.popupWrap.popup_lrel_connexion.btn-connexion {background:url(../images/btn/letter-mail_major_left.png) repeat-y 0 0; color:#363636; cursor:pointer; display:inline-block; padding:0 0 0 24px; height:50px; text-decoration:none; margin:0;}
+.popupWrap.popup_lrel_connexion .btn-rgt {margin:0;}
+.popupWrap.popup_lrel_connexion {width:380px;}
+
+.expediteur.particulier .addressBookTab .btn-footer {padding:0;}
+
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4013
+----------------------------------------------------------------*/
+.stamps-online .tabs li a.disabled {cursor:not-allowed; padding:11px 0; width:264px;}
+/* ----------------------------------------------------------------
+BTKBACKLOG-4262
+----------------------------------------------------------------*/
+.transversePro .step3.coordenees .billingAddress {margin-left:0;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4525
+----------------------------------------------------------------*/
+.content .title3-container .link-tarifs {bottom:0 !important; font: 1.3em Arial, Helvetica, sans-serif; margin:0; min-width: 10px; padding: 0; position: absolute; right: 0; top:0 !important;}
+.block-border-corner.destinataires-resume-block.coldLrelPro {margin: 20px 0 0 0;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4529
+----------------------------------------------------------------*/
+#formAddressSingleProfessionnel #emailPro, #formAddressSingleProfessionnel #raisonSocialePro {margin:0;}
+
+
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4955
+----------------------------------------------------------------*/
+#tableServiceItems.tableMyCommands.pro {margin-top:-16px}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4705
+----------------------------------------------------------------*/
+#grilleMtamDiv .hover.bg-brand-default p {font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.31;}
+#grilleMtamDiv .offer-textcontainer a {color: #000000; font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif; text-decoration:none;}
+#grilleMtamDiv .go-price {font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;}
+#grilleMtamDiv .buttons-container {text-align:center; padding:0;}
+#grilleMtamDiv .btn.btn-xs.btn-default.btn-fullwidth.space-mbxs {font-size:13px; font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif; font-weight:bold; padding:14px 19px 14px 19px; margin:0 auto; text-decoration:none; width:190px; }
+#grilleMtamDiv .btn.btn-xs.btn-default.btn-fullwidth.space-mbxs:hover {text-decoration: underline;}
+#grilleMtamDiv {text-align:center;}
+#grilleMtamDiv li {display:inline-block; float:none; margin:0 -4px; text-align:left; vertical-align:top;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-4999
+----------------------------------------------------------------*/
+.Globalgauche {box-sizing: border-box; display:inline-block; overflow:hidden; margin:0; padding:0; position:relative; vertical-align:top; width:460px;}
+.Globalgauche:nth-child(even) {left:-10px;}
+.Globalgauche:nth-child(odd) {margin-left:10px;}
+.Globalgauche .GlobalgauchePTitle {font-size:15px; font-weight:bold;}
+.Globalgauche div:first-child {height:320px; overflow:hidden; padding:30px; box-sizing: border-box;}
+.Globalgauche .banner__wrapper.light.half {padding:30px;}
+.Globalgauche figure img {bottom:10px; height:180px; position:absolute; right:10px; width:270px;}
+.Globalgauche .h1.banner__title.space-mbm a {font-size:28px;}
+.Globalgauche .h1.banner__title.space-mbm a:hover{ text-decoration:underline;}
+.Globalgauche .banner.banner--autopromo.banner--medium-lg p {padding: 0 0 20px 0; width:200px;font-size:14px;}
+.Globalgauche .h1.banner__title.space-mbm {line-height:0.833;}
+.contractLink {display:block; margin:5px 0 5px 0;}
+.contractLink a {background: url(../images/form/icon-links.png) no-repeat left 8px; color: #0072b5; display: block; font-size: 13px; font-style: normal; padding: 5px 0 5px 15px; max-height:22px; text-decoration:none;}
+.contractLink a:hover {text-decoration:underline;}
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-5175
+----------------------------------------------------------------*/
+.farandole-product .product-textcontainer {height: 206px;}
+.product-textcontainer.space-mtm .error {margin-top:5px;}
+[id^="maxOrderQtMssg"] {color: #f00; font-size: 13px; display: block; margin-bottom: 10px;}
+.product-buy [id^="maxOrderQtMssg"] {margin-bottom: 20px;}
+
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-5297
+----------------------------------------------------------------*/
+.blockMigrationPro {border-radius:6px; overflow:hidden;width:860px; margin: 40px 0px 0px 0px;}
+.inscription .blockMigrationPro .etapesPro{ background:#7a3869 !important; }
+.blockMigrationPro .etapesPro .infoBlock { background:url(../images/icons/icon-error.png) no-repeat 15px center;  background-size:30px auto;min-height: 40px; padding: 18px 0 0 60px; }
+.blockMigrationPro .etapesPro .infoBlock p{ color : #ffffff; font-size: 1.2em; word-spacing: 5px; }
+
+
+
+
+
+/* ----------------------------------------------------------------
+BTKBACKLOG-5550
+----------------------------------------------------------------*/
+#app #formModePaiement .form > dl dd .selector {margin-left:1px; width:397px;}
+#app #formModePaiement .form > dl dd .selector span, #app #formModePaiement .form > dl dd .selector select {width:352px;}
+#app #formModePaiement #infoCB .form label {font-size:1.1em; margin-bottom:10px;}
+#app #formModePaiement #infoCB .form select {font-size:1.2em; margin:0 5px 0 5px; width:400px;}
+#app #formModePaiement #infoCB .form dt {background:#f5f5f2;}
+#app #formModePaiement .form fieldset {padding:0 !important; margin:0!important;}
+#app #formModePaiement .form .payment-delivery-adress .block-bg-invert {padding:10px 20px 10px 20px!important;}
+#app #formModePaiement .form .payment-delivery-adress .block-bg-invert .confirmSuppression {margin:-20px!important;}
+
+#app .infoCards {display:block; float:none; overflow:hidden;}
+#app .infoCards li {display:block; font-size:12px; padding:0 0 3px; text-align:left; width:auto;}
+#app .infoCards li span {float:left; width:130px;}
+#app .infoCards li img {display:inline-block; margin:0 0 -10px 0; text-align:left;}
+
+#app #formModePaiement .form .payment-delivery-adress {padding:5px 0 0 0; /* width:300px; */}
+#app #formModePaiement .form .alertConfirm {font-size:14px; line-height:30px; padding:0px 20px 0px 20px;}
+#app #formModePaiement .form .ouiButton, .nonButton {cursor:pointer; display:inline-block; left:-35px; margin:0 10px 0 0; position:relative; vertical-align:top;}
+#app #formModePaiement .form .adress-content {line-height:1.2em; line-height:20px;}
+#app #formModePaiement fieldset .radioPayment {float:left; margin:5px 10px 0 15px; padding:0 !important;}
+#app #formModePaiement fieldset .radioPayment1 {float:left; margin:5px 10px 0 -16px; padding:0 !important;}
+#app #formModePaiement .form fieldset .adress-line {font-size:1.2em; line-height:16px;}
+#app #formModePaiement .form fieldset .adress-line0 {font-size:1.2em; line-height:6px;}
+#app #formModePaiement .form fieldset .adress-line1 {font-size:1.1em; line-height:5px; margin-top:5px;}
+#app #formModePaiement .block-bg-invert .deleteCard {color:#006397; font-size:1.3em; float:right; margin:20px 10px 0 0; line-height:40px; text-decoration:none;}
+#app #formModePaiement .block-bg-invert a.deleteCard:hover {text-decoration:underline;}
+#app #formModePaiement .infoCard {display:block; font-size:1.2em; margin-left:120px;}
+#app #formModePaiement #uniform-undefined span {font-size:1.2em;}
+#app #formModePaiement .ouiButton .btn-send.confirm-choice {background-size:auto 30px; font-size:12px; height: 30px; overflow:hidden; padding-left:14px; width:50px;}
+#app #formModePaiement .ouiButton .btn-send.confirm-choice .jqidefaultbutton {background-position:-191px 0; background-size:auto 30px; font-size:15px!important; height:30px;line-height:15px; padding-left:3px;}
+#app #formModePaiement .nonButton .btn-dir-cancel .jqiDeletebuttontitle {background-size:auto 30px; font-size:15px; height:30px; overflow:hidden; padding:0; width:40px;line-height:30px; padding-left:5px;}
+#app #formModePaiement .nonButton .btn-dir-cancel {background-position:16px 0!important; background-size: auto 30px!important; font-size:14px!important; height:30px; line-height:1.8em; margin-left:18px;}
+#app #formModePaiement .btn-dir-cancel span {background: url(../images/btn/cancel_right.png) repeat right 0; border: 0; color: #FFF; cursor: pointer; display: inline-block; font-family: Arial,Helvetica,sans-serif; font-size: 1.6em; font-weight: 700; margin: 0; padding: 14px 19px 15px 8px; height: 50px;}
+#app #formModePaiement .btn-send span {background:url(../images/btn/transverse_major_right.png) repeat right 0; border:0; color:#FFF; cursor:pointer; display:inline-block; font-family:Arial, Helvetica, sans-serif; font-size:1.6em; font-weight:700; margin:0; padding:7px 20px 15px 8px;}
+#app #formModePaiement .block-bg-invert .infoCards li:nth-child(1) {line-height:30px;}
+#app #formModePaiement div.otherCardOption {background:#F5F5F2; padding-top:10px;}
+#app .contentBg #infoReglemnetOneClick h3 {font-size:1.7em; margin:50px 0 0 0;}
+#app .contentBg #infoReglemnetOneClick p {font-size:1.5em!important; line-height:1.6em; margin:10px 0 0 0;}
+.professionnel #app #formModePaiement .btn-send span {background:url(../images/btn/pro-section_major_right.png) repeat right 0;}
+
+/* Gestion Images Cartes Bancaires */
+#app #formModePaiement #infoCB .visa {background: url(../images/media/visaSelect.png) no-repeat; width:30px; height:19px;}
+#app #formModePaiement #infoCB .mastercard {background:url(../images/media/mastercardSelect.png) no-repeat; width:30px; height:19px;}
+#app #formModePaiement #infoCB .cartebleue {background:url(../images/media/cartebleueSelect.png) no-repeat; width:30px; height:19px;}
+
+/* INFOS */
+#mega {
+    font-size: 0.8125em;
+    margin-bottom: 20px;
+    padding: 10px;
+    position: relative;
+}
+#mega figure {
+    display: table-cell;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+#mega .content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.align-center {
+    text-align: center;
+}
+
+/* Affichage des blocs information CN23  */
+.info_cn23 {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    padding: 8px 6px;
+    background-color: #85b1b2;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.info_cn23.small {
+    padding: 2px;
+    margin-bottom: 20px;
+}
+
+.info_cn23.info_center {
+    align-items: center;
+}
+
+.info_cn23 img {
+    width: 102px;
+    padding: 10px 18px;
+}
+
+.info_cn23.small img {
+    width: 86px;
+    padding: 12px;
+}
+
+.info_cn23__text {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    padding: 6px 18px;
+    align-self: center;
+}
+
+.info_cn23.small .info_cn23__text {
+    padding: 8px 12px;
+}
+
+.info_cn23__text .title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.info_cn23__text a {
+    color: #20458f;
+}
+
+.info_cn23__text a.link-arrow {
+    position: relative;
+    display: inline-block;
+    padding: 8px 13px 0 13px;
+}
+
+.info_cn23__text a.link-arrow i {
+    position: absolute;
+    top: 13px;
+    left: 0;
+    font-size: 11px;
+    line-height: 11px;
+}
+
+/********* MODE GUEST***************/
+/*authentification bloc*/
+#formCree .formRow.accountCreateForm .blockButton.blockButtonWidth.bloc{
+    margin-top: 10px;
+}
+
+/*case à cocher dans options de communication*/
+#communicationModeGuest label {margin-left:10px;margin-bottom: 5px; width:calc(100% - 30px);}
+#communicationModeGuest input[type="checkbox"] {float:left;}
+
+/*Push Mail de confirmation de commande*/
+#wrapper .laposteForm form#registerPartForm  fieldset > div{
+    clear: both;
+}
+/*#wrapper .laposteForm form#registerPartForm fieldset{*/
+/*    padding-right: 53px;*/
+/*}*/
+#wrapper .laposteForm form#registerPartForm .formRow.text-input fieldset,
+#wrapper .laposteForm form#registerPartForm .overflow fieldset,
+#wrapper .laposteForm form#registerPartForm .overflow +div fieldset {
+    direction: rtl;
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper .laposteForm form#registerPartForm .formRow.text-input fieldset input,
+#wrapper .laposteForm form#registerPartForm .overflow fieldset input,
+#wrapper .laposteForm form#registerPartForm .overflow + div fieldset input{
+    direction: ltr;
+    width: 450px;
+}
+#wrapper .laposteForm form#registerPartForm .formRow.text-input fieldset label,
+#wrapper .laposteForm form#registerPartForm .overflow fieldset label,
+#wrapper .laposteForm form#registerPartForm .overflow + div fieldset label{
+    direction: ltr;
+    }
+#wrapper .laposteForm form#registerPartForm .formRow.text-input,
+#wrapper .laposteForm form#registerPartForm .overflow,
+#wrapper .laposteForm form#registerPartForm .overflow + div
+{
+    padding-top: 10px;
+}
+#wrapper .laposteForm form#registerPartForm span.wrapInput,
+#wrapper .laposteForm form#registerPartForm .overflow p.right{
+    margin: 0;
+    width: 446px;
+    float: right;
+}
+
+#wrapper .laposteForm form#registerPartForm .formRow.text-input fieldset + li,
+#wrapper .laposteForm form#registerPartForm .overflow fieldset + li,
+#wrapper .laposteForm form#registerPartForm .overflow + div fieldset + li{
+    float: right;
+    width: 450px
+}
+#wrapper .laposteForm form#registerPartForm label.error-contener{
+    width: 100%;
+    box-sizing: border-box;
+}
+/*********END MODE GUEST***************/

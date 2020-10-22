@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.projet.stock.exception.ResourceNotFoundException;
 import com.projet.stock.model.Lb1016;
-
+import com.projet.stock.model.Lcomm;
 import com.projet.stock.repository.Lb1016Repository;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,30 +29,36 @@ public class Lb1016Controller {
 	@Autowired
 	Lb1016Repository repository;
 	
-	 @GetMapping("/Lb1016s")
+	 @GetMapping("/lb1016s")
 	  public List<Lb1016> getAllLb1016s() {
 	    System.out.println("Get all Lb1016s...");
 	    List<Lb1016> Lb1016s = new ArrayList<>();
 	    repository.findAll().forEach(Lb1016s::add);
 	    return Lb1016s;
 	  }
+	 
+	 @GetMapping("/lb1016s/{numero}")
+	  public List<Lb1016> getAllByNumero(@PathVariable(value = "numero") int numero) {
+	    System.out.println("Get all Lb1016...");
+	 
+	    List<Lb1016> Lb1016s = new ArrayList<>();
+	    repository.findAllByNumero(numero).forEach(Lb1016s::add);
+	 
+	    return Lb1016s;
+	  }
+	 
+	 
 	
-	@GetMapping("/Lb1016s/{id}")
-	public ResponseEntity<Lb1016> getLb1016ById(@PathVariable(value = "id") Long Lb1016Id)
-			throws ResourceNotFoundException {
-		Lb1016 Lb1016 = repository.findById(Lb1016Id)
-				.orElseThrow(() -> new ResourceNotFoundException("Lb1016 not found for this id :: " + Lb1016Id));
-		return ResponseEntity.ok().body(Lb1016);
-	}
+	
 
-	@PostMapping("/Lb1016s")
+	@PostMapping("/lb1016s")
 	public @Valid Lb1016 createLb1016(@Valid @RequestBody Lb1016 Lb1016) {
 		
 		return repository.save(Lb1016);
 		 
 	}
 
-	@DeleteMapping("/Lb1016s/{id}")
+	@DeleteMapping("/lb1016s/{id}")
 	public Map<String, Boolean> deleteLb1016(@PathVariable(value = "id") Long Lb1016Id)
 			throws ResourceNotFoundException {
 		Lb1016 Lb1016 = repository.findById(Lb1016Id)
@@ -63,7 +69,7 @@ public class Lb1016Controller {
 		return response;
 	}
 	 
-	  @DeleteMapping("/Lb1016s/delete")
+	  @DeleteMapping("/lb1016s/delete")
 	  public ResponseEntity<String> deleteAllLb1016s() {
 	    System.out.println("Delete All Lb1016s...");
 	    repository.deleteAll();

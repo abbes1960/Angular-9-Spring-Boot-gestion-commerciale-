@@ -14,7 +14,7 @@ public class LcommService {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
+	  private String code;
 	  private String Libart;
 	  private int pu;
 	  private float qte;
@@ -35,11 +35,11 @@ public class LcommService {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
 		return Libart;
@@ -74,15 +74,15 @@ public class LcommService {
 	public CommService getCommService() {
 		return commService;
 	}
-	public void setCommservice(CommService commService) {
+	public void setCommService(CommService commService) {
 		this.commService = commService;
 	}
-	public LcommService(long id, int numero, String code_article, String libart, int pu, float qte, int tva,
-			float totht, CommService commService) {
+	public LcommService(long id, int numero, String code, String libart, int pu, float qte, int tva, float totht,
+			CommService commService) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
+		this.code = code;
 		Libart = libart;
 		this.pu = pu;
 		this.qte = qte;
@@ -96,9 +96,8 @@ public class LcommService {
 	}
 	@Override
 	public String toString() {
-		return "LcommService [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", pu=" + pu + ", qte=" + qte + ", tva=" + tva + ", totht=" + totht + ", commService=" + commService
-				+ "]";
+		return "LcommService [id=" + id + ", numero=" + numero + ", code=" + code + ", Libart=" + Libart + ", pu=" + pu
+				+ ", qte=" + qte + ", tva=" + tva + ", totht=" + totht + ", commService=" + commService + "]";
 	}
-	
+
 }

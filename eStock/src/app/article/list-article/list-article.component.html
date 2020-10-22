@@ -1,10 +1,6 @@
 
   <mat-toolbar color="primary">
-    <div fxHide.gt-xs>
-        <button mat-icon-button >
-            <mat-icon>menu</mat-icon>
-        </button>
-    </div>
+   
     <div>
       Liste Article
     </div>
@@ -20,7 +16,7 @@
     <th scope="col">Prix Achat</th>
     <th scope="col">Prix Vente </th>
     <th scope="col">TVa </th>
-    <th scope="col">Fodec </th>
+    <th scope="col">Stock </th>
     <th scope="col">Image </th>
     <th>
         <a class="btn btn-outline-success" routerLink="/article"><i class="fa fa-plus-square"></i> Create New</a>
@@ -30,14 +26,13 @@
     <tbody>
 
 
-    <tr *ngFor="let item of crudApi.listData ">
-    <th class ="hidden">{{item.id}}</th>
-    <td>{{item.code}}</td>
+    <tr *ngFor="let item of crudApi.list | paginate: { itemsPerPage: 3, currentPage: p }">
+     <td>{{item.code}}</td>
     <td>{{item.libelle}}</td>
     <td>{{item.pa}}</td>
     <td>{{item.pv}}</td>
     <td>{{item.tva}}</td>
-    <td>{{item.fodec}}</td>
+    <td>{{item.stock}}</td>
     <td><a href="#"><img class="card-img-top img-responsive"
       src = "{{this.crudApi.host+'/api/Imgarticles/'+item.id}}" 
       style = "height :200px;width:fil-content"
@@ -51,6 +46,8 @@
          </tbody>
          </table>
          </div>
+         <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  
        </div>
 
 

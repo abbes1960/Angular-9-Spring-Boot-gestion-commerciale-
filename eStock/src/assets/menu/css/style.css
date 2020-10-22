@@ -608,9 +608,9 @@ ul.sidebar-menu li ul.sub li a {
 
     transition: all 0.3s ease;
 
-    color: #d0d8df;
+    color: #ac1010;
 
-    font-size: 14px;
+    font-size: 18px;
 
 }
 
@@ -618,7 +618,7 @@ ul.sidebar-menu li ul.sub li a {
 
 ul.sidebar-menu li ul.sub li a:hover, ul.sidebar-menu li ul.sub li.active a {
 
-    color: #fff;
+    color: rgb(170, 104, 104);
 
     -webkit-transition: all 0.3s ease;
 
@@ -676,7 +676,7 @@ ul.sidebar-menu li a span{
 
 ul.sidebar-menu li a{
 
-    color: #d0d8df;
+    color: #072b4b;
 
     text-decoration: none;
 
@@ -700,9 +700,9 @@ ul.sidebar-menu li a{
 
     transition: all 0.3s ease;
 
-    border-right: 1px solid #D7D7D7;
+    border-right: 2px solid rgb(14, 0, 0);
 
-    border-bottom: 1px solid #D7D7D7;
+    border-bottom: 2px solid rgb(14, 0, 0);
 
 }
 

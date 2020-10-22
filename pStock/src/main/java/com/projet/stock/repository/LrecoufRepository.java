@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 import com.projet.stock.model.Lrecouf;
 @Repository
 public interface LrecoufRepository extends JpaRepository<Lrecouf, Long>{
-
+	Iterable<Lrecouf> findAllByNumero(int numero);
 }

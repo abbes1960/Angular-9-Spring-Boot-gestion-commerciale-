@@ -1,6 +1,4 @@
 package com.projet.stock.model;
-import java.time.LocalDate;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -30,7 +28,7 @@ public class Comm {
 	  private int numero;
 	  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="GMT")
 	  private Date date_comm;
-	  private int code_client;
+	  private int code;
 	  private String libelle;
 	  private String lib_client;
 	  private double avance;
@@ -66,11 +64,11 @@ public class Comm {
 	public void setDate_comm(Date date_comm) {
 		this.date_comm = date_comm;
 	}
-	public int getCode_client() {
-		return code_client;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_client(int code_client) {
-		this.code_client = code_client;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLibelle() {
 		return libelle;
@@ -114,14 +112,14 @@ public class Comm {
 	public void setLcomms(List<Lcomm> lcomms) {
 		this.lcomms = lcomms;
 	}
-	public Comm(long id, int annee, int numero, Date date_comm, int code_client, String libelle, String lib_client,
+	public Comm(long id, int annee, int numero, Date date_comm, int code, String libelle, String lib_client,
 			double avance, double totht, double tottva, double totttc, @Valid List<Lcomm> lcomms) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
 		this.date_comm = date_comm;
-		this.code_client = code_client;
+		this.code = code;
 		this.libelle = libelle;
 		this.lib_client = lib_client;
 		this.avance = avance;
@@ -136,11 +134,9 @@ public class Comm {
 	}
 	@Override
 	public String toString() {
-		return "Comm [id=" + id + ", annee=" + annee + ", numero=" + numero + ", date_comm=" + date_comm
-				+ ", code_client=" + code_client + ", libelle=" + libelle + ", lib_client=" + lib_client + ", avance="
-				+ avance + ", totht=" + totht + ", tottva=" + tottva + ", totttc=" + totttc + ", lcomms=" + lcomms
-				+ "]";
+		return "Comm [id=" + id + ", annee=" + annee + ", numero=" + numero + ", date_comm=" + date_comm + ", code="
+				+ code + ", libelle=" + libelle + ", lib_client=" + lib_client + ", avance=" + avance + ", totht="
+				+ totht + ", tottva=" + tottva + ", totttc=" + totttc + ", lcomms=" + lcomms + "]";
 	}
-
 
 }

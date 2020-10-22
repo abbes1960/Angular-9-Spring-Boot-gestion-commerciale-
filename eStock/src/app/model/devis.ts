@@ -3,12 +3,13 @@ export class Devis {
     id :number;
     date_mvt : any;
     numero   : number;
-    code_client : number;
+    code : number;
     libelle : String;
+    libcl : String;
     totht : number;
     totrem : number;
     totfodec : number;
     tottva : number;
     totttc : number;
-    products :Array<Ldevis> =[];
+    ldevis :Array<Ldevis> =[];
 }

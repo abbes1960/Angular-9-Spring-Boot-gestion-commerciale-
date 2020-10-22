@@ -39,8 +39,9 @@ public class LcommController {
 	 
 	    return Lcomms;
 	  }
-	 @GetMapping("/lcomms/{id}")
-	  public List<Lcomm> getAllByNumero(@PathVariable(value = "id") int numero) {
+	 
+	 @GetMapping("/lcomms/{numero}")
+	  public List<Lcomm> getAllByNumero(@PathVariable(value = "numero") int numero) {
 	    System.out.println("Get all Lcomms...");
 	 
 	    List<Lcomm> Lcomms = new ArrayList<>();

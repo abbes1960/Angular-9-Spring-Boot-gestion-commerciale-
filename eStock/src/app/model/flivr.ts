@@ -1,3 +1,4 @@
+import { Fllivr } from '../model/fllivr';
 export class Flivr {
     id :number;
     code_cli : number;
@@ -8,4 +9,5 @@ export class Flivr {
     totht : number;
     tottva : number;
     totttc : number;
+    fllivrs :Array<Fllivr> =[];
 }

@@ -27,10 +27,9 @@ public class Article {
 	  private int fodec;
 	  private int stock;
 	  private int stkinit;
-	  private String codeCateg;
-	  private String codeScateg;
+	  private String ccateg;
+	  private String cscateg;
 	  private String fileName;
-	  private Date cree;
 	public long getId() {
 		return id;
 	}
@@ -91,17 +90,17 @@ public class Article {
 	public void setStkinit(int stkinit) {
 		this.stkinit = stkinit;
 	}
-	public String getCodeCateg() {
-		return codeCateg;
+	public String getCcateg() {
+		return ccateg;
 	}
-	public void setCodeCateg(String codeCateg) {
-		this.codeCateg = codeCateg;
+	public void setCcateg(String ccateg) {
+		this.ccateg = ccateg;
 	}
-	public String getCodeScateg() {
-		return codeScateg;
+	public String getCscateg() {
+		return cscateg;
 	}
-	public void setCodeScateg(String codeScateg) {
-		this.codeScateg = codeScateg;
+	public void setCscateg(String cscateg) {
+		this.cscateg = cscateg;
 	}
 	public String getFileName() {
 		return fileName;
@@ -109,15 +108,14 @@ public class Article {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	
-	public Date getCree() {
-		return cree;
-	}
-	public void setCree(Date cree) {
-		this.cree = cree;
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", code=" + code + ", code_b=" + code_b + ", libelle=" + libelle + ", pa=" + pa
+				+ ", pv=" + pv + ", tva=" + tva + ", fodec=" + fodec + ", stock=" + stock + ", stkinit=" + stkinit
+				+ ", ccateg=" + ccateg + ", cscateg=" + cscateg + ", fileName=" + fileName + "]";
 	}
 	public Article(long id, String code, String code_b, String libelle, float pa, float pv, int tva, int fodec,
-			int stock, int stkinit, String codeCateg, String codeScateg, String fileName,  Date cree) {
+			int stock, int stkinit, String ccateg, String cscateg, String fileName) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -129,22 +127,14 @@ public class Article {
 		this.fodec = fodec;
 		this.stock = stock;
 		this.stkinit = stkinit;
-		this.codeCateg = codeCateg;
-		this.codeScateg = codeScateg;
+		this.ccateg = ccateg;
+		this.cscateg = cscateg;
 		this.fileName = fileName;
-		
-		this.cree = cree;
 	}
 	public Article() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Article [id=" + id + ", code=" + code + ", code_b=" + code_b + ", libelle=" + libelle + ", pa=" + pa
-				+ ", pv=" + pv + ", tva=" + tva + ", fodec=" + fodec + ", stock=" + stock + ", stkinit=" + stkinit
-				+ ", codeCateg=" + codeCateg + ", codeScateg=" + codeScateg + ", fileName=" + fileName + ", cree="
-				+ cree + "]";
-	}
+	
 
 }

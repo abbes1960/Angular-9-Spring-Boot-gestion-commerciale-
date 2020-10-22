@@ -1,0 +1,358 @@
+h1.seo-hp-slide, h2.seo-hp-slide {
+    color: #655c53;
+    font-family: "DINBold",Arial,Helvetica,sans-serif;
+    font-size: 2.4em;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+h1.seo-hp-slide span, h2.seo-hp-slide span {
+    color: #655c53;
+    display: block;
+    font-family: "DINLightRegular",Arial,Helvetica,sans-serif;
+    font-size: 0.9em;
+    line-height: 1em;
+    margin-top: 10px;
+    text-transform: none;
+}
+
+.blockCarItem.stamps h1.seo-hp-slide {
+    font-family: "DINBlackRegular",Arial,Helvetica,sans-serif;
+    font-size: 3.5em;
+    padding-top: 40px;
+    text-align: left;
+}
+
+.blockCarItem.stamps .description.phila h1.seo-hp-slide {
+    font-family: "DINBlackRegular",Arial,Helvetica,sans-serif;
+    font-size: 3.5em;
+    padding-top: 25px;
+    text-align: left;
+}
+
+.professionnel .blockCarItem.stamps h1.seo-hp-slide {
+    color: #655c53;
+    font-family: "DINBold",Arial,Helvetica,sans-serif;
+    font-size: 2.4em;
+    line-height: 1em;
+    text-transform: uppercase;
+    padding-top:0;
+}
+
+.collectionneur .blockCarItem.stamps h2.seo-hp-slide {
+    font-family: "DINBlackRegular",Arial,Helvetica,sans-serif;
+    font-size: 3.5em;
+    text-align: left;
+    padding-top:40px;
+}
+
+
+.collectionneur .blockCarItem.allstamps .price-value sup {
+    margin-top: 0;
+    top: 0;
+}
+.blockCarItem.allstamps .price-quantity {
+    font-family: "DINBlackRegular",Arial,Helvetica,sans-serif;
+}
+
+.blockHpCarousel .blockCarItem.marianne h1.seo-hp-slide {
+    font-size: 3.5em;
+}
+
+.particulier .blockCarItem.marianne h2.seo-hp-slide {
+    font-size: 3.5em;
+    padding-left: 70px;
+}
+
+.particulier .stamp-online .price-from {
+	color: #5b8900;
+}
+
+.collectionneur .blockCarItem.marianne h2.seo-hp-slide {
+	font-size: 3.5em;
+}
+
+
+
+.collectionneur .blockCarItem.allstamps .price-from {
+    color: #5b8900;
+}
+
+.collectionneur .blockCarItem.allstamps h2.seo-hp-slide,
+.collectionneur .blockCarItem.allstamps h1.seo-hp-slide,
+.particulier .inner.stamps-online h2.seo-hp-slide,
+.particulier .inner.stamps-online h1.seo-hp-slide {
+    color: #0d7ba5;
+    padding-left: 46px;
+    padding-top: 46px;
+    font-family: "DINBlackRegular",Arial,Helvetica,sans-serif;
+    font-size: 4em;
+    line-height: 1em;
+    text-transform: none;
+    padding-bottom: 30px;
+    font-weight:bold;
+}
+
+.collectionneur .blockCarItem.allstamps h2.seo-hp-slide span,
+.collectionneur .blockCarItem.allstamps h1.seo-hp-slide span,
+.particulier .inner.stamps-online h2.seo-hp-slide span,
+.particulier .inner.stamps-online h1.seo-hp-slide span {
+    display:block;
+    font-weight:normal;
+    color: #0d7ba5;
+    font-family: "DINMediumRegular",Arial,Helvetica,sans-serif;
+}
+
+.banner-vertical-promo h4.title-banner {
+    color: #3d3d3d;
+    font-size: 2em;
+    padding: 30px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: "DINMediumRegular",Arial,Helvetica,sans-serif;
+    line-height: 1em;
+}
+
+h3.seo-hp-section-title, .most_use_service h3.seo-hp-section-title {
+    color: #3d3d3d;
+    font: 2em "DINBold";
+    padding: 21px 0 10px 3px;
+    text-transform: uppercase;
+}
+
+.home .push3cols .item h3, .particulier .push3cols .item h3 {
+    z-index: 2;
+}
+
+.most_use_service .online_letter h2 {
+    color: #747408;
+}
+.most_use_service .reshipment h2 {
+    color: #006397;
+}
+.most_use_service h2, .professionnel .most_use_service h2 {
+    font: 2.3em/1 "JPHandStraight",Arial,Helvetica,sans-serif;
+    padding: 0 0 7px 3px;
+    text-transform: none;
+}
+.most_use_service .follow_letter h2 {
+    background: url("../images/icons/ico_title_suivi.png") no-repeat scroll 0 top;
+    padding: 3px 0 15px 47px;
+}
+.professionnel .most_use_service .follow_letter h2 {
+    background: url("../images/icons/ico_title_suivi_pro.png") no-repeat scroll 0 top;
+    color: #fff;
+}
+.blockCompteDonees h1 {
+    font-size: 2.1em;
+    color: #363636;
+    display: block;
+    font-family: "DINMediumRegular";
+    font-weight: 700;
+    margin: 35px 0 20px 0;
+}
+.description.pro-idt h1.seo-hp-slide, .description.pro-idt h2.seo-hp-slide {font-family: "DINBold",Arial,Helvetica,sans-serif;font-size: 4.1em;}
+.professionnel .blockHpCarousel .blockCarItem .description.pro-idt {top: 20px;}
+.blockHpCarousel .blockCarItem.pro-idt .imgWomanWings {left: 420px;top: 4px;}
+.blockHpCarousel .blockCarItem.lel .description {width: 520px;}
+
+/* corr. affichage push dentelés pro */
+.push3cols .pushPostal .imgPush.outerImage {position: absolute;}
+.professionnel .home .push3cols .item a .desc {top: 90px;}
+.professionnel .home .push3cols .item .title {width:230px;}
+.professionnel .home .push3cols .pushPostal .circleArrow span {margin-left: 6px;}
+.professionnel .home .push3cols .outerImage {left: 155px;top: 10px;}
+.professionnel .push3cols .pushPro .imgPush,
+.professionnel .push3cols .item .imgPush, *
+.push3cols .item .imgPush {right:0;}
+
+/* corr. affichage push dentelés part */
+.particulier .home .push3cols .item a .desc {top: 90px;}
+.particulier .home .push3cols .pushTimbre .outerImage {left: 145px;top:0}
+
+/* corr. affichage push dentelés coll */
+.collectionneur .home .push3cols .pushTimbre .outerImage {left: 145px;top: 0px;}
+.collectionneur .home .push3cols .pushPostal .title {z-index:1}
+.collectionneur .home .push3cols .item a .desc {top: 75px;}
+.collectionneur .home .push3cols .item.pushTimbre a .desc {top: 90px;}
+.collectionneur .home .push3cols .pushPostal .title,
+.collectionneur .home .push3cols .item .title {top: 20px;}
+.home .push3cols .pushPostal .circleArrow span {margin-left: 6px;}
+
+.fiche-produit .title-wrap h2 {
+    /*background: url("../images/icons/ico_accordion_circle_arrows.png") no-repeat scroll 0 0;*/
+    padding: 2px;
+    font-size: 2em;
+    line-height: 1em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.fiche-produit  .expand-detail-advanced-h3 {
+  background: url("../images/icons/ico_accordion_circle_arrows.png") no-repeat scroll 0 0;
+  padding-left: 30px;
+ }
+
+
+
+.fiche-produit .title-wrap h2  > a {
+    color: #655c53;
+    display: block;
+    /*padding-left: 30px;*/
+    margin-left: -7px;
+    text-decoration: none;
+    font-size: 100%;
+    line-height: 1.2em;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.fiche-produit .detail-caracterists h3 {
+    color: #655c53;
+    font-size: 2em;
+    padding: 0 0 16px;
+}
+
+h2.seo-push {
+	border-bottom: 1px solid transparent;
+    color: #363636;
+    font-family: "JPHandStraight";
+    font-size: 2.2em;
+    font-weight: 400;
+    padding: 0 0 2px;
+    line-height: 19pt;
+}
+
+.push3cols .mtl h2.seo-push {
+	padding: 5px 0 20px 20px;
+}
+
+h1.seo-slide {
+    color: #5b8900;
+    font-family: "JPHandStraight",Arial,Helvetica,sans-serif;
+    font-size: 3.5em;
+    font-weight: 400;
+    line-height: 1.2em;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+h1.seo-slide span {
+    display: block;
+    float: left;
+    padding: 10px 0 0;
+}
+
+h1.seo-lel-slide1, h1.seo-lel-slide2,
+h1.seo-lre-slide1, h1.seo-lre-slide2,
+h1.seo-lel-slide3 {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    height: 41px;
+    padding: 5px 0 30px 65px;
+    position: relative;
+    text-transform: uppercase;
+    vertical-align: middle;
+    z-index: 999;	
+    font-family: "JPHandStraight";
+}
+h1.seo-lel-slide3 {
+    padding: 5px 0 30px 80px !important;
+} 
+h1.seo-lel-slide1, h1.seo-lel-slide2 {
+    background: url("../images/bg/bg_ico-lettre-ligne.png") no-repeat scroll left top;
+    color: #dc5409;
+}
+h1.seo-lel-slide3 {
+    background: url("../images/bg/bg_ico-lettre-suivie-ligne.png") no-repeat scroll left top /74px 51px;
+    color: #dc5409;
+}
+h1.seo-ael-slide1, h1.seo-ael-slide2 {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    height: 41px;
+    padding: 5px 0 30px 65px;
+    position: relative;
+    text-transform: uppercase;
+    vertical-align: middle;
+    z-index: 999;	
+    font-family: "JPHandStraight";
+} 
+h1.seo-ael-slide1, h1.seo-ael-slide2 {
+    background: url("../images/bg/picto_colis.png") no-repeat scroll left top;
+    color: #dc5409;
+}
+h1.seo-lre-slide1, h1.seo-lre-slide2 {
+    background: url("../images/bg/bg_ico-lettre-ligne2.png") no-repeat scroll left top transparent;
+    color: #007185;
+}
+h1.seo-lel-slide1, h1.seo-lre-slide1 {
+	width: 500px;
+	font-size: 3.5em;
+    line-height: 1.2em;
+}
+h1.seo-lel-slide3 {
+	width: 525px;
+	font-size: 3.5em;
+    line-height: 1.2em;
+    bottom: 16px;
+}
+h1.seo-lel-slide2, h1.seo-lre-slide2 {
+    font-size: 2.8em;
+    line-height: 1.7em;
+}
+h1.seo-ael-slide1{
+	width: 500px;
+	font-size: 3.5em;
+    line-height: 1.2em;
+}
+h1.seo-ael-slide2{
+    font-size: 2.8em;
+    line-height: 1.7em;
+}
+
+h2.seoProductName, h3.seoProductName {
+	color: #363636 !important;
+	text-transform: uppercase;
+	font-size: 1.8em !important;
+}
+
+h2.expand.seoProductName a, h3.seoProductName a {
+	margin: 0 !important;
+	color: #363636;
+	text-transform: uppercase;
+}
+
+h2.expand.seoProductName {
+	padding: 1px !important;
+}
+
+h2.expand.seoProductName span, h3.seoProductName span {
+	display: block;
+	color: #655c53;
+	text-transform: none;
+	font-size: .8em;
+}
+
+.detail-caracterists h3.seoProductName {
+	background: url(../images/bg/px_grey.gif) repeat 0 0 transparent;
+	padding: 10px;
+	border-radius: 15px;
+	margin-bottom: 10px; 
+}
+
+h3.expand-detail-advanced-h3.seoProductName {
+	color: #655c53;
+	text-transform: none;
+	font-size: 1.8em;
+}
+
+h3.expand-detail-advanced-h3.seoProductName span {
+	display: block;
+	background: #fff;
+	margin-left: -24px;
+	padding: 0 0 10px 24px;
+}

@@ -10,26 +10,27 @@ public class Residence {
 	@Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
-	  private String code;
-	  private String code_dir;
+	  private int code;
+	  private int coddir;
 	  private String libelle;
+	  private String Libdir;
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
-	public String getCode_dir() {
-		return code_dir;
+	public int getCoddir() {
+		return coddir;
 	}
-	public void setCode_dir(String code_dir) {
-		this.code_dir = code_dir;
+	public void setCoddir(int coddir) {
+		this.coddir = coddir;
 	}
 	public String getLibelle() {
 		return libelle;
@@ -37,12 +38,19 @@ public class Residence {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public Residence(long id, String code, String code_dir, String libelle) {
+	public String getLibdir() {
+		return Libdir;
+	}
+	public void setLibdir(String libdir) {
+		Libdir = libdir;
+	}
+	public Residence(long id, int code, int coddir, String libelle, String libdir) {
 		super();
 		this.id = id;
 		this.code = code;
-		this.code_dir = code_dir;
+		this.coddir = coddir;
 		this.libelle = libelle;
+		Libdir = libdir;
 	}
 	public Residence() {
 		super();
@@ -50,8 +58,9 @@ public class Residence {
 	}
 	@Override
 	public String toString() {
-		return "Residence [id=" + id + ", code=" + code + ", code_dir=" + code_dir + ", libelle=" + libelle + "]";
+		return "Residence [id=" + id + ", code=" + code + ", coddir=" + coddir + ", libelle=" + libelle + ", Libdir="
+				+ Libdir + "]";
 	}
-	
 
+	
 }

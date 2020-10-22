@@ -10,5 +10,5 @@ export class Fact {
     totfodec : number;
     tottva : number;
     totttc : number;
-    products :Array<Lfact> =[];
+    lfacts :Array<Lfact> =[];
 }

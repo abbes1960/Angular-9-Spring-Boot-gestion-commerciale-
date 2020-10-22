@@ -29,12 +29,12 @@ export class AddFlcommComponent implements OnInit {
     this.articleService.getAll().subscribe(
       response =>{this.articleList= response;}
      );
-    if(this.data.lcommandeIndex==null)
+    if(this.data.flcommandeIndex==null)
     {
       this.InfoForm();
     }
     else 
-    this.formData =this.fb.group(Object.assign({},this.commandeService.list[this.data.listIndex]));
+    this.formData =this.fb.group(Object.assign({},this.commandeService.list[this.data.flcommandeIndex]));
     }
 
 
@@ -78,16 +78,16 @@ updateTotal(){
 
 onSubmit() {
   if(this.validateForm(this.formData.value)){
-  if(this.data.lcommandeIndex==null)
+  if(this.data.flcommandeIndex==null)
    this.commandeService.list.push(this.formData.value)
   }
-  this.commandeService.list[this.data.listIndex] = this.formData.value;
+  this.commandeService.list[this.data.flcommandeIndex] = this.formData.value;
   this.dialogRef.close();  
 }
 
 validateForm(formData:Lfcommande){
   this.isValid=true;
-  if(formData.code_article=='')
+  if(formData.code=='')
     this.isValid=false;
     else if(formData.qte ==0)
     this.isValid=false;

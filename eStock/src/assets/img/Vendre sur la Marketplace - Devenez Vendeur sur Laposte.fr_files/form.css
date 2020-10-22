@@ -1,0 +1,506 @@
+
+div.selector, div.selector span, div.uploader, div.uploader span.action {
+    background-color: #FFFFFF;
+    background-image: url("../images/bg/sprite-form.png");
+    background-repeat: no-repeat;
+}
+.selector, .uploader, .selector *, .uploader * {
+    margin: 0;
+    padding: 0;
+}
+.input-white div.selector, .input-white div.selector span, .input-white div.uploader, .input-white div.uploader span.action {
+    background-image: url("../images/bg/sprite-form-white.png");
+}
+div.selector {
+    background-position: -479px -163px;
+    border: 3px solid #F5F5F2;
+    height: 32px;
+    line-height: 32px;
+    margin-left: -3px;
+    overflow: hidden;
+    padding-left: 14px;
+    position: relative;
+    width: 190px;
+}
+div.selector span {
+    background-position: right -1px;
+    color: #666666;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    padding: 0 45px 0 2px;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 0 #FFFFFF;
+    white-space: nowrap;
+    width: 145px;
+}
+div.selector select {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    font: 1.2em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+div.selector:active, div.selector.active, div.selector.hover, div.selector:hover, div.selector:hover:active, div.selector.active:hover {
+    background-position: -479px -163px;
+    border: 3px dashed #B5CFE7;
+}
+div.selector.focus, div.selector.focus:active, div.selector.focus.active {
+    background-position: -479px -163px;
+    border: 3px solid #B5CFE7;
+}
+div.selector.disabled, div.selector.disabled:active, div.selector.disabled.active {
+    background-position: -479px -163px;
+}
+div.selector:active span, div.selector.active span, div.selector.focus span, div.selector.hover span, div.selector:hover span, div.selector.focus:active span, div.selector:hover:active span, div.selector.active:hover span, div.selector.focus.active span, div.selector.disabled span, div.selector.disabled:active span, div.selector.disabled.active span {
+    background-position: right -1px;
+}
+div.selector.disabled span {
+    color: #BBBBBB;
+}
+div.uploader {
+    background-position: 0 -372px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+    height: 31px;
+    margin-bottom: 20px;
+    width: 190px;
+}
+div.uploader span.action {
+    line-height: 31px;
+    text-align: center;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+div.uploader span.filename {
+    border-right: 1px solid #BBBBBB;
+    color: #777777;
+    font-size: 90%;
+    height: 31px;
+    line-height: 31px;
+    margin: 2px 0 2px 2px;
+    width: 82px;
+}
+.upload-form div.uploader {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    height: auto;
+    /*overflow: visible;*/
+    position: relative;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.upload-form div.uploader input.error {
+	top: 25px;
+}
+
+.tabs-content-outer .upload-form div.uploader{width:345px;}
+
+.upload-form div.uploader span.action {
+    background: url("../images/btn/btn-parcourir.png") no-repeat scroll 0 6px rgba(0, 0, 0, 0);
+    color: #363636;
+    cursor: pointer;
+    display: inline;
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    padding: 4px 0;
+    width: 80px;
+}
+.upload-form div.uploader span.filename {
+    background: url("../images/bg/bg_filename.png") no-repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    color: #999999;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 35px;
+    overflow: hidden;
+    padding: 2px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 220px;
+}
+.upload-form div.uploader input {
+    border: medium none;
+    bottom: 0;
+    cursor: pointer;
+    float: right;
+    height: 36px;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 338px;
+    left: 0;
+}
+div.uploader input {
+    width: 190px;
+}
+div.uploader.focus {
+    border: 1px dashed #B5CFE7;
+}
+div.uploader.focus, div.uploader.hover, div.uploader:hover {
+    background-position: 0 6px;
+}
+div.uploader.focus span.action, div.uploader.hover span.action, div.uploader:hover span.action {
+    background-position: 0 6px;
+}
+div.uploader.active span.action, div.uploader:active span.action {
+    background-position: 0 6px;
+}
+div.uploader.focus.active span.action, div.uploader.active:focus span.action, div.uploader.focus:active span.action, div.uploader:focus:active span.action {
+    background-position: 0 6px;
+}
+div.uploader.disabled {
+    background-position: 0 6px;
+}
+div.uploader.disabled span.action {
+    background-position: 0 6px;
+}
+div.uploader.disabled span.action {
+    color: #AAAAAA;
+}
+div.uploader.disabled span.filename {
+    border-color: #DDDDDD;
+    color: #AAAAAA;
+}
+.selector select:focus, .uploader input:focus {
+    outline: 0 none;
+}
+form legend {
+    color: #363636;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1em;
+    padding: 0.5em 0;
+}
+form label {
+    color: #565A5C;
+    display: inline-block;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+form input {
+    margin: 0;
+    vertical-align: middle;
+}
+.type-text {
+    float: left;
+    width: 360px;
+}
+.type-text input {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    color: #777777;
+    font: 1.2em/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 22px;
+    outline: medium none;
+}
+.type-text span, .type-text span span {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 32px;
+}
+.type-text span {
+    background-position: right -512px;
+    border: 1px solid #F5F5F2;
+    padding: 0 12px 0 0;
+}
+.type-text span span {
+    background-position: -479px -163px;
+    border: 0 none;
+    padding: 4px 0 4px 11px;
+
+}
+#impression-options-lrel .type-text span span,
+#impression-options .type-text span span {
+	height:26px;
+}
+.type-text.white span, .type-text.white span span {
+    background-image: url("../images/bg/sprite-form-white.png");
+}
+
+.type-text span input, .type-text span span input{
+    vertical-align: top;
+}
+
+.form-type-text {
+    float: left;
+    width: 360px;
+}
+.form-type-text input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    color: #777777;
+    font: 0.35em/0.35em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 22px;
+    outline: medium none;
+    margin-top: -8px;
+}
+.form-type-text span, .form-type-text span span {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+}
+.form-type-text span {
+    background-position: right -512px;
+    border: 1px solid #F5F5F2;
+    padding: 0 12px 0 0;
+}
+.form-type-text span span {
+    background-position: -479px -163px;
+    border: 0 none;
+    padding: 3px 0 3px 11px;
+}
+.form-type-text.white span, .form-type-text.white span span {
+    background-image: url("../images/bg/sprite-form-white.png");
+}
+
+
+.typetext {
+    float: left;
+    width: 360px;
+}
+.typetext input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    color: #777777;
+    font: 1.2em/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 22px;
+    outline: medium none;
+}
+.typetext span, .typetext span span {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+}
+.typetext span {
+    background-position: right -512px;
+    border: 1px solid #F5F5F2;
+    padding: 0 12px 0 0;
+}
+.typetext span span {
+    background-position: -479px -163px;
+    border: 0 none;
+    padding: 3px 0 3px 11px;
+}
+.typetext.white span, .typetext.white span span {
+    background-image: url("../images/bg/sprite-form-white.png");
+}
+.input-white span, .input-white span span {
+    background-image: url("../images/bg/sprite-form-white.png");
+}
+.input-white span {
+    border: 1px solid #FFFFFF;
+}
+.type-date input {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll right -512px #FFFFFF;
+    border: 0 none;
+    color: #777777;
+    font: 1.2em/2.2em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 32px;
+    outline: 0 none;
+    padding: 0 12px 0 0;
+}
+.type-date .bg-datepicker {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll -479px -163px #FFFFFF;
+    border: 1px solid #F5F5F2;
+    color: #777777;
+    display: inline-block;
+    font-size: 100%;
+    font-weight: normal;
+    height: 32px;
+    line-height: normal;
+    padding: 0 0 0 13px;
+}
+.type-text span:focus, .type-date .bg-datepicker:focus {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll right -512px rgba(0, 0, 0, 0);
+    border: 1px dashed #B5CFE7;
+}
+.type-date.white .bg-datepicker {
+    background-image: url("../images/bg/sprite-form-white.png");
+    border: medium none;
+}
+.type-date.white input {
+    background-image: url("../images/bg/sprite-form-white.png");
+    border: medium none;
+}
+
+.typedate input {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll right -512px #FFFFFF;
+    border: 0 none;
+    color: #777777;
+    font: 1.2em/2.2em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 32px;
+    outline: 0 none;
+    padding: 0 12px 0 0;
+}
+.typedate .bg-datepicker {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll -479px -163px #FFFFFF;
+    border: 1px solid #F5F5F2;
+    color: #777777;
+    display: inline-block;
+    font-size: 100%;
+    font-weight: normal;
+    height: 32px;
+    line-height: normal;
+    padding: 0 0 0 13px;
+}
+.typetext span:focus, .typedate .bg-datepicker:focus {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll right -512px rgba(0, 0, 0, 0);
+    border: 1px dashed #B5CFE7;
+}
+.typedate.white .bg-datepicker {
+    background-image: url("../images/bg/sprite-form-white.png");
+    border: medium none;
+}
+.typedate.white input {
+    background-image: url("../images/bg/sprite-form-white.png");
+    border: medium none;
+}
+
+.type-text label {
+    line-height: 1.1em;
+    width: 120px;
+}
+
+.typetext input, .typedate input {
+    width: 150px;
+}
+
+.type-text input, .type-date input {
+    width: 150px;
+}
+.type-text .activationCodeInput input#activationCode {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 0 none;
+    color: #777777;
+    font: 1.2em/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 20px;
+    outline: medium none;
+}
+span.txtInput1 {
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+.civilite legend {
+    float: left;
+    font-size: 1.3em;
+    font-weight: 400;
+    line-height: 1.6em;
+    padding: 0;
+    width: 120px;
+}
+.civilite li {
+    float: left;
+}
+.civilite label {
+    float: right;
+    line-height: 1.6em;
+    padding-left: 0.5em;
+    padding-right: 1em;
+}
+.type-select {
+    padding: 0.5em 0;
+}
+.type-checkbox input {
+    float: right;
+    height: 13px;
+    margin-left: 2px;
+    padding: 0;
+}
+.type-checkbox .float-left {
+    float: left;
+}
+.type-radio input {
+    height: 14px;
+}
+.type-radio input:focus, .type-file input:focus {
+    outline: 1px dotted #000000;
+}
+div.for-textarea {
+    padding: 0.5em;
+}
+.for-textarea textarea {
+    border: 0 none;
+    font: 1.2em "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 120px;
+    max-width: 350px;
+    overflow: auto;
+    padding: 0.5em;
+    width: 98%;
+}
+form .type-date .error-contener {
+    background: url("../images/bg/sprite-form.png") no-repeat scroll -479px -611px rgba(0, 0, 0, 0);
+    display: inline-block;
+    font-weight: normal;
+    height: 32px;
+    line-height: normal;
+}
+form .type-text .error-contener {
+    background-position: right -579px;
+}
+form .type-text .error-contener span {
+    background-position: -479px -611px;
+}
+form .type-text .error-contener input {
+    background: none repeat scroll 0 0 #FDE8E8;
+}
+form .error-contener .bg-datepicker {
+    background-position: -479px -611px;
+}
+form .error-contener #datepicker {
+    background-position: right -871px;
+}
+.error-contener div.selector, .error-contener:active div.selector, .error-contener.active div.selector, .error-contener.focus div.selector, .error-contener.hover div.selector, .error-contener:hover div.selector, .error-contener.focus:active div.selector, .error-contener:hover:active div.selector, .error-contener.active:hover div.selector, .error-contener.focus.active div.selector, .error-contener.disabled div.selector, .error-contener.disabled:active div.selector, .error-contener.disabled.active div.selector {
+    background-position: -479px -611px;
+}
+.error-contener div.selector span, .error-contener:active div.selector span, .error-contener.active div.selector span, .error-contener.focus div.selector span, .error-contener.hover div.selector span, .error-contener:hover div.selector span, .error-contener.focus:active div.selector span, .error-contener:hover:active div.selector span, .error-contener.active:hover div.selector span, .error-contener.focus.active div.selector span, .error-contener.disabled div.selector span, .error-contener.disabled:active div.selector span, .error-contener.disabled.active div.selector span {
+    background-position: right -774px !important;
+}
+#courrierDataHome .error {
+    color: #000000;
+    font-size: 1.1em;
+}
+#courrierDataHome {
+    position: relative;
+}
+
+.block-address fieldset .type-text.complementAdd{width:100%}
+.complementAdd>label{display:inline-block;} 
+.complementAdd>.wrapInput{display:inline-block; width:calc(100% - 130px);}
+.complementAdd>.wrapInput>span{width:calc(100% - 10px);}
+.complementAdd>.wrapInput input{width:100%}
+#compteur{display:block; text-align:right; font-size:12px;}
+
+.msgRGPD{
+	clear:both;
+	text-align: justify;
+	margin:20px 80px 20px 25px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+.msgRGPD a{text-decoration: underline;}
+
+.msg-rgpd-prepayment{
+	clear:both;
+	text-align: justify;
+	margin-top:20px ;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+
+#registerPartForm  .msgRGPD{color:#fff; margin-bottom:0}
+.rgpdProfilePage{padding:20px 0; clear:both;}
+.rgpdProfilePage .msgRGPD {color:#000!important; margin:0 }
+.infoPersoBtn.blockButton.orange span input{width:50px;}
+.infoPersoBtn.blockButton{float:right; padding:0!important}

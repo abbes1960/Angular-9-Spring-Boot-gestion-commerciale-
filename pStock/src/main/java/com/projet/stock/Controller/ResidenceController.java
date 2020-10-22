@@ -45,11 +45,11 @@ public class ResidenceController {
 			return ResponseEntity.ok().body(Residence);
 		}
 
-	 @GetMapping("/lresidences/{code_dir}")
+	 @GetMapping("/residencess/{code}")
 		
-	    public ResponseEntity<List<Residence>> listDirection(@PathVariable String code_dir) {
-	        
-			List<Residence> residences = repository.findByResidence(code_dir);
+	    public ResponseEntity<List<Residence>> listResidence(@PathVariable int code) {
+		  System.out.println("Get  Residences...");
+			List<Residence> residences = repository.findByCoddir(code);
 	       
 	        return new ResponseEntity<List<Residence>>(residences, HttpStatus.OK);
 	    }
@@ -91,7 +91,7 @@ public class ResidenceController {
 	    if (ResidenceInfo.isPresent()) {
 	    	Residence residence = ResidenceInfo.get();
 	           residence.setLibelle(Residence.getLibelle());
-	           residence.setCode_dir(Residence.getCode_dir()); 
+	           residence.setCode(Residence.getCode()); 
 	      return new ResponseEntity<>(repository.save(Residence), HttpStatus.OK);
 	    } else {
 	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);

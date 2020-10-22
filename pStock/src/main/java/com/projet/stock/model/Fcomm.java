@@ -23,9 +23,9 @@ public class Fcomm {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_four;
+	  private int codfour;
 	  private String lib_four;
-	  private int code_dir;
+	  private int code;
 	  private String lib_direction;
 	  @JsonFormat(pattern = "dd/MM/yyyy")
 	  private LocalDate date_mvt;
@@ -55,11 +55,11 @@ public class Fcomm {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_four() {
-		return code_four;
+	public int getCodfour() {
+		return codfour;
 	}
-	public void setCode_four(int code_four) {
-		this.code_four = code_four;
+	public void setCodfour(int codfour) {
+		this.codfour = codfour;
 	}
 	public String getLib_four() {
 		return lib_four;
@@ -67,11 +67,11 @@ public class Fcomm {
 	public void setLib_four(String lib_four) {
 		this.lib_four = lib_four;
 	}
-	public int getCode_dir() {
-		return code_dir;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_dir(int code_dir) {
-		this.code_dir = code_dir;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLib_direction() {
 		return lib_direction;
@@ -115,15 +115,15 @@ public class Fcomm {
 	public void setLfcomms(List<Lfcomm> lfcomms) {
 		this.lfcomms = lfcomms;
 	}
-	public Fcomm(long id, int annee, int numero, int code_four, String lib_four, int code_dir, String lib_direction,
+	public Fcomm(long id, int annee, int numero, int codfour, String lib_four, int code, String lib_direction,
 			LocalDate date_mvt, String libelle, float totht, float tottva, float totttc, @Valid List<Lfcomm> lfcomms) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_four = code_four;
+		this.codfour = codfour;
 		this.lib_four = lib_four;
-		this.code_dir = code_dir;
+		this.code = code;
 		this.lib_direction = lib_direction;
 		this.date_mvt = date_mvt;
 		this.libelle = libelle;
@@ -138,11 +138,10 @@ public class Fcomm {
 	}
 	@Override
 	public String toString() {
-		return "Fcomm [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_four=" + code_four
-				+ ", lib_four=" + lib_four + ", code_dir=" + code_dir + ", lib_direction=" + lib_direction
-				+ ", date_mvt=" + date_mvt + ", libelle=" + libelle + ", totht=" + totht + ", tottva=" + tottva
-				+ ", totttc=" + totttc + ", lfcomms=" + lfcomms + "]";
+		return "Fcomm [id=" + id + ", annee=" + annee + ", numero=" + numero + ", codfour=" + codfour + ", lib_four="
+				+ lib_four + ", code=" + code + ", lib_direction=" + lib_direction + ", date_mvt=" + date_mvt
+				+ ", libelle=" + libelle + ", totht=" + totht + ", tottva=" + tottva + ", totttc=" + totttc
+				+ ", lfcomms=" + lfcomms + "]";
 	}
 
-	
 }

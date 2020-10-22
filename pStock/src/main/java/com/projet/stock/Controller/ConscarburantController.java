@@ -32,20 +32,20 @@ import com.projet.stock.repository.ConsCarburantRepository;
 
 public class ConscarburantController {
 	@Autowired 	ConsCarburantRepository repository;
-	@Autowired CposteRepository comptrepo;
+	@Autowired  CposteRepository comptrepo;
 	@Autowired  ServletContext context;
 	
-	 @GetMapping("/ConsCarburants")
-	  public List<ConsCarburant> getAllConsCarburants() {
+	 @GetMapping("/allcarburants/{code}")
+	  public List<ConsCarburant> getAllConsCarburants(@PathVariable(value = "code") int code ){
 	    System.out.println("Get all ConsCarburants...");
-	 
+	    System.out.println(code);
 	    List<ConsCarburant> ConsCarburants = new ArrayList<>();
-	    repository.findAll().forEach(ConsCarburants::add);
-	 
+	    repository.findAllByCode(code).forEach(ConsCarburants::add);
+	    System.out.println("Get all ConsCarburantsvvggh...");
 	    return ConsCarburants;
 	  }
 	
-	@GetMapping("/consCarburants/{id}")
+	@GetMapping("/carburants/{id}")
 	public ResponseEntity<ConsCarburant> getConsCarburantById(@PathVariable(value = "id") Long ConsCarburantId)
 			throws ResourceNotFoundException {
 		ConsCarburant ConsCarburant = repository.findById(ConsCarburantId)
@@ -53,7 +53,7 @@ public class ConscarburantController {
 		return ResponseEntity.ok().body(ConsCarburant);
 	}
 	
-	 @GetMapping("/lconsCarburants/{code_dir}")
+	 @GetMapping("/carburants/{code_dir}")
 		
 	    public ResponseEntity<List<ConsCarburant>> listConsommation(@PathVariable int code_dir) {
 	        
@@ -62,7 +62,7 @@ public class ConscarburantController {
 	        return new ResponseEntity<List<ConsCarburant>>(consCarburants, HttpStatus.OK);
 	    }
 
-	@PostMapping("/consCarburants")
+	@PostMapping("/carburants")
 	
 	public ResponseEntity<ConsCarburant> createConsCarburant(@Valid @RequestBody ConsCarburant ConsCarburant)  throws JsonParseException , JsonMappingException , Exception{
 		repository.save(ConsCarburant);
@@ -70,7 +70,7 @@ public class ConscarburantController {
 	    Optional<Cposte> CposteInfo = comptrepo.findByAnnee(ConsCarburant.getAnnee());
      	if (CposteInfo.isPresent()) {
 	    	Cposte Cposte = CposteInfo.get();
-	           Cposte.setNumcsonede(Cposte.getNumcsonede()+1);
+	           Cposte.setNumccarburant(Cposte.getNumccarburant()+1);
 	         Cposte =   comptrepo.save(Cposte);
      	}
 		 return new ResponseEntity<>(HttpStatus.OK);
@@ -78,7 +78,7 @@ public class ConscarburantController {
 
 	
 
-	@DeleteMapping("/consCarburants/{id}")
+	@DeleteMapping("/carburants/{id}")
 	public Map<String, Boolean> deleteConsCarburant(@PathVariable(value = "id") Long ConsCarburantId)
 			throws ResourceNotFoundException {
 		ConsCarburant ConsCarburant = repository.findById(ConsCarburantId)
@@ -102,7 +102,7 @@ public class ConscarburantController {
 	 
 	
 
-	  @PutMapping("/consCarburants/{id}")
+	  @PutMapping("/carburants/{id}")
 	  public ResponseEntity<ConsCarburant> updateConsCarburant(@PathVariable("id") long id, @RequestBody ConsCarburant ConsCarburant) {
 	    System.out.println("Update ConsCarburant with ID = " + id + "...");
 	 

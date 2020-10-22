@@ -35,9 +35,8 @@ import com.projet.stock.repository.LflivrRepository;
 @RestController
 @RequestMapping("/api")
 public class FlivrController {
-	@Autowired
-	FlivrRepository repository;
-	LflivrRepository repo;
+	@Autowired 	FlivrRepository repository;
+	@Autowired LflivrRepository repo;
 	@Autowired CompteurRepository comptrepo;
 	@Autowired  ServletContext context;
 	 @GetMapping("/flivrs")

@@ -14,7 +14,7 @@ public class Lbs1016 {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
+	  private String code;
 	  private String Libart;
 	  private float pu;
 	  private float qte;
@@ -35,11 +35,11 @@ public class Lbs1016 {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
 		return Libart;
@@ -77,12 +77,12 @@ public class Lbs1016 {
 	public void setBs1016(Bs1016 bs1016) {
 		this.bs1016 = bs1016;
 	}
-	public Lbs1016(long id, int numero, String code_article, String libart, float pu, float qte, int tva, float totht,
+	public Lbs1016(long id, int numero, String code, String libart, float pu, float qte, int tva, float totht,
 			Bs1016 bs1016) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
+		this.code = code;
 		Libart = libart;
 		this.pu = pu;
 		this.qte = qte;
@@ -96,8 +96,8 @@ public class Lbs1016 {
 	}
 	@Override
 	public String toString() {
-		return "Lbs1016 [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", pu=" + pu + ", qte=" + qte + ", tva=" + tva + ", totht=" + totht + ", bs1016=" + bs1016 + "]";
+		return "Lbs1016 [id=" + id + ", numero=" + numero + ", code=" + code + ", Libart=" + Libart + ", pu=" + pu
+				+ ", qte=" + qte + ", tva=" + tva + ", totht=" + totht + ", bs1016=" + bs1016 + "]";
 	}
 
 }

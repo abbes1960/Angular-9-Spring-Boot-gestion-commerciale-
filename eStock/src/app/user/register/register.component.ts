@@ -24,10 +24,10 @@ export class RegisterComponent implements OnInit {
   infoForm() {
     this.crudApi.dataForm = this.fb.group({
         id: null,
-        nom: ['', [Validators.required, Validators.minLength(5)]],
+        username: ['', [Validators.required, Validators.minLength(5)]],
         role: ['', [Validators.required, Validators.minLength(8)]],
-        login: ['', [Validators.required, Validators.minLength(8)]],
-        pwd: ['', [Validators.required, Validators.minLength(8)]],
+        email: ['', [Validators.required, Validators.minLength(8)]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
         pwdd: ['', [Validators.required, Validators.minLength(8)]],
         });
     }
@@ -38,8 +38,8 @@ export class RegisterComponent implements OnInit {
       this.crudApi.dataForm.reset();
   }
   onSubmit() {
-   
-    if (this.crudApi.dataForm.value.pwd == this.crudApi.dataForm.value.pwdd)
+    const val = this.crudApi.dataForm.value;
+    if (val.password == val.pwdd)
     {
       if (this.crudApi.choixmenu == "A")
       {

@@ -17,8 +17,8 @@ public class Lfcomm {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
-	  private String Libart;
+	  private String code;
+	  private String libart;
 	  private float pu;
 	  private float qte;
 	  private int tva;
@@ -40,17 +40,17 @@ public class Lfcomm {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
-		return Libart;
+		return libart;
 	}
 	public void setLibart(String libart) {
-		Libart = libart;
+		this.libart = libart;
 	}
 	public float getPu() {
 		return pu;
@@ -94,13 +94,13 @@ public class Lfcomm {
 	public void setFcomm(Fcomm fcomm) {
 		this.fcomm = fcomm;
 	}
-	public Lfcomm(long id, int numero, String code_article, String libart, float pu, float qte, int tva, float rem,
-			int fodec, float totht, Fcomm fcomm) {
+	public Lfcomm(long id, int numero, String code, String libart, float pu, float qte, int tva, float rem, int fodec,
+			float totht, Fcomm fcomm) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
-		Libart = libart;
+		this.code = code;
+		this.libart = libart;
 		this.pu = pu;
 		this.qte = qte;
 		this.tva = tva;
@@ -115,9 +115,9 @@ public class Lfcomm {
 	}
 	@Override
 	public String toString() {
-		return "Lfcomm [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", pu=" + pu + ", qte=" + qte + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht="
-				+ totht + ", fcomm=" + fcomm + "]";
+		return "Lfcomm [id=" + id + ", numero=" + numero + ", code=" + code + ", libart=" + libart + ", pu=" + pu
+				+ ", qte=" + qte + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht=" + totht
+				+ ", fcomm=" + fcomm + "]";
 	}
 
 }

@@ -23,7 +23,7 @@ public class Invent {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_dir;
+	  private int code;
 	  private Date date_invent;
 	  private String lib_direction;
 	  private String libelle;
@@ -50,11 +50,11 @@ public class Invent {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_dir() {
-		return code_dir;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_dir(int code_dir) {
-		this.code_dir = code_dir;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public Date getDate_invent() {
 		return date_invent;
@@ -86,13 +86,13 @@ public class Invent {
 	public void setLinvents(List<Linvent> linvents) {
 		this.linvents = linvents;
 	}
-	public Invent(long id, int annee, int numero, int code_dir, Date date_invent, String lib_direction, String libelle,
+	public Invent(long id, int annee, int numero, int code, Date date_invent, String lib_direction, String libelle,
 			float total, @Valid List<Linvent> linvents) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_dir = code_dir;
+		this.code = code;
 		this.date_invent = date_invent;
 		this.lib_direction = lib_direction;
 		this.libelle = libelle;
@@ -105,9 +105,10 @@ public class Invent {
 	}
 	@Override
 	public String toString() {
-		return "Invent [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_dir=" + code_dir
-				+ ", date_invent=" + date_invent + ", lib_direction=" + lib_direction + ", libelle=" + libelle
-				+ ", total=" + total + ", linvents=" + linvents + "]";
+		return "Invent [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", date_invent="
+				+ date_invent + ", lib_direction=" + lib_direction + ", libelle=" + libelle + ", total=" + total
+				+ ", linvents=" + linvents + "]";
 	}
+
 
 }

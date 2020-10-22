@@ -1,0 +1,203 @@
+/**
+ * Created by mboushaba on 14/08/2018.
+ */
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    //get concerned div
+    var userFirstName =document.querySelectorAll('.connected-user-name')[0];
+    var userNbrProducts = document.querySelectorAll('.cart_nb_products')[0];
+    var userStatus = document.querySelectorAll('.user-status')[0];
+    var accountOn = document.querySelectorAll('.account-on')[0];
+    var accountOff = document.querySelectorAll('.account-off')[0];
+            //call server
+     function ajax(url, callback){
+         var xmlhttp;
+         // compatible with IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp = new XMLHttpRequest();
+         xmlhttp.onreadystatechange = function(){
+             if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                 callback(xmlhttp.responseText);
+             }
+         }
+         xmlhttp.open("GET", url, true);
+         xmlhttp.send();
+     }
+
+    window.addEventListener('tagco-loaded',function(){
+            // get global var userData
+            if(globalUserData){}
+            var user = globalUserData;
+            var isDesktop = tc_vars['nom_site'] != 'site_mobile_boutique' && tc_vars['nom_site'] != 'site_mobile_pro';
+            //if user hasn't the role 'ROLE_CUSTOMERGROUP' so append anonymous header
+            if (user.belongToCustomerGroup) {
+                //if user is anonymous so append anonymous header
+                if (user.anonymous) {
+                        if(accountOn){
+                           accountOn.style.display = 'none';
+                        }
+                        if(accountOff){
+                           accountOff.style.display = 'inline-block';
+                        }
+                       // remove for-connected content
+                       var connectedDoms = document.querySelectorAll('.for-connected');
+                       for (var i = 0; i < connectedDoms.length; i++) {
+                           connectedDoms[i].remove();
+                       }
+                       var anonymousDoms = document.querySelectorAll('.for-anonymous');
+                       for (var i = 0; i < anonymousDoms.length; i++) {
+                           anonymousDoms[i].style.display = 'block';
+                       }
+                       var errorUserDoms = document.querySelectorAll('.for-errorUser');
+                       for (var i = 0; i < errorUserDoms.length; i++) {
+                          errorUserDoms[i].remove();
+                       }
+
+                       var dataSwitchViews = document.querySelectorAll('[data-switch-view]');
+                       for (var i = 0; i < dataSwitchViews.length; i++) {
+                          if(user.cartTotalUnitCount > 0){
+                               dataSwitchViews[i].setAttribute('data-switch-view', 'true');
+                          }else{
+                            dataSwitchViews[i].setAttribute('data-switch-view', 'false');
+                          }
+                       }
+                       if(!isDesktop) {
+                            var userConnected =  document.getElementById("userConnected");
+                            var userNotConnected = document.getElementById("userNotConnected");
+                            if(userNotConnected != null && userNotConnected !== undefined){
+                                document.getElementById("userNotConnected").style.display = "list-item";
+                            }
+                            if(userConnected != null && userConnected !== undefined){
+                                document.getElementById("userConnected").style.display = "none";
+                            }
+                       }
+               } else {
+                    if(userStatus){
+                        userStatus.classList.add('isConnected')
+                    }
+                    if(accountOn){
+                       accountOn.style.display = 'inline-block';
+                    }
+                    if(accountOff){
+                       accountOff.style.display = 'none';
+                    }
+                    //set firstname & lastname
+                   if(userFirstName){
+                       var displayedNameOnHeader = user.firstName;
+                        if(typeof EBK != 'undefined'){
+                            if(EBK.config.isPro == "true"){
+                                displayedNameOnHeader = user.title+" "+user.lastName;
+                            }
+                        }else{
+                            console.error("Attention!!! EBK est undefined");
+                        }
+                        userFirstName.innerText = (displayedNameOnHeader.length > 10 ? displayedNameOnHeader.substring(0, 10) + "..." : displayedNameOnHeader);
+                   }
+
+                    // remove for-connected content
+                    var anonymousDoms = document.querySelectorAll('.for-anonymous');
+                    for (var i = 0; i < anonymousDoms.length; i++) {
+                        anonymousDoms[i].remove();
+                    }
+                    var connectedDoms = document.querySelectorAll('.for-connected');
+                    for (var i = 0; i < connectedDoms.length; i++) {
+                       connectedDoms[i].style.display = 'block';
+                    }
+                    var errorUserDoms = document.querySelectorAll('.for-errorUser');
+                    for (var i = 0; i < errorUserDoms.length; i++) {
+                       errorUserDoms[i].remove();
+                    }
+                    var dataSwitchViews = document.querySelectorAll('[data-switch-view]');
+                    for (var i = 0; i < dataSwitchViews.length; i++) {
+                      dataSwitchViews[i].setAttribute('data-switch-view', 'true');
+                    }
+                    var welcome = document.getElementsByClassName("txtCapitalize");
+                    if(welcome.length > 0)
+                    {
+                        var firstLetterFN = user.firstName[0];
+                        var restFirstName = user.firstName.slice(1).toLowerCase();
+
+                        var firstLetterLN = user.lastName[0];
+                        var restLastName = user.lastName.slice(1).toLowerCase();
+                        welcome[0].innerHTML += firstLetterFN + restFirstName + ' ' + firstLetterLN + restLastName  + ',';
+                    }
+
+                    if(!isDesktop) {
+                        var userConnected =  document.getElementById("userConnected");
+                        var userNotConnected = document.getElementById("userNotConnected");
+                        if(userConnected != null && userConnected !== undefined){
+                            document.getElementById("userConnected").style.display = "list-item";
+                        }
+                        if(userNotConnected != null && userNotConnected !== undefined){
+                            document.getElementById("userNotConnected").style.display = "none";
+                        }
+                    }
+
+                    var connected = document.getElementsByClassName("uppCase bgYellow  bf-icon icon-account bold trigger af-icon");
+                    if(connected.length > 0)
+                    {
+                        connected[0].innerHTML = user.firstName + ' ' + user.lastName;
+                        connected[0].style.visibility = 'visible';
+                    }
+
+
+                }
+                //set number of product on cart for anonymous or connected
+                var cartTotalUnitCount = user.cartTotalUnitCount;
+                if(userNbrProducts){
+                	if(window.innerWidth > 767){
+                		userNbrProducts.innerText = (cartTotalUnitCount > 999 ? "+999" : cartTotalUnitCount);
+                	} else if(window.innerWidth < 768){
+                		userNbrProducts.innerText = (cartTotalUnitCount > 99 ? "+99" : cartTotalUnitCount);
+                	}
+                }
+
+
+            } else {
+                // remove for-connected and for-anonymous content
+                var connectedDoms = document.querySelectorAll('.for-connected');
+                for (var i = 0; i < connectedDoms.length; i++) {
+                   connectedDoms[i].remove();
+                }
+                var anonymousDoms = document.querySelectorAll('.for-anonymous');
+                for (var i = 0; i < anonymousDoms.length; i++) {
+                   anonymousDoms[i].remove();
+                }
+                var errorUserDoms = document.querySelectorAll('.for-errorUser');
+                for (var i = 0; i < errorUserDoms.length; i++) {
+                   errorUserDoms[i].style.display = 'block';
+                }
+            }
+
+            if(window.showCount){
+                //showMiniCart();
+                showCount();
+            }
+         });
+
+});
+
+function showCount(){
+    if(window.cartModificationTime == undefined)
+        window.cartModificationTime=0;
+        var suffix = '';
+        if(typeof EBK != 'undefined'){
+            suffix = EBK.config.contextPath;
+        }
+    $.ajax({
+        url: suffix + '/cart/cartlayer',
+        cache: false,
+        type: 'GET',
+        data :{estimate: "false", time: window.cartModificationTime},
+        success: function (result)
+        {
+            if(result){
+                window.minicart = $.trim(result);
+                if(window.innerWidth > 767){
+                	$('#cartLayer').html(window.minicart);
+                }
+                //updateCartItemsCount($('#cartLayer').find('#cartEntryCount').val());
+               // myLazyLoad.update();
+            }
+        }
+    });
+}

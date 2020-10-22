@@ -23,7 +23,7 @@ public class Favoir {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_four;
+	  private int code;
 	  private String lib_four;
 	  @JsonFormat(pattern = "dd/MM/yyyy")
 	  private LocalDate date_mvt;
@@ -53,11 +53,11 @@ public class Favoir {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_four() {
-		return code_four;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_four(int code_four) {
-		this.code_four = code_four;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLib_four() {
 		return lib_four;
@@ -101,13 +101,13 @@ public class Favoir {
 	public void setLfavoirs(List<Lfavoir> lfavoirs) {
 		this.lfavoirs = lfavoirs;
 	}
-	public Favoir(long id, int annee, int numero, int code_four, String lib_four, LocalDate date_mvt, String libelle,
+	public Favoir(long id, int annee, int numero, int code, String lib_four, LocalDate date_mvt, String libelle,
 			float totht, float tottva, float totttc, @Valid List<Lfavoir> lfavoirs) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_four = code_four;
+		this.code = code;
 		this.lib_four = lib_four;
 		this.date_mvt = date_mvt;
 		this.libelle = libelle;
@@ -122,9 +122,9 @@ public class Favoir {
 	}
 	@Override
 	public String toString() {
-		return "Favoir [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_four=" + code_four
-				+ ", lib_four=" + lib_four + ", date_mvt=" + date_mvt + ", libelle=" + libelle + ", totht=" + totht
-				+ ", tottva=" + tottva + ", totttc=" + totttc + ", lfavoirs=" + lfavoirs + "]";
+		return "Favoir [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", lib_four="
+				+ lib_four + ", date_mvt=" + date_mvt + ", libelle=" + libelle + ", totht=" + totht + ", tottva="
+				+ tottva + ", totttc=" + totttc + ", lfavoirs=" + lfavoirs + "]";
 	}
 
 }

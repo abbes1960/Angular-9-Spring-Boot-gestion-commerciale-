@@ -5,7 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name = "residence")
+@Table(name = "societe")
 public class Societe {
 	@Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,14 +13,15 @@ public class Societe {
 	  private String libelle;
 	  private String slibelle;
 	  private String adresse;
-	  private String te1;
+	  private String tel1;
 	  private String tel2;
 	  private String fax;
 	  private String matf;
 	  private String rib;
 	  private String banque;
-	  private String numc;
-	  private String numf;
+	  private int numc;
+	  private int numf;
+	  private String registre;
 	public long getId() {
 		return id;
 	}
@@ -45,11 +46,11 @@ public class Societe {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public String getTe1() {
-		return te1;
+	public String getTel1() {
+		return tel1;
 	}
-	public void setTe1(String te1) {
-		this.te1 = te1;
+	public void setTel1(String tel1) {
+		this.tel1 = tel1;
 	}
 	public String getTel2() {
 		return tel2;
@@ -81,26 +82,32 @@ public class Societe {
 	public void setBanque(String banque) {
 		this.banque = banque;
 	}
-	public String getNumc() {
+	public int getNumc() {
 		return numc;
 	}
-	public void setNumc(String numc) {
+	public void setNumc(int numc) {
 		this.numc = numc;
 	}
-	public String getNumf() {
+	public int getNumf() {
 		return numf;
 	}
-	public void setNumf(String numf) {
+	public void setNumf(int numf) {
 		this.numf = numf;
 	}
-	public Societe(long id, String libelle, String slibelle, String adresse, String te1, String tel2, String fax,
-			String matf, String rib, String banque, String numc, String numf) {
+	public String getRegistre() {
+		return registre;
+	}
+	public void setRegistre(String registre) {
+		this.registre = registre;
+	}
+	public Societe(long id, String libelle, String slibelle, String adresse, String tel1, String tel2, String fax,
+			String matf, String rib, String banque, int numc, int numf, String registre) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.slibelle = slibelle;
 		this.adresse = adresse;
-		this.te1 = te1;
+		this.tel1 = tel1;
 		this.tel2 = tel2;
 		this.fax = fax;
 		this.matf = matf;
@@ -108,6 +115,7 @@ public class Societe {
 		this.banque = banque;
 		this.numc = numc;
 		this.numf = numf;
+		this.registre = registre;
 	}
 	public Societe() {
 		super();
@@ -116,8 +124,8 @@ public class Societe {
 	@Override
 	public String toString() {
 		return "Societe [id=" + id + ", libelle=" + libelle + ", slibelle=" + slibelle + ", adresse=" + adresse
-				+ ", te1=" + te1 + ", tel2=" + tel2 + ", fax=" + fax + ", matf=" + matf + ", rib=" + rib + ", banque="
-				+ banque + ", numc=" + numc + ", numf=" + numf + "]";
+				+ ", tel1=" + tel1 + ", tel2=" + tel2 + ", fax=" + fax + ", matf=" + matf + ", rib=" + rib + ", banque="
+				+ banque + ", numc=" + numc + ", numf=" + numf + ", registre=" + registre + "]";
 	}
-	
+
 }

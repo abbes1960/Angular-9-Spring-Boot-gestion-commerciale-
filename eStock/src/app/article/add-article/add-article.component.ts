@@ -120,7 +120,8 @@ addData() {
  
     var mimeType = event.target.files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
+      this.toastr.success( 'Only images are supported.');
+      
       return;
     }
  

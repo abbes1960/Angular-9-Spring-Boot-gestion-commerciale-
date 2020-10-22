@@ -17,9 +17,8 @@ public class Linvent {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  
-	  private String code_article;
-	  private String Libart;
+	  private String code;
+	  private String libart;
 	  private int qte1;
 	  private int qte2;
 	  private int qte3;
@@ -41,17 +40,17 @@ public class Linvent {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
-		return Libart;
+		return libart;
 	}
 	public void setLibart(String libart) {
-		Libart = libart;
+		this.libart = libart;
 	}
 	public int getQte1() {
 		return qte1;
@@ -95,13 +94,13 @@ public class Linvent {
 	public void setInvent(Invent invent) {
 		this.invent = invent;
 	}
-	public Linvent(long id, int numero, String code_article, String libart, int qte1, int qte2, int qte3, int qtef,
-			float pu, float total, Invent invent) {
+	public Linvent(long id, int numero, String code, String libart, int qte1, int qte2, int qte3, int qtef, float pu,
+			float total, Invent invent) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
-		Libart = libart;
+		this.code = code;
+		this.libart = libart;
 		this.qte1 = qte1;
 		this.qte2 = qte2;
 		this.qte3 = qte3;
@@ -116,9 +115,9 @@ public class Linvent {
 	}
 	@Override
 	public String toString() {
-		return "Linvent [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", qte1=" + qte1 + ", qte2=" + qte2 + ", qte3=" + qte3 + ", qtef=" + qtef + ", pu=" + pu + ", total="
-				+ total + ", invent=" + invent + "]";
+		return "Linvent [id=" + id + ", numero=" + numero + ", code=" + code + ", libart=" + libart + ", qte1=" + qte1
+				+ ", qte2=" + qte2 + ", qte3=" + qte3 + ", qtef=" + qtef + ", pu=" + pu + ", total=" + total
+				+ ", invent=" + invent + "]";
 	}
 	
 }

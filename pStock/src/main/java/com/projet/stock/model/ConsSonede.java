@@ -1,8 +1,6 @@
 package com.projet.stock.model;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
@@ -23,7 +20,9 @@ public class ConsSonede {
 	  private int numero;
 	  private int annee;
 	  private int mois;
-	  private int code_direction;
+	  private int code;
+	  private int mat;
+	  private int total;
 	  private String lib_direction;
 	  private String libelle;
 	  @JsonManagedReference
@@ -55,11 +54,23 @@ public class ConsSonede {
 	public void setMois(int mois) {
 		this.mois = mois;
 	}
-	public int getCode_direction() {
-		return code_direction;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_direction(int code_direction) {
-		this.code_direction = code_direction;
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public int getMat() {
+		return mat;
+	}
+	public void setMat(int mat) {
+		this.mat = mat;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
 	}
 	public String getLib_direction() {
 		return lib_direction;
@@ -79,14 +90,16 @@ public class ConsSonede {
 	public void setLconsSonedes(List<LconsSonede> lconsSonedes) {
 		this.lconsSonedes = lconsSonedes;
 	}
-	public ConsSonede(long id, int numero, int annee, int mois, int code_direction, String lib_direction,
+	public ConsSonede(long id, int numero, int annee, int mois, int code, int mat, int total, String lib_direction,
 			String libelle, @Valid List<LconsSonede> lconsSonedes) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.annee = annee;
 		this.mois = mois;
-		this.code_direction = code_direction;
+		this.code = code;
+		this.mat = mat;
+		this.total = total;
 		this.lib_direction = lib_direction;
 		this.libelle = libelle;
 		this.lconsSonedes = lconsSonedes;
@@ -97,9 +110,10 @@ public class ConsSonede {
 	}
 	@Override
 	public String toString() {
-		return "ConsSonede [id=" + id + ", numero=" + numero + ", annee=" + annee + ", mois=" + mois
-				+ ", code_direction=" + code_direction + ", lib_direction=" + lib_direction + ", libelle=" + libelle
+		return "ConsSonede [id=" + id + ", numero=" + numero + ", annee=" + annee + ", mois=" + mois + ", code=" + code
+				+ ", mat=" + mat + ", total=" + total + ", lib_direction=" + lib_direction + ", libelle=" + libelle
 				+ ", lconsSonedes=" + lconsSonedes + "]";
 	}
+
 
 }

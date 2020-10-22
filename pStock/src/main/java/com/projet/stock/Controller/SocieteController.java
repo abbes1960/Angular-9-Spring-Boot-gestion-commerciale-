@@ -11,22 +11,27 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.projet.stock.exception.ResourceNotFoundException;
 import com.projet.stock.model.Societe;
 import com.projet.stock.repository.SocieteRepository;
-
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
+@RequestMapping("/api")
 public class SocieteController {
 	@Autowired
 	SocieteRepository repository;
 	
-	 @GetMapping("/Societes")
+	 @GetMapping("/societes")
 	  public List<Societe> getAllSocietes() {
 	    System.out.println("Get all Societes...");
 	 
@@ -36,7 +41,7 @@ public class SocieteController {
 	    return Societes;
 	  }
 	
-	@GetMapping("/Societes/{id}")
+	@GetMapping("/societes/{id}")
 	public ResponseEntity<Societe> getSocieteById(@PathVariable(value = "id") Long SocieteId)
 			throws ResourceNotFoundException {
 		Societe Societe = repository.findById(SocieteId)
@@ -44,13 +49,13 @@ public class SocieteController {
 		return ResponseEntity.ok().body(Societe);
 	}
 
-	@PostMapping("/Societes")
+	@PostMapping("/societes")
 	public Societe createSociete(@Valid @RequestBody Societe Societe) {
 		return repository.save(Societe);
 	}
 	
 
-	@DeleteMapping("/Societes/{id}")
+	@DeleteMapping("/societes/{id}")
 	public Map<String, Boolean> deleteSociete(@PathVariable(value = "id") Long SocieteId)
 			throws ResourceNotFoundException {
 		Societe Societe = repository.findById(SocieteId)
@@ -63,7 +68,7 @@ public class SocieteController {
 	}
 	  
 	 
-	  @DeleteMapping("/Societes/delete")
+	  @DeleteMapping("/societes/delete")
 	  public ResponseEntity<String> deleteAllSocietes() {
 	    System.out.println("Delete All Societes...");
 	 
@@ -74,7 +79,7 @@ public class SocieteController {
 	 
 	
 
-	  @PutMapping("/Societes/{id}")
+	  @PutMapping("/societes/{id}")
 	  public ResponseEntity<Societe> updateSociete(@PathVariable("id") long id, @RequestBody Societe Societe) {
 	    System.out.println("Update Societe with ID = " + id + "...");
 	 
@@ -83,7 +88,7 @@ public class SocieteController {
 	    if (SocieteInfo.isPresent()) {
 	    	Societe societe = SocieteInfo.get();
 	          
-	           Societe.setLibelle(Societe.getLibelle());
+	           societe.setLibelle(societe.getLibelle());
 	          
 	      return new ResponseEntity<>(repository.save(Societe), HttpStatus.OK);
 	    } else {

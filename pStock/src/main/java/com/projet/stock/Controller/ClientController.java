@@ -17,16 +17,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.projet.stock.domaine.Message;
 import com.projet.stock.exception.ResourceNotFoundException;
 import com.projet.stock.model.Client;
+import com.projet.stock.model.Societe;
 import com.projet.stock.repository.ClientRepository;
+import com.projet.stock.repository.SocieteRepository;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class ClientController {
-	@Autowired
-	ClientRepository repository;
-	
+	@Autowired 	ClientRepository repository;
+	@Autowired 	SocieteRepository sterepository;
 	 @GetMapping("/clients")
 	  public List<Client> getAllClients() {
 	    System.out.println("Get all Clients...");
@@ -38,16 +41,25 @@ public class ClientController {
 	  }
 	
 	@GetMapping("/clients/{id}")
-	public ResponseEntity<Client> getClientById(@PathVariable(value = "id") Long ClientId)
+	public ResponseEntity<Client> getClientByCode(@PathVariable(value = "id") int id)
 			throws ResourceNotFoundException {
-		Client Client = repository.findById(ClientId)
-				.orElseThrow(() -> new ResourceNotFoundException("Client not found for this id :: " + ClientId));
+		 System.out.println(id);
+		 
+		Client Client = repository.findByCode(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Client not found for this id :: " + id));
 		return ResponseEntity.ok().body(Client);
 	}
 
 	@PostMapping("/clients")
 	public Client createClient(@Valid @RequestBody Client Client) {
-		return repository.save(Client);
+		long id = 1;
+		Optional<Societe> SocieteInfo = sterepository.findById(id);
+ 	    if (SocieteInfo.isPresent()) {
+	    	Societe ste = SocieteInfo.get();
+	           ste.setNumc(ste.getNumc()+1);
+	           ste = sterepository.save(ste);
+	    }
+ 		return repository.save(Client);
 	}
 	
 

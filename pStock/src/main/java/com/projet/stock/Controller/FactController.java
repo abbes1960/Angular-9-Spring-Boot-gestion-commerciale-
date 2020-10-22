@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.projet.stock.exception.ResourceNotFoundException;
-import com.projet.stock.model.Bs1016;
+
 import com.projet.stock.model.Compteur;
 import com.projet.stock.model.Fact;
-import com.projet.stock.model.Lbs1016;
+
 import com.projet.stock.model.Lfact;
-import com.projet.stock.model.Residence;
+
 import com.projet.stock.repository.CompteurRepository;
 import com.projet.stock.repository.FactRepository;
 import com.projet.stock.repository.LfactRepository;
@@ -36,9 +36,8 @@ import com.projet.stock.repository.LfactRepository;
 @RestController
 @RequestMapping("/api")
 public class FactController {
-	@Autowired
-	FactRepository repository;
-	LfactRepository repo;
+	@Autowired 	FactRepository repository;
+	@Autowired LfactRepository repo;
 	@Autowired CompteurRepository comptrepo;
 	@Autowired  ServletContext context;
 	 @GetMapping("/facts")

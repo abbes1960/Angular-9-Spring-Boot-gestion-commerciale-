@@ -13,7 +13,7 @@ public class Lavoir {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
+	  private String code;
 	  private String Libart;
 	  private float qte;
 	  private float pu;
@@ -23,15 +23,6 @@ public class Lavoir {
 	  @ManyToOne
 	    @JoinColumn
 	    private Avoir avoir;
-	public Avoir getAvoir() {
-		return avoir;
-	}
-	public void setAvoir(Avoir avoir) {
-		this.avoir = avoir;
-	}
-	public void setPu(float pu) {
-		this.pu = pu;
-	}
 	public long getId() {
 		return id;
 	}
@@ -44,11 +35,11 @@ public class Lavoir {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
 		return Libart;
@@ -62,17 +53,17 @@ public class Lavoir {
 	public void setQte(float qte) {
 		this.qte = qte;
 	}
+	public float getPu() {
+		return pu;
+	}
+	public void setPu(float pu) {
+		this.pu = pu;
+	}
 	public int getTva() {
 		return tva;
 	}
 	public void setTva(int tva) {
 		this.tva = tva;
-	}
-	public float getPu() {
-		return pu;
-	}
-	public void setRem(float pu) {
-		this.pu = pu;
 	}
 	public int getFodec() {
 		return fodec;
@@ -86,12 +77,18 @@ public class Lavoir {
 	public void setTotht(float totht) {
 		this.totht = totht;
 	}
-	public Lavoir(long id, int numero, String code_article, String libart, float qte, float pu, int tva, int fodec,
-			float totht, Avoir avoir) {
+	public Avoir getAvoir() {
+		return avoir;
+	}
+	public void setAvoir(Avoir avoir) {
+		this.avoir = avoir;
+	}
+	public Lavoir(long id, int numero, String code, String libart, float qte, float pu, int tva, int fodec, float totht,
+			Avoir avoir) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
+		this.code = code;
 		Libart = libart;
 		this.qte = qte;
 		this.pu = pu;
@@ -106,9 +103,10 @@ public class Lavoir {
 	}
 	@Override
 	public String toString() {
-		return "Lavoir [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", qte=" + qte + ", pu=" + pu + ", tva=" + tva + ", fodec=" + fodec + ", totht=" + totht + ", avoir="
-				+ avoir + "]";
+		return "Lavoir [id=" + id + ", numero=" + numero + ", code=" + code + ", Libart=" + Libart + ", qte=" + qte
+				+ ", pu=" + pu + ", tva=" + tva + ", fodec=" + fodec + ", totht=" + totht + ", avoir=" + avoir + "]";
 	}
+
+
 	
 }

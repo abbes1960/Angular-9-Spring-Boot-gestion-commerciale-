@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.projet.stock.exception.ResourceNotFoundException;
+import com.projet.stock.model.Lbon;
 import com.projet.stock.model.Llivr;
 import com.projet.stock.model.Residence;
 import com.projet.stock.repository.LlivrRepository;
@@ -28,7 +29,7 @@ import com.projet.stock.repository.ResidenceRepository;
 public class LlivrController {
 	@Autowired
 	LlivrRepository repository;
-	 @GetMapping("/LLlivrs")
+	 @GetMapping("/llivrs")
 	  public List<Llivr> getAllLlivrs() {
 	    System.out.println("Get all Llivrs...");
 	 
@@ -37,16 +38,20 @@ public class LlivrController {
 	 
 	    return Llivrs;
 	  }
+	 
+	 @GetMapping("/llivrs/{numero}")
+	  public List<Llivr> getAllByNumero(@PathVariable(value = "numero") int numero) {
+	    System.out.println("Get all Lbon...");
+	 
+	    List<Llivr> Llivrs = new ArrayList<>();
+	    repository.findAllByNumero(numero).forEach(Llivrs::add);
+	 
+	    return Llivrs;
+	  }
 	
-	@GetMapping("/Llivrs/{id}")
-	public ResponseEntity<Llivr> getLlivrById(@PathVariable(value = "id") Long LlivrId)
-			throws ResourceNotFoundException {
-		Llivr Llivr = repository.findById(LlivrId)
-				.orElseThrow(() -> new ResourceNotFoundException("Llivr not found for this id :: " + LlivrId));
-		return ResponseEntity.ok().body(Llivr);
-	}
 
-	@PostMapping("/Llivrs")
+
+	@PostMapping("/llivrs")
 	public @Valid Llivr createLlivr(@Valid @RequestBody Llivr Llivr) {
 		
 		return repository.save(Llivr);
@@ -55,7 +60,7 @@ public class LlivrController {
 	}
 	
 
-	@DeleteMapping("/Llivrs/{id}")
+	@DeleteMapping("/llivrs/{id}")
 	public Map<String, Boolean> deleteLlivr(@PathVariable(value = "id") Long LlivrId)
 			throws ResourceNotFoundException {
 		Llivr Llivr = repository.findById(LlivrId)
@@ -68,7 +73,7 @@ public class LlivrController {
 	}
 	  
 	 
-	  @DeleteMapping("/Llivrs/delete")
+	  @DeleteMapping("/llivrs/delete")
 	  public ResponseEntity<String> deleteAllLlivrs() {
 	    System.out.println("Delete All Llivrs...");
 	    repository.deleteAll();

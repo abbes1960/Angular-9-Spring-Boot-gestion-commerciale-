@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.projet.stock.model.Scategorie;
 @Repository
 public interface ScategorieRepository extends JpaRepository<Scategorie, Long>{
-	 @Query("SELECT t FROM Scategorie t where t.code_categ = :code")
+	 @Query("SELECT t FROM Scategorie t where t.ccateg = :code")
 	    public List<Scategorie> findByCateg(@Param("code") String code);
 	public Optional<Scategorie> findByCode(String code);
+	public List<Scategorie> findByCcateg(String code);
+	
 }

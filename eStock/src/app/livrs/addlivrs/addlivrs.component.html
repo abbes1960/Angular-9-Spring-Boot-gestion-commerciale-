@@ -1,0 +1,117 @@
+<mat-toolbar color="red">
+  
+    <div>
+    <h1>Livraison Client</h1> 
+    </div>
+    
+  </mat-toolbar>
+  <form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+  <input  type="hidden"  class="form-control" formControlName="libcl" id ="libcl">
+  <input  type="hidden"  class="form-control" formControlName="smtva">
+  <div class="form-group row col-md-12">
+  <div class="form-group col-md-6">
+      <label><strong>Num Livraison : </strong></label>
+      <input  type="text"  class="form-control" formControlName="numero" readonly>
+  </div>  
+  <div class="col-md-6 form-group">
+        <label>Date</label>
+      <input  type="date"  class="form-control" formControlName="date_mvt" id = "date_mvt">
+  </div>
+  
+  <div class="col-md-6 form-group">
+    <label>Code Client</label>
+    <select name="code" class="form-control" formControlName="code" id ="code"
+    (change)="OnSelectClient($event.target.value)">
+  
+    <option *ngFor="let client of this.ClientList" value="{{client.code}}">{{client.libelle}}</option>
+    </select>
+  </div>
+  
+  
+      <div class="col-md-6 form-group">
+          <label>Chauffeur </label>
+          <input class="form-control" formControlName="chauffeur" id ="chauffeur" >
+      </div>
+      <div class="col-md-6 form-group">
+          <label>Camion </label>
+          <input class="form-control" formControlName="camion" id = "camion">
+      </div>
+  
+  
+  </div>
+  <table class="table table-borderless">
+    <thead class="thead-light">
+       <th>Article</th>
+      <th>Pu</th>
+      <th>Quantite</th>
+      <th>Rem</th>
+      <th>Tva</th>
+      <th>Total Ht</th>
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+      </th>
+    </thead>
+    <tbody>
+        <tr *ngIf="service.list.length==0"  [class.text-danger]="!isValid && service.list.length ==0">
+            <td class="font-italic text-center" colspan="5">
+              Aucune Commande sélectionnée ...
+            </td>
+          </tr>
+      <tr *ngFor="let item of service.list | paginate: { itemsPerPage: 10, currentPage: p };let i=index; ">
+      <td>{{item.libart}}</td>
+      <td>{{item.pu}}</td>
+      <td>{{item.qte}}</td>
+      <td>{{item.rem}}</td>
+      <td>{{item.tva}}</td>
+      <td>{{item.totht}}</td>
+      <td>
+          <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)"><i class="fa fa-pencil"></i></a>
+          <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Tot Ht : </label>
+            <input type="text" class="form-control" id="totht" formControlName="totht" readonly>
+        </div>
+        </div> 
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+              <label>Tot Rem : </label>
+              <input type="text" class="form-control" id="totrem" formControlName="totrem" readonly>
+        </div>
+        </div>
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+              <label>Tot Fodec : </label>
+              <input type="text" class="form-control" id="totfodec" formControlName="totfodec" readonly>
+        </div>
+        </div>
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Tot Tva  : </label>
+            <input type="text" class="form-control" id="tottva" formControlName="tottva" readonly>
+        </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+        <label>Tota TTC : </label>
+        <input type="text" class="form-control" id="totttc" formControlName="totttc" readonly>
+        </div>
+        </div>        
+        
+      </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <button  class="btn btn-dark" (click)="generatePdf(this.service.formData.value.id)"><i class="fa fa-file-pdf-o"></i>Imprimer</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/llivrs"><i class="fa fa-plus-square"></i> Liste </a>
+  
+  </div>
+  
+  
+  </form> 
+  

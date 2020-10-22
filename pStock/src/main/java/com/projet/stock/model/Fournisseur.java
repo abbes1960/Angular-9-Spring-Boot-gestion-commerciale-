@@ -13,7 +13,9 @@ public class Fournisseur {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private String libelle;
+	  private String responsable;
 	  private String adresse;
+	  private String ville;	  
 	  private String tel;
 	  private String email;
 	  private String fax;
@@ -34,11 +36,23 @@ public class Fournisseur {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+	public String getResponsable() {
+		return responsable;
+	}
+	public void setResponsable(String responsable) {
+		this.responsable = responsable;
+	}
 	public String getAdresse() {
 		return adresse;
 	}
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+	public String getVille() {
+		return ville;
+	}
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 	public String getTel() {
 		return tel;
@@ -88,12 +102,18 @@ public class Fournisseur {
 	public void setSoldef(float soldef) {
 		this.soldef = soldef;
 	}
-	public Fournisseur(long id, String libelle, String adresse, String tel, String email, String fax, String login,
-			String pwd, String matfisc, float soldinit, float soldef) {
+	public Fournisseur() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Fournisseur(long id, String libelle, String responsable, String adresse, String ville, String tel,
+			String email, String fax, String login, String pwd, String matfisc, float soldinit, float soldef) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
+		this.responsable = responsable;
 		this.adresse = adresse;
+		this.ville = ville;
 		this.tel = tel;
 		this.email = email;
 		this.fax = fax;
@@ -105,13 +125,11 @@ public class Fournisseur {
 	}
 	@Override
 	public String toString() {
-		return "Fournisseur [id=" + id + ", libelle=" + libelle + ", adresse=" + adresse + ", tel=" + tel + ", email="
-				+ email + ", fax=" + fax + ", login=" + login + ", pwd=" + pwd + ", matfisc=" + matfisc + ", soldinit="
-				+ soldinit + ", soldef=" + soldef + "]";
+		return "Fournisseur [id=" + id + ", libelle=" + libelle + ", responsable=" + responsable + ", adresse="
+				+ adresse + ", ville=" + ville + ", tel=" + tel + ", email=" + email + ", fax=" + fax + ", login="
+				+ login + ", pwd=" + pwd + ", matfisc=" + matfisc + ", soldinit=" + soldinit + ", soldef=" + soldef
+				+ "]";
 	}
-	public Fournisseur() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 	
 }

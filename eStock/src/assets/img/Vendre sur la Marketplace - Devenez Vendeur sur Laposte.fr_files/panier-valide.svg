@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>panier-valide</title>
+    <desc>Created with Sketch.</desc>
+    <g id="panier-valide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(25.000000, 12.000000)" stroke="#20458F" stroke-linecap="square" stroke-linejoin="round" stroke-width="4">
+            <path d="M0,14.5127839 L45.587486,14.5127839 L45.587486,55.9778806 C45.587486,58.2688272 43.7329042,60.1243902 41.4431691,60.1243902 L4.14431691,60.1243902 C1.85458182,60.1243902 0,58.2688272 0,55.9778806 L0,14.5127839 Z" id="Path" fill="#FFFFFF"></path>
+            <path d="M12.4329507,22.8058032 L12.4329507,10.3662742 C12.4329507,4.63994432 17.0704414,0 22.793743,0 C28.5170447,0 33.1545353,4.63994432 33.1545353,10.3662742 L33.1545353,22.8058032" id="Stroke-51"></path>
+        </g>
+        <circle id="Oval" stroke="#20458F" stroke-width="4" fill="#FFC928" fill-rule="nonzero" cx="69.3666667" cy="67.3666667" r="12.6333333"></circle>
+        <polyline id="Path" stroke="#20458F" stroke-width="4" stroke-linecap="square" points="74.8666667 64.0666667 67.5333333 70.6666667 63.8666667 67.3666667"></polyline>
+    </g>
+</svg>

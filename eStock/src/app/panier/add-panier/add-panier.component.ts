@@ -32,7 +32,7 @@ export class AddPanierComponent implements OnInit {
   }
   getData() {
     this.crudApi.getAll().subscribe(
-      response =>{this.crudApi.listData = response;}
+      response =>{this.crudApi.list = response;}
      );
    
   }

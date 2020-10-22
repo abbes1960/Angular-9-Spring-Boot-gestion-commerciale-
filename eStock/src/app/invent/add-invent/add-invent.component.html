@@ -15,7 +15,7 @@
     <div class="form-group">
             <label>Num Inventaire  : </label>
             <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
-            <input  type="text"  class="form-control" formControlName="lib_direction" id="lib_direction" readonly>
+            <input  type="text"  class="form-control" formControlName="lib_depot" id="lib_depot" readonly>
         </div>
       </div>
 <div class="form-group row col-md-12">
@@ -27,12 +27,12 @@
   </div>
 <div class="col-md-6">
 <div class="form-group">
-  <label>Direction </label>
-  <select name="code_dir" class="form-control" formControlName="code_dir" id="code_dir"
-  (change)="onSelectDir($event.target.value)">
+  <label>Depot </label>
+  <select name="code" class="form-control" formControlName="code_dir" id="code_dir"
+  (change)="onSelectDepot($event.target.value)">
         
   <option value="0">-Select-</option>
-  <option *ngFor="let item of this.DirectionList" value="{{item.code}}">{{item.libelle}}</option>
+  <option *ngFor="let item of this.DepotList" value="{{item.code}}">{{item.libelle}}</option>
   </select>
 </div>
 </div>
@@ -46,11 +46,10 @@
   </div>
   <table class="table table-borderless">
     <thead class="thead-light">
-      <th>Article</th>
-      <th>Qte 1</th>
-      <th>Qte 2</th>
-      <th>Qte 3</th>
-      <th>Qte Final</th>
+      <th>Code</th>
+      <th>Designation</th>
+      <th>Quantité</th>
+     
       <th>
         <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
       </th>
@@ -59,11 +58,10 @@
     <tbody>
      
       <tr *ngFor="let item of service.list;let i=index;">
+      <td>{{item.code}}</td>
       <td>{{item.libart}}</td>
-      <td>{{item.qte1}}</td>
-      <td>{{item.qte2}}</td>
-      <td>{{item.qte3}}</td>
-      <td>{{item.qtef}}</td>
+      <td>{{item.qte}}</td>
+      
       <td>
           <a class="btn btn-sm btn-info text-white" (click)="AddData(item,item.id)"><i class="fa fa-pencil"></i></a>
           <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>

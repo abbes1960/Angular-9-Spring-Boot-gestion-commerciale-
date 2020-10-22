@@ -22,7 +22,7 @@ public class Avoir {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_client;
+	  private int code;
 	  @JsonFormat(pattern = "dd/MM/yyyy")
 	  private LocalDate date_avoir;
 	  private String libelle;
@@ -53,11 +53,11 @@ public class Avoir {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_client() {
-		return code_client;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_client(int code_client) {
-		this.code_client = code_client;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public LocalDate getDate_avoir() {
 		return date_avoir;
@@ -107,13 +107,13 @@ public class Avoir {
 	public void setLavoirs(List<Lavoir> lavoirs) {
 		this.lavoirs = lavoirs;
 	}
-	public Avoir(long id, int annee, int numero, int code_client, LocalDate date_avoir, String libelle, float totht,
+	public Avoir(long id, int annee, int numero, int code, LocalDate date_avoir, String libelle, float totht,
 			float totfodec, float tottva, float totttc, String lib_client, @Valid List<Lavoir> lavoirs) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_client = code_client;
+		this.code = code;
 		this.date_avoir = date_avoir;
 		this.libelle = libelle;
 		this.totht = totht;
@@ -129,10 +129,9 @@ public class Avoir {
 	}
 	@Override
 	public String toString() {
-		return "Avoir [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_client=" + code_client
-				+ ", date_avoir=" + date_avoir + ", libelle=" + libelle + ", totht=" + totht + ", totfodec=" + totfodec
-				+ ", tottva=" + tottva + ", totttc=" + totttc + ", lib_client=" + lib_client + ", lavoirs=" + lavoirs
-				+ "]";
+		return "Avoir [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", date_avoir="
+				+ date_avoir + ", libelle=" + libelle + ", totht=" + totht + ", totfodec=" + totfodec + ", tottva="
+				+ tottva + ", totttc=" + totttc + ", lib_client=" + lib_client + ", lavoirs=" + lavoirs + "]";
 	}
-
+	
 	}

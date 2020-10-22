@@ -13,7 +13,7 @@ from '@angular/forms';
   styleUrls: ['./list-comm.component.scss']
 })
 export class ListCommComponent implements OnInit {
-  commandeListe;
+  list : Commande[];
   SearchText :string;
   constructor( private service :CommandeService,private router:Router,
     private toastr :ToastrService,public fb: FormBuilder,
@@ -26,7 +26,7 @@ export class ListCommComponent implements OnInit {
   }
 refreshListe(){
   this.service.getAll().subscribe(
-    response =>{this.commandeListe = response;}
+    response =>{this.list = response;}
    );
 
 }
@@ -47,14 +47,13 @@ refreshListe(){
   }
 newComm()
   {
-    this.service.choixmenu ="A"
+    this.service.choixmenu =1
   this.router.navigate(['/comm']);
   }
 
 onSelect(item :Commande){
-  
   this.service.formData = this.fb.group(Object.assign({},item));
-  this.service.choixmenu ="M"
+  this.service.choixmenu =2
   this.router.navigate(['/comm']);
 }
 transformDate(date){

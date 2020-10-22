@@ -1,0 +1,735 @@
+// DETECTS IF NAMESPACE OF THE APP EXISTS, CREATES THE NAMESPACE OF THE APP.
+if (!F6) var F6 = {};
+else if (F6 && typeof (F6) != "object")
+    throw new Error("F6 is not an Object type");
+
+/* F6.UTILS
+ * All utilities functions goes here
+ */
+F6.UTILS = {}; 
+
+/* F6.UTILS.trim
+ * removes white space from string
+ *
+ * Params: [String] str - string 
+ */
+F6.UTILS.trim = function (str){
+	str = str.replace(/[ ]+$/g, "");
+	str = str.replace(/^[ ]+/g, "");
+	return str;
+}
+
+/* F6.UTILS.tagCommanderAdpter
+ * tagCommanderAdpter
+ *
+ * 
+ */
+F6.UTILS.tagCommanderAdpter = function (alias, tc_vars){
+	if ((tc_vars["page_name"] == 'colissimo_process_achat::choix_colis'
+		|| tc_vars["page_name"] == 'colissimo_process_achat::choix_envoi' || tc_vars["page_name"] == 'colissimo_process_achat::recapitulatif_colis')) {
+	    var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+	    var isMozila = navigator.userAgent.indexOf("Mozilla")  > -1;
+	    console.log("Alias $ : "+String(alias));
+	    //function (a,b) => fichier main.js 
+	    if(!is_firefox && !isMozila && String(alias).indexOf("function (a,b)")!=0){
+	    	alias.noConflict();
+	    	console.log("no conflict avec tag commander");
+	    }
+	}
+}
+
+/* F6.UTILS.isCssActivate
+ * detect if CSS is enabled
+ */
+F6.UTILS.isCssActivate = function (){
+	var tn= document.createElement('div');
+	tn.innerHTML="<div id='_iscss_1'>aaa</div><div id='_iscss_2' style='width:100px;'>aaa</div>";
+	document.body.appendChild(tn);
+	ty=document.getElementById('_iscss_1').offsetWidth!=document.getElementById('_iscss_2').offsetWidth;
+	document.body.removeChild(tn);
+	return ty;
+}
+
+/* F6.UTILS.isImageActivate
+ * detect if IMAGES is enabled
+ */
+F6.UTILS.isImageActivate = function (){
+	var tn= document.createElement('div');
+	var myimg = new Image();
+	myimg.height = 100; myimg.width = 100; myimg.src = "images/split_test.gif";
+	tn.innerHTML="<div id='_iscss_1'></div>";
+	document.body.appendChild(tn);
+	document.getElementById('_iscss_1').appendChild(myimg)
+	ty = document.getElementById('_iscss_1').offsetHeight >= 100 ? true : false;
+	document.body.removeChild(tn);
+
+	return ty;
+}
+
+/*
+* les champs nécessaires doivent avoir un attribut "name" sinon il n esont pas pris en charge par la méthode "serialize()"
+* pour le cas où il n'y a aucun attribut "name", des noms génériques sont définis
+*
+* Si la requete ne retourne pas de résultat
+* alors un message d'erreur est affiché, défini dans la methode de définition du formulaire dans f6_validate.js
+* les numéros de status sont arbitraires [1, 4, 11, 26]
+* ils restent à adapter dans f6_validate.js selon les codes qui sortent de l'appli : nomenclature = code_NUM-STATUS
+* SUPPRIMER CE MESSAGE POUR PASSAGE EN PROD 
+*/
+F6.UTILS.sendAjaxForm = function(element, opts, error_container_id, callback, error_messages){
+    var error_container = null;
+    var send_method = 'POST';
+    var action_url = null;
+    var form_element = null;
+    var data_fields = $(element).serialize();
+    if(error_container_id.length > 0 ) error_container = $(error_container_id);
+    action_url = $(element).attr('action');
+    if(typeof(opts) == 'object'){
+    	if(typeof opts.url !== 'undefined' && opts.url.length > 0)
+    		action_url = opts.url;
+    	if(typeof opts.form_method !== 'undefined' && opts.form_method.length > 0)
+    		send_method = opts.form_method;
+    }
+
+    if(element && data_fields.length == 0) {
+    	var tmp = [];
+    	var num = 0;
+    	$(element).find('input').each(function(){
+    		tmp[F6.UTILS.defineFieldName('input', ++num)] = $(this).val();
+    	});
+    	$(element).find('select').each(function(){
+    		tmp[F6.UTILS.defineFieldName('select', ++num)] = $(this).val();
+    	});
+    	$(element).find('texarea').each(function(){
+    		tmp[F6.UTILS.defineFieldName('texarea', ++num)] = $(this).val();
+    	});
+
+    	data_fields = F6.UTILS.serialize(tmp);
+    }
+
+
+    if(! action_url) return false;
+    if(opts.file) {
+    	data_fields = data_fields + "&file=" + encodeURIComponent(element.file.files[0]);
+    }
+
+    if(document.getElementById("countryPro") !== null && !data_fields.includes("&countryCode")) {
+        	data_fields = data_fields + "&countryCode=" + document.getElementById("countryPro").value;
+     }
+
+    $('.btn-send input').attr('disabled', 'disabled')
+    $.ajax({
+          type: send_method,
+          url: action_url,
+          data: data_fields,
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader(header, token);
+          },
+          success: function(data, textStatus, jqXHR){
+            if(!data.success) {
+            	num_code = 'code_'+ data.status;
+            	if(error_container){
+            		F6.UI.displayErrorFormMessage(error_container, error_messages[num_code]);
+                	F6.VALIDATIONS.highlightError( error_container_id.replace('#', '') );
+
+                	/*** EXCEPTIONS ***/
+                	// Panier code promo
+                	if($('#formOrderRecap').find('.mess_validate1').length) {
+			            $('#formOrderRecap').find('.mess_validate1').text('');
+			            $('#formOrderRecap').find('.mess_validate2').text('');
+			        }
+			        }
+                
+            }
+            if(data.success) {
+            	if(error_container){
+                	$(error_container).css('display', 'none');
+            	}
+            	if(data.information){
+            		$("#bindingResults").html(data.information);
+            		$(".bindingResults").html(data.information);
+            	    eval(callback)(data.data, opts);
+            		return false;
+            	}
+            	if(data.data.messageCountry != null){
+                    if(data.data.messageCountry != ""){
+                        if($("#messageCountry").length)
+                            $("#messageCountry").remove();
+                        $("#propart-mtelE1-input-radio1").after("<span id='messageCountry' > " + data.data.messageCountry + "</span>");
+                    }
+                    else{
+                        if($("#messageCountry").length)
+                            $("#messageCountry").remove();
+                    }
+            	}
+
+                if(data.data.messageCn23 != null){
+                    if(data.data.messageCn23 != ""){
+                        if($("#messageCn23").length){
+							$("#messageCn23").remove();
+						}
+						$("#disabledLSId").after("<span id='messageCn23' class='general-smallText spTop-xsmall'>" + data.data.messageCn23 + "<a href="+ data.data.urlCn23 + " class='general-smallLink' target='_blank' title='cn23' data-tagc='clic' data-tagc_event='C' data-tagc_level2='24' data-tagc_chapter1='acces_formalite_douaniere' data-tagc_chapter2='personnalisation_mtel' data-tagc_name='formulaire_douane_CN23' data-tagc_type_clic='navigation'>CN23</a> </span>");
+						
+						if (window.TcListener) {
+                            TcListener.tcClick();
+                        }
+
+					}else{
+                        if($("#messageCn23").length) {
+                            $("#messageCn23").remove();
+                        }
+                    }
+                }else{
+                    if($("#messageCn23").length) {
+                        $("#messageCn23").remove();
+                    }
+                }
+
+            	$(".bindingResults").html(data.information);
+            	$("#bindingResults").html(data.information);
+            	eval(callback)(data.data, opts);
+            }
+          },
+          cache: false,
+          dataType: "json"
+        });
+    $('.btn-send input').removeAttr('disabled');
+    return false;
+ };
+
+
+F6.UTILS.sendAjaxFormAddressDestMultiColis = function(element, opts, error_container_id, callback, error_messages){
+    var error_container = null;
+    var send_method = 'POST';
+    var action_url = null;
+    var form_element = null;
+    var data_fields = $(element).serialize();
+    if(error_container_id.length > 0 ) error_container = $(error_container_id);
+    action_url = $(element).attr('action');
+    if(typeof(opts) == 'object'){
+        if(typeof opts.url !== 'undefined' && opts.url.length > 0)
+            action_url = opts.url;
+        if(typeof opts.form_method !== 'undefined' && opts.form_method.length > 0)
+            send_method = opts.form_method;
+    }
+
+    if(element && data_fields.length == 0) {
+        var tmp = [];
+        var num = 0;
+        $(element).find('input').each(function(){
+            tmp[F6.UTILS.defineFieldName('input', ++num)] = $(this).val();
+        });
+        $(element).find('select').each(function(){
+            tmp[F6.UTILS.defineFieldName('select', ++num)] = $(this).val();
+        });
+        $(element).find('texarea').each(function(){
+            tmp[F6.UTILS.defineFieldName('texarea', ++num)] = $(this).val();
+        });
+
+        data_fields = F6.UTILS.serialize(tmp);
+    }
+
+
+
+    if(! action_url) return false;
+    if(opts.file) {
+        data_fields = data_fields + "&file=" + encodeURIComponent(element.file.files[0]);
+    }
+    $('.btn-send input').attr('disabled', 'disabled')
+    $.ajax({
+        type: send_method,
+        url: action_url,
+        data: data_fields,
+        success: function(data, textStatus, jqXHR){
+            if(!data.success) {
+                num_code = 'code_'+ data.status;
+                if(error_container){
+                    F6.UI.displayErrorFormMessage(error_container, error_messages[num_code]);
+                    F6.VALIDATIONS.highlightError( error_container_id.replace('#', '') );
+
+                    /*** EXCEPTIONS ***/
+                    // Panier code promo
+                    if($('#formOrderRecap').find('.mess_validate1').length) {
+                        $('#formOrderRecap').find('.mess_validate1').text('');
+                        $('#formOrderRecap').find('.mess_validate2').text('');
+                    }
+                }
+
+            }
+            if(data.success) {
+                eval(callback)(data, opts);
+            }
+        },
+        cache: false,
+        dataType: "json"
+    });
+    $('.btn-send input').removeAttr('disabled');
+    return false;
+};
+ F6.UTILS.getMtelLink = function(){
+	 var isProSite = $("#isProSite").val();
+		var lienMtel = EBK.config.contextPath+"/mon-timbre-en-ligne";
+		return lienMtel;
+ };
+ 
+ F6.UTILS.getColissimoLink = function(){
+	
+		return EBK.config.contextPath+"/colissimo-en-ligne";
+ };
+ F6.UTILS.sendAjaxlink = function(data, opts, success_container_id, callback, error_messages){
+    var success_container = null;
+    var send_method = 'POST';
+    var action_url = null;
+    var data_fields = data;
+
+    if(success_container_id.length > 0 ) success_container = $(success_container_id);
+
+    if(typeof(opts) == 'object'){
+    	if(typeof opts.url !== 'undefined' && opts.url.length > 0)
+    		action_url = opts.url;
+    	if(typeof opts.form_method !== 'undefined' && opts.form_method.length > 0)
+    		send_method = opts.form_method;
+    }
+    if(! action_url) return false;
+    $.ajax({
+          type: send_method,
+          url: action_url,
+          data: data_fields,
+          success: function(data, textStatus, jqXHR){
+        	 var giftedProduct = [];
+            if(data != null && data.success) {
+            	if(data.data != null && data.data.giftedPrices != undefined){
+            	for(var i = 0 ; i< data.data.giftedPrices.length ; i++){
+            		if(data.data.giftedPrices[i].descriptionPromo != "")
+            			giftedProduct.push(data.data.giftedPrices[i]);            		
+            	}
+            	
+            	data.data.giftedPrices = giftedProduct;
+            	}
+            	
+                eval(callback)(data.data);
+            }else{
+            	//En cas d'echec            	
+            	eval(callback)(data.data , data.information);
+            }
+          },
+          cache: false,
+          dataType: "json"
+        });
+    return false;
+ };
+
+F6.UTILS.defineFieldName = function(field_type, num)
+{
+	field_name = '';
+	if(typeof($(this).attr('name')) == 'undefined') {
+		field_name = 'texarea_' + ++num;
+	} else {
+		field_name = $(this).attr('name')
+	}
+	return field_name;
+}
+
+F6.UTILS.serialize = function(obj)
+{
+	var returnVal;
+	if(obj != undefined){
+		switch(obj.constructor)
+		{
+			case Array:
+				var vArr="[";
+				for(var i=0;i<obj.length;i++)
+				{
+					if(i>0) vArr += ",";
+					vArr += F6.UTILS.serialize(obj[i]);
+				}
+				vArr += "]"
+				return vArr;
+			case String:
+				returnVal = escape("'" + obj + "'");
+				return returnVal;
+			case Number:
+				returnVal = isFinite(obj) ? obj.toString() : null;
+				return returnVal;				
+			case Date:
+				returnVal = "#" + obj + "#";
+				return returnVal;		
+			default:
+				if(typeof obj == "object"){
+					var vobj=[];
+					for(attr in obj)
+					{
+						if(typeof obj[attr] != "function")
+						{
+							vobj.push('"' + attr + '":' + F6.UTILS.serialize(obj[attr]));
+						}
+					}
+						if(vobj.length >0)
+							return "{" + vobj.join(",") + "}";
+						else
+							return "{}";
+				}		
+				else
+				{
+					return obj.toString();
+				}
+		}
+	}
+	return null;
+};
+
+F6.UTILS.clearForm = function(form_id, submit_label_start){
+
+    form_element = $('#' + form_id);
+    $('input[type="text"]', form_element).val('');
+    $('input[type="checkbox"]:checked', form_element).removeAttr('checked');
+    $('input[type="radio"]:checked', form_element).removeAttr('checked');
+    // clear select
+    $('select option', form_element).removeAttr('selected');
+    // clear textarea
+    $('textarea', form_element).val('');
+
+    $('input[type="submit"]', form_element).val(submit_label_start);
+
+    window.setTimeout(function() {
+        document.location.href = "#"+form_id;
+    }, 200);
+    
+}
+
+F6.UTILS.chageStringToFloat = function(input){
+	str = input.replace(',', '.');
+	return parseFloat(input);
+}
+
+
+F6.UTILS.changeToCurrency = function(input){
+	num = isNaN(input) || input === '' || input === null ? 0.00 : input;
+	var numb = parseFloat(num).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return numb.replace('.', (',')) + ' <abbr>€</abbr>';
+}
+
+F6.UTILS.findMyIdNumber = function(element, prefix_input) {
+	var prefix = (typeof prefix_input !== 'undefined' && prefix_input.length) ? prefix_input : 'item_';
+	var fid = '';
+	var num = 0;
+	var reg1 = new RegExp(prefix,"g");
+	while(element){
+		if(typeof $(element).attr('id') !== 'undefined'){
+			if($(element).attr('id').match(reg1)){
+				return $(element).attr('id').replace( prefix, '')
+			}
+		}
+		element = $(element).parent().length ? $(element).parent() : false;
+		num++;
+		if(num > 200)
+			return false;
+	}
+
+}
+
+F6.UTILS.findSpecialParent = function(element, tag, attribut, expression, depth){
+	var reg = new RegExp(expression);
+	var tmp_element = $(element);
+    var find_element = false;
+    var num = 0;
+
+    while(tmp_element) {
+        input_el_list = $(tmp_element).find(tag);
+        if(input_el_list.length) {
+            for( idx = 0 ; idx < input_el_list.length; idx++){
+            	element = input_el_list[idx];
+            	if(typeof $(element).attr(attribut) !== 'undefined'){
+            		attr = $(element).attr(attribut);
+					if(attr.match(reg)){
+	                    return element
+	                }
+            	} 
+            }
+        }
+       	tmp_element = $(tmp_element).parent().length ? $(tmp_element).parent() : false;
+        if(++num > depth){
+        	return false;
+        }
+    }
+}
+
+F6.UTILS.findMyAncestorbyClass = function(element_name, class_name) {	
+	var num = 0;
+	element = $(element_name);
+	while(element){
+		if($(element).hasClass(class_name)){
+				return element;
+			}
+		element = $(element).parent().length ? $(element).parent() : false;
+		num++;
+		if(num > 10)
+			return false;
+	}
+}
+
+F6.UTILS.findMyAncestor = function(element, prefix_input) {
+	var prefix = (typeof prefix_input !== 'undefined' && prefix_input.length) ? prefix_input : 'item_';
+	var fid = '';
+	var num = 0;
+	var reg1 = new RegExp(prefix,"g");
+	element = $(element);
+	while(element){
+		if(typeof $(element).attr('id') !== 'undefined'){
+			if($(element).attr('id').match(reg1)){
+				el_id = $(element).attr('id');
+				el = $('#' + el_id);
+				return el;
+			}
+		}
+		element = $(element).parent().length ? $(element).parent() : false;
+		num++;
+		if(num > 200)
+			return false;
+	}
+}
+
+// permet de remplir automatiquement un formualire
+    F6.UTILS.fillForm = function(form_id, fields, submit_label_end, submit_title_end){
+        F6.UTILS.clearForm(form_id, submit_label_end, submit_title_end);
+        var jq_form = $('#' + form_id);
+        
+        _.each(fields, function(value, name) {
+          $("input[name='"+name+"'], select[name='"+name+"'], span[name='"+name+"']", jq_form).each(function() {
+          console.log("nodeName = "+this.nodeName.toLowerCase());    
+          switch (this.nodeName.toLowerCase()) {  
+            case "input":
+                    switch (this.type) {
+                        case "radio":
+                        case "checkbox":
+                            if (this.value == value) { 
+                                $(this).attr('checked', 'checked'); 
+                            }
+                            break;
+                        default:
+                            $(this).val(value);
+                            break;
+                    }
+                    break;
+                case "select":
+                    $("option", this).each(function(){
+                        if (this.value == value) { 
+                            this.selected = true;
+                            $(this).parent().parent().find('span').text(this.text)
+                        }
+                    });
+                    break;
+                case "span":
+            	$('#compteur').html(value);
+                break;
+                   
+            }
+          });
+        });
+    };
+
+/* F6.stop
+ * Stops the event’s propagation and prevents its default action from being triggered eventually.
+ *
+ * Params: [Event] event - event of the element 
+ */
+F6.stop = function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopped = true;
+}
+
+/* F6.log
+ * Outputs a log of the passed in object. This is centralized in one method so
+ * that we can keep info logs around the site and easily disable/enable them
+ * when jumping between live/dev.
+ * @param [String] o - Message to log to console.
+ */
+F6.log = function (o) {
+    if (window.console && o) {
+        window.console.log(o);
+    }
+};
+
+/**
+ * method to easily create modules and namespaces
+ * examples: 
+ * var module2 = F6.namespace('AKIT.modules.module2');
+ * module2 === F6.modules.module2; // true
+ * F6.namespace('modules.module5');
+ * F6.namespace('once.upon.a.time.there.was.a.big.nesting.property');
+ * @param {string} ns_string string to create the object.
+ */
+F6.namespace = function ( ns_string ) {
+	var parts = ns_string.split('.'),
+		parent = F6,
+		i;
+	
+	// strip redundant leading global	
+	if ( parts[0] === 'F6' ){
+		parts = parts.slice(1);
+	}
+	
+	for ( i = 0; i < parts.length; i += 1 ){
+		// create a property if it doesnt exist
+		if ( typeof parent[parts[i]] === 'undefined' ){
+			parent[parts[i]] = {};
+		}
+		parent = parent[parts[i]];
+	}
+	return parent;
+};
+F6.UTILS.calculatePrice = function (postData){
+    var url =EBK.config.contextPath+ '/colissimo-en-ligne/getprice';
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: postData,
+      success: function(data) {
+    	
+    	  $('#pricespan').html(data.formattedValue);
+
+    	   }
+    });
+};
+
+F6.UTILS.checkEligiblity = function (checkData){
+
+    var eligibiliteUrl = "";
+    if(!checkData.pro == "eboutiquePro"){
+    	eligibiliteUrl="/colissimo-en-ligne/eligible";
+    }else{
+    	eligibiliteUrl="/professionnel/colissimo-en-ligne/eligible";
+    }
+    
+    $.ajax({
+      type: "GET",
+      url: eligibiliteUrl,
+      data: checkData,
+     
+      success: function(data) {
+        var formUrl = "";
+        if(!data.pro == "eboutiquePro"){
+            formUrl="/colissimo-en-ligne/votre-colis/redirectStep1FromHomePage";
+        }else{
+            formUrl="colissimo-en-ligne/votre-colis/redirectStep1FromHomePage";
+        }
+    	var sautLigne =" - ";
+    	var town = data.depTown;
+    	if(town.length > 16)
+    	{
+    		sautLigne = "<br>";
+    	}
+    	
+    	
+    	if(data.eligible == true){
+    		 $('#divCodePostaltrue #eligiblespan').replaceWith('<span id="eligiblespan"> Départ : '+ data.isoCode + ' '+ data.localite  + sautLigne +'Arrivée : ' + data.paysDest +'</span>');
+    		 $('#divCodePostaltrue #urlEnvoi').attr("href",formUrl+'?localite='+data.localite + '&isoCode='+ data.isoCode + '&paysDestination='+data.paysDestination + '&bal=true' + '&isoCodeExp='+ data.paysExp);
+    		    $("#eligible").hide();
+    			$("#divCodePostaltrue").show();
+    
+    	}
+    	else{
+    		$('#divCodePostalfalse #eligiblespan').replaceWith('<span id="eligiblespan"> Départ : '+ data.depTown + sautLigne +'Arrivée : ' + data.paysDest +'</span>');
+    		 $('#divCodePostalfalse #urlEnvoi').attr("href",formUrl+'?localite='+data.localite + '&isoCode='+ data.isoCode +'&paysDestination='+data.paysDestination +'&bal=true' + '&eligible=false&isoCodeExp='+ data.paysExp);
+    		 $("#eligible").hide();
+    		 $("#divCodePostalfalse").show();
+    	}
+    		
+    
+      }
+    });
+};
+
+
+
+/*	
+ * jQuery pub/sub plugin by Peter Higgins (dante@dojotoolkit.org)
+ * Loosely based on Dojo publish/subscribe API, limited in scope. Rewritten blindly.
+ * Original is (c) Dojo Foundation 2004-2010. Released under either AFL or new BSD, see:
+ * http://dojofoundation.org/license for more information.
+ *
+ * $.publish("/virtualkeyboard/events", [{'event':'fnFancyBoxClose'}] );
+ * $.subscribe("/virtualkeyboard/events", F6.handleKeyboardEvents);
+ */	
+;(function(d){
+
+	// the topic/subscription hash
+	var cache = {};
+
+	d.publish = function(/* String */topic, /* Array? */args){
+		// summary: 
+		//		Publish some data on a named topic.
+		// topic: String
+		//		The channel to publish on
+		// args: Array?
+		//		The data to publish. Each array item is converted into an ordered
+		//		arguments on the subscribed functions. 
+		//
+		// example:
+		//		Publish stuff on '/some/topic'. Anything subscribed will be called
+		//		with a function signature like: function(a,b,c){ ... }
+		//
+		//	|		$.publish("/some/topic", ["a","b","c"]);
+		cache[topic] && d.each(cache[topic], function(){
+			this.apply(d, args || []);
+		});
+	};
+
+	d.subscribe = function(/* String */topic, /* Function */callback){
+		// summary:
+		//		Register a callback on a named topic.
+		// topic: String
+		//		The channel to subscribe to
+		// callback: Function
+		//		The handler event. Anytime something is $.publish'ed on a 
+		//		subscribed channel, the callback will be called with the
+		//		published array as ordered arguments.
+		//
+		// returns: Array
+		//		A handle which can be used to unsubscribe this particular subscription.
+		//	
+		// example:
+		//	|	$.subscribe("/some/topic", function(a, b, c){ /* handle data */ });
+		//
+		if(!cache[topic]){
+			cache[topic] = [];
+		}
+		cache[topic].push(callback);
+		return [topic, callback]; // Array
+	};
+
+	d.unsubscribe = function(/* Array */handle){
+		// summary:
+		//		Disconnect a subscribed function for a topic.
+		// handle: Array
+		//		The return value from a $.subscribe call.
+		// example:
+		//	|	var handle = $.subscribe("/something", function(){});
+		//	|	$.unsubscribe(handle);
+		
+		var t = handle[0];
+		cache[t] && d.each(cache[t], function(idx){
+			if(this == handle[1]){
+				cache[t].splice(idx, 1);
+			}
+		});
+	};
+
+})(jQuery);
+
+/*
+* JSFace Object Oriented Programming Library
+* https://github.com/tannhu/jsface
+*
+* Copyright (c) 2009-2012 Tan Nhu
+* Licensed under MIT license (https://github.com/tannhu/jsface/blob/master/MIT-LICENSE.txt).
+*
+* Date: Saturday, March 07 2009
+* Version: 2.0.1
+*/
+(function(n){function o(a){return a&&typeof a===r&&!(typeof a.length===s&&!a.propertyIsEnumerable(t))}function p(a){return a&&typeof a===r&&typeof a.length===s&&!a.propertyIsEnumerable(t)}function j(a){return a&&"function"===typeof a}function u(a){return"[object String]"===Object.prototype.toString.apply(a)}function m(a){return j(a)&&a===a.prototype.constructor}function h(a,b){var c,e,f,g,d,i=[];if(a&&b){f=u(a);c=p(a)||f;e=o(a);g=j(a);!c&&!e&&!g&&(a=[a],c=1);if(c)for(d=0,e=a.length;d<e;d++){c=f?a.charAt(d):
+a[d];if(Infinity===(c=b(c,d,a)))break;i.push(c)}else for(d in a){if(Infinity===(c=b(d,a[d],a)))break;i.push(c)}return i}}function x(a,b){a.prototype.$super=function(){var c=arguments.callee.caller,e=this.$super,f,g,d,i;if(c===a.prototype.constructor){if(d=b?b[0]:0,m(d))this.$super=d.prototype.$super}else if(b){h(a.prototype,function(a,b){if(b===c)return g=a,Infinity});for(f=b.length;f--&&!d;){i=b[f];if(m(i))i=i.prototype;d=i[g]||0}if(j(d))this.$super=i.$super}if(j(d))return f=d.apply(this,arguments),
+this.$super=e,f}}function l(a,b,c){function e(b,e){if(!c||!c.hasOwnProperty(b))a[b]=e,f&&(d[b]=e)}if(p(b))return h(b,function(b){l(a,b,c)});var c=c||{constructor:1,$super:1,prototype:1},f=m(a),g=m(b),d=a.prototype;o(b)&&h(b,e);g&&h(b.prototype,e);f&&g&&l(d,b.prototype,c)}function k(a,b){b||(a=(b=a,0));var b=b||{},c,e,f,g,d={constructor:1,$singleton:1,$statics:1,prototype:1},a=a&&!p(a)?[a]:a,b=j(b)?b():b;if(!o(b))throw y;e=b.hasOwnProperty("constructor")?b.constructor:0;f=b.$singleton;g=b.$statics;
+h(k.plugins,function(a){d[a]=1});c=f?{}:e?k.overload?k.overload("constructor",e):e:function(){};h(a,function(a){l(c,a,d,!0)});l(f?c:c.prototype,b,d);l(c,g,d,!0);f||x(c,a);h(k.plugins,function(d,e){e(c,a,b)});return c}var r="object",s="number",t="length",y="Invalid params",v=[],w,q;k.plugins={$ready:function(a,b,c){var e=c.$ready,f=0,g=b?b.length:0;h(v,function(d){return h(b,function(e){e===d[0]&&d[1].call(e,a,c,b);if(f++>=g)return Infinity})});j(e)&&(e.call(a,a,c,b),v.push([a,e]))}};q={Class:k,extend:l,
+each:h,isMap:o,isArray:p,isFunction:j,isString:u,isClass:m};"undefined"!==typeof module&&module.exports?module.exports=q:(w=n.Class,n.Class=k,n.jsface=q,q.noConflict=function(){n.Class=w})})(this);

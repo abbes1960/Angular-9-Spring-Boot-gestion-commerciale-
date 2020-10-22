@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 import javax.servlet.ServletContext;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +19,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.projet.stock.exception.ResourceNotFoundException;
 import com.projet.stock.model.Cposte;
-import com.projet.stock.model.ConsSonede;
 import com.projet.stock.model.ConsSteg;
-import com.projet.stock.model.LconsSonede;
 import com.projet.stock.model.LconsSteg;
 import com.projet.stock.repository.CposteRepository;
 import com.projet.stock.repository.ConsStegRepository;
@@ -35,12 +31,11 @@ import com.projet.stock.repository.LconsStegRepository;
 @RestController
 @RequestMapping("/api")
 public class ConsStegController {
-	@Autowired
-	ConsStegRepository repository;
-	LconsStegRepository repo;
+	@Autowired 	ConsStegRepository repository;
+	@Autowired  LconsStegRepository repo;
     @Autowired CposteRepository comptrepo;
 	@Autowired  ServletContext context;
-	 @GetMapping("/consStegs")
+	 @GetMapping("/stegs")
 	  public List<ConsSteg> getAllConsStegs() {
 	    System.out.println("Get all ConsStegs...");
 	    List<ConsSteg> ConsStegs = new ArrayList<>();
@@ -48,7 +43,7 @@ public class ConsStegController {
 	    return ConsStegs;
 	  }
 	
-	@GetMapping("/consStegs/{id}")
+	@GetMapping("/stegs/{id}")
 	public ResponseEntity<ConsSteg> getConsStegById(@PathVariable(value = "id") Long ConsStegId)
 			throws ResourceNotFoundException {
 		ConsSteg ConsSteg = repository.findById(ConsStegId)
@@ -56,26 +51,35 @@ public class ConsStegController {
 		return ResponseEntity.ok().body(ConsSteg);
 	}
 
-	@PostMapping("/consStegs")
 	
-	public ResponseEntity<ConsSteg> createConsSteg(@Valid @RequestBody ConsSteg ConsSteg)  throws JsonParseException , JsonMappingException , Exception{
+	
+	@PostMapping("/stegs")
+	public ResponseEntity<ConsSteg> createConsSteg(@Valid @RequestBody ConsSteg ConsSteg)
+     throws JsonParseException , JsonMappingException , Exception{
 		repository.save(ConsSteg);
+   	
 		List<LconsSteg> lconsStegs = ConsSteg.getLconsStegs();
-		
 	    for (LconsSteg lc : lconsStegs) {
+	    	
 	        lc.setNumero(ConsSteg.getNumero());
+	        lc.setAnnee(ConsSteg.getAnnee());
+	        lc.setMois(ConsSteg.getMois());
+	        System.out.println(lc.getQte());
+	        System.out.println(lc.getCode_residence());
+	        System.out.println(lc.getLib_residence());
        		repo.save(lc);
+       	
 	       }
 	    Optional<Cposte> CposteInfo = comptrepo.findByAnnee(ConsSteg.getAnnee());
      	if (CposteInfo.isPresent()) {
 	    	Cposte Cposte = CposteInfo.get();
-	           Cposte.setNumcsonede(Cposte.getNumcsteg()+1);
+	           Cposte.setNumcsteg(Cposte.getNumcsteg()+1);
 	         Cposte =   comptrepo.save(Cposte);
      	}
 		 return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@DeleteMapping("/consStegs/{id}")
+	@DeleteMapping("/stegs/{id}")
 	public Map<String, Boolean> deleteConsSteg(@PathVariable(value = "id") Long ConsStegId)
 			throws ResourceNotFoundException {
 		ConsSteg ConsSteg = repository.findById(ConsStegId)
@@ -86,14 +90,14 @@ public class ConsStegController {
 		return response;
 	}
 	 
-	  @DeleteMapping("/consStegs/delete")
+	  @DeleteMapping("/stegs/delete")
 	  public ResponseEntity<String> deleteAllConsStegs() {
 	    System.out.println("Delete All ConsStegs...");
 	    repository.deleteAll();
 	    return new ResponseEntity<>("All ConsStegs have been deleted!", HttpStatus.OK);
 	  }
 	 
-	  @PutMapping("/consStegs/{id}")
+	  @PutMapping("/stegs/{id}")
 	  public ResponseEntity<ConsSteg> updateConsSteg(@PathVariable("id") long id, @RequestBody ConsSteg ConsSteg) {
 	    System.out.println("Update ConsSteg with ID = " + id + "...");
 	    Optional<ConsSteg> ConsStegInfo = repository.findById(id);

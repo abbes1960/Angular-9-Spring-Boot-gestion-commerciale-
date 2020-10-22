@@ -1,0 +1,1511 @@
+// DETECTS IF NAMESPACE OF THE APP EXISTS, CREATES THE NAMESPACE OF THE APP.
+if (!F6) var F6 = {};
+else if (F6 && typeof (F6) != "object")
+    throw new Error("F6 is not an Object type");
+
+/* F6.MAIN
+ * All application initialization in this class name
+ */
+F6.MAIN = (function ($) {
+    
+    var _that = {};
+	
+    // PRIVATE ATTRIBUTES. ONLY PRIVELEGED METHODS MAY VIEW/EDIT/INVOKE
+	
+    // PRIVATE MEMBERS. ONLY PRIVELEGED METHODS MAY VIEW/EDIT/INVOKE.
+	
+    //RETURN OBJECT LITERAL.
+    return {
+        //PUBLIC ATTRIBUTES ANYONE MAY READ/WRITE.
+        NAME: "Application initialize module",
+        VERSION: 1.5,
+		
+        // PUBLIC MEMBERS ANYONE MAY READ/WRITE. (MAY BE OVERRIDEN).
+        // PUBLIC METHOD THAT INITIALIZES MAIN APP.
+        init: function () {
+           
+            _that = this;
+		    
+            this.loadInits(); // RUN ALL FUNCTIONS BEGINNING WITH init.
+        },
+		
+        /**
+         * Run all the init methods
+         */
+        loadInits: function() {
+          for (var func in this) {        		
+            if (typeof this[func] == 'function' && func.substr(0,4) == 'init' && func != 'init') {        			
+              this[func]();        			
+            }
+          }
+          var ie7 = false;
+          if (navigator.appName == 'Microsoft Internet Explorer'){
+            versions = navigator.appVersion;
+            index = versions.indexOf('MSIE');
+            
+            if( parseFloat(versions.substring(index+4+1)) == 7){
+              ie7 = true;
+              
+              objCss = {
+              'overflowX': 'hidden'
+              }
+              $('html, body').css(objCss);
+            }
+          }
+        },
+        /*
+        ** Définit la page copatible por le JS
+        */
+        initBodyFullJS:function(){
+          if(!$('.js-noactive').length) return false;
+          // Dans certains cas de redirection, la fonction ci-dessous n'est pas dispo ce qui crée un plantage JS 
+          // (le patch ci-dessous a pour but d'empêcher ce plantage)
+          if (F6.UI && F6.UI.activeBodyFullJS) {
+        	  F6.UI.activeBodyFullJS();
+          } else {
+        	  console.log('F6.UI.activeBodyFullJS() non disponible dans ce contexte d\'utilisation');        	  
+          }
+        },
+
+        initDefaultValidation: function() {
+            F6.VALIDATIONS.initDefault();
+        },
+
+        // INIT HP SLIDESHOW.
+        initHpSlideShow : function(){
+        //if( !$('.blockHpCarousel').length ) return false;
+			
+        //F6.UI.hpCarousel();
+        },
+		
+        
+        // INIT COURRIER DATA.
+        initCourrierData : function(){
+            if( !$('.trackData').length ) return false;
+			F6.UI.courrierData();
+			//F6.UI.courrierData('#courrierData');
+            /*
+            F6.UI.activeAjaxForm('#courrierData', '#trackError', 'F6.UI.courrierData', 
+                {'code_1': Globalize.localize("Veuillez reposter le formulaire.", "fr_FR" ), 
+                'code_3': Globalize.localize("Le numéro saisi est incorrect.", "fr_FR" ), 
+                'code_5': Globalize.localize("Le numéro saisi est incorrect.", "fr_FR" )}
+                );
+            */
+            
+            // ATTENTION : PEUT-ETRE A DECOMMENTER POUR VALIDATION
+            // F6.VALIDATIONS.SuiviEnvoisTempsReel();
+        },
+		
+        // INIT ACCORDION.
+        initAccordion : function(){		
+            if( !$('#accordion').length ) return false;			
+            F6.UI.accordion();
+        },
+
+        initAccordionCsuivi : function(){
+            if( !$('#accordion_csuivi').length ) return false;	
+            F6.UI.accordion_csuivi();
+        },
+		
+		
+        // INIT VIDEO PLAYER
+		
+        initPlayers : function(){
+			
+			//ajuster l'info bulle de LSEL numero de suivi
+    		if($('#lelDeliveryAddress').length) {
+    			F6.UI.ajusterLselInfoBulleCss();
+    		}
+            //if( !$('#player1').length  || !$('#player2').length || !$('#player3').length)  return false;
+            
+            if( $('#player1').length ) {
+                F6.UI.player('player1', 'video_dummy', 'video', 618, 390);
+            }
+            else if( $('#player2').length ) {
+                F6.UI.player('player2', 'video_dummy', 'video', 386, 235);
+            }
+            else if( $('#demo-eboutique').length ) {
+				                F6.UI.player('demo-eboutique', 'demo-eboutique-thumbnail', 'demo-eboutique', 848, 496);
+            }
+            else if( $('#demo-montimbrenligne').length ) {
+                F6.UI.player('demo-montimbrenligne', 'demo-montimbrenligne-thumbnail', 'demo-montimbrenligne', 848, 496);
+            }
+            else if( $('#demo-lettre-en-ligne').length ) {
+                F6.UI.player('demo-lettre-en-ligne', 'demo-lettre-en-ligne-thumbnail', 'demo-lettre-en-ligne', 848, 496);
+            }
+            else if( $('#demo-lettre-recommandee-en-ligne').length ) {
+                F6.UI.player('demo-lettre-recommandee-en-ligne', 'demo-lettre-recommandee-en-ligne-thumbnail', 'demo-lettre-recommandee-en-ligne', 848, 496);
+            }
+            else if( $('#demo-reexpedition-garde-du-courrier').length ) {
+                F6.UI.player('demo-reexpedition-garde-du-courrier', 'demo-reexpedition-garde-du-courrier-thumbnail', 'demo-reexpedition-garde-du-courrier', 848, 496);
+            }
+            else if( $('#demo-reexpedition-garde-du-courrier-pro').length ) {
+                F6.UI.player('demo-reexpedition-garde-du-courrier-pro', 'demo-reexpedition-garde-du-courrier-pro-thumbnail', 'demo-reexpedition-garde-du-courrier-pro', 848, 496);
+            }
+            else if( $('#player4').length ) {
+                F6.UI.player('player4', 'video_dummy', 'video', 386, 221);
+            }
+            else if( $('#').length ) {
+                F6.UI.player('player4', 'video_dummy', 'video', 386, 221);
+            }
+            else {
+                return false;	
+            }
+            	
+            	
+        },
+		// Hide button refresh (show only if javascript is disable)
+        initRemoveRefreshButtonIfActiveJS: function() {
+            if( !$('.refresh-button').length ) return false;
+            $('.refresh-button').remove();
+        },
+        // INIT formCourrier
+        initFormCourrier: function(){
+            if( !$('.input_ref').length ) return false;
+			
+            F6.UI.formCourrier();
+        },
+        initCarro: function() {
+            $('.carrWrapper').carrouselFromScratch();
+        },
+		
+
+        // INIT TOOLTIPS
+		initTooltipBasket: function(){
+            F6.UI.activeBasketFullJS();
+        },
+        initTooltipTime : function(){
+            if( !$('.time').length ) return false;
+            F6.UI.tooltipGlobal(".time",".htmltooltip","-59px","-15px","-59px","-15px","-59px","-15px");
+        },
+        initTooltipAide : function(){
+            if( !$('.aide').length ) return false;
+            F6.UI.tooltipGlobal(".aide",".htmltooltip_aide","-205px","-225px","-205px","-225px","-205px","-225px");
+        }, 
+        initTooltipAideForm : function(){
+            if( !$('.aide_form').length || $('.track-order .aide_form').length) return false;
+            F6.UI.tooltipGlobal(".aide_form",".htmltooltip_aide","-144px","-140px","-144px","-140px","-144px","-140px"); 
+            F6.UI.tooltipGlobal(".aide_form",".htmltooltip_aide_envoisuivi","-147px","-140px","-144px","-140px","-144px","-140px");
+        },
+        initTooltipAideFormTrackOrder : function(){
+            if( !$('.track-order .aide_form').length ) return false;
+            F6.UI.tooltipGlobal(".aide_form",".htmltooltip_aide","-164px","-140px","-144px","-140px","-144px","-140px");  
+        },
+		//For header PRO + Part
+        /*
+        ** utilisation de superfish() pour le panier car accessible
+		initTooltipPanierInfo : function(){
+            if( !$('.panier_info').length ) return false;                        
+             el,elHtmlWrapper,cssTop, cssLeft,animTop,animLeft,mouseAnimTop, mouseAnimLeft 
+            F6.UI.tooltipGlobal(".panier_info",".htmltooltip_header","56px","-240px","-240px","78px","78px","-240px");  
+        },
+        */
+        initTooltipMail : function(){
+            if( !$('.mail').length ) return false;
+            F6.UI.tooltipGlobal(".mail",".htmltooltip","-59px","-15px","-59px","-15px","-59px","-15px");                     
+        },
+        initTooltipPrint : function(){
+            if( !$('.print').length ) return false;            
+            F6.UI.tooltipGlobal(".print",".htmltooltip","-59px","-15px","-59px","-15px","-59px","-15px");
+        },
+        
+        initTooltipContact : function(){          
+            if(!$('.toolbt').length) return false;         
+            F6.UI.tooltipGlobal(".emailContent",".infobulle-tooltips","-150px","187px","-59px","-15px","-59px","-15px");          
+        },
+		
+        initTooltipTarif : function(){          
+            if(!$('.pagePortAdresse').length || !$('.etatEnvoi').length || !$('.etatEnvoi_part').length) return false;         
+            F6.UI.tooltipGlobal(".pagePortAdresse",".infobulle-tooltips","-116px","-285px","-59px","-15px","-59px","-15px");          
+        },
+        
+        initTooltipLel : function(){          
+            if(!$('.pagePortAdresse').length) return false;         
+            F6.UI.tooltipGlobal(".pagePortAdresse",".lel","-160px","-285px","-59px","-15px","-59px","-15px");          
+            F6.UI.tooltipGlobal(".pagePortAdresse",".lsel","-103px","-285px","-59px","-15px","-59px","-15px");
+            F6.UI.tooltipGlobal(".pagePortAdresse",".lselEtatEnvoi","130px","-0px","-59px","-15px","-59px","-15px");
+        },
+        
+        initTooltipLre : function(){
+            if(!$('.lre').length) return false;         
+            F6.UI.tooltipGlobal(".pagePortAdresse",".lre","-110px","-285px","-59px","-15px","-59px","-15px");          
+        },
+        
+        initTableShowHide:function(){          
+            if(!$('.hideData').length || $('.colapseTableResult').length) return false;            
+            F6.UI.tableShowHide();
+        },
+        initValidateFormNumber: function(){            
+            if(!$('#tranche').length) return false;           
+            F6.VALIDATIONS.formFieldNumber();
+              
+            if(!$('.hide_table_result').length) return false;            
+            F6.UI.hideTableResults();             
+        },
+
+        initValidateNumRecherche: function(){                    
+            if(!$('.contentVotreSuivi').length) return false;           
+            F6.VALIDATIONS.formNumRecherche();
+              
+            if(!$('.hide_table_result').length) return false;            
+            F6.UI.hideTableResults();             
+        },
+
+        initAccueilResults : function(){
+            if(!$('.hide_table_result').length && !$('.parnumero').length) return false;
+            F6.UI.hideTableResults();
+            F6.VALIDATIONS.formParnumero();             
+        },
+        initFormContact :function(){            
+            if(!$('#formContact').length) return false;            
+            F6.VALIDATIONS.formContact();            
+        },
+        initPersoProForm:function(){            
+            if(!$("#registerPartForm").length) return false;
+            F6.VALIDATIONS.persoPro();
+        },
+        initCompteDonneesPersoProForm:function(){            
+            if(!$("#formPersonnel").length) return false;            
+            F6.VALIDATIONS.compteDonneesPersoPro();
+        },
+        initMotDepass: function(){            
+            if(!$("#formEtapes").length) return false;            
+            F6.VALIDATIONS.tCompteMotdepasse01();	
+        },
+        initPlanduSiteForm : function(){            
+            if(!$("#formEtapes").length) return false;            
+            F6.VALIDATIONS.tCompteMotdepasse01();	
+        },
+        initPartenaires:function(){            
+            if(!$('.partenaires').length) return false;            
+            F6.UI.hideBlockPartenaires();
+        },
+        initCsuiviAccueil:function(){            
+            if(!$('#referenceNumber').length) return false;            
+            F6.VALIDATIONS.csuiviAccueil();
+        },
+
+        initMonCompteTransferez:function(){            
+            if(!$("#formAuthentication").length) return false;
+            var elClosePopup = $('.annulerpopup');
+            elClosePopup.click(function(){
+                self.close();                
+                return false;
+            });
+
+           var elQstring = F6.UI.queryString('param');
+                
+            if(!elQstring.length){
+                 F6.VALIDATIONS.popupValidation(2);
+            } else {
+                F6.VALIDATIONS.popupValidation(1);
+            }             
+        },
+        initModMotdePasse:function(){
+            if(!$('#formModifyPass').length) return false;
+            F6.VALIDATIONS.formModifyPass();
+        },
+
+        initModMail:function(){
+        	if(!$('#formModifyMail').length) return false;
+            F6.VALIDATIONS.formModifyMail();
+        },
+        
+        initFormAuthentication:function(){
+            if(!$('#formConnect').length) return false;
+            F6.VALIDATIONS.formConnect();
+            F6.VALIDATIONS.formCree();            
+            F6.UI.windowPopup(0);
+        },
+        
+        initFormInbentaDuplicataRemboursement:function(){
+            if(!$('#formInbentaDuplicataRemboursement').length) return false;
+            F6.VALIDATIONS.formInbentaDuplicataRemboursement(); 
+            F6.UI.windowPopup(0);
+        },
+
+        initMonCompte:function(){
+            if(!$('.blockTransferezBox').length) return false;            
+            F6.UI.windowPopup(1);           
+        },
+        initCollapseQuestions:function(){
+            if(!$('.articleBoxQuestions').length) return false;
+            F6.UI.collapseQuestions();
+        },
+		
+        initEditorialQuestions:function(){
+            if(!$('.editorialQuestions').length) return false;
+            F6.UI.collapseQuestions();
+        },
+		initSelectBox:function() {
+			if(!$('.selectBox').length) return false;
+            $('.selectBox').selectBox();
+		},
+
+
+         
+        
+        
+        
+        initFormNosTarifsContent: function(){
+          	 if(!$('#formNosTarifsContent').length) return false;
+   	       	 if($("input[name='serviceCode'][type='hidden']")!=null){
+   		        	 $('#calculer').bind('click' ,function(){
+
+   		        		 F6.AJAX.getLelPrice($("input[name='serviceCode'][type='hidden']").val()=='lel');
+   		        		return false;
+   		        	 });
+   		        	 
+   			       	 if($("input[name='serviceCode'][type='hidden']")!=null){
+   			        	 $('#calculervignette').bind('click' ,function(){
+   			        		 F6.AJAX.getVrelPrice($("input[name='serviceCode'][type='hidden']").val()=='vrel');
+   			        		return false;
+   			        	 });
+   			       
+
+   		       	 } 
+   		        	 
+   		        	 $("[name=optionEnvoi]").change(function() {
+   		        			if($("[name=optionEnvoi]").val() == 'true') {
+   		        				F6.AJAX.getLelPriceDestination(true);
+   		        			} else {
+   		        				F6.AJAX.getLelPriceDestination(false);
+   		        			}
+   		        		});
+   		        	 
+   		        	 $("#formNombres").change(function(){
+   		        		if($("input[name='serviceCode'][type='hidden']").val()=='lel'){
+   		        			if($("select[name='nombres']").val()>=5){
+   		        				$("#formImpression").val("true");
+   		        				 $("#formImpression option[value='false']").attr("disabled","disabled");
+   		        				$('#formImpression').change();
+   		        			}
+   		        			else{
+   		        				$("#formImpression option[value='false']").removeAttr("disabled");
+   		        				$('#formImpression').change();
+   		        			}
+   		        		}
+   		        		else{
+   		        			//lre
+   		        			if($("select[name='nombres']").val()>=31){
+   		        				$("#formImpression").val("true");
+   		        				 $("#formImpression option[value='false']").attr("disabled","disabled");
+   		        				$('#formImpression').change();
+   		        			}
+   		        			else{
+   		        				$("#formImpression option[value='false']").removeAttr("disabled");
+   		        				$('#formImpression').change();
+   		        			}
+   		        			
+   		        			// r�gles de gestion :
+   		        			// si recto seulement : option avec PPA obligatoire � partir de 5 pages
+   		        			// si recto/verso : option avec PPA obligatoire � partir de 9 pages
+   		        			// option recto/verso obligatoire � partir de 31 pages
+   		        			
+   		        			// si recto seulement
+   		        			if($("select[name='impression']").val() == "false"){
+   		        				if($("select[name='nombres']").val()>=5){
+   			        				$("#formAdress").val("true");
+   			        				$("#formAdress option[value='false']").attr("disabled","disabled");
+   			        				$('#formAdress').change();	
+   		        				} else{
+   			        				$("#formAdress option[value='false']").removeAttr("disabled");
+   			        				$('#formAdress').change();
+   			        			}
+   		        			} 
+   		        			// si recto/verso
+   		        			else {
+   		        				if($("select[name='nombres']").val()>=9){
+   			        				$("#formAdress").val("true");
+   			        				$("#formAdress option[value='false']").attr("disabled","disabled");
+   			        				$('#formAdress').change();	
+   		        				} else{
+   			        				$("#formAdress option[value='false']").removeAttr("disabled");
+   			        				$('#formAdress').change();
+   			        			}
+   		        			}
+   		        		}
+   		        		return false;
+   		        	 });
+   		        	 
+   		        	 $("#formImpression").change(function(){
+   			        		if($("input[name='serviceCode'][type='hidden']").val()=='lel'){
+   			        			//
+   			        		}
+   			        		else{
+   			        			if($("select[name='nombres']").val()>=31){
+   			        				$("#formImpression").val("true");
+   			        				 $("#formImpression option[value='false']").attr("disabled","disabled");
+   			        			} else{
+   			        				$("#formAdress option[value='false']").removeAttr("disabled");
+   			        				$('#formAdress').change();
+   			        			}
+   			        			
+   			        			// r�gles de gestion :
+   			        			// si recto seulement : option avec PPA obligatoire � partir de 5 pages
+   			        			// si recto/verso : option avec PPA obligatoire � partir de 9 pages
+   			        			// option recto/verso obligatoire � partir de 31 pages
+   			        			
+   			        			// si recto seulement
+   			        			if($("select[name='impression']").val() == "false"){
+   			        				if($("select[name='nombres']").val()>=5){
+   				        				$("#formAdress").val("true");
+   				        				$("#formAdress option[value='false']").attr("disabled","disabled");
+   				        				$('#formAdress').change();	
+   			        				} else{
+   				        				$("#formAdress option[value='false']").removeAttr("disabled");
+   				        				$('#formAdress').change();
+   				        			}
+   			        			} 
+   			        			// si recto/verso
+   			        			else {
+   			        				if($("select[name='nombres']").val()>=9){
+   				        				$("#formAdress").val("true");
+   				        				$("#formAdress option[value='false']").attr("disabled","disabled");
+   				        				$('#formAdress').change();	
+   			        				} else{
+   				        				$("#formAdress option[value='false']").removeAttr("disabled");
+   				        				$('#formAdress').change();
+   				        			}
+   			        			}
+   			        		}
+   			        		return false;
+   		        	 });
+   	       	 }
+           },
+        /********************************************************/
+        /************************** V2 **************************/
+        /********************************************************/
+
+        initChangeResultPerPage: function(){
+            if(!$('#changeResultPerPage').length) return false;
+            F6.UI.activeChangeResultPerPage();
+        },
+
+        // initNewsletterFormValidator:function(){
+        //   if(!$('#newsEmailInput').length) return false;
+        //     F6.VALIDATIONS.formNewsletterEmail();
+        //     F6.UI.windowPopup(0);
+        // },
+        // Validation du formulaire de demande de catalogue ProxiServices
+        initPSGuideFormValidator:function(){
+          if(!$('#receiveGuide').length) return false;
+            F6.VALIDATIONS.formDemandeCatalogue();
+            F6.UI.windowPopup(0);
+        },
+        // activation de uniform
+        initUniformScript:function(){
+          if(!$('form').length) return false;
+          F6.UI.activeUniform();
+        },
+
+        // Activation du menu principal
+        initMainMenuFullJS:function(){
+          if(!$('#main-menu').length) return false;
+          F6.UI.activeMainMenuFullJS();
+        },  
+		
+		// Activation du menu secondaire
+        initMenuSecondaireFullJS:function(){
+          if(!$('#menuSecondaire').length) return false;
+          //F6.UI.activeMenuSecondaireFullJS();
+        },
+		// SEPARATOR menu secondaire
+        initMenuSecondaireSeparator:function(){
+          if(!$('#menuSecondaire').length) return false;
+          F6.UI.MenuSecondaireSeparator();
+        },
+		
+        initSelectSimulation: function(){
+          if(!$('.stamp-user-options').length) return false;
+          F6.UI.activeSelectSimulation();
+        },
+        initStampThumbs: function(){
+          if(!$('.stamp-thumbs').length) return false;
+          F6.UI.activeStampThumbs();
+        },
+        
+		// popup destinataires step 1
+        initPopUpstep1:function(){
+          if(!$('#formPart').length) return false;
+          F6.UI.PopUpstep1();
+        },
+		
+		 // popup destinataires step 2
+        initPopUpstep2: function(){
+          if(!$('.destinataires2').length) return false;
+            F6.UI.PopUpstep2();
+        },
+		
+		// pour le datepicker 
+		initDatepickerForm: function(){
+		  if(!$( "#datepicker" ).length) return false;
+            F6.UI.activeDatepickerForm();
+		},
+		// pour le datepicker debut Historique 
+		initDatepickerDebut: function(){
+		  if(!$( "#datepickerdebut" ).length) return false;
+            F6.UI.activeDatepickerDebut();
+		},
+
+		// pour le datepicker fin Historique 
+		initDatepickerFin: function(){
+		  if(!$( "#datepickerfin" ).length) return false;
+            F6.UI.activeDatepickerFin();
+        },
+				
+		initFormVisualiserAdresse:function(){
+          if(!$('#visualiser-adresse').length) return false;
+            F6.VALIDATIONS.formVisualiserAdresse();
+            F6.UI.windowPopup(0);
+        },
+		initAjouterDestinataire:function(){
+          if(!$('#ajouter-destinataire').length) return false;
+            F6.VALIDATIONS.formAjouterDestinataire();
+            F6.UI.windowPopup(0);
+        },
+		initCoordonneesDestinatairePariculiers:function(){
+          if(!$('#coordonneesParticulier').length) return false;
+            F6.VALIDATIONS.formCoordonneesDestinataireParticulier();
+            F6.UI.windowPopup(0);
+        },
+        initCoordonneesDestinataireProfessionnel:function(){
+          if(!$('#coordonneesProfessionnel').length) return false;
+            F6.VALIDATIONS.formCoordonneesDestinataireProfessionnel();
+            F6.UI.windowPopup(0);
+        },
+		
+    // utilisé pour Reexpedition_en_ligne_Saisie_des_coordonnees_date
+		initAjouterChampsPersonne: function(){
+            if (!$('.perscontratsouscription .btn-ajouter')) return false;
+            //F6.UI.activeAjoutPersonneContrat();
+		},
+		
+		initAjouterChampsDelete: function(){
+			if(!$('.add_person .block-name').length) return false;
+			//F6.UI.champsPersonneDelete();		    
+        },
+		
+	// Validation des pages reexpedition step0
+		initReexpeditionStep0:function(){
+			if(!$('#formContenuPack').length) return false;
+          	F6.UI.initReexStep0();
+            
+        },
+     // Validation des pages reexpedition step1
+		initReexpeditionStep1:function(){
+          if(!$('#formReexStep1').length) return false;
+//            F6.VALIDATIONS.formReexpeditionStep1();
+          	F6.UI.initReexStep1();
+            F6.UI.windowPopup(1);
+        },
+	// Validation des pages reexpedition step3	
+		initReexpeditionStep3:function(){
+          if(!$('#formReexStep3').length) return false;
+            F6.VALIDATIONS.formReexpeditionStep3();
+            F6.UI.windowPopup(0);
+        },
+	// Validation dans mon compte de la page recharger votre compte
+		initRechargeAccount:function(){
+          if(!$('#formRechargeAccount').length) return false;
+            F6.VALIDATIONS.formRechargeAccount();
+            F6.UI.windowPopup(0);
+        },
+		
+		
+		/** PANIER TUNEL **/
+
+        initPanierCodePromo: function() {
+            if(!$('#formOrderRecap').length) return false;
+            F6.VALIDATIONS.panierCodePromo();
+        },
+        /*initPanierRecap: function() {
+            if(!$('.transverse .content.step1 .tableMyCommands').length && !$('.transversePro .content.step1 .tableMyCommands').length ) return false;
+            F6.UI.executeAchatPanierMixte();
+        },*/
+        initPanierModePaiement: function() {
+            if(!$('#formModePaiement').length) return false;
+            // Mantis 419: Paiement - Pop-in incorrecte 
+            // fonction non d�finie et non utilis�e
+            // F6.VALIDATIONS.panierModePaiement();
+        },
+        /** START MON TIMBRE EN LIGNE **/
+        
+        // step 1 : choix du dessin/photo du timbre à imprimer
+        /**
+         * @param string dir_path
+         * 
+         */
+        initSelectStampThumbnail:function(){
+          if(!$('.stamp-thumbs li input').length) return false
+          F6.UI.executeSelectStampThumbnail();
+        },
+		//nouaoui zakaria : plus besoin en V2
+//		initPopinLettreVerte:function(){
+//		  if(!$('#pop-lettre-verte').length) return false
+//		  F6.UI.popinLettreVerte();		
+//		},
+		
+		
+		initPopinEnregistrerBrouillons:function(){
+          if(!$('#enregistrer-brouillons' || '.openPopinAdress').length) return false
+          F6.UI.popinEnregistrerBrouillons();        
+        },
+		
+		initPopinVotreAdresse:function(){
+		  if(!$('#votre-adresse' || '.openPopinAdress').length) return false
+		  F6.UI.popinVotreAdresse();		
+		},
+		
+		initPopStampzoom:function(){
+		  if(!$('#popup-stampzoom').length) return false
+		  F6.UI.popStampzoom();		
+		},
+		
+		initPopDestinatairesStep1:function(){
+		  if(!$('#destinataires-step1').length) return false
+		  //F6.UI.popDestinatairesStep1();	it does not exist on the F6_ui File ??
+		},		      
+        
+        initSheetstamp: function(){
+          if(!$('#sheetpicker').length) return false;
+          F6.UI.executeSheetstampPicker();
+        },
+        //znouaoui
+        initSheetstampChangePos: function(){
+            if(!$('#sheetpickerChangePos').length) return false;
+            F6.UI.executeSheetstampPickerChangePos();
+          },
+        initEnvelope: function(){
+            if(!$('#enveloppeForm').length) return false;
+            F6.UI.executeMtelMailSupportSetup();
+            //znouaoui
+            F6.UI.executeMTELInsererExpeditaire();
+            
+        },
+        initDymo: function(){
+            if(!$('#dymoSpecimen').length) return false;
+            F6.UI.executeDymoSelector();
+        },
+        initImpressionTimbreFinal: function(){
+            if(!$('#pop-probleme-impression').length) return false;
+            F6.UI.popinProblemImpression();
+        },
+        initChangerPositionDepart: function(){
+            if(!$('#pop-changer-position-depart').length) return false;
+            F6.UI.popinChangerPositionDepart();
+        },
+        
+        initDestinataireTabs: function(){
+            if(!$('.blockPopin .destinataires').length) return false;
+            F6.UI.activeSelectDestinataireForms();
+        },
+        initDestinataireUserAcount: function(){
+            if(!$('.contact-book .destinataires').length) return false;            
+            F6.UI.activeSelectDestinataireForms();
+        },
+          
+        initDestinataireTabsRemove: function(){
+            if(!$('#removeTabsWithJS').length) return false;
+            F6.UI.mtelDestinataireTabsRemove();
+        },
+          
+        /** STOP MON TIMBRE EN LIGNE **/
+
+        /** PAGE MES BROUILLONS **/
+        initMyBrouillon: function() {
+            if(!$('#myBrouillon').length) return false;
+                F6.UI.executeMyBrouillon();
+        },
+		/** END MES BROUILLONS **/
+		
+		initActivePropositionAdresses: function(){
+		 if(!$('#formVerifAdresse').length) return false;
+        F6.UI.activePropositionAdresses();
+        },
+        
+        initScrollPaneContactBook: function(){
+           if(!$('.user-account .for-scrollpane').length) return false;
+           F6.UI.activeScrollPaneContactBook();
+           F6.UI.activeContactDeleting();
+        },
+
+        initBookCoordonneesDestinatairePariculiers:function(){
+          if(!$('#bookCoordonneesParticulier').length) return false;
+            F6.VALIDATIONS.formBookCoordonneesDestinataireParticulier();
+            F6.UI.windowPopup(0);
+        },
+        initBookCoordonneesDestinataireProfessionnel:function(){
+          if(!$('#bookCoordonneesProfessionnel').length) return false;
+            F6.VALIDATIONS.formBookCoordonneesDestinataireProfessionnel();
+            F6.UI.windowPopup(0);
+        
+		 },
+
+	   initSwitchModelesLettre:function(){
+		 if(!$('#lel-tabs-2').length) return false;
+			F6.UI.switchModelesLettre();
+			F6.UI.windowPopup(0);
+        },
+		
+		
+        // for ie7 to avoid page scroll with ancors in iframe
+        initAncorSimulationPopinAdress: function(){
+            if (true || $.browser.msie && parseInt($.browser.version, 10) == 7) {
+                if(!$('.popin .adress-index').length) return false;
+                $('.popin .adress-index a').click(function(){
+                    var scrollTop = $(top.window).scrollTop();
+                    window.location = $(this).attr('href');
+                    
+                    $(top.window).scrollTop(scrollTop);
+                    //alert(scrollTop);
+                    return false;
+                });
+            }
+        },
+        initFancyFrameClose: function(){
+            if(! $('.fancyframe-close').length) return false;
+            $('.fancyframe-close').click(function(){
+                parent.jQuery.fancybox.close();
+                return false;
+            });
+        },
+		// on retire les liens gauche et droite pour des raisons d'accessibilité
+		initFancyRemoveLeftRight: function() {
+			if(! $('#fancybox-left').length) return false;
+			$('#fancybox-left').remove();
+			$('#fancybox-right').remove();
+			$('#fancybox-close').remove();
+		},
+        initValidateHistoriqueComptePrepaye: function(){
+            if(!$('#compte-prepaye-search').length) return false;
+            F6.VALIDATIONS.historiqueComptePrepaye();
+        },
+        initValidateHistoriqueCompteCommande: function(){
+            if(!$('#form-lelSearchCommandForm').length) return false;
+            F6.VALIDATIONS.historiqueCompteCommande();
+        },
+		initModifierAdresse: function(){
+            if(!$('#editAddress').length) return false;
+            F6.VALIDATIONS.modifierAdresse();
+        },	
+        
+//        initModifierAdressePRO: function(){
+//            if(!$('#editAddressPRO').length) return false;
+//            F6.VALIDATIONS.modifierAdressePRO();
+//        },	
+        
+		initValiderDeclaration: function(){
+            if(!$('#declarationHonneur').length) return false;
+            F6.VALIDATIONS.validerDeclaration();
+        },
+        
+		initValiderDeclarationPro: function(){
+            if(!$('#declarationHonneurPro').length) return false;
+            F6.VALIDATIONS.validerDeclarationPro();
+        },        
+		
+        initVerificationBAT: function(){
+            if(!$('#validez-courrier').length) return false;
+            F6.VALIDATIONS.verificationBAT();
+        },
+		
+		initActiveRadioBlock: function(){
+            if(!$('#impression-options').length) return false;
+            F6.UI.activeRadioBlock();
+        },
+        initJscrollPane: function() {
+            if(!$('.jscrollpane').length) return false;
+            //$('.jscrollpane').jScrollPane();
+
+            // Firefox fix
+            //$('.jscrollpane').width($('.jscrollpane').width()-1);
+        },
+
+        // pour fixer les problèmes de z-index
+        initZIndexFixes: function() {
+            F6.UI.activeZIndex();
+        },
+        initValidateLelEtape2: function() {
+            if(!$('#impression-options').length) return false;
+            F6.VALIDATIONS.lelEtape2();
+            F6.UI.manageResumeStep2LEL(F6.AJAX.manageResumeLelEtape2Ajax);
+        },
+        initValidatePmcEtape2: function() {
+            if(!$('#impression-options-pmc').length) return false;
+            F6.UI.manageResumeStep2LEL(F6.AJAX.manageResumePMCEtape2Ajax);
+        },
+        initValidatePafEtape2: function() {
+            if(!$('#impression-options-paf').length) return false;
+            F6.UI.manageResumeStep2LEL(F6.AJAX.manageResumePAFEtape2Ajax);
+        },
+        initValidateLrelEtape2: function() {
+            if(!$('#impression-options-lrel').length) return false;
+            F6.VALIDATIONS.lrelEtape2();
+            F6.UI.manageResumeLrelEtape2();
+        },
+	      initChangePack: function() {
+            if(!$('#formContenuPack').length) return false;
+//            F6.UI.changePack();
+            F6.UI.changeDuration();
+        },
+        initChangePackReex: function () {
+            if ($('#formReexStep1').length === false) return false;
+            F6.UI.changeDuration();
+        },
+        initSaiseEmail: function() {
+            if(!$('#lrel-saise-email').length) return false;
+            F6.VALIDATIONS.saiseEmail();
+        },
+		initValidateLrelEtape4: function() {
+            if(!$('#lrel_etape4_ajouter_adresse').length) return false;
+            F6.UI.activeLrelEtape4();
+            F6.VALIDATIONS.lrelEtape4();
+        },
+        initRechercheEmail: function() {
+            if(!$('#lrel-recherche-email').length) return false;
+            F6.VALIDATIONS.rechercheEmail();
+        },
+        initValidateLrelAdressRecommande: function() {
+            if(!$('#lrel-adress-recommande')) return false;
+            F6.VALIDATIONS.lrelAdressRecommande();  
+        },
+        
+//        initSwitchLrelTab: function() {
+//            if(!$('.tabsLrelNav').length) return false;
+//            F6.UI.switchLrelTab();
+//        },
+        initLelAutoSubmitSelect: function() {
+            if(!$('#form_compte_commandes_lel').length) return false;
+            F6.UI.lelAutoSubmitSelect();
+        },
+        initMtelAutoSubmitSelect: function() {
+            if(!$('#form_compte_commandes_mtel').length) return false;
+            F6.UI.mtelAutoSubmitSelect();
+        },
+        initMnaAutoSubmitSelect: function() {
+            if(!$('#form_compte_commandes_mna').length) return false;
+            F6.UI.mnaAutoSubmitSelect();
+        },
+		initValidateNewPasswordForm: function() {
+            if(!$('#newPasswordForm').length) return false;
+            F6.VALIDATIONS.validateNewPasswordForm();
+        },
+        initFavorisAutoSubmitSelect: function() {
+            if(!$('#form_listFavorisForm').length) return false;
+            F6.UI.favorisAutoSubmitSelect();
+        },
+
+
+
+        /** USER ACCOUNT / MNA **/
+
+        /** ENVOI SMS **/
+        initMNAEnvoiSMS:function(){
+            if(!$('.send-smscard').length) return false
+            F6.UI.mnaEnvoiSMS();
+            F6.UI.maxlength_textarea('mna_send_smscard_message', 'mna_send_smscard_message_countdown', 160);
+            F6.VALIDATIONS.mnaEnvoiSMS();
+        },
+
+        initMNACalculVolumeDemenager: function(){
+            if(!$('#mna_calcul_volume_demenager').length) return false;
+            F6.UI.mnaCalculVolumeResetForm();
+            F6.VALIDATIONS.mnaCalculVolumeDemenager();
+        },
+
+        initMNAEnvoiCartesPostales: function(){
+            if(!('#mna_envoi_cartes_postales').length) return false;
+            F6.VALIDATIONS.mnaEnvoiCartesPostales();
+        },
+
+        /** USER ACCOUNT / MonTimbreenligne **/
+        initTableCommandStampsCollapse: function(){
+            if(!$('.user-account .stamps-online .blockPack').length) return false;
+            F6.UI.tableCommandStampsCollapse();
+        },
+        initMTELRecapStep: function(){
+           // if(!$('.stamps-online .content.step3').length) return false;
+            F6.UI.executeMTELRecapStep();
+        },
+        initLELStep1Courrier: function(){
+        	Globalize.culture('fr');
+        	var today = new Date();
+        	var day = (today.getDate() < 10 ? '0' : '') + today.getDate();
+        	var month = (today.getMonth() + 1 < 10 ? '0' : '') + (today.getMonth() + 1);
+        	// $('#dateenvoi').val(day+ '/' +  month + '/' + today.getFullYear()).datepicker();
+            if(!$('.electronic-letter .step1 .courrier-docs').length) return false;
+            F6.UI.executeLelCourrierDownloadList();
+        },
+        initLELUserList: function(){
+            if(!$('.electronic-letter .tableDestinataire').length) return false;
+            //F6.UI.executeLelCRUD();
+            F6.UI.destinatairesCRUD(-1, true);
+            F6.UI.destinatairesPagination(0,  1,  0,  10,  true);
+        },
+        //znouaoui
+        initMTELUserList: function(){
+            if(!$('.stamps-online .tableDestinataire').length) return false;
+            F6.UI.destinatairesCRUD(-1, true);
+           F6.UI.destinatairesPagination(0,  1,  0,  7,  true);
+        },
+        initInformationAR: function(){
+            if(!$('.electronic-letter .lrelinfoAR').length) return false;
+            F6.UI.executeInformationAR();
+        },
+        initInformationDepot: function(){
+            if(!$('.electronic-letter .lrelinfodepot').length) return false;
+            F6.UI.executeInformationDepot();
+        },
+        //iomari fusion steps
+        initLRELUserList: function(){
+            if(!$('.letter-mail .tableDestinataire').length) return false;
+            F6.UI.destinatairesCRUD(-1, true);
+            F6.UI.destinatairesPagination(0,  1,  0,  10,  true);
+        },
+        initLELStep4Recap: function(){
+            if(!$('.electronic-letter .step4 .action-option-item').length) return false;
+            F6.UI.executeLelOptionItem();
+           
+            
+        },
+        initCompteInfoPersoMesAdresses: function(){
+            if(!$('.user-account .myaddress').length) return false;
+            F6.UI.executeUserAddressCRUD();
+        },
+        initUserAddressBook: function(){
+        	if($('.content.contact-book.emptyList').length > 0) {
+            	F6.UI.userAddressBookUploadFile();
+            }
+            if(!$('#user_account_personal_address_book').length) return false;
+            F6.UI.userAddressBookCRUD();
+        },
+
+
+        /** TRACK ORDER **/
+        /** tab3 */
+        initSearchSuiviByFile: function(){
+            if(!$('#form_search_suivi_by_file').length) return false;
+            F6.UI.searchSuiviByFile();
+            F6.VALIDATIONS.searchSuiviByFile();
+        },
+
+        /** tab5 */
+        initSearchSuiviByCodeGenerateur: function(){
+            if(!$('#form_search_suivi_by_code_generateur').length) return false;
+            F6.VALIDATIONS.searchSuiviByCodeGenerateur();
+        },
+        initCSuiviCheckboxList: function(){
+            if(!$('.track-order .select-etat')) return false;
+            F6.UI.csuiviCheckboxList();
+        },
+        initCSuiviAbonnement: function() {
+            if(!$('#suivi-subscription-btn').length) return false;
+            F6.UI.activeSuiviSubscription();
+        },
+        initCSuiviAbonnementPopinValidation: function() {
+            if(!$('#codeGenerateurPopup').length) return false;
+            F6.VALIDATIONS.codeGenerateurPopup();
+        },
+
+        /**
+         * Activation code verification activationcode
+         */
+        initActivationCodeValidation: function() {
+            if(!$('#activationCode').length) return false;
+            F6.VALIDATIONS.activationCodeValidation();
+        },
+	   /**
+		* 
+		* ********************************************************************************
+		* *********************************  Version 2   *********************************
+		* ********************************************************************************
+		*/
+        /***************************** Mhammed ORCH : morch 
+         * 
+         * Switch between forms on loading page (part and pro) 
+         * Add this id="switchFormPart" on same tag class="form-radio-simulation" of part
+         * 
+         */
+        initAddressFormSelection: function() {
+        	if(!$('.destinataire-btn-select').length) return false;
+   		 	F6.UI.hideAndShowAddressPartAndProForm(); 
+        },
+        
+        
+        /**
+         * 
+         * ********************************************************************************
+         * *********************************  Version 3   *********************************
+         * ********************************************************************************
+         */
+        initTCatalogueCarrousel: function() {
+			if(!$('.t-catalogue .envoi-courrier-standard #carrousel').length) return false;
+			F6.UI.executeTCatalogueCarrousel();
+		},
+		initProductPush: function() {
+            if(!$('.product-push').length) return false;
+            F6.UI.executeProductPush();
+        },
+        initAchatPanierMixte: function() {
+            if(!$('#myMixedBasket').length) return false;
+            F6.UI.executeAchatPanierMixte();
+        },
+		initMainProductBuy: function(){
+            if(!$('.main-product-buy .counter')) return false;
+            F6.UI.executeMainProductBuy()
+        },
+		/******************** ACCORDION FILTRES BEAUX TIMBRES                 */
+        initFiltresTimbres: function() {
+            if(!$('#filtres').length) return false;
+            F6.UI.filtres();
+        },
+
+        // Beaux �v�nements mozaique
+        initMozaikBeauxEvenement: function(){
+            if(!$('.beaux-eve .eve-landing .mozaik').length) return false;
+            F6.UI.executeMozaikBeauxEvenement();
+        },
+        
+        initTunnelAchatCoordonnees: function() {
+            if(!$('#tunnel_achat_coordonnees').length) return false;
+            F6.UI.executeTunnelAchatCoordonnees();
+        },
+        initPopinMigrationPhilaposte: function() {
+            if(!$('#popup-migration-philaposte').length) return false;
+            F6.UI.executePopinMigrationPhilaposte();
+        },
+        initPopinTransfertPhilaposte: function() {
+            if(!$('#popup-transfert-philaposte').length) return false;
+            F6.UI.executePopinTransfertPhilaposte();
+        },
+        initPopinMigrationColissimo: function() {
+            if(!$('#popup-migration-colissimo').length) return false;
+            F6.UI.executePopinMigrationColissimo();
+        },
+        initPopinTransfertColissimo: function() {
+            if(!$('#popup-transfert-colissimo').length) return false;
+            F6.UI.executePopinTransfertColissimo();
+        },
+        initCatalogueFicheproduit: function() {
+            if(!$('.t-catalogue .fiche-produit').length) return false;
+            F6.UI.executeCatalogueFicheproduit();
+        },
+        initPopMariannezoom:function(){
+  		  if(!$('#popup-marianne').length) return false
+  		  F6.UI.popMariannezoom();		
+  		},
+        initCollectionneurFiltreBeauxTimbres: function() {
+            if(!$('#collectionneur_timbres_filtres').length) return false;
+            F6.UI.executeCollectionneurFiltreBeauxTimbres();
+        },
+		initCourrierDataHome: function () {
+			if(!$('#courrierDataHome').length) return false;
+			F6.VALIDATIONS.courrierDataHome();
+		},
+        initWhishlist: function() {
+        if(!$('.user-account .wishlist').length) return false;
+        $('#wishlist_ordre_tri').bind('change' , F6.AJAX.sendWishlistOrder);
+
+        $('.btn-lft .btn-cancel').click(function(e){
+            e.preventDefault();
+            var $target = $(this);
+            var txt ='<div class="typo-din title3">Confirmation</div>' + Globalize.localize('confirm_empty_wishlist' , 'fr_FR'); 
+            $.prompt(txt,{ 
+                buttons:{Supprimer:true, Annuler:false},
+                callback: function(e, v, m, f){
+                    if(v){
+                        F6.AJAX.wishlistEmpty(); 
+                        
+                    } else {
+                        $target.focus();
+                    }
+                }
+            });
+            $('#jqibox .btn-send button').attr('title' , Globalize.localize('empty_wishlist_send_title' , 'fr_FR'));
+            $('#jqibox .btn-dir-cancel button').attr('title' , Globalize.localize('empty_wishlist_cancel_title' , 'fr_FR'));
+            
+        });
+        $('.delete-item-wishlist a').on('click' , function(e){
+            e.preventDefault();
+            var $target = $(this);
+            var index = $('.delete-item-wishlist a').index($(this));
+            var id  = $(e.currentTarget).parent().find('form input[type=hidden]:eq(0)').val();
+            $.prompt(Globalize.localize('confirm_delete_wishlist' , 'fr_FR'),{ 
+                buttons:{Supprimer:true, Annuler:false},
+                callback: function(e, v, m, f){
+                    if(v)
+                       F6.AJAX.wishlistRemoveItem(id , index);
+                    else
+                        $target.focus();
+                }
+            });
+            $('#jqibox .btn-send button').attr('title' , Globalize.localize('delete_wishlist_send_title' , 'fr_FR'));
+            $('#jqibox .btn-dir-cancel button').attr('title' , Globalize.localize('delete_wishlist_cancel_title' , 'fr_FR'));
+            
+        });
+    },
+    /**
+     * 
+     * ********************************************************************************
+     * *********************************  Version 4   *********************************
+     * ********************************************************************************
+     */   
+    initPopinDemandeRemboursementColis: function() {
+        if(!$('.demandesRemboursementColis').length) return false;
+        F6.UI.executePopinDemandesRemboursementColis();
+    },
+    initPopinSuivreDemandesRemboursementColis: function() {
+        if(!$('.suivreDemandesRemboursementColis').length) return false;
+        F6.UI.executePopinSuivreDemandesRemboursementColis();
+    },
+    
+    initPopinDemandeEnregistrementColis: function() {
+        if(!$('#popupEnregistrerColis').length) return false;
+        F6.UI.executePopinDemandesEnregistrementColis();
+    },
+    
+    
+/*
+-----------------------------------------------
+                IMPROMTU
+-----------------------------------------------
+*/
+    
+
+        //******************************************** BY NOUAOUI ZAKARIA *************************************************************
+        initValidationStep1MTEL : function() {
+            if(!$('#formStampStep1').length) return false;
+            F6.VALIDATIONS.controlInputStep1();
+        },
+        
+        initDesactiveClik : function(){
+        	F6.UI.desactiveMultipleClick();
+        },
+
+        initPreventMultiClickOnAnchors : function(){
+        	F6.UI.preventMultiClickOnAnchors();
+        },
+        
+        initSaiseEmailParticulier: function() {
+            if(!$('#lrel-saise-email-part').length) return false;
+            F6.VALIDATIONS.saiseEmailParticulier();
+        },
+        initSaiseEmailProfessionnel: function() {
+        	if(!$('#lrel-saise-email-pro').length) return false;
+            F6.VALIDATIONS.saiseEmailProfessionnel();
+        } 
+        ,
+        initRechercheEmailParticulier: function() {
+            if(!$('#lrel-recherche-email-part').length) return false;
+            F6.VALIDATIONS.rechercheEmailPrticulier();
+        }
+        ,
+        initRechercheEmailProfessionnel: function() {
+            if(!$('#lrel-recherche-email-pro').length) return false;
+            F6.VALIDATIONS.rechercheEmailProfessionnel();
+        },
+        
+        initLrtelDestinataireTabs: function(){
+        	
+            if(!$('.lrtelDestinatiare').length) return false; 
+             F6.UI.activeSelectLrtelDestinataireForms(); 
+        },
+        initTheRightDestinataire: function () {
+        	if(!$('.lrtelDestinatiare').length) return false;
+       	  F6.UI.hideAndShowTheRightDestinataire();
+        }
+        ,
+        initSwitchLrelTabStep3: function() {
+            if(!$('.tabsLrelNavStep3').length) return false;
+            F6.UI.switchLrelTabStep3();
+        }, 
+         
+        initHideInfoWhenJSDesactive: function () {
+        	 if(!$('.lrtelDestinatiare').length) return false;
+        		 F6.UI.hideInfoWhenJSDesactive(); 
+         },
+        initStep2: function () {
+        	 if(!$('#impression-options-lrel').length) return false;
+        	 	F6.UI.initStateStep2();
+         },
+        initLrelStep5: function () {
+        	 if(!$('.pdfGeneration').length) return false;
+        	 F6.UI.waitPdfGenerationStep5();
+         },
+        initLrtelRecapStep5: function () {
+        	 if(!$('#LrtelStep5Recap').length) return false;
+        	 F6.UI.recapLRTELStep5();
+         },
+        initLrelRecapStep5: function () {
+        	 if(!$('#lrelStep5Recap').length) return false;
+        	 F6.UI.recapLRELStep5();
+         },
+        initMTELStep1: function () {
+        	 if(!$('#formStampStep1').length) return false;
+        	 if($('#pliMTELPro').length){
+        		 F6.UI.initMTELStep1Pro();
+        	 } else 
+	       		F6.UI.initMTELStep1Part();
+         },
+        initInfoBullMtel: function () {
+        	$('#aide_form_mtel').attr('style',''); 
+         },
+        initColissimoIFrame: function () {
+        	 if(!$('#coColissimoFormId').length) return false;
+        	 F6.UI.onClickCoColissimoIframe(); 
+         },
+         
+        initPageTarif : function() {
+       	    if(!$('#formNosTarifsContent').length) return false;
+       	    F6.UI.updateWeightForVrel();
+        },
+        
+        //********************************************* BY AME ***********************************************************        
+        initLRELExp : function() {
+       	    if($('.exp').length && $('.btn-send').length ) {
+       	    	F6.UI.validationLrel();
+       	    }
+       	    else {
+       	    	return false;
+       	    }
+        },             
+         //******************************************** BY NOUAOUI ZAKARIA *************************************************************
+
+        
+         
+       //*****************************mbenmaamar********************************************
+        initLRELStep1Courrier: function () {
+         	Globalize.culture('fr');
+         	var today = new Date();
+         	var day = (today.getDate() < 10 ? '0' : '') + today.getDate();
+         	var month = (today.getMonth() + 1 < 10 ? '0' : '') + (today.getMonth() + 1);
+         	$('#dateenvoi').val(day+ '/' +  month + '/' + today.getFullYear()).datepicker();
+             if(!$('#loadfilelrtel').length) return false;
+             F6.UI.executeLrelCourrierDownloadList();
+         },   
+         
+         //Mouloud
+        initStep1: function () {
+        	if( $('#lel-tabs').length <= 0 && $('#lrel-tabs').length <= 0) return false;
+        	 F6.UI.initStep1();
+         },
+         //mkaabi
+        initRetourEnLigne: function () {
+        	 if(!$("#retourEnLigne").length) return false;
+        		 F6.VALIDATIONS.retourEnLigne(); 
+         },
+ 		 initHpCarrousel : function() {
+ 			 if(!$(".blockCarNav").length) return false;
+ 			 F6.UI.hpCarousel();
+		},
+		
+		//
+        //BBaaboa QC 5241
+        initCalculusFormalitesEventHandel: function () {
+        	F6.UI.CalculusFormalitesHandel(); 
+        },
+        initLoadDocLetter: function () {
+			if(!$("#lel-tabs-1").length) return false;
+			F6.UI.fadeSuccessMessage();
+        }, initCedexRule: function () {
+//			if(!$("#lel-tabs-1").length) return false;
+			F6.UI.applyCedexRule('input[id=localite]',"label[for='numLibelle']");
+			F6.UI.applyCedexRule('input[id=localitePro]',"label[for='numLibellePro']");
+			F6.UI.applyCedexRule('input[id=localiteNew]',"label[for='numLibelleNew']");
+		},
+        initSelectBoxParent: function () {
+            // if($('.selector select').length == 0 || $('.fancybox-container .selector select').length == 0  ){ /*  mon-compte/carnet-adresses */
+                $('[class*="-select"]:not(:has(> .selector select)):not(.mtel-popin-select) , #formNosTarifsContent .formRow, #multipleCardsBloc').each(function(e){
+                    var thisContains = $(this).html();
+                    var thisSelected = $(this).find('option:selected').text();
+                    var thisSelectId = $(this).find('select').attr('id');
+                    var thisSelect = $(this).find('select').removeAttr('style').change(function(){
+                        $(this).prev().text($(this).find('option:selected').text());
+                    });
+                    var divParent = $('<div />').addClass('selector').attr({'id': 'uniform-' + thisSelectId}).click(function(){
+                        $(this).addClass('focus');
+                    }).on('focusout', function () {
+                        $(this).removeClass('focus');
+                    });
+                    
+                    divParent.append(thisSelect);
+
+                    if( $(this).find('.selector').length == 0 && divParent.html() != '' ){
+                        var thisSpan = $('<span />').attr('id', 'js-span-select'+ e).text(thisSelected);
+                        divParent.prepend(thisSpan);
+                        $(this).remove('select').append(divParent);
+                        $(this).parent().find('.type-select > .wrapInput').append(divParent);
+                        if(thisSelected === '') {
+                            setTimeout(function(){
+                                $('#js-span-select' + e).text($('#' + thisSelectId + ' option:first-child').text())
+                            }, 500);
+                        }
+                    }
+                });
+            // }
+
+        },
+        initInputFileBox: function () {
+            $('[class*="type-file"]').each(function(){
+
+                var thisInput = $(this).find('input[type=file]'),
+                    thisInputId = $(thisInput).attr('id'),
+                    divParent = $('<div />').addClass('uploader').attr({'id': 'uniform-' + thisInputId}),
+                    action = $('<span />').addClass('action').text('Parcourir'),
+                    fileName = 'Aucun fichier sélectionné',
+                    fileNameSpan = $('<span />').addClass('filename').text(fileName);
+
+                divParent.append( $(thisInput) )
+                    .append(fileNameSpan)
+                    .append(action)
+                    .insertAfter($(this).find('label'));
+
+                $('#' + thisInputId).change(function(e){
+                    fileName = e.target.files[0].name;
+                    $(this).next().text(fileName);
+                });
+            });
+        }
+    };
+
+}(jQuery)); // THE PARENS HERE CAUSE THE ANONYMOUS FUNCTION TO EXECUTE AND RETURN.
+
+// ON DOM READY INIT APPLICATION.
+jQuery(document).ready(function($){
+
+    $.ajaxSetup({
+        cache: false,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader(header, token);
+        }
+    });
+
+    $('.blockCarNavContainer').append('<div class="playPauseContainer"><a href="#" class="playPause stop"><img alt="' + Globalize.localize("Stopper le défilement", "fr_FR" ) + '" src="/_ui/eboutique/images/btn/btn_pause.png"></a></div>');
+
+     //    ****************** mSoullane
+    // actions of product push in the farandole.
+    		
+    	$('.addToCartAction').click(function(event) {
+    		event.preventDefault();
+        	var prodcode = $(event.currentTarget).parent().find('input[type=hidden]:eq(0)').val();
+        	var qty = parseInt($(event.currentTarget).parent().find('.digits').val());
+        	F6.AJAX.addToCart(prodcode, qty);
+    		
+    	});
+    	
+    	$('.addToCartFarandoleAction').click(function(event) {
+    		event.preventDefault();
+        	var prodcode = $(event.currentTarget).parent().find('input[type=hidden]:eq(0)').val();
+        	var qty = parseInt($(event.currentTarget).parent().find('.digits').val());
+        	F6.AJAX.addToCart(prodcode, qty);
+    		return false;
+    	});
+    		   			    			 
+    	$('.add').click(function(event) {
+    		 var input = $(event.currentTarget).closest('.counter').find('input');
+			 val = input.val();
+			 val++;
+			 input.val(val);
+    	});
+    	$('.remove').click(function(event) {
+    		var input = $(event.currentTarget).closest('.counter').find('input');
+			 val = input.val();
+        if (val > 0) {
+            val--;
+        }
+			 input.val(val);
+    	});
+    	
+    //************ V3 znouaoui
+    //Show layer when click So Colissimo of bloc "Mon mode de livraison"
+    $('.type-radio')
+      .find('input:radio')
+      .off('change.soColissimo')
+      .on('change.soColissimo', function(){
+        if($(this).attr('data-show-layer') != undefined){
+          $('.so-colissimo-layer').show();
+        }else{
+          $('.so-colissimo-layer').hide();
+        }
+      });
+
+    // MDA : si le produit physiques est un emballages colissimo alor on propose que le mode de livraison colissimo
+    if ($("#emballageColissimo").data("display-so-colissimo") != undefined) {
+        if ($("#emballageColissimo").data("display-so-colissimo")) {
+            $('.so-colissimo-layer').show();
+            $('#tunnel_achat_coordonnees_mode_livraison_prepaye').attr('checked', 'checked');
+            $('#tunnel_achat_coordonnees_mode_livraison_standard').attr('disabled', 'false');
+            $('#coColissimoFormId').submit();
+        }
+
+    }
+
+    // weight range
+    //le retard de chargement peut causer un problème(Intéger les sources dans eboutique)
+    F6.UTILS.tagCommanderAdpter($, tc_vars);
+
+    if($( "#slider-range" ).length){
+        $( "#slider-range" ).slider({
+            range: true,
+            min: 0,
+            max: 3000,
+            values: [$('.min-value').html(), $('.max-value').html()],
+            slide: function( event, ui ) {
+              $('.min-value').html(ui.values[0] + 'g');
+              $('.max-value').html(ui.values[1] + 'g');
+              $('#slider-value').val($('.min-value').html() + ',' + $('.max-value').html());
+            }
+          });
+          $('.min-value').html($("#slider-range").slider('values', 0) + 'g');
+          $('.max-value').html($("#slider-range").slider('values', 1) + 'g');
+          $('#slider-value').val($('.min-value').html() + ',' + $('.max-value').html());
+    }
+
+    correctDisplayLselSlider();
+    
+    //THE APP MAIN MODULE CODE HAS ALREADY EXECUTED, SO WE CAN ACCESS THE INIT METHOD IMMEDIATELY.
+    F6.MAIN.init();
+        
+});
+	
+function correctDisplayLselSlider(){
+	var url = window.location.href;
+	
+	if(url.indexOf("/lettre-en-ligne")>0){		
+		// Display the correct slide for LSEL if it's the case		
+		var lselSlide = document.getElementById("lsel-slide");
+		var PARAMETRE = "showCorrectSlideForLsel=true";		
+		var baseUrl = url.replace("?"+PARAMETRE,"");
+		if(url.indexOf(PARAMETRE)>0){		
+		window.history.pushState("object org", "Title", baseUrl);	 
+		if(lselSlide != null && lselSlide != undefined){			
+			$(".playPause.stop").click();
+			var index = $(".blockCarContainer .blockCarItem").index(lselSlide);
+			$(".blockCarNav ul li:nth-child("+(index+1)+") a").click();
+		}			
+	}
+		
+		if((lselSlide == null) || (lselSlide == undefined))
+		$("#lel-slide2 ul li:nth-child(5)").css("visibility","hidden");
+		}
+}
+// Ajout de ce script pour alterner les fenêtres popup sans avoir les deux d'ouverte en même temps
+
+var checkInput = function () {
+    document.getElementById("ui-popup-1").style.display = "none";
+
+}
+var checkInput2 = function () {
+    document.getElementById("ui-popup-0").style.display = "none";
+}
+
+/** ECOMREFPART-1095 **/
+jQuery(document).ready(function($){
+    function inputLastPosition() {
+    	if (($('#part-colishome-bloc-5').length) || ($('#blockAffCol').length)) {
+    		$('#uniform-idColis').insertBefore("#formAddToCart > div");
+        }
+    }
+    inputLastPosition();
+});

@@ -37,9 +37,8 @@ import com.projet.stock.repository.ResidenceRepository;
 @RestController
 @RequestMapping("/api")
 public class FavoirController {
-	@Autowired
-	FavoirRepository repository;
-	LfavoirRepository repo;
+	@Autowired 	FavoirRepository repository;
+	@Autowired LfavoirRepository repo;
 	@Autowired CompteurRepository comptrepo;
 	@Autowired  ServletContext context;
 	 @GetMapping("/favoirs")

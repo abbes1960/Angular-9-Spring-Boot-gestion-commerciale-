@@ -12,8 +12,8 @@ from '@angular/forms';
 export class DevisService {
   private baseUrl = '/api/devis';
   public formData:  FormGroup; 
-  list: Ldevis[] = [];
-  
+  list :  any=[];
+  devis    : any={};
   constructor(private http:HttpClient,private toastr: ToastrService) { }
   choixmenu : number = 1;
   getData(id: number): Observable<Object> {
@@ -46,6 +46,155 @@ alert("gfgfgf");
 
   getAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+
+  getDocument(id :number) {
+    {
+      this.getData(id).subscribe(
+       response =>{
+         this.devis = response;
+         }
+      );  
+      sessionStorage.setItem('bon', JSON.stringify(this.devis));
+    return {
+      content: [
+        {
+          columns: [
+            [{
+              text: 'La Poste Tunisienne' ,
+              style: 'name'
+            },
+            {
+              text: 'Centre de Comptabilité Matiére'
+            },
+            {
+              text: 'Email : ' ,
+            },
+            {
+              text: 'Tel  : ' ,
+              color: 'blue',
+            },
+            ],
+          ]
+        },
+        {
+          text: 'Bon 1016',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
+        },
+       
+        {
+          columns: [
+            [{
+              text: 'Numero : '+ this.devis.numero + ' Date Mvt : ' +this.devis.date_mvt,
+              style: 'ligne',
+              margin: [0, 100, 50, 20]
+            },
+            {
+              text: 'Client :  '+ this.devis.lib_client ,
+              style: 'ligne',
+              margin: [0, 100, 100, 20]
+            },
+           
+            
+            ],
+          ]
+        },
+        
+        
+        
+        {
+          text: 'Détails Produits ',
+          style: 'header'
+        },
+       this.getEducationObject(this.devis.ldeviss),
+       {
+
+       },
+        {
+          text: 'Total : ' + this.devis.total ,
+          style: 'total',
+          alignment : 'right'
+        },
+        
+        {
+          text: 'Signature',
+          style: 'sign',
+          alignment : 'right'
+
+        },
+       
+      ],
+     
+        styles: {
+          header: {
+            fontSize: 18,
+            bold: true,
+            margin: [0, 20, 0, 10],
+            decoration: 'underline'
+          },
+          name: {
+            fontSize: 16,
+            bold: true
+          },
+          total: {
+            fontSize: 12,
+            bold: true,
+            italics: true
+          },
+          ligne: {
+            fontSize: 12,
+            bold: true,
+            italics: true
+          },
+          sign: {
+            margin: [0, 50, 0, 10],
+            alignment: 'right',
+            italics: true
+          },
+          tableHeader: {
+            bold: true,
+            fontSize: 15
+          }
+        }
+    };
+  }
+   }
+
+   getEducationObject(items: Ldevis[]) {
+    return {
+      table: {
+        widths: ['*', '*', '*', '*','*'],
+        body: [
+          [{
+            text: 'Code',
+            style: 'tableHeader'
+          },
+          {
+            text: 'Désignation',
+            style: 'tableHeader'
+          },
+          {
+            text: 'Qté',
+            style: 'tableHeader'
+          },
+          {
+            text: 'Pu',
+            style: 'tableHeader'
+          },
+          {
+            text: 'Total',
+            style: 'tableHeader'
+          },
+          ],
+          ...items.map(ed => {
+          //  return [ed.code,ed.libart, ed.pu, ed.qte, ed.total];
+          })
+        ]
+      }
+    };
   }
   
 }

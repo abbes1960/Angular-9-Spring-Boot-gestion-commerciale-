@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
-import { DirectionService} from '../../service/direction.service';
+import { DepotService} from '../../service/depot.service';
 import { CompteurService} from '../../service/compteur.service';
-import { Direction} from '../../model/direction';
+import { Depot} from '../../model/depot';
 import { Compteur} from '../../model/compteur';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute  } from '@angular/router';
@@ -23,7 +23,7 @@ import { Linvent} from '../../model/linvent';
 })
 export class AddInventComponent implements OnInit {
  
-  DirectionList: Direction[];
+  DepotList: Depot[];
   isValid:boolean = true;
   articleService: any;
   minDate ;
@@ -31,7 +31,7 @@ export class AddInventComponent implements OnInit {
   compteur : any={};
   direction : any={};
   constructor(public service:InventService,
-    public directionService:DirectionService,
+    public depotService:DepotService,
     public compteurservice:CompteurService,
     private dialog:MatDialog,public fb: FormBuilder,
     private toastr :ToastrService,
@@ -46,8 +46,8 @@ ngOnInit() {
     let id =this.currentRoute.snapshot.paramMap.get('id');
     if (this.service.formData.value.id == null){
       this.InfoForm();
-      this.directionService.getAll().subscribe(
-      response =>{this.DirectionList = response;}
+      this.depotService.getAll().subscribe(
+      response =>{this.DepotList = response;}
      );
    }
   }
@@ -132,12 +132,12 @@ transformDate(date){
      return this.datePipe.transform(date, 'yyyy-MM-dd');
    }
 
-   onSelectDir(code: number)
+   onSelectDepot(code: number)
    {
-     this.directionService.getData(code).subscribe(
+     this.depotService.getData(code).subscribe(
        response =>{
          this.direction = response;
-         this.f['lib_direction'].setValue(this.direction.libelle);
+         this.f['lib_depot'].setValue(this.direction.libelle);
          }
       );  
      

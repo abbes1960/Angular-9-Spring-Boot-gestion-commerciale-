@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>payement-secure</title>
+    <desc>Created with Sketch.</desc>
+    <g id="payement-secure" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(15.000000, 23.000000)" stroke="#20458F" stroke-width="4">
+            <path d="M60.8161474,45.6845108 C60.8161474,48.2038197 58.7742453,50.2457218 56.2549364,50.2457218 L4.56121106,50.2457218 C2.04190215,50.2457218 0,48.2038197 0,45.6845108 L0,12.2356297 C0,9.71632075 2.04190215,7.6744186 4.56121106,7.6744186 L56.2549364,7.6744186 C58.7742453,7.6744186 60.8161474,9.71632075 60.8161474,12.2356297 L60.8161474,45.6845108 Z M9.12242211,35.0416849 L15.2040369,35.0416849 M9.12242211,41.1232997 L24.326459,41.1232997 M21.2856516,35.0416849 L27.3672663,35.0416849 M33.4488811,35.0416849 L39.5304958,35.0416849 M45.6121106,35.0416849 L51.6937253,35.0416849" id="Combined-Shape" fill="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M53.3372093,27.627907 C53.3372093,27.627907 66,23.2178791 66,13.0465116 L66,3.68372093 C66,3.68372093 60.3318937,0 53.3372093,0 C46.3425249,0 40.6744186,3.68372093 40.6744186,3.68372093 L40.6744186,13.0465116 C40.6744186,23.2178791 53.3372093,27.627907 53.3372093,27.627907 Z" id="Stroke-56" fill="#FFC928" stroke-linecap="square" stroke-linejoin="round"></path>
+            <rect id="Rectangle" stroke-linejoin="round" fill-rule="nonzero" x="9.20930233" y="16.8837209" width="12.2790698" height="9.20930233" rx="3"></rect>
+            <polyline id="Path" stroke-linecap="square" points="59.0930233 9.20930233 51.4186047 16.1162791 47.5813953 12.6627907"></polyline>
+        </g>
+    </g>
+</svg>

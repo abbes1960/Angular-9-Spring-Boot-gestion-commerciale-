@@ -12,14 +12,12 @@ export class ArticleService {
   private baseUrl = '/api/articles';
   private baseUrl1 = '/api/saveUserServer';
   host :string = "http://localhost:8080";
-
   choixmenu : string  = 'A';
-  listData : Article[];
+  list : Article[];
+  tokenStr = localStorage.getItem('token');
+
   public dataForm:  FormGroup; 
   constructor(private http: HttpClient) { }
- 
-  
-
   getData(id: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
@@ -39,7 +37,7 @@ export class ArticleService {
 
   getAll(): Observable<any> {
    
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}`,{ headers: { authorization: this.tokenStr } });
   }
 
 

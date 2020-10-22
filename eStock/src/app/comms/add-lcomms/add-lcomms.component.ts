@@ -33,12 +33,12 @@ export class AddLcommsComponent implements OnInit {
     this.articleService.getAll().subscribe(
       response =>{this.articleList= response;}
      );
-    if(this.data.Index==1)
+    if(this.data.lcommsIndex==1)
     {
       this.InfoForm();
     }
     else 
-     this.formData =this.fb.group(Object.assign({},this.commandeService.list[this.data.lcommandeIndex]));
+     this.formData =this.fb.group(Object.assign({},this.commandeService.list[this.data.lcommsIndex]));
 }
 
 
@@ -72,14 +72,14 @@ cal(){
 }
 
 onSubmit() {
-  if(this.data.Index==null)
+  if(this.data.lcommsIndex==null)
   {
     this.commandeService.list.push(this.formData.value)
     this.dialogRef.close();
   }
   else
 {
-  this.commandeService.list[this.data.Index] = this.formData.value;
+  this.commandeService.list[this.data.lcommsIndex] = this.formData.value;
 }
 this.dialogRef.close();
 
@@ -88,7 +88,7 @@ this.dialogRef.close();
 
 validateForm(formData:Lcommande){
   this.isValid=true;
-  if(formData.code_article=='')
+  if(formData.code =='')
     this.isValid=false;
     else if(formData.qte ==0)
     this.isValid=false;

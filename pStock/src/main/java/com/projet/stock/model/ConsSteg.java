@@ -1,8 +1,6 @@
 package com.projet.stock.model;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
@@ -23,14 +20,17 @@ public class ConsSteg {
 	  private int numero;
 	  private int annee;
 	  private int mois;
-	  private int code_direction;
+	  private int mat;
+	  private int code;
 	  private String lib_direction;
 	  private String libelle;
+	  private int total;
 	  @JsonManagedReference
 	  @JsonIgnore
 	  @OneToMany(mappedBy = "consSteg", fetch=FetchType.EAGER)
       @Valid
 	  private List<LconsSteg> lconsStegs = new ArrayList<>();
+	  
 	public long getId() {
 		return id;
 	}
@@ -55,11 +55,17 @@ public class ConsSteg {
 	public void setMois(int mois) {
 		this.mois = mois;
 	}
-	public int getCode_direction() {
-		return code_direction;
+	public int getMat() {
+		return mat;
 	}
-	public void setCode_direction(int code_direction) {
-		this.code_direction = code_direction;
+	public void setMat(int mat) {
+		this.mat = mat;
+	}
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLib_direction() {
 		return lib_direction;
@@ -73,22 +79,30 @@ public class ConsSteg {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
 	public List<LconsSteg> getLconsStegs() {
 		return lconsStegs;
 	}
 	public void setLconsStegs(List<LconsSteg> lconsStegs) {
 		this.lconsStegs = lconsStegs;
 	}
-	public ConsSteg(long id, int numero, int annee, int mois, int code_direction, String lib_direction, String libelle,
-			@Valid List<LconsSteg> lconsStegs) {
+	public ConsSteg(long id, int numero, int annee, int mois, int mat, int code, String lib_direction, String libelle,
+			int total, @Valid List<LconsSteg> lconsStegs) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.annee = annee;
 		this.mois = mois;
-		this.code_direction = code_direction;
+		this.mat = mat;
+		this.code = code;
 		this.lib_direction = lib_direction;
 		this.libelle = libelle;
+		this.total = total;
 		this.lconsStegs = lconsStegs;
 	}
 	public ConsSteg() {
@@ -97,9 +111,9 @@ public class ConsSteg {
 	}
 	@Override
 	public String toString() {
-		return "ConsSteg [id=" + id + ", numero=" + numero + ", annee=" + annee + ", mois=" + mois + ", code_direction="
-				+ code_direction + ", lib_direction=" + lib_direction + ", libelle=" + libelle + ", lconsStegs="
-				+ lconsStegs + "]";
+		return "ConsSteg [id=" + id + ", numero=" + numero + ", annee=" + annee + ", mois=" + mois + ", mat=" + mat
+				+ ", code=" + code + ", lib_direction=" + lib_direction + ", libelle=" + libelle + ", total=" + total
+				+ ", lconsStegs=" + lconsStegs + "]";
 	}
 
 }

@@ -14,14 +14,15 @@ import { DatePipe }         from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   user: any={};
-  loginname : String;
-  password : String;
+
   errorMessage:string;  
   name : string;  
   Wdate;
   annee : 0;
+  loginForm:  FormGroup; 
+  
   constructor(private router:Router,private userService : UserService,
-    public toastr: ToastrService,private datePipe : DatePipe) { }    
+    public toastr: ToastrService,private datePipe : DatePipe,public fb: FormBuilder) { }    
   ngOnInit() {    
      this.userService.islogin = false;
      this.userService.admin = false;
@@ -29,36 +30,33 @@ export class LoginComponent implements OnInit {
      this.Wdate = this.transformDate(new Date());
      this.annee = (this.Wdate).toString().substring(0,4);
      localStorage.setItem('annee', this.annee.toString());
+     this.loginForm = this.fb.group({
+      'username' : [null, Validators.required],
+      'password' : [null, Validators.required]
+    });
   }    
   login() {
-    
-    this.userService.login(this.loginname).subscribe(
-      response =>{this.user = response;
-      
-       if (this.user.pwd == this.password)
-       {
-        this.name = this.user.nom;
-        localStorage.setItem('name', this.name);
+    const val = this.loginForm.value;
+    this.userService.login(val.username, val.password).subscribe(
+      res =>{
+      this.user = res;
+        localStorage.setItem("name", this.user.username);
+       
+        let jwt = "Bearer " + this.user.jwt;
+          localStorage.setItem("token", jwt)
+       
          this.userService.islogin = true;
         if (this.user.role  == "Admin")
          {
-          this.userService.admin = true;
-        this.router.navigate(['/commandes']);
-     
-     
+         this.userService.admin = true;
+          this.router.navigate(['/accueil']);
       }
       else
       {
         this.userService.suser = true;
-        this.router.navigate(['/commande']);
         
+        this.router.navigate(['/accueil1']);
       }
-       }
-              else
-              {
-                this.toastr.warning( 'Mot de Passe  Incorrecte ')
-               }
-
           },
           error => 
           
@@ -66,16 +64,30 @@ export class LoginComponent implements OnInit {
          
           
           );
+        }
      
-   
         
-    
+        
+        logOut() {
+          localStorage.removeItem("username");
+        }
+ 
+
+
+  /*  onFormSubmit(form: NgForm) {
+      this.authService.login(form)
+        .subscribe(res => {
+          console.log(res);
+          if (res.token) {
+            localStorage.setItem('token', res.token);
+            this.router.navigate(['products']);
+          }
+        }, (err) => {
+          console.log(err);
+        });
     }
-    inscrire()
-    {
-      this.router.navigate(['/client']);
-    }
-    
+
+*/
 
     transformDate(date){
       return this.datePipe.transform(date, 'yyyy-MM-dd');

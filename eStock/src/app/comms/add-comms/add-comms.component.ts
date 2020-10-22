@@ -3,8 +3,7 @@ import { Component, OnInit } from '@angular/core';
   import { ClientService} from '../../service/client.service';
   import { CompteurService} from '../../service/compteur.service';
   import { Client} from '../../model/client';
-  import { Direction} from '../../model/direction';
-  import { Compteur} from '../../model/compteur';
+   import { Compteur} from '../../model/compteur';
   import { ToastrService } from 'ngx-toastr';
   import { Router, ActivatedRoute  } from '@angular/router';
   import { NgForm } from '@angular/forms';
@@ -93,12 +92,12 @@ export class AddCommsComponent implements OnInit {
   ResetForm() {
         this.service.formData.reset();
     }
-  AddData(Index,Id){  
+  AddData(commsIndex,Id){  
       const dialogConfig = new MatDialogConfig();
       dialogConfig.autoFocus = true;
       dialogConfig.disableClose = true;
       dialogConfig.width="50%";
-      dialogConfig.data={Index,Id};
+      dialogConfig.data={commsIndex,Id};
       this.dialog.open(AddLcommsComponent, dialogConfig).afterClosed().subscribe(b10=>{
         this.calcul();
       });

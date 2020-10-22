@@ -1,0 +1,204 @@
+#backgroundDeconnexionPro,
+#backgroundPopDeconnexion {
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.7;
+	background: #000000;
+	border: 1px solid #cecece;
+	display: none;
+	z-index: -1
+}
+
+#deconnexionPopinPro,
+#deconnexionPopin {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	_position: absolute; /* hack for internet explorer 6*/
+	background: #FFFFFF;
+	padding: 12px;
+	font-size: 13px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: none;
+	z-index: -1;
+	width: 580px;
+	transform: translate(-50%,-50%);
+	border-top:10px solid #92004d;
+}
+#deconnexionPopinPro .popup-disconnect p{font-weight:bold; font-size:19.2px;}
+#deconnexionPopinPro:focus,
+#deconnexionPopin:focus {
+	outline: none;	
+}
+#deconnexionPopinPro h1, #deconnexionPopinPro.pro h1, 
+#deconnexionPopin h1, #deconnexionPopin.pro h1 {
+	color:#363636;
+	font-size: 1.2em;
+	font-weight: 400;
+	line-height: 1.2em;
+    font-family: 'DINPro-Bold', sans-serif;
+}
+.btn-lft {
+    float: left;
+}
+.linkGrey2 {
+    display: inline-block;
+    margin-top: -3px;
+    height: 46px;
+    padding: 0 0 0 26px;
+    font-size: 1.6em;
+    color: #fff;
+    font-weight: 700;
+    background: url(../images/btn/btn_sprite.png) no-repeat 0 -1469px;
+    text-decoration: none;
+}
+.linkGrey2 span {
+    display: inline-block;
+    padding: 13px 25px 0 6px;
+    cursor: pointer;
+    background: url(../images/btn/btn_sprite.png) no-repeat right -1419px;
+    font-size: 0.8em;
+    color: #fff;
+}
+.btn-rgt {
+    float: right;
+    text-align: right;
+    margin-right: 20px;
+}
+#deconnexionPopinPro.pro .btn-rgt .linkDecon {
+    display: inline-block;
+    height: 46px;
+    padding: 0 0 0 26px;
+    font-size: 1.6em;
+    color: #fff;
+    font-weight: 700;
+    background: url(../images/btn/btn_sprite.png) no-repeat 0 -1366px;
+    text-decoration: none;
+}
+#deconnexionPopinPro.pro .btn-rgt .linkDecon span {
+    display: inline-block;
+    height: 30px;
+    padding: 9px 35px 0 6px;
+    cursor: pointer;
+    background: url(../images/btn/btn_sprite.png) no-repeat right -1313px;
+    font-size: 0.8em;
+    color: #fff;
+}
+#deconnexionPopinPro.transverse .btn-rgt .linkDecon, 
+#deconnexionPopin.transverse .btn-rgt .linkDecon {
+    display: inline-block;
+    height: 46px;
+    padding: 0 0 0 22px;
+    font-size: 1.6em;
+    color: #fff;
+    font-weight: 700;
+    background: url(../images/btn/btn_sprite.png) no-repeat 0 -2294px;
+    text-decoration: none;
+}
+#deconnexionPopinPro.transverse .btn-rgt .linkDecon span,
+#deconnexionPopin.transverse .btn-rgt .linkDecon span {
+    display: inline-block;
+    height: 32px;
+    padding: 9px 35px 0 6px;
+    cursor: pointer;
+    background: url(../images/btn/btn_sprite.png) no-repeat right -2347px;
+    font-size: 0.8em;
+    color: #fff;
+}
+#backgroundPopPart { 
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.7;
+	background: #000000;
+	border: 1px solid #cecece;
+	display: none;
+	z-index: -1
+}
+
+#switchSitePopPart {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	_position: absolute; /* hack for internet explorer 6*/
+	background: #FFFFFF;
+	border: 2px solid #cecece;
+	padding: 12px;
+	font-size: 13px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	display: none;
+	z-index: -1;
+	width: 580px;
+}
+
+#switchSitePopPart p {
+	font-size: 1.2em;
+	font-weight: 400;
+	line-height: 1.2em;
+}
+
+#backgroundPopPro { 
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.7;
+	background: #000000;
+	border: 1px solid #cecece;
+	display: none; 
+	z-index: -1; 
+}
+
+#switchSitePopPro {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	_position: absolute; /* hack for internet explorer 6*/
+	width: 523px;
+	background: #FFFFFF;
+	border: 2px solid #cecece;
+	padding: 12px;
+	font-size: 13px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	display: none; 
+	z-index: -1;
+	width: 549px;
+}
+
+#switchSitePopPro p {
+	font-size: 1.2em;
+	font-weight: 400;
+	line-height: 1.2em;
+	color: #000;
+}
+
+.popup-disconnect .basic-img {
+    margin-bottom: 30px;
+}
+
+.popup-disconnect .popup-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#contentMessage{
+    font-size: 1.48rem;
+    font-weight:500;
+}
+

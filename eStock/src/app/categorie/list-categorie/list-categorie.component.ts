@@ -21,6 +21,7 @@ import { AddCategorieComponent } from '../../categorie/add-categorie/add-categor
 export class ListCategorieComponent implements OnInit {
   categorie : Categorie;
   control: FormControl = new FormControl('');
+ p: number = 1;
   constructor(public crudApi: CategorieService, public toastr: ToastrService,
     private router : Router,public fb: FormBuilder,
     private matDialog: MatDialog,
@@ -46,8 +47,8 @@ export class ListCategorieComponent implements OnInit {
 
   
   getData() {
-    this.crudApi.getAll().subscribe(
-      response =>{this.crudApi.listData = response;}
+   this.crudApi.getAll().subscribe(
+      response =>{this.crudApi.list = response;}
      );
    
   }

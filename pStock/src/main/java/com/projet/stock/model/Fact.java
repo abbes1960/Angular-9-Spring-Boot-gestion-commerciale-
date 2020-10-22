@@ -23,7 +23,7 @@ public class Fact {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_client;
+	  private int code;
 	  private String lib_client;
 	  @JsonFormat(pattern = "dd/MM/yyyy")
 	  private LocalDate date_fact;
@@ -58,11 +58,11 @@ public class Fact {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_client() {
-		return code_client;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_client(int code_client) {
-		this.code_client = code_client;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLib_client() {
 		return lib_client;
@@ -136,14 +136,14 @@ public class Fact {
 	public void setLfacts(List<Lfact> lfacts) {
 		this.lfacts = lfacts;
 	}
-	public Fact(long id, int annee, int numero, int code_client, String lib_client, LocalDate date_fact, String libelle,
+	public Fact(long id, int annee, int numero, int code, String lib_client, LocalDate date_fact, String libelle,
 			float totht, float totrem, float totfodec, float tottva, float timbre, float totttc, float rs, float montrs,
 			@Valid List<Lfact> lfacts) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_client = code_client;
+		this.code = code;
 		this.lib_client = lib_client;
 		this.date_fact = date_fact;
 		this.libelle = libelle;
@@ -163,10 +163,10 @@ public class Fact {
 	}
 	@Override
 	public String toString() {
-		return "Fact [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_client=" + code_client
-				+ ", lib_client=" + lib_client + ", date_fact=" + date_fact + ", libelle=" + libelle + ", totht="
-				+ totht + ", totrem=" + totrem + ", totfodec=" + totfodec + ", tottva=" + tottva + ", timbre=" + timbre
-				+ ", totttc=" + totttc + ", rs=" + rs + ", montrs=" + montrs + ", lfacts=" + lfacts + "]";
+		return "Fact [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", lib_client="
+				+ lib_client + ", date_fact=" + date_fact + ", libelle=" + libelle + ", totht=" + totht + ", totrem="
+				+ totrem + ", totfodec=" + totfodec + ", tottva=" + tottva + ", timbre=" + timbre + ", totttc=" + totttc
+				+ ", rs=" + rs + ", montrs=" + montrs + ", lfacts=" + lfacts + "]";
 	}
 
 }

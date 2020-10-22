@@ -1,7 +1,6 @@
 package com.projet.stock.model;
-import java.time.LocalDate;
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.List;
 
 
@@ -25,22 +24,24 @@ public class Livr {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_client;
-	  private String lib_client;
-	  @JsonFormat(pattern = "dd/MM/yyyy")
-	  private LocalDate date_liv;
-	  private String libelle;
-	  private float totht;
-	  private float totrem;
-	  private float totfodec;
-	  private float tottva;
-	  private float totttc;
+	  private int code;
+	  private String libcl;
+	  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="GMT")
+	  private Date date_mvt;
+	  private String smtva;
+	  private String chauffeur;
+	  private String camion;
+	  private double totht;
+	  private double totrem;
+	  private double totfodec;
+	  private double tottva;
+	  private double totttc;
+	  private int numfac;
 	  @JsonManagedReference
 	  @JsonIgnore
 	  @OneToMany(mappedBy = "livr", fetch=FetchType.EAGER)
       @Valid
 	  private List<Llivr> llivrs = new ArrayList<>();
-	  
 	public long getId() {
 		return id;
 	}
@@ -59,59 +60,77 @@ public class Livr {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_client() {
-		return code_client;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_client(int code_client) {
-		this.code_client = code_client;
+	public void setCode(int code) {
+		this.code = code;
 	}
-	public String getLib_client() {
-		return lib_client;
+	public String getLibcl() {
+		return libcl;
 	}
-	public void setLib_client(String lib_client) {
-		this.lib_client = lib_client;
+	public void setLibcl(String libcl) {
+		this.libcl = libcl;
 	}
-	public LocalDate getDate_liv() {
-		return date_liv;
+	public Date getDate_mvt() {
+		return date_mvt;
 	}
-	public void setDate_liv(LocalDate date_liv) {
-		this.date_liv = date_liv;
+	public void setDate_mvt(Date date_mvt) {
+		this.date_mvt = date_mvt;
 	}
-	public String getLibelle() {
-		return libelle;
+	public String getSmtva() {
+		return smtva;
 	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
+	public void setSmtva(String smtva) {
+		this.smtva = smtva;
 	}
-	public float getTotht() {
+	public String getChauffeur() {
+		return chauffeur;
+	}
+	public void setChauffeur(String chauffeur) {
+		this.chauffeur = chauffeur;
+	}
+	public String getCamion() {
+		return camion;
+	}
+	public void setCamion(String camion) {
+		this.camion = camion;
+	}
+	public double getTotht() {
 		return totht;
 	}
-	public void setTotht(float totht) {
+	public void setTotht(double totht) {
 		this.totht = totht;
 	}
-	public float getTotrem() {
+	public double getTotrem() {
 		return totrem;
 	}
-	public void setTotrem(float totrem) {
+	public void setTotrem(double totrem) {
 		this.totrem = totrem;
 	}
-	public float getTotfodec() {
+	public double getTotfodec() {
 		return totfodec;
 	}
-	public void setTotfodec(float totfodec) {
+	public void setTotfodec(double totfodec) {
 		this.totfodec = totfodec;
 	}
-	public float getTottva() {
+	public double getTottva() {
 		return tottva;
 	}
-	public void setTottva(float tottva) {
+	public void setTottva(double tottva) {
 		this.tottva = tottva;
 	}
-	public float getTotttc() {
+	public double getTotttc() {
 		return totttc;
 	}
-	public void setTotttc(float totttc) {
+	public void setTotttc(double totttc) {
 		this.totttc = totttc;
+	}
+	public int getNumfac() {
+		return numfac;
+	}
+	public void setNumfac(int numfac) {
+		this.numfac = numfac;
 	}
 	public List<Llivr> getLlivrs() {
 		return llivrs;
@@ -119,21 +138,25 @@ public class Livr {
 	public void setLlivrs(List<Llivr> llivrs) {
 		this.llivrs = llivrs;
 	}
-	public Livr(long id, int annee, int numero, int code_client, String lib_client, LocalDate date_liv, String libelle,
-			float totht, float totrem, float totfodec, float tottva, float totttc, @Valid List<Llivr> llivrs) {
+	public Livr(long id, int annee, int numero, int code, String libcl, Date date_mvt, String smtva, String chauffeur,
+			String camion, double totht, double totrem, double totfodec, double tottva, double totttc, int numfac,
+			@Valid List<Llivr> llivrs) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_client = code_client;
-		this.lib_client = lib_client;
-		this.date_liv = date_liv;
-		this.libelle = libelle;
+		this.code = code;
+		this.libcl = libcl;
+		this.date_mvt = date_mvt;
+		this.smtva = smtva;
+		this.chauffeur = chauffeur;
+		this.camion = camion;
 		this.totht = totht;
 		this.totrem = totrem;
 		this.totfodec = totfodec;
 		this.tottva = tottva;
 		this.totttc = totttc;
+		this.numfac = numfac;
 		this.llivrs = llivrs;
 	}
 	public Livr() {
@@ -142,11 +165,10 @@ public class Livr {
 	}
 	@Override
 	public String toString() {
-		return "Livr [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_client=" + code_client
-				+ ", lib_client=" + lib_client + ", date_liv=" + date_liv + ", libelle=" + libelle + ", totht=" + totht
-				+ ", totrem=" + totrem + ", totfodec=" + totfodec + ", tottva=" + tottva + ", totttc=" + totttc
-				+ ", llivrs=" + llivrs + "]";
+		return "Livr [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", libcl=" + libcl
+				+ ", date_mvt=" + date_mvt + ", smtva=" + smtva + ", chauffeur=" + chauffeur + ", camion=" + camion
+				+ ", totht=" + totht + ", totrem=" + totrem + ", totfodec=" + totfodec + ", tottva=" + tottva
+				+ ", totttc=" + totttc + ", numfac=" + numfac + ", llivrs=" + llivrs + "]";
 	}
-
 
 }

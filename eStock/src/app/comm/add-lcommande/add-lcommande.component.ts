@@ -89,7 +89,6 @@ cal(){
 }
 
 onSubmit() {
-  
   if(this.data.lcommandeIndex==null)
   {
     this.commandeService.list.push(this.formData.value)
@@ -97,17 +96,14 @@ onSubmit() {
   }
   else
 {
-  
   this.commandeService.list[this.data.lcommandeIndex] = this.formData.value;
 }
 this.dialogRef.close();
-
- 
 }
 
 validateForm(formData:Lcommande){
   this.isValid=true;
-  if(formData.code_article=='')
+  if(formData.code =='')
     this.isValid=false;
     else if(formData.qte ==0)
     this.isValid=false;

@@ -26,6 +26,11 @@ public class Cposte {
 	private int numcsonede;
 	private int numcsteg;
 	private int numccarburant;
+	private int numcollecte;
+	private int numdepot;
+	private int numreg;
+	private int numfact;
+	private int numenvoi;
 	public long getId() {
 		return id;
 	}
@@ -122,9 +127,39 @@ public class Cposte {
 	public void setNumccarburant(int numccarburant) {
 		this.numccarburant = numccarburant;
 	}
+	public int getNumcollecte() {
+		return numcollecte;
+	}
+	public void setNumcollecte(int numcollecte) {
+		this.numcollecte = numcollecte;
+	}
+	public int getNumdepot() {
+		return numdepot;
+	}
+	public void setNumdepot(int numdepot) {
+		this.numdepot = numdepot;
+	}
+	public int getNumreg() {
+		return numreg;
+	}
+	public void setNumreg(int numreg) {
+		this.numreg = numreg;
+	}
+	public int getNumfact() {
+		return numfact;
+	}
+	public void setNumfact(int numfact) {
+		this.numfact = numfact;
+	}
+	public int getNumenvoi() {
+		return numenvoi;
+	}
+	public void setNumenvoi(int numenvoi) {
+		this.numenvoi = numenvoi;
+	}
 	public Cposte(long id, int annee, int code_dir, int numblf, int numcommf, int numavf, int numbon, int numbs,
-			int numbr, int numfacf, int numinv, int numpre, int numpro, int numcsonede, int numcsteg,
-			int numccarburant) {
+			int numbr, int numfacf, int numinv, int numpre, int numpro, int numcsonede, int numcsteg, int numccarburant,
+			int numcollecte, int numdepot, int numreg, int numfact, int numenvoi) {
 		super();
 		this.id = id;
 		this.annee = annee;
@@ -142,6 +177,11 @@ public class Cposte {
 		this.numcsonede = numcsonede;
 		this.numcsteg = numcsteg;
 		this.numccarburant = numccarburant;
+		this.numcollecte = numcollecte;
+		this.numdepot = numdepot;
+		this.numreg = numreg;
+		this.numfact = numfact;
+		this.numenvoi = numenvoi;
 	}
 	public Cposte() {
 		super();
@@ -152,7 +192,10 @@ public class Cposte {
 		return "Cposte [id=" + id + ", annee=" + annee + ", code_dir=" + code_dir + ", numblf=" + numblf + ", numcommf="
 				+ numcommf + ", numavf=" + numavf + ", numbon=" + numbon + ", numbs=" + numbs + ", numbr=" + numbr
 				+ ", numfacf=" + numfacf + ", numinv=" + numinv + ", numpre=" + numpre + ", numpro=" + numpro
-				+ ", numcsonede=" + numcsonede + ", numcsteg=" + numcsteg + ", numccarburant=" + numccarburant + "]";
+				+ ", numcsonede=" + numcsonede + ", numcsteg=" + numcsteg + ", numccarburant=" + numccarburant
+				+ ", numcollecte=" + numcollecte + ", numdepot=" + numdepot + ", numreg=" + numreg + ", numfact="
+				+ numfact + ", numenvoi=" + numenvoi + "]";
 	}
+
 
 }

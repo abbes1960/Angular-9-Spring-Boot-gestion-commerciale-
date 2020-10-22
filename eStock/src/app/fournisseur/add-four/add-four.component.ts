@@ -61,7 +61,7 @@ addData() {
   this.crudApi.createData(this.crudApi.dataForm.value).
   subscribe( data => {
     this.toastr.success( 'Validation Faite avec Success'); 
-    this.router.navigate(['/clients']);
+    this.router.navigate(['/fournisseurs']);
   });
 }
   updateData()
@@ -71,7 +71,7 @@ addData() {
     subscribe( data => {
       this.toastr.success( 'Modification Faite avec Success');
 
-      this.router.navigate(['/clients']);
+      this.router.navigate(['/fournisseurs']);
     });
   }
 }

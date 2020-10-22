@@ -20,7 +20,7 @@ public class Recouv {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_client;
+	  private int code;
 	  private String lib_client;
 	  @JsonFormat(pattern = "dd/MM/yyyy")
 	  private LocalDate date_reg;
@@ -49,11 +49,11 @@ public class Recouv {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_client() {
-		return code_client;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_client(int code_client) {
-		this.code_client = code_client;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLib_client() {
 		return lib_client;
@@ -85,15 +85,28 @@ public class Recouv {
 	public void setLrecouvs(List<Lrecouv> lrecouvs) {
 		this.lrecouvs = lrecouvs;
 	}
+	public Recouv(long id, int annee, int numero, int code, String lib_client, LocalDate date_reg, String libelle,
+			float total, @Valid List<Lrecouv> lrecouvs) {
+		super();
+		this.id = id;
+		this.annee = annee;
+		this.numero = numero;
+		this.code = code;
+		this.lib_client = lib_client;
+		this.date_reg = date_reg;
+		this.libelle = libelle;
+		this.total = total;
+		this.lrecouvs = lrecouvs;
+	}
 	public Recouv() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
-		return "Recouv [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_client=" + code_client
-				+ ", lib_client=" + lib_client + ", date_reg=" + date_reg + ", libelle=" + libelle + ", total=" + total
-				+ ", lrecouvs=" + lrecouvs + "]";
+		return "Recouv [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", lib_client="
+				+ lib_client + ", date_reg=" + date_reg + ", libelle=" + libelle + ", total=" + total + ", lrecouvs="
+				+ lrecouvs + "]";
 	}
 
 }

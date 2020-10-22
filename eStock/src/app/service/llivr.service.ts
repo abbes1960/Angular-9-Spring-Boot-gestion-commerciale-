@@ -32,7 +32,7 @@ export class LlivrService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getAll(): Observable<any> {
+  getAll(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 }

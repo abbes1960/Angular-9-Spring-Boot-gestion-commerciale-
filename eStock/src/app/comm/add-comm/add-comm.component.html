@@ -22,8 +22,8 @@
       </div>
       <div class="col-md-6 form-group">
         <label>Client</label>
-        <select name="code_client" class="form-control" formControlName="code_client" id="code_client" 
-        (change)="OnSelectClient($event)">
+        <select class="form-control" formControlName="code" id="code" 
+        (change)="OnSelectClient($event.target)">
         <option value="0">-Select-</option>
         <option *ngFor="let client of this.ClientList" value="{{client.code}}">{{client.libelle}}</option>
         </select>

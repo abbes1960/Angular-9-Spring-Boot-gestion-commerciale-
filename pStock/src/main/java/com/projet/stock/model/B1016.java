@@ -22,8 +22,10 @@ public class B1016 {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_dir;
-	  private int code_res;
+	  private int mat;
+	  private int code;
+	  private int codres;
+	  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="GMT")
 	  private Date date_mvt;
 	  private String libelle;
 	  private double total;
@@ -52,17 +54,23 @@ public class B1016 {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_dir() {
-		return code_dir;
+	public int getMat() {
+		return mat;
 	}
-	public void setCode_dir(int code_dir) {
-		this.code_dir = code_dir;
+	public void setMat(int mat) {
+		this.mat = mat;
 	}
-	public int getCode_res() {
-		return code_res;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_res(int code_res) {
-		this.code_res = code_res;
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public int getCodres() {
+		return codres;
+	}
+	public void setCode_res(int codres) {
+		this.codres = codres;
 	}
 	public Date getDate_mvt() {
 		return date_mvt;
@@ -100,14 +108,15 @@ public class B1016 {
 	public void setLb1016s(List<Lb1016> lb1016s) {
 		this.lb1016s = lb1016s;
 	}
-	public B1016(long id, int annee, int numero, int code_dir, int code_res, Date date_mvt, String libelle,
+	public B1016(long id, int annee, int numero, int mat, int code, int codres, Date date_mvt, String libelle,
 			double total, String lib_direction, String lib_residence, @Valid List<Lb1016> lb1016s) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_dir = code_dir;
-		this.code_res = code_res;
+		this.mat = mat;
+		this.code = code;
+		this.codres = codres;
 		this.date_mvt = date_mvt;
 		this.libelle = libelle;
 		this.total = total;
@@ -121,9 +130,11 @@ public class B1016 {
 	}
 	@Override
 	public String toString() {
-		return "B1016 [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_dir=" + code_dir + ", code_res="
-				+ code_res + ", date_mvt=" + date_mvt + ", libelle=" + libelle + ", total=" + total + ", lib_direction="
-				+ lib_direction + ", lib_residence=" + lib_residence + ", lb1016s=" + lb1016s + "]";
+		return "B1016 [id=" + id + ", annee=" + annee + ", numero=" + numero + ", mat=" + mat + ", code=" + code
+				+ ", codres=" + codres + ", date_mvt=" + date_mvt + ", libelle=" + libelle + ", total=" + total
+				+ ", lib_direction=" + lib_direction + ", lib_residence=" + lib_residence + ", lb1016s=" + lb1016s
+				+ "]";
 	}
+	
 
 }

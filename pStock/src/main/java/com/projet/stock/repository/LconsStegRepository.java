@@ -3,7 +3,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.projet.stock.model.LconsSteg;
+
 @Repository
 public interface LconsStegRepository extends JpaRepository<LconsSteg, Long>{
+	Iterable<LconsSteg> findAllByNumero(int numero);
 
 }

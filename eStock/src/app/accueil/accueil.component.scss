@@ -1,0 +1,94 @@
+ngb-carousel {
+    width: 100%;;
+    margin: 20px auto;
+  }
+  
+  ngb-carousel img {
+    width: 100%;
+    outline: none;
+  }
+  
+  ngb-carousel {
+    width: inherit;
+    height: inherit;
+  }
+  
+  .carousel-inner {
+    overflow: visible;
+  }
+  
+  .carousel-item {
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out, visibility 1.2s;
+    z-index: -1;
+  }
+  
+  .carousel-item.active{
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+  }
+  
+  .carousel-control-prev {
+     z-index: 20;
+  }
+  
+  .carousel-control-next {
+     z-index: 20;
+  }
+  
+  .carousel-indicators{
+    z-index: 20;
+  }
+  
+  
+  h1 {
+      font-size: 80px;
+  }
+  
+  h2 {
+      font-size: 50px;
+  }
+  
+  span {
+      font-size: 70px;
+  }
+  
+  h3 {
+      font-size: 30px;
+  }
+  
+  h4 {
+      font-size: 24px;
+  }
+  
+  h5 {
+      font-size: 18px;
+  }
+  
+  h6 {
+      font-size: 16px;
+  }
+  
+  p {
+      font-size: 25px;
+      color: crimson;
+      line-height: 1.6;
+  }
+  
+  
+  
+  .text-white h1,
+  .text-white h2,
+  .text-white h3,
+  .text-white h4,
+  .text-white h5,
+  .text-white h6,
+  .text-red p,
+  .text-white span,
+  .text-white li,
+  .text-white a {
+      color: #fff;
+  }

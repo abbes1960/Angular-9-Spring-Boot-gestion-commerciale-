@@ -34,7 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.projet.stock.domaine.Response;
+import com.projet.stock.domaine.Message;
 import com.projet.stock.exception.ResourceNotFoundException;
 import com.projet.stock.model.Article;
 import com.projet.stock.model.Categorie;
@@ -91,7 +91,7 @@ public class ArticleController {
 		 return new ResponseEntity<List<String>>(listArt,HttpStatus.OK);
 	 }
 	 @PostMapping(value = "/saveUser")
-	 public ResponseEntity<Response> saveUser (@RequestParam("file") MultipartFile file,
+	 public ResponseEntity<Message> saveUser (@RequestParam("file") MultipartFile file,
 			 @RequestParam("user") String user) throws JsonParseException , JsonMappingException , Exception
 	 {
         Article article = new ObjectMapper().readValue(user, Article.class);
@@ -101,25 +101,25 @@ public class ArticleController {
         
         if (art != null)
         {
-        	Optional<Scategorie> ScategorieInfo = scatrepository.findByCode(article.getCodeScateg());
+        	Optional<Scategorie> ScategorieInfo = scatrepository.findByCode(article.getCscateg());
        	 
     	    if (ScategorieInfo.isPresent()) {
     	    	Scategorie scategorie = ScategorieInfo.get();
     	           scategorie.setRang(scategorie.getRang()+1);
     	           scategorie  = scatrepository.save(scategorie);
     	    }
-        	return new ResponseEntity<Response>(new Response (""),HttpStatus.OK);
+        	return new ResponseEntity<Message>(new Message (""),HttpStatus.OK);
         }
         else
         {
-        	return new ResponseEntity<Response>(new Response ("Article not saved"),HttpStatus.BAD_REQUEST);	
+        	return new ResponseEntity<Message>(new Message ("Article not saved"),HttpStatus.BAD_REQUEST);	
         }
 	 }
 	 
 	 
 	 
 	 @PostMapping("/articles")
-	 public ResponseEntity<Response> createArticle (@RequestParam("file") MultipartFile file,
+	 public ResponseEntity<Message> createArticle (@RequestParam("file") MultipartFile file,
 			 @RequestParam("article") String article) throws JsonParseException , JsonMappingException , Exception
 	 {
 		 System.out.println("Ok .............");
@@ -147,11 +147,18 @@ public class ArticleController {
         Article art = repository.save(arti);
         if (art != null)
         {
-        	return new ResponseEntity<Response>(new Response (""),HttpStatus.OK);
+        	Optional<Scategorie> ScategorieInfo = scatrepository.findByCode(art.getCscateg());
+          	 
+    	    if (ScategorieInfo.isPresent()) {
+    	    	Scategorie scategorie = ScategorieInfo.get();
+    	           scategorie.setRang(scategorie.getRang()+1);
+    	           scategorie  = scatrepository.save(scategorie);
+    	    }
+        	return new ResponseEntity<Message>(new Message (""),HttpStatus.OK);
         }
         else
         {
-        	return new ResponseEntity<Response>(new Response ("Article not saved"),HttpStatus.BAD_REQUEST);	
+        	return new ResponseEntity<Message>(new Message ("Article not saved"),HttpStatus.BAD_REQUEST);	
         }
 	 }
 	 
@@ -198,8 +205,8 @@ public class ArticleController {
 	    	Article article = ArticleInfo.get();
 	           article.setLibelle(Article.getLibelle());
 	           article.setCode_b(Article.getCode_b());
-	           article.setCodeCateg(Article.getCodeCateg());
-	           article.setCodeScateg(Article.getCodeScateg());
+	           article.setCcateg(Article.getCcateg());
+	           article.setCscateg(Article.getCscateg());
 	           article.setPa(Article.getPa());
 	           article.setPv(Article.getPv());
 	           article.setTva(Article.getTva());

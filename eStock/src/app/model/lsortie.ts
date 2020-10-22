@@ -1,7 +1,7 @@
 export class Lsortie {
     id: number;
     numero : number;
-    id_article : string;
+    code : string;
     libart :string;
     qte : number;
     pu : number;

@@ -11,7 +11,7 @@ public class Client {
 	@Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
-	  private String code;
+	  private int code;
 	  private String libelle;
 	  private String adresse;
 	  private String tel;
@@ -31,10 +31,10 @@ public class Client {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 	public String getLibelle() {
@@ -115,9 +115,8 @@ public class Client {
 	public void setSoldef(float soldef) {
 		this.soldef = soldef;
 	}
-	public Client(long id, String code, String libelle, String adresse, String tel, String email, String fax,
-			String login, String pwd, String smtva, String matfisc, String timbre, Date cree, float soldinit,
-			float soldef) {
+	public Client(long id, int code, String libelle, String adresse, String tel, String email, String fax, String login,
+			String pwd, String smtva, String matfisc, String timbre, Date cree, float soldinit, float soldef) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -146,5 +145,5 @@ public class Client {
 				+ ", matfisc=" + matfisc + ", timbre=" + timbre + ", cree=" + cree + ", soldinit=" + soldinit
 				+ ", soldef=" + soldef + "]";
 	}
-	
+
 }

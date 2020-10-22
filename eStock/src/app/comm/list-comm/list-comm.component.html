@@ -28,11 +28,11 @@
 </th>
   </thead>
   <tbody>
-<tr *ngFor="let comm of commandeListe">
+<tr *ngFor="let comm of list">
     <td class = "hidden">{{comm.id}}</td>
   <td>{{comm.numero}}</td>
     <td>{{comm.date_comm| date:'dd/MM/yyyy'}}</td>
-  <td>{{comm.code_client}}</td>
+  <td>{{comm.code}}</td>
   <td>{{comm.lib_client}}</td>
   <td>{{comm.libelle}}</td>
   <td >{{comm.totht}}</td>

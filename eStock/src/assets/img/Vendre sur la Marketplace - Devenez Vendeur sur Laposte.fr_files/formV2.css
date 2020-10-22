@@ -1,0 +1,221 @@
+/* Sections
+    (CSS flags marked with [=])
+    https://docs.google.com/document/d/10gDWrYyFOWZxjfVmzUiYwfeW_8LWAYIgCvgs3ZeywTI/edit
+    
+    UNIFORM
+        select
+        uploader
+    ERROR
+
+*/
+/* ACCESSIBILITE IMAGE de fond des champs DESACTIVE */
+.reshipment .content fieldset, 
+.popin fieldset, 
+.content .form-content, 
+.content .block-bg-corner {background: url(../images/bg/px_grey.gif) repeat 0 0 transparent;}
+/* Select Blue Color*/
+.reshipment div.selector span,
+.reshipment div.selector:active span,
+.reshipment div.selector.active span,
+.reshipment div.selector.focus span,
+.reshipment div.selector.hover span,
+.reshipment div.selector:hover span,
+.reshipment div.selector.focus:active span,
+.reshipment div.selector:hover:active span,
+.reshipment div.selector.active:hover span,
+.reshipment div.selector.focus.active span,
+.reshipment div.selector.disabled span,
+.reshipment div.selector.disabled:active span,
+.reshipment div.selector.disabled.active span {background-position: right -128px;text-align: left;}
+
+/* Select Pink Color*/
+.new-address div.selector span,
+.new-address div.selector:active span,
+.new-address div.selector.active span,
+.new-address div.selector.focus span,
+.new-address div.selector.hover span,
+.new-address div.selector:hover span,
+.new-address div.selector.focus:active span,
+.new-address div.selector:hover:active span,
+.new-address div.selector.active:hover span,
+.new-address div.selector.focus.active span,
+.new-address div.selector.disabled span,
+.new-address div.selector.disabled:active span,
+.new-address div.selector.disabled.active span {background-position: right -935px;}
+
+.stamps-online div.selector span,
+.stamps-online div.selector:active span, 
+.stamps-online div.selector.active span,
+.stamps-online div.selector.focus span, 
+.stamps-online div.selector.hover span, 
+.stamps-online div.selector:hover span,
+.stamps-online div.selector.focus:active span, 
+.stamps-online div.selector:hover:active span, 
+.stamps-online div.selector.active:hover span, 
+.stamps-online div.selector.focus.active span,
+.stamps-online div.selector.disabled span, 
+.stamps-online div.selector.disabled:active span, 
+.stamps-online div.selector.disabled.active span {background-position: right -97px;}
+
+#coordonneesParticulier .stamps-online div.selector span {background-position: right top;}
+
+.letter-mail div.selector span, 
+.letter-mail div.selector:active span, 
+.letter-mail div.selector.active span,
+.letter-mail div.selector.focus span, 
+.letter-mail div.selector.hover span, 
+.letter-mail div.selector:hover span,
+.letter-mail div.selector.focus:active span, 
+.letter-mail div.selector:hover:active span, 
+.letter-mail div.selector.active:hover span, 
+.letter-mail div.selector.focus.active span,
+.letter-mail div.selector.disabled span, 
+.letter-mail div.selector.disabled:active span, 
+.letter-mail div.selector.disabled.active span {background-position: right -33px;}
+
+.track-order div.selector span, 
+.track-order div.selector:active span, 
+.track-order div.selector.active span,
+.track-order div.selector.focus span, 
+.track-order div.selector.hover span, 
+.track-order div.selector:hover span,
+.track-order div.selector.focus:active span, 
+.track-order div.selector:hover:active span, 
+.track-order div.selector.active:hover span, 
+.track-order div.selector.focus.active span,
+.track-order div.selector.disabled span, 
+.track-order div.selector.disabled:active span, 
+.track-order div.selector.disabled.active span {background-position: right -65px;}
+
+/* Uploader */
+
+.track-order div.uploader { 
+    width: 490px;
+    height: 45px;
+    background: none;
+}
+.track-order div.uploader input { 
+    left: 0;
+    top: 10px;
+    width: 327px;
+    background: none;
+}/*
+.track-order div.uploader span.filename {
+    background: url(../images/btn/track-filename.gif) no-repeat 0 6px;
+    width: 327px;
+    height: 44px;
+    border: 0;
+    font-size: 1.2em;
+    line-height: 3.6em;
+} 
+.track-order div.uploader span.action {
+    background: url(../images/btn/btn-track-parcourir.png) no-repeat 0 0;
+    color: #fff;
+    width: 140px;
+    height: 42px;
+    font-size: 1.4em;
+    text-shadow: 0 1px 0 #666;
+    line-height: 2.8em;
+} 
+*/
+/* =ERROR */
+.new-address form .error-contener #datepickerdebut {background-position:right -1033px;}
+
+.stamps-online .error-contener div.selector span,
+.stamps-online .error-contener:active div.selector span,
+.stamps-online .error-contener.active div.selector span,
+.stamps-online .error-contener.focus div.selector span,
+.stamps-online .error-contener.hover div.selector span,
+.stamps-online .error-contener:hover div.selector span,
+.stamps-online .error-contener.focus:active div.selector span,
+.stamps-online .error-contener:hover:active div.selector span,
+.stamps-online .error-contener.active:hover div.selector span,
+.stamps-online .error-contener.focus.active div.selector span,
+.stamps-online .error-contener.disabled div.selector span,
+.stamps-online .error-contener.disabled:active div.selector span,
+.stamps-online .error-contener.disabled.active div.selector span {background-position: right -743px;}
+
+.reshipment .error-contener div.selector span,
+.reshipment .error-contener:active div.selector span,
+.reshipment .error-contener.active div.selector span,
+.reshipment .error-contener.focus div.selector span,
+.reshipment .error-contener.hover div.selector span,
+.reshipment .error-contener:hover div.selector span,
+.reshipment .error-contener.focus:active div.selector span,
+.reshipment .error-contener:hover:active div.selector span,
+.reshipment .error-contener.active:hover div.selector span,
+.reshipment .error-contener.focus.active div.selector span,
+.reshipment .error-contener.disabled div.selector span,
+.reshipment .error-contener.disabled:active div.selector span,
+.reshipment .error-contener.disabled.active div.selectorspan {background-position: right -774px;}
+
+
+.new-address .error-contener div.selector span,
+.new-address .error-contener:active div.selector span,
+.new-address .error-contener.active div.selector span,
+.new-address .error-contener.focus div.selector span,
+.new-address .error-contener.hover div.selector span,
+.new-address .error-contener:hover div.selector span,
+.new-address .error-contener.focus:active div.selector span,
+.new-address .error-contener:hover:active div.selector span,
+.new-address .error-contener.active:hover div.selector span,
+.new-address .error-contener.focus.active div.selector span,
+.new-address .error-contener.disabled div.selector span,
+.new-address .error-contener.disabled:active div.selector span,
+.new-address .error-contener.disabled.active div.selectorspan {background-position: right -967px;}
+
+.electronic-letter .error-contener div.selector span,
+.electronic-letter .error-contener:active div.selector span,
+.electronic-letter .error-contener.active div.selector span,
+.electronic-letter .error-contener.focus div.selector span,
+.electronic-letter .error-contener.hover div.selector span,
+.electronic-letter .error-contener:hover div.selector span,
+.electronic-letter .error-contener.focus:active div.selector span,
+.electronic-letter .error-contener:hover:active div.selector span,
+.electronic-letter .error-contener.active:hover div.selector span,
+.electronic-letter .error-contener.focus.active div.selector span,
+.electronic-letter .error-contener.disabled div.selector span,
+.electronic-letter .error-contener.disabled:active div.selector span,
+.electronic-letter .error-contener.disabled.active div.selector span {background-position: right -774px;}
+
+.user-account .error-contener div.selector span, 
+.user-account .error-contener:active div.selector span, 
+.user-account .error-contener.active div.selector span, 
+.user-account .error-contener.focusdiv.selector  span,
+.user-account .error-contener.hover div.selector span, 
+.user-account .error-contener:hover div.selector  span,
+.user-account .error-contener.focus:active div.selector span, 
+.user-account .error-contener:hover:active div.selector span, 
+.user-account .error-contener.active:hover div.selector span, 
+.user-account .error-contener.focus.activediv.selector  span,
+.user-account .error-contener.disabled div.selector span, 
+.user-account .error-contener.disabled:active div.selector span, 
+.user-account .error-contener.disabled.active div.selector span {background-position: right -647px;}
+
+.letter-mail .error-contener div.selector span, 
+.letter-mail .error-contener:active div.selector span, 
+.letter-mail .error-contener.active div.selector span, 
+.letter-mail .error-contener.focusdiv.selector  span,
+.letter-mail .error-contener.hover div.selector span, 
+.letter-mail .error-contener:hover div.selector  span,
+.letter-mail .error-contener.focus:active div.selector span, 
+.letter-mail .error-contener:hover:active div.selector span, 
+.letter-mail .error-contener.active:hover div.selector span, 
+.letter-mail .error-contener.focus.activediv.selector  span,
+.letter-mail .error-contener.disabled div.selector span, 
+.letter-mail .error-contener.disabled:active div.selector span, 
+.letter-mail .error-contener.disabled.active div.selector span {background-position: right -679px;}
+
+.track-order .error-contener div.selector span, 
+.track-order .error-contener:active div.selector span, 
+.track-order .error-contener.active div.selector span, 
+.track-order .error-contener.focusdiv.selector  span,
+.track-order .error-contener.hover div.selector span, 
+.track-order .error-contener:hover div.selector  span,
+.track-order .error-contener.focus:active div.selector span, 
+.track-order .error-contener:hover:active div.selector span, 
+.track-order .error-contener.active:hover div.selector span, 
+.track-order .error-contener.focus.activediv.selector  span,
+.track-order .error-contener.disabled div.selector span, 
+.track-order .error-contener.disabled:active div.selector span, 
+.track-order .error-contener.disabled.active div.selector span {background-position: right -679px;}

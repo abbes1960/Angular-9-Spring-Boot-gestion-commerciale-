@@ -13,20 +13,19 @@
 <div class="text-center">
   <h1 class="h4 text-gray-900 mb-4">Connection</h1>
 </div>
-<form class="user">
+<form class = "user" [formGroup]="this.loginForm" (ngSubmit)="login()">
+
   <div class="input-group mb-3">  
    <div class="input-group-prepend">  
     <span class="input-group-text"><i class="icon-user"></i></span>  
    </div>  
-   <input type="text" class="form-control sty1" id="loginname" required [(ngModel)]="loginname" 
-   name="loginname" placeholder="Taper your login" required>
+   <input type="text" class="form-control sty1"  id="username" formControlName="username" placeholder="Taper your login" required>
   </div>  
   <div class="input-group mb-4">  
    <div class="input-group-prepend">  
     <span class="input-group-text"><i class="icon-lock"></i></span>  
    </div>
-    <input type="password" class="form-control sty1" id="password" required [(ngModel)]="password"
-     name="Taper password" placeholder="Taper your Passward" required>
+    <input type="password" class="form-control sty1"  id="password" formControlName="password" placeholder="Taper your Passward" required>
    </div>  
   <div class="form-group">
     <div class="custom-control custom-checkbox small">
@@ -34,7 +33,7 @@
       <label class="custom-control-label" for="customCheck">Remember Me</label>
     </div>
   </div>
-    <button class="btn btn-primary btn-user btn-block" (click)="login()">Login</button>
+    <button class="btn btn-primary btn-user btn-block">Login</button>
     <hr>
 </form>
     <hr>

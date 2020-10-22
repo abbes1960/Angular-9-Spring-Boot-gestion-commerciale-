@@ -1,3 +1,4 @@
+import { Linvent } from '../model/linvent';
 export class Invent {
     id :number;
     annee : number;
@@ -7,5 +8,5 @@ export class Invent {
     lib_client : String;
     libelle : String;
     total : number;
-    
+    linvents :Array<Linvent> =[]; 
 }

@@ -100,12 +100,12 @@ ResetForm() {
       this.service.formData.reset();
   }
   
-Add(lcommandeIndex,Id){
+Add(lfactIndex,Id){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data={lcommandeIndex,Id};
+    dialogConfig.data={lfactIndex,Id};
     this.dialog.open( AddLfactComponent, dialogConfig).afterClosed().subscribe(b10=>{
       this.Calcul();
     });

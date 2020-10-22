@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,29 +17,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.projet.stock.exception.ResourceNotFoundException;
 import com.projet.stock.model.UserPoste;
 import com.projet.stock.repository.UserPosteRepository;
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
-
 public class UserPosteController {
 	@Autowired
 	UserPosteRepository repository;
-	
 	 @GetMapping("/usersp")
 	  public List<UserPoste> getAllUserPoste() {
 	    System.out.println("Get all UserPoste...");
-	 
 	    List<UserPoste> UserPoste = new ArrayList<>();
 	    repository.findAll().forEach(UserPoste::add);
-	 
 	    return UserPoste;
 	  }
-	
 	@GetMapping("/usersp/{id}")
 	public ResponseEntity<UserPoste> getUserPosteById(@PathVariable(value = "id") Long UserPosteId)
 			throws ResourceNotFoundException {
@@ -58,7 +49,15 @@ public class UserPosteController {
 		return repository.save(UserPoste);
 	}
 	
-
+	@GetMapping("/usersp/5/{mat}")
+	  public   ResponseEntity<UserPoste> getUtilisateurByMat(@PathVariable int mat) 
+		  throws ResourceNotFoundException {
+		 System.out.println(mat);
+		UserPoste UserPoste = repository.findByMat(mat)
+				  .orElseThrow(() -> new ResourceNotFoundException("Usernot found for this Mat  : " + mat));
+		   return ResponseEntity.ok().body(UserPoste);
+	  } 
+	
 	@DeleteMapping("/usersp/{id}")
 	public Map<String, Boolean> deleteUserPoste(@PathVariable(value = "id") Long UserPosteId)
 			throws ResourceNotFoundException {

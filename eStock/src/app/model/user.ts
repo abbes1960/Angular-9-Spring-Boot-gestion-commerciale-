@@ -1,7 +1,8 @@
 export class User {
     id: number;
-    nom: string;
+    username: string;
     role: string;
-    login: string;
-    pwd : string;  
+    email: string;
+    password : string;  
+    jwt : string;
 }

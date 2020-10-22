@@ -19,13 +19,12 @@ public class LconsSonede {
 	  private int numero;
 	  private int annee;
 	  private int mois;
-	  private int code_res;
-	  private String lib_res;
+	  private int code_residence;
+	  private String lib_residence;
 	  private int qte;
 	  @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	  @JsonBackReference
 	  private ConsSonede consSonede;
-	  
 	public long getId() {
 		return id;
 	}
@@ -50,17 +49,17 @@ public class LconsSonede {
 	public void setMois(int mois) {
 		this.mois = mois;
 	}
-	public int getCode_res() {
-		return code_res;
+	public int getCode_residence() {
+		return code_residence;
 	}
-	public void setCode_res(int code_res) {
-		this.code_res = code_res;
+	public void setCode_residence(int code_residence) {
+		this.code_residence = code_residence;
 	}
-	public String getLib_res() {
-		return lib_res;
+	public String getLib_residence() {
+		return lib_residence;
 	}
-	public void setLib_res(String lib_res) {
-		this.lib_res = lib_res;
+	public void setLib_residence(String lib_residence) {
+		this.lib_residence = lib_residence;
 	}
 	public int getQte() {
 		return qte;
@@ -74,15 +73,15 @@ public class LconsSonede {
 	public void setConsSonede(ConsSonede consSonede) {
 		this.consSonede = consSonede;
 	}
-	public LconsSonede(long id, int numero, int annee, int mois, int code_res, String lib_res, int qte,
+	public LconsSonede(long id, int numero, int annee, int mois, int code_residence, String lib_residence, int qte,
 			ConsSonede consSonede) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.annee = annee;
 		this.mois = mois;
-		this.code_res = code_res;
-		this.lib_res = lib_res;
+		this.code_residence = code_residence;
+		this.lib_residence = lib_residence;
 		this.qte = qte;
 		this.consSonede = consSonede;
 	}
@@ -92,8 +91,9 @@ public class LconsSonede {
 	}
 	@Override
 	public String toString() {
-		return "LconsSonde [id=" + id + ", numero=" + numero + ", annee=" + annee + ", mois=" + mois + ", code_res="
-				+ code_res + ", lib_res=" + lib_res + ", qte=" + qte + ", consSonede=" + consSonede + "]";
+		return "LconsSonede [id=" + id + ", numero=" + numero + ", annee=" + annee + ", mois=" + mois
+				+ ", code_residence=" + code_residence + ", lib_residence=" + lib_residence + ", qte=" + qte
+				+ ", consSonede=" + consSonede + "]";
 	}
 
 }

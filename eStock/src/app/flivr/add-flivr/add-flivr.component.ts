@@ -104,18 +104,18 @@ export class AddFlivrComponent implements OnInit {
   onDelete(item : Fllivr,Id:number,i:number){
     if(Id != null)
     this.service.formData.value.id+=Id ;
-   this.service.fllivr.splice(i,1);
+   this.service.list.splice(i,1);
    this.updateGrandTotal();
    }
 
    updateGrandTotal(){
-     this.service.formData.value.totht = this.service.fllivr.reduce((prev, curr) => {
+     this.service.formData.value.totht = this.service.list.reduce((prev, curr) => {
        return prev + curr.totht;
      }, 0);
-     this.service.formData.value.tottva = this.service.fllivr.reduce((prev, curr) => {
+     this.service.formData.value.tottva = this.service.list.reduce((prev, curr) => {
       return prev + curr.tottva;
     }, 0);
-     this.service.formData.value.totttc = this.service.fllivr.reduce((prev, curr) => {
+     this.service.formData.value.totttc = this.service.list.reduce((prev, curr) => {
       return prev + curr.totttc;
     }, 0);
 
@@ -129,7 +129,7 @@ export class AddFlivrComponent implements OnInit {
      if(this.service.formData.value.id_client==0)
      this.isValid =false;
     
-     else if (this.service.fllivr.length==0)
+     else if (this.service.list.length==0)
      this.isValid =false;
      return this.isValid;
    }

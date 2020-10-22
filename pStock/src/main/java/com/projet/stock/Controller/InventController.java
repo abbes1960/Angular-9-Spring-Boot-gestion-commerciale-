@@ -58,10 +58,12 @@ public class InventController {
 
 	@PostMapping("/invents")
 	public ResponseEntity<Invent> createInvent(@Valid @RequestBody Invent Invent)  throws JsonParseException , JsonMappingException , Exception{
-		  repository.save(Invent);
+		System.out.println("Save invent..."); 
+		repository.save(Invent);
 		  List<Linvent> linvents = Invent.getLinvents();
 		    for (Linvent lc : linvents) {
 	          	lc.setNumero(Invent.getNumero());
+	        	System.out.println("Save linvent..."); 
 	          	repo.save(lc);
 		       }	 
 		    Optional<Compteur> CompteurInfo = comptrepo.findByAnnee(Invent.getAnnee());

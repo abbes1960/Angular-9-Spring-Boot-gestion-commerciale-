@@ -17,14 +17,18 @@ public class Llivr {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
+	  private String code;
 	  private String Libart;
-	  private float pu;
-	  private float qte;
+	  private double pu;
+	  private int qte;
 	  private int tva;
-	  private float rem;
+	  private int rem;
 	  private int fodec;
-	  private float totht;
+	  private double totht;
+	  private double totrem;
+	  private double totfodec;
+	  private double tottva;
+	  private double totttc;
 	  @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	  @JsonBackReference
 	  private Livr livr;
@@ -40,11 +44,11 @@ public class Llivr {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
 		return Libart;
@@ -52,16 +56,16 @@ public class Llivr {
 	public void setLibart(String libart) {
 		Libart = libart;
 	}
-	public float getPu() {
+	public double getPu() {
 		return pu;
 	}
-	public void setPu(float pu) {
+	public void setPu(double pu) {
 		this.pu = pu;
 	}
-	public float getQte() {
+	public int getQte() {
 		return qte;
 	}
-	public void setQte(float qte) {
+	public void setQte(int qte) {
 		this.qte = qte;
 	}
 	public int getTva() {
@@ -70,10 +74,10 @@ public class Llivr {
 	public void setTva(int tva) {
 		this.tva = tva;
 	}
-	public float getRem() {
+	public int getRem() {
 		return rem;
 	}
-	public void setRem(float rem) {
+	public void setRem(int rem) {
 		this.rem = rem;
 	}
 	public int getFodec() {
@@ -82,11 +86,35 @@ public class Llivr {
 	public void setFodec(int fodec) {
 		this.fodec = fodec;
 	}
-	public float getTotht() {
+	public double getTotht() {
 		return totht;
 	}
-	public void setTotht(float totht) {
+	public void setTotht(double totht) {
 		this.totht = totht;
+	}
+	public double getTotrem() {
+		return totrem;
+	}
+	public void setTotrem(double totrem) {
+		this.totrem = totrem;
+	}
+	public double getTotfodec() {
+		return totfodec;
+	}
+	public void setTotfodec(double totfodec) {
+		this.totfodec = totfodec;
+	}
+	public double getTottva() {
+		return tottva;
+	}
+	public void setTottva(double tottva) {
+		this.tottva = tottva;
+	}
+	public double getTotttc() {
+		return totttc;
+	}
+	public void setTotttc(double totttc) {
+		this.totttc = totttc;
 	}
 	public Livr getLivr() {
 		return livr;
@@ -94,12 +122,12 @@ public class Llivr {
 	public void setLivr(Livr livr) {
 		this.livr = livr;
 	}
-	public Llivr(long id, int numero, String code_article, String libart, float pu, float qte, int tva, float rem,
-			int fodec, float totht, Livr livr) {
+	public Llivr(long id, int numero, String code, String libart, double pu, int qte, int tva, int rem, int fodec,
+			double totht, double totrem, double totfodec, double tottva, double totttc, Livr livr) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
+		this.code = code;
 		Libart = libart;
 		this.pu = pu;
 		this.qte = qte;
@@ -107,6 +135,10 @@ public class Llivr {
 		this.rem = rem;
 		this.fodec = fodec;
 		this.totht = totht;
+		this.totrem = totrem;
+		this.totfodec = totfodec;
+		this.tottva = tottva;
+		this.totttc = totttc;
 		this.livr = livr;
 	}
 	public Llivr() {
@@ -115,9 +147,11 @@ public class Llivr {
 	}
 	@Override
 	public String toString() {
-		return "Llivr [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", pu=" + pu + ", qte=" + qte + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht="
-				+ totht + ", livr=" + livr + "]";
+		return "Llivr [id=" + id + ", numero=" + numero + ", code=" + code + ", Libart=" + Libart + ", pu=" + pu
+				+ ", qte=" + qte + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht=" + totht
+				+ ", totrem=" + totrem + ", totfodec=" + totfodec + ", tottva=" + tottva + ", totttc=" + totttc
+				+ ", livr=" + livr + "]";
 	}
-	
+
+
 }

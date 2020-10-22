@@ -1,0 +1,1212 @@
+@charset "utf-8";
+
+/* block de connexion : Libellé mon compte */
+.headerContent .myAccount .actionsClient li.user-action div {
+	color: #363636;
+	font: bold 1.2em Arial, Helvetica, sans-serif;
+	padding: 0 0 4px 20px;
+	text-decoration: none;
+}
+.headerContent.pro .myAccount .actionsClient li.user-action div {
+	color: #FFFFFF;
+}
+
+/* block de connexion : Bouton connexion */
+.headerContent .myAccount li.connexion-button {
+	margin-right: -1px;
+    clear: right;
+    float: right;
+    position: relative;
+}
+.headerContent .myAccount ul.actionsClient li.connexion-button a {
+	display: block;
+	height: 22px;
+	padding: 0 18px 0 9px;
+	color: #006397;
+	font-weight: 700;
+	text-decoration: none;
+	background: url(/_ui/eboutique/images/btn/btn_sprite.png) no-repeat 0 -85px;
+}
+.headerContent .myAccount ul.actionsClient li.connexion-button a span {
+	display: block;
+	color: #006397;
+	height: 19px;
+	padding: 4px 0px 0 10px;
+	cursor: pointer;
+	background: url(/_ui/eboutique/images/btn/btn_sprite.png) no-repeat right -56px;
+}
+
+/* page /authentification part */
+.formWrapper .formContent .formRow .wrapInput input, #formEtapes .formRow span input, .blockMigration .boxMiddle .formContent .formRow .wrapInput input {width: 170px;}
+
+/* page /authentification pro */
+ div.selector {width:auto;}
+
+/*  barre de menu  */
+.navWrap .nav_main li.home a.home:hover span.blockHover {
+    background: url("/_ui/eboutique/images/bg/bg_nav-link-push.png") no-repeat scroll center top transparent !important;
+}
+.navWrap .nav_main.pro li.home a.home:hover span.blockHover {
+    background: url("/_ui/eboutique/images/bg/bg_nav-link-push_pro.png") no-repeat scroll center top transparent !important;
+}
+
+/*  page /inscription : correction des checkboxes  */
+.blockCompteDoneesInfo .formWrapper .formContent .left .formRowCheck span, .blockCompteDoneesInfo .formWrapper .formContent .right .formRowCheck span {top:0; left:0;}
+.inscription .blockCompteDoneesInfo2.bottom .formRowCheck .jNice .jNiceWrapper {left:-8px;}
+div.left.chk-collec {padding-top: 8px;}
+.blockCompteDoneesInfo .formWrapper .formContent .right .formRow p.legend {padding-left: 225px;}
+
+/* page compte/informations-personnelles */
+.blockCompteDoneesInfo2 .formWrapper .formContent div.left.chk-collec2 {padding-top: 0;}
+.blockCompteDoneesInfo2 .formWrapper .formContent div.left.chk-collec2 .formRowCheck label {width:225px;}
+
+/* page /inscription part : correction des selects en cas d'erreur */
+#registerPartForm .error-contener div.selector span, 
+#registerPartForm .error-contener:active div.selector span, 
+#registerPartForm .error-contener.active div.selector span, 
+#registerPartForm .error-contener.focus div.selector span, 
+#registerPartForm .error-contener.hover div.selector span, 
+#registerPartForm .error-contener:hover div.selector span, 
+#registerPartForm .error-contener.focus:active div.selector span, 
+#registerPartForm .error-contener:hover:active div.selector span, 
+#registerPartForm .error-contener.active:hover div.selector span, 
+#registerPartForm .error-contener.focus.active div.selector span, 
+#registerPartForm .error-contener.disabled div.selector span, 
+#registerPartForm .error-contener.disabled:active div.selector span, 
+#registerPartForm .error-contener.disabled.active div.selector span {
+    background-position: right -647px;
+}
+
+#ebkRegisterFormPro .error-contener div.selector span, 
+#ebkRegisterFormPro .error-contener:active div.selector span, 
+#ebkRegisterFormPro .error-contener.active div.selector span, 
+#ebkRegisterFormPro .error-contener.focus div.selector span, 
+#ebkRegisterFormPro .error-contener.hover div.selector span, 
+#ebkRegisterFormPro .error-contener:hover div.selector span, 
+#ebkRegisterFormPro .error-contener.focus:active div.selector span, 
+#ebkRegisterFormPro .error-contener:hover:active div.selector span, 
+#ebkRegisterFormPro .error-contener.active:hover div.selector span, 
+#ebkRegisterFormPro .error-contener.focus.active div.selector span, 
+#ebkRegisterFormPro .error-contener.disabled div.selector span, 
+#ebkRegisterFormPro .error-contener.disabled:active div.selector span, 
+#ebkRegisterFormPro .error-contener.disabled.active div.selector span {
+    background-position: right -679px;
+}
+
+/* page /inscription part : correction du select pays : barre blanche sur le coté droit */
+.pays div.selector {background-color: transparent;}
+
+/*correction des pages d'accueil : espacement en dessous des pushs */
+.mainContent.blockLELCont {min-height: 612px;} /* utilisé pour lel et lre part*/
+.mainContent.eservice {min-height: 665px;} 
+
+/*suppression du block optin dans inscription pro*/
+#registerProForm .blockCompteDoneesInfo2.bottom {padding-top:20px;}
+
+/*refactoring des pages de confirmation block de droite*/
+.blockMigration .rightCTASWrap {padding-top:85px;}
+
+/*alignement à gauche du contenu de la popin de part vers pro et de pro vers part*/
+#switchSitePopup {text-align:left;}
+
+
+ /* -------------------------------------  added by Nouaoui Zakaria ----------------------------------------*/
+.recuperationEnvoi
+{
+	margin-top : 10px;
+	margin-button : 10px;
+	width:246;
+	float:right;
+	margin-right:10px;
+}
+.recuperationEnvoiBlock
+{
+	margin: 0 0 14px 10px;
+}
+ /* Mascadia Style */
+ #uniform-formSujet2 {
+	width: 160px;
+	}
+	#uniform-formSujet2 select{
+	width: 160px;
+	min-width: 160px;
+	}
+	#uniform-formSujet2 span{
+	    display: block;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 1em;
+	    line-height: 1em;
+	    padding: 10px 45px 0 0;
+	    width: 113px;
+	}
+	#uniform-formSujet2 select{
+	width:180px;
+	}
+	#formSujet2{
+	width:180px;
+	}
+	#uniform-formSujet3 {
+	width: 66px;
+	}
+	#uniform-formSujet3 span{
+	    display: block;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 1em;
+	    line-height: 1em;
+	    padding: 10px 0 0;
+	    width: 66px;
+	}
+	#uniform-formSujet4 {
+	width: 66px;
+	}
+	#uniform-formSujet4 span{
+	    display: block;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 1em;
+	    line-height: 1em;
+	    padding: 10px 0 0;
+	    width: 66px;
+	}
+	
+	#uniform-formSujet5 {
+	width: 90px;
+	}
+	#uniform-formSujet5 span{
+	    display: block;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 1em;
+	    line-height: 1em;
+	    padding: 10px 0 0;
+	    width: 90px;
+	}
+	#uniform-register-composedAddress {
+		width: 350px;
+		height:30px;
+	
+	}
+	#uniform-register-composedAddress span{
+		display: block;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 1em;
+	    line-height: 1em;
+	    padding: 10px 45px 0 0;
+	    width: 300px;
+	    color: red;
+	}
+	.update-address-perso div {
+	    float: left;
+	}
+	#uniform-update-composedAddress {
+	width: 330px;
+	top: -10px;
+	}
+	#uniform-update-composedAddress span{
+		display: block;
+	    font-family: Arial,Helvetica,sans-serif;
+	    font-size: 1em;
+	    line-height: 1em;
+	    padding: 10px 45px 0 0;
+	    width: 285px;
+	    color: red;
+	}
+ 
+ /* For step3 Civility form (align) */
+    .block-search-destinataire .civility{padding-bottom: 10px;width: 100%;}
+    .block-search-destinataire .civility .mylabel 
+	{
+        float: left;
+        margin: 0 75px 6px 0px;
+        padding: 2px 0 0 0;
+    }
+    .block-search-destinataire .civility .type-radio {
+        float: left;
+        /*padding: 0.5em 0;*/
+    }
+    .block-search-destinataire .civility .type-radio label {
+        float: right;
+        padding: 2px 20px 0px 7px;
+    }
+    .block-search-destinataire .civility .type-radio input {margin-top: 0px;}
+   
+    /* Step4 */
+/*     .letter-mail .step4 .userNotLogin p { */
+/* 		font-size: 1.3em; */
+/* 		color: #363636; */
+/* 		font-family: Arial,Helvetica,sans-serif; */
+/* 	} */
+	 .letter-mail .step4 .messageInfo {
+		font-size: 1.3em;
+		color: #363636;
+		font-family: Arial,Helvetica,sans-serif;
+	}
+	.messageInfoAttente {
+		text-align: right;
+		font-size: 1.1em;
+		color: #363636;
+		font-family: Arial,Helvetica,sans-serif;
+	}
+
+	.upload-xml .messageInfoAttente {
+		margin: 0px 103px -7px 0px;
+	}
+	
+	/* = step 5 LREL/LRTEL*/
+    .letter-mail .step5 .content {overflow: hidden;}
+    .letter-mail .step5 p {font-size: 1.3em;}
+    .letter-mail .step5 p a {font-size: 0.85em;}
+    .letter-mail .step5 .destinataires-wrap {
+        float: left;
+        width: 574px;
+        margin-right: 20px;
+    }
+        /*=pdf page */
+        .letter-mail .step5 .page-step p {color: #565a5c;}
+        .letter-mail .step5 .visualizeDocBlock {padding-top: 24px;}
+        .letter-mail .step5 .visualizeDocBlock ul {text-align: center;}
+        .letter-mail .step5 .visualizeDocBlock li {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .letter-mail .step5 .visualizeDocBlock .note {
+            display: block;
+            padding-top: 10px;
+            color: #565a5c;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .letter-mail .step5 .visualizeDocBlock .note a {color: #006397;}
+        .letter-mail .docLink {
+            display: inline-block;
+            min-height: 74px;
+            padding-left: 82px;
+            margin: 0 15px;
+            color: #fff;
+            text-align: left;
+            text-decoration: none;
+            background: url(../images/btn/btn_pdf_download_left.png) 0 0 no-repeat;
+        }
+        .letter-mail .docLink span {
+            display: block;
+            min-height: 34px;
+            width: 6.5em;
+            padding: 20px 20px 20px 10px;
+            font-size: 1.3em;
+            font-weight: 700;
+            background: url(../images/btn/btn_pdf_download_right.png) right 0 repeat-y;
+        }
+        .letter-mail .docLink .docSize {
+            display: block;
+            margin-top: -16px;
+            padding-left: 10px;
+            color: #006e81;
+            font-style: normal;
+            font-size: 1.3em;
+        }
+        .letter-mail .step5 fieldset {padding-bottom: 40px;}
+        .letter-mail .step5 fieldset legend {
+            position: absolute;
+            top: -9999px;
+        }
+        .letter-mail .step5 .type-checkbox label {
+            /*float: right;
+            width: 854px;*/
+            padding-left: 30px;
+            color: #565a5c;
+        }
+        .letter-mail .step5 .type-checkbox input {float: none; margin-left: 10px;}
+        .letter-mail .step5 #validez-courrier .type-checkbox label {font-size: 1em;}
+        .letter-mail .step5 .type-checkbox .label-note {
+            display: block;
+            padding: 6px 30px 0;
+            font-size: 0.9em;
+            clear: both;
+        }
+        /*=loader */
+        .letter-mail .upload-progressbar-wrap {
+            position: relative;
+            min-height: 90px;
+            width: 220px;
+            margin: 50px auto;
+        }
+        .letter-mail .upload-progressbar-wrap .upload-progressbar-wrap-top,
+        .letter-mail .upload-progressbar-wrap .upload-progressbar-wrap-bottom,
+        .letter-mail .upload-progressbar-wrap .cornerHG,
+        .letter-mail .upload-progressbar-wrap .cornerHD,
+        .letter-mail .upload-progressbar-wrap .cornerBG,
+        .letter-mail .upload-progressbar-wrap .cornerBD {position: absolute;}
+        .letter-mail .upload-progressbar-wrap .upload-progressbar-wrap-top {
+            top: 0;
+            height: 7px;
+            width: 100%;
+            background: url(../images/bg/bg_progressbar_top.png) repeat-x 0 0;
+        }
+        .letter-mail .upload-progressbar-wrap .upload-progressbar-wrap-bottom {
+            bottom: 0;
+            height: 15px;
+            width: 100%;
+            background: url(../images/bg/bg_progressbar_bottom.png) repeat-x 0 0;
+        }
+        .letter-mail .upload-progressbar-wrap .cornerHG {
+            left: 0;
+            top: 0;
+            height: 7px;
+             width: 15px;
+            background: url(../images/bg/bg_progressbar_hg.png) no-repeat 0 0;
+        }
+        .letter-mail .upload-progressbar-wrap .cornerHD {
+            right: 0;
+            top: 0;
+            height: 7px;
+            width: 7px;
+            background: url(../images/bg/bg_progressbar_hd.png) no-repeat 0 0;
+        }
+        .letter-mail .upload-progressbar-wrap .cornerBG {
+            bottom: 0;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            background: url(../images/bg/bg_progressbar_bg.png) no-repeat 0 0;
+        }
+        .letter-mail .upload-progressbar-wrap .cornerBD {
+            bottom: 0;
+            right: 0;
+            height: 15px;
+            width: 7px;
+            background: url(../images/bg/bg_progressbar_bd.png) no-repeat 0 0;
+        }
+        .letter-mail .upload-progressbar {
+            padding: 2em;
+            background: #fff url(../images/bg/bg_progressbar.png) repeat-y 0 0;
+        }
+        .letter-mail .upload-progressbar .info-progressbar {text-align: center;}
+        .letter-mail .upload-progressbar .info-progressbar .pbText {font: normal 1.2em/1.3em 'DINBlackRegular', Arial, Helvetica, sans-serif;}
+        .letter-mail .upload-progressbar .show-progressbar {
+            position: relative;
+            /*height: 8px;*/
+            padding-top: 13px;
+            width: 30px;/*170px*/
+            margin: 0 auto;
+            /*background: #f0a289;*/
+        }
+        .letter-mail .upload-progressbar .show-progressbar .pbProgress {
+            display: block;
+            position: absolute;
+            height: 8px;
+            width: 74%;
+            background: #e24614;
+        }
+
+        #popup .letter-mail .upload-progressbar-wrap {
+            position: absolute;
+            min-height: 90px;
+            width: 220px;
+            margin: 0 0 0 -110px;
+            top: 50%;
+            left: 50%;
+            display: none;
+        }
+        
+         /* =recapitulatif Step5 LRTEL */
+         .letter-mail .titleDestinataires {color: #006397;}
+        .letter-mail .step5 .recapInfo {padding: 1em 0 0;}
+        .letter-mail .step5 .recapInfo .tableDestinataire {margin: 1em 2em 2em;}
+        .letter-mail .step5 .type-checkbox #confirme {
+            position: relative;
+            z-index:1;
+        }
+        .letter-mail .step5 .recapInfo fieldset {padding-bottom: 0;}
+        .letter-mail .step5 .recapInfo .type-checkbox {padding: 0 2em;}
+        .letter-mail .step5 .recapInfo .type-checkbox label {
+            float: left;
+            padding: 0 3px 8px 5px;
+        }
+        .letter-mail .step5 .recapInfo .type-checkbox .label-link {
+            display: block;
+            clear: both;
+            padding-bottom: 10px;
+        }
+        .letter-mail .step5 .recapInfo .type-checkbox .label-link a {color: #006397; padding-left: 5px;}
+        .letter-mail .step5 .recapInfo .type-checkbox .value {
+            display: block;
+            float: right;
+            padding: 0 6px 0 0px;
+        }
+        .letter-mail .step5 .recapInfo .value-footer-wrap .value {
+            float: right;
+            font-size: 1em;
+        }
+        .letter-mail .step5 .value-footer-wrap .totalTVA {
+            clear: both;
+            overflow: hidden;
+        }
+        .letter-mail .step5 .value-footer-wrap .totalHT,
+        .letter-mail .step5 .value-footer-wrap .total {
+            padding: 1em 3em;
+            background: #f5f5f2;
+            clear: both;
+            overflow: hidden;
+        }
+        .letter-mail .step5 .value-footer-wrap .total {padding: 0 3em;}
+        .letter-mail .step5 .value-footer-wrap .totalTVA,
+        .letter-mail .step5 .value-footer-wrap .totalHT {
+            padding: 1em 2em;
+            font-size: 1.6em;
+        }
+        .letter-mail .step5 .value-footer-wrap .total .legend {
+            display: block;
+            float: left;
+            padding: 0.7em 0;
+            font-size: 1.8em;font-weight: 700;
+            line-height: 16px;
+        }
+        .letter-mail .step5 .value-footer-wrap .total .value {
+            padding: 0.5em 0;
+            font-size: 2.4em;font-weight: 700;
+            line-height: 16px;
+        }
+	
+/* -------------------------------------  added by Nouaoui Zakaria ----------------------------------------*/
+
+/*page /tableau de bord */
+/*concernant la section des pushs services et fonctionnalités*/
+/*.myaccount_home .mes_services .contact-book {margin-left: 0px;} TODO - laisser commenté pour fusion */
+.myaccount_home .mes_services .letter-mail, .myaccount_home .mes_services .stamps-online {margin-right: 19px;}
+.myaccount_home .mes_services .justifiedAlignment .letter-mail,
+.myaccount_home .mes_services .justifiedAlignment .stamps-online,
+.myaccount_home .mes_services .justifiedAlignment .contact_book {margin-right: 40px;}
+.mes_services_old {padding-bottom: 37px;}
+.myaccount_home .blockService_bottom {float:left; margin-right:19px;}
+.myaccount_home .mes_services .contact_book.compte-prepaye a.btn-action-minor {margin-top: 29px;}
+
+/*.myaccount_home .mes_services .contact-book.justifiedAlignment {margin-left: 0;} TODO - laisser commenté pour fusion */
+.myaccount_home .mes_services .contact-book.justifiedAlignment {border-left: 0 none;/*margin-left: 0; TODO - laisser commenté pour fusion */padding-left: 0;}
+.myaccount_home .mes_services .contact-book.justifiedAlignment .blockService_bottom {margin-right: 40px;}
+.myaccount_home .letter-mail.pmna h4, .myaccount_home .letter-mail.reel h4 {padding: 26px 70px 13px 0;}
+
+.myaccount_home .stamps-online.lel h4 {color: #D75216;}
+.myaccount_home .stamps-online.lel .blockService_top {background: url("../images/bg/lel_fond.png") no-repeat scroll 0 top #F5F5F2;}
+
+.myaccount_home .stamps-online.lel .btn-action-minor {background: url("../images/btn/transverse_minor_left.png") repeat-y scroll 0 0 transparent;}
+.myaccount_home .stamps-online.lel .btn-action-minor span {background: url("../images/btn/transverse_minor_right.png") repeat scroll right 0 transparent;}
+
+.myaccount_home .letter-mail.pmna h4 {color: #e10038;}
+.myaccount_home .letter-mail.pmna .blockService_top {background: url("../images/bg/packdem_fond.png") no-repeat scroll 0 top #F5F5F2;}
+.myaccount_home .colissimoCss .blockService_top {background: url("../images/bg/push_colissimo_top.png") no-repeat scroll 0 top #F5F5F2;}
+
+.myaccount_home .letter-mail.pmna .btn-action-minor {background: url("../images/btn/new-address_minor_left.png") repeat-y scroll 0 0 transparent;}
+.myaccount_home .letter-mail.pmna .btn-action-minor span {background: url("../images/btn/new-address_minor_right.png") repeat scroll right 0 transparent;}
+
+/* correction select "Fonction" dans la page d'inscription pro */
+body.create-account.homepro #uniform-formFonction span {padding-right: 48px;}
+
+/* correction page stepper paiement page pro : /authentification/in-paiement-tunnel */
+
+.pro-identification h2.title2, .pro-identification .step-list .selected em, .pro-identification .step-list .selected span {color:#8f2b8c;}
+
+.transverse.pro-identification ul.btn-help a.btn-action-minor {background:url("../images/btn/btn_sprite_new.png") repeat-y scroll 0 -1577px transparent !important;}
+.transverse.pro-identification ul.btn-help a.btn-action-minor span {background:url("../images/btn/btn_sprite_new.png") repeat-y scroll right -1544px transparent;}
+
+
+/*-----------------------------------------------------add mouloud benmaamar --------------------------------------------------*/
+
+    /*=step1 */
+    .letter-mail .step1 h3 {text-transform: uppercase;}
+    .letter-mail .step1 p {font: 1.3em Arial, Helvetica, sans-serif;padding-bottom: 10px;}
+    .letter-mail .step1 .tabs-content {padding: 40px 20px 30px;}
+    .letter-mail .step1 .tabs-content h3 {
+        padding-bottom: 1em;
+        text-transform: none;
+    }
+    .letter-mail .tabs li a,
+    .letter-mail .tabs li .body {
+        float: left;
+        width: 253px;
+        color: #007185;
+        text-decoration: none;
+        background: url(../images/bg/tabs_line_body.png) repeat-x center top;
+        color: #363636;
+    }
+    .letter-mail .tabs .selected .body {color: #007185;}
+    .letter-mail .tabs .middle {padding: 0 0 1px 4px}
+    .letter-mail .tabs .left {background: url(../images/bg/tabs_line_lft_first.png) no-repeat 0 0;}
+    .letter-mail .tabs .right {background: url(../images/bg/tabs_line_rgt_last.png) no-repeat 0 0;}
+    .letter-mail .tabs-content-outer {width: 879px;}
+
+    /*=tabs1 content */
+    .letter-mail .step1 .tab1 h3 {
+        padding-bottom: 1em;
+        text-transform: none;
+    }
+    .letter-mail .step1 .tab1 p span {color: #007185;}
+    .letter-mail .step1 .tab1 .type-file span.filename {color: #999;}
+    .letter-mail .step1 .tab1 .type-file span.action {
+        color: #007185;
+        font-size: 0.9em;
+    }
+
+    /*=tabs1 -table */
+    .letter-mail .step1 .block-border-corner {
+        max-width: 840px;
+        margin-top: 1em;
+        padding: 0;
+    }
+    .letter-mail .step1 .courrier-docs {
+        width: 100%;
+        font-size: 1.1em;
+        text-align: left;
+        vertical-align: middle;
+    }
+    .letter-mail .step1 .courrier-docs thead th {
+        padding: 1em;
+        color: #007185;
+        font-size: 1.4em;
+        font-weight: 400;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: "DINMediumRegular",Arial,Helvetica,sans-serif;
+    }
+    .letter-mail .step1 .courrier-docs tbody th {
+        padding: 1em 0;
+        background-color: #f5f5f2;
+        color: #006397
+        text-align: left;
+        font-weight: 400;
+    } 
+    .letter-mail .step1 .courrier-docs tbody th#nom {
+        max-width: 580px;
+        padding: 1em 0 0 3em;
+    }
+    .letter-mail .step1 .courrier-docs tbody th#poids {max-width: 80px;}
+    .letter-mail .step1 .courrier-docs tbody th#visualiser {max-width: 80px;}
+    .letter-mail .step1 .courrier-docs tbody th#supprimer {max-width: 80px;}
+    .letter-mail .step1 .courrier-docs td {
+        padding: 1em 0 0 0;
+        color: #565a5c;
+        vertical-align: top;
+    }
+    .letter-mail .step1 .courrier-docs tbody tr td.first,
+    .letter-mail .step1 .courrier-docs tbody tr:last-child td.first {padding: 1em 0 0 3em;}
+    .letter-mail .step1 .courrier-docs tbody tr:last-child td {padding: 1em 0;}
+    .letter-mail .step1 .courrier-docs tbody td a {
+        display: block;
+        display: block;
+        height: 20px;
+        width: 20px;
+        margin-left: 15px;
+    }
+    .letter-mail .step1 .courrier-docs tfoot td {
+        padding: 0.8em 2em;
+        background-color: #f5f5f2;
+        color: #FF0000;
+    }
+    .letter-mail .step1 .btn-footer {
+        float: left;
+        width: 100%;
+        padding: 15px 0;
+    }
+    .letter-mail .step1 .btn-footer li {
+        float: left;
+        padding-top: 10px;
+    }
+    .letter-mail .step1 .btn-footer li.right {float: right;}
+
+    /*=tab2 */
+    .letter-mail .step1 .tab2 .form-swicher {padding: 0;}
+    .letter-mail .step1 .tab2 .form-swicher h3 {
+        padding-bottom: 0.8em;
+        font-size: 1.3em;
+        letter-spacing: -0.04em;
+    }
+    .letter-mail .step1 .tab2 .form-swicher .form-radio-simulation {font-size: 0.7em;}
+    .letter-mail .step1 .tab2 .form-swicher .form-radio-simulation .icon {margin-bottom: -5px;}
+    .letter-mail .step1 .tab2 .form-swicher .form-radio-simulation.selected span {background-position: -108px -279px;}
+    .letter-mail .step1 .tab2 {padding: 30px 19px 30px;}
+    .letter-mail .step1 .tab2 .modeles-lettre-content {padding-top: 3em;}
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner {
+        float: left;
+        max-width: 238px;
+        min-height: 350px;
+        margin: 0 0 0 1.5em;
+        padding: 15px;
+        line-height: 2em;
+    }
+  
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner.first {margin: 0;}
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner h4 {
+        margin: 0;padding: 8px 0 18px 78px;
+        font-size: 1.8em;
+        text-transform: none;
+    }
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner .administratives {background: url(../images/icons/ico-lel-courrier.jpg) no-repeat 0 0;}
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner .emploi {background: url(../images/icons/ico-lel-courrier.jpg) no-repeat 0 -75px;}
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner .reclamations {background: url(../images/icons/ico-lel-courrier.jpg) no-repeat 0 -135px;}
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner ul {
+        float: left;
+        padding-top: 1.2em;
+    }
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner ul li {
+        float: left;
+        font-size: 1.1em;
+        font-weight: 400;
+        text-align: left;
+        background: url(../images/icons/ico_arrow_readmore.gif) no-repeat left 4px;
+    }
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner ul li a {
+        width: 220px;
+        padding: 0 0 5px 10px;
+        color: #363636;
+        text-decoration: none;
+        background: none;
+        line-height: 1.2em;
+    }
+    .letter-mail .step1 .tab2 .modeles-lettre-content .block-border-corner ul li a:hover {text-decoration: underline;}
+    .js-noactive .step1 .tab2 .modeles-lettre-content h3 {
+        display: block;
+        color: #565A5C;
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+    .js-active .step1 .tab2 .modeles-lettre-content h3 {display: none;}
+
+    /*=tab2 - modele de lettre */
+    .letter-mail .step1 .modele {padding: 0;}
+    .letter-mail .step1 .modele .lettre-top {
+        color: #006397;
+        border-bottom: 1px solid #dcdcdb;
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+    .letter-mail .step1 .modele .lettre-breadcrumb {
+        float: left;
+        min-width: 500px;
+        padding: 8px 0 8px 20px;
+    }
+    .letter-mail .step1 .modele .lettre-breadcrumb li {float: left;}
+    .letter-mail .step1 .modele .lettre-breadcrumb li a {
+        padding-right: 3px;
+        color: #006397;
+        font-weight: 400;
+        text-decoration: none;
+    }
+    .letter-mail .step1 .modele .nav-lettres {
+        float: right;
+        padding: 8px 20px;
+    }
+    .letter-mail .step1 .modele .nav-lettres li {
+        float: left;
+        padding-right: 15px;
+    }
+    .letter-mail .step1 .modele .nav-lettres li a {
+        height: 30px;
+        color: #006397;
+        text-decoration: none;
+    }
+    .letter-mail .step1 .modele .nav-lettres .prev a {
+        padding-right: 15px;
+        font-weight: normal;
+        background: url(../images/icons/ico-blue-arrow.gif) no-repeat right 2px;
+    }
+    .letter-mail .step1 .modele .nav-lettres .next a {
+        padding-left: 15px;
+        font-weight: normal;
+        background: url(../images/icons/ico-blue-arrow.gif) no-repeat left -12px;
+    }
+    .letter-mail .step1 .modele .edition {
+        float: left;
+        width: 838px;
+        padding: 10px 20px;
+        background: url('../images/bg/bg_F5F5F2.png') repeat;
+    }
+    .letter-mail .step1 .modele .edition li {float: left;}
+    .letter-mail .step1 .modele .edition li:first-child {min-width: 415px;}
+    .letter-mail .step1 .modele .edition li.right {float: right;}
+    .letter-mail .step1 .modele .edition li a.pdf {
+        display: block;
+        float: left;
+        padding: 5px 0 0 30px;
+        color: #006397;
+        font-size: 1.2em;
+        text-decoration: none;
+        background: url("../images/icons/ico_pop_zoom.png") no-repeat scroll -102px 5px transparent;
+    }
+    /*.letter-mail .step1 .modele .edition li a:hover {text-decoration: underline;}*/
+    .letter-mail .step1 .modele .lettre-wrapper .lettre {
+        float: left;
+        padding: 25px;
+        color: #363636;
+    }
+    .letter-mail .step1 .modele .lettre-wrapper .lettre p {
+        padding: 0;
+        font-size: 1.6em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .letter-mail .step1 .modele .lettre-wrapper .lettre p code {
+     text-transform: none;
+     font: normal 0.9em Arial, Helvetica, sans-serif;
+    }
+    .letter-mail .step1 .modele .lettre-wrapper .lettre .lette-content {
+        float: left;
+        min-width: 840px;
+        padding-top: 5em;
+    }
+    .letter-mail .step1 .modele .lettre-wrapper .lettre .lette-top-left {float: left;}
+    .letter-mail .step1 .modele .lettre-wrapper .lettre .lette-top-right {
+        float: right;
+        min-width: 150px;
+    }
+    .letter-mail .step1 .lettre-footer {margin-top: 3em;}
+    .letter-mail .step1 .lettre-footer p {
+        padding: 2em 0 1em;
+        font-size: 1.2em;
+    }
+    .letter-mail .step1 .lettre-footer a {color: #006397;}
+    .letter-mail .step1 .lettre-footer .notice {
+        display: block;
+        padding: .5em 0;
+        font-size: 0.9em;
+    }
+
+    /*WYSIWYG */
+    .letter-mail .step1 .modele .textarea_editor {position: relative;}
+    .letter-mail .step1 .modele .textarea_editor textarea {
+        height: 536px;
+        width: 872px;
+        margin: 0 0 -1px 0;
+    }
+    .letter-mail.js-active .step1 .modele .picto_wysiwyg {
+        display: block;
+        position: absolute;
+        left: 15px;
+        top: 30px;
+        height: 56px;
+        width: 55px;
+        background: url(../images/bg/picto_wysiwyg.png) no-repeat 0 0;
+        z-index:1;
+    }
+    .letter-mail .step1 .lettre-wrapper .notice {
+        padding: 15px 80px;
+        background: #F5F5F2;
+    }
+    .letter-mail .step1 span.cke_skin_kama {
+        margin-left: -1px;
+        padding: 0;
+        border-radius: 0;
+    }
+    .letter-mail .step1 .cke_skin_kama .cke_wrapper {
+        background-color: #F5F5F2;
+        background: none;
+    }
+    .letter-mail .cke_top {padding-left: 100px;}
+    .letter-mail .nbr_pages {margin-top: 0.6em;}
+    /*=upload form */
+    .letter-mail .step1 .upload-form {margin-top: 20px;}
+    .letter-mail .step1 .upload-form-submit {
+        display: inline-block;
+        /*float: left;*/
+        padding-top: 7px;
+    }
+    .letter-mail .step1 input[type="file"]{display:inline-block;}
+
+/*couleurs des boutons pour la page /adresses-personnelles*/
+.address-pro div.selector span {background-position: right -65px;}
+.address-pro .add {background: url("../images/btn/pro-new_address_minor_plus_left.png") no-repeat scroll 0 0 transparent; }
+.address-pro .btn-action-minor span, .address-pro .btn-action-minor input {background: url("../images/btn/new-address_minor_right.png") repeat scroll right 0 transparent;}
+.address-pro .add.normalized {background: url("../images/btn/new-address_minor_generic_left.png") repeat-y scroll 0 0 transparent;}
+
+/*page /declaration-honneur-reex pro : input sur 1 seule ligne*/
+.reshipment .step3 .block-bg-corner span.type-text {width:auto;}
+label.emptyLabel {width:0;}
+label.je-soussigne {width:103px;font-weight:700;vertical-align:text-bottom;}
+.reshipment span.formRow.type-select {display:inline-block;display:block;float:left;margin-top:-2px;}
+.reshipment #uniform-titleCode.selector {width:95px;}
+.reshipment #uniform-titleCode.selector select  {min-width:50px;}
+.reshipment #uniform-titleCode.selector span {width:50px;}
+
+/*page /declaration-honneur-pmna*/
+.newaddress .step-list .selected,
+.newaddress .step-list .selected span,
+.newaddress .step-list a:focus,
+.newaddress .step-list a:hover,
+.newaddress .step-list a:focus span,
+.newaddress .step-list a:hover span {
+    color: #e10038;
+}
+.newaddress .title-color, .newaddress.reshipment .step3 .block-bg-corner li legend {color: #e10038;}
+.newaddress .btn-action-minor {background: url("../images/btn/new-address_minor_left.png") repeat-y scroll 0 0 transparent;}
+.newaddress .btn-action-minor span, .newaddress .btn-action-minor input {background: url("../images/btn/new-address_minor_right.png") repeat scroll right 0 transparent;}
+.newaddress .btn-send {background: url("../images/btn/new-address_major_left.png") repeat-y scroll 0 0 transparent;}
+.newaddress .btn-send input {background: url("../images/btn/new-address_major_right.png") repeat scroll right 0 transparent;}
+
+/*page personnalisation mtel*/
+.stamps-online-step1 #uniform-formSujet3, .stamps-online-step1 #uniform-formSujet3 span,
+.stamps-online-step1 #uniform-formSujet4, .stamps-online-step1 #uniform-formSujet4 span,
+.stamps-online-step1 #uniform-formSujet5, .stamps-online-step1 #uniform-formSujet5 span {width: 190px;}
+
+/*page mes info perso vers pageV2*/
+.personal-info .blockCompteDonees {padding:0;}
+div.left.chk-collec2 {display: inline-block;float: left;padding-left:20px;}
+div.left.chk-collec2 label {padding-left:10px;}
+.personal-info .internal-menu-aside {margin-top: 10px;}
+/*page mes info perso pro vers pageV2*/
+.compteDoneesAside .aside {right: 0;}
+
+/*page modifier mon mot de passe vers pageV2*/
+.contentBg .migration .footerContent {padding: 20px 0 0;}
+
+/*page modifier mon mot de passe site pro vers proPageV2*/
+.pro .migration .footerContent h3 {color: #8F2B8C;}
+.pro .blockCompteDoneesInfo .blockButtons span.linkPurple  {
+	background: url("/_ui/eboutique/images/btn/btn_sprite.png") no-repeat scroll 0 -1366px transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: 700;
+    height: 43px;
+    padding: 0 0 0 24px;
+    text-decoration: none;
+}
+.pro .blockCompteDoneesInfo .blockButtons span.linkPurple input { 
+    background: url("/_ui/eboutique/images/btn/btn_sprite.png") no-repeat scroll right -1313px transparent;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    height: 43px;
+    padding: 0 35px 0 0;
+}
+.blockTransferez {width: 640px;}
+.blockTransferezBox .blockTransferezBox, .blockTransferezBox {width:305px;}
+.blockTransferezBox h3 {width:185px;}
+.blockTransferezBox .blockTransferezBox h3 {padding-bottom: 12px;}
+.blockTransferezBox.green h3 {padding-bottom: 30px; }
+
+/*Mantis 259: Transverse: Adresses perso: modifier l'adresse par défaut
+.myaddress .list-address > li {min-height:300px;}*/
+.myaddress .list-address li ul li {height:auto;}
+.myaddress .list-address h3 {
+	/*height:45px;*/ 
+  	word-wrap: break-word;
+}
+.myaddress .list-address p {min-height:100px;}
+
+/*Mantis 351: Sous Internet Explorer, l'encadré des champs de saisie est tronqué sur la partie basse ++*/
+.blockMigration .boxMiddle .formContent .formRow .wrapInput input {padding-top:0;}
+.blockMigration .boxMiddle .formContent .formRow .wrapInput span {padding-top:5px;}
+.blockCompteDoneesInfo .formWrapper .formContent .left .formRow .wrapInput input {padding-top:3px;}
+.blockCompteDoneesInfo .formWrapper .formContent .right .formRow .wrapInput input {padding-top:3px;}
+.blockMigration .boxMiddle .formContent .formRow {padding-top:0;}
+.blockMigration .boxMiddle .formWrapper .formContent .errorsBlock span.error {margin-bottom:0;}
+.blockMigration .boxMiddle .formContent .formRow {padding:6px 14px 16px;}
+
+/*Mantis 274: Transverse: Authentification: aperçu de la page*/
+.helpAuth {padding-top:13px;}
+
+.blockMigration .step-list li {padding-right:18px;}
+
+/*correction bordures page paiement scellius*/
+.scellius .navWrap.scriptNav {margin-bottom:0;}
+.scellius .navWrap .maskLeft, .navWrap .maskRight {display:none;}
+
+.step-list .selected a {color: #E54A06;}
+
+button#jqi_state0_buttonOk {outline:none;}
+
+.tableAuth td {padding-top:20px;padding-bottom:20px;}
+
+.transverse.intunnel .mainContent {height:850px;min-height:850px;}
+
+.transverse.intunnel .formRow #email {height: 22px;}
+
+
+
+/* ajustements pour page liste de mes commandes /mescommandes */
+.listeCommandes.myaccount_home .recap_last_order_middle {width:650px;}
+.listeCommandes.myaccount_home .last_order {margin-left:0;padding:10px 0;}
+.listeCommandes.user-account .user-commands .content-inner {width:650px; margin-left:40px;}
+.listeCommandes .internal-menu-aside {margin-right:30px;}
+.listeCommandes .btn-help {margin-right:30px;}
+.listeCommandes.myaccount_home .recap_last_order_middle {background: url("../images/bg/bg_order_middle_650.png") repeat-y scroll 0 0 transparent;}
+.listeCommandes.myaccount_home .recap_last_order_top {background: url("../images/bg/bg_order_top_650.png") no-repeat scroll 0 top transparent;}
+.listeCommandes.myaccount_home .recap_last_order_bottom {background: url("../images/bg/bg_order_bottom_650.png") no-repeat scroll 0 bottom transparent;}
+
+/* ajustements pour la page /reexpedition-definitive-internationale/saisie-contrat */
+#NewAddress .formRow { display : inline;}
+#uniform-duree_souhaitee {margin-right:6px;}
+
+
+
+/*QC 1211 Déclaration Honneur : alignement des boutons radio */
+.reshipment .step3 .block-bg-corner li label {width:595px;}
+/* hack pour ie6-ie9 */
+.reshipment .step3 .block-bg-corner li .type-checkbox {padding-left:25px !ie; }
+.reshipment .step3 .block-bg-corner li .type-checkbox {padding-left:25px\0/;}
+
+/***************************************************************REGRESSION : Lorsqu'on a plusieurs choix d'adresse
+/* ajustements pour la page /verification-adresse */
+/* #prop-adresse {margin: 1em 0 3.5em 29em;} */
+
+/* ajustements pour la page /saisie-contrat */
+.block-name-complement .type-text label {width: 120px;}
+
+/* QC 1239 : prompt jquery correction (changement de background-color au clic à l'exterieur du prompt) */
+.jqiwarning .jqi .jqibuttons{background-color: transparent;}
+
+/* Page Prelevement-payment */
+.champs-info {
+	color: #565A5C;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    margin-left: 0;
+}
+
+.champs-warning {
+	color: red;
+    font-size: 1.2em;
+    margin-bottom: 3em;
+    margin-left: 0;
+    padding : 5px 10px;
+    border : 2px solid #DDDDDD;
+}
+
+
+#prelevementPro legend {
+	font-size : 2em;
+	margin-left : -30px;
+}
+
+#tableauCommandePrelevement {
+	margin-left : -30px;
+	padding : 0px;
+	width : 830px;
+}
+
+#tableauCommandePrelevement tbody {background-color: white;}
+#tableauCommandePrelevement .item-name {border-left : 1px solid black; text-align : center;}
+
+#tableauCommandePrelevement .item-element { text-align : center; color: black; font-weight: bold; }
+#tableauCommandePrelevement .item-element-type { text-align : left;  color: black; font-weight: bold; padding-left : 15px;}
+#tableauCommandePrelevement .totalHT { color : #E54A06; text-align : right;}
+#tableauCommandePrelevement tr {border-bottom : 2px solid 	#DDDDDD; padding-top : 5px; }
+#tableauCommandePrelevement .typeContratInfo {color : #AAAAAA; margin-top : 5px;}
+#tableauCommandePrelevement .modifiedDate {color : red;}
+
+#typeContrat {width :400px;}
+
+#moyenPaiementInfo {margin-top : 20px; font-size : 1.5em;}
+#moyenPaiementInfo .left {margin-left : -25px; float : left;}
+#moyenPaiementInfo .right {float : right; font-weight: bold; margin-right : 10px;}
+
+#montantTotalHT {margin-top : 80px; font-size : 2em; font-weight: bold;}
+#montantTotalHT .left {margin-left : -25px; float : left;}
+#montantTotalHT .right {float : right; color : #E54A06; margin-right : 10px;}
+
+#numeroCompte .champs-obl {margin-bottom:10px;}
+#numeroCompte .champ-text-simple {padding:0;}
+#imprimerDocument {text-align : center;}
+
+#impressionDocument .errorDisplay {color : #FFOOOO;  display: block;}
+
+.imprimerPrelevement {
+	display:block;
+	background:url("../images/button/bouton_imprimer_prelevement.png")  no-repeat scroll 0 bottom transparent;
+	width:188px;
+	height: 25px;
+	display :inline-block;
+	cursor: pointer;
+	border:0;
+}
+
+/*QC 1637 - Bouton Continuer mes achats sur panier step1*/
+.transverse .panier a.btn-return.btn-generic {
+	background: url("../images/btn/cancel_dir_left.png") no-repeat 0 0 !important;
+	padding: 0 0 0 40px;
+}
+.transverse .panier a.btn-return.btn-generic span {
+	background: url(../images/btn/cancel_right.png) no-repeat right 0 !important;
+	padding: 17px 22px 18px 7px;
+	height:50px;
+}  
+
+/* Gestion des erreurs de prod */
+.erreurProdAccueil {color : red; font-size: 1.2em; margin : 0px 20px;}
+.erreurProdPostPayment {color : red; font-size: 1.2em; margin : 0px 20px;}
+.erreurProdDetailCommande {color : red; font-size: 1.2em; margin : 0px 20px;}
+.erreurProdDetailCommandeEntry {color : red; font-size: 1.2em; margin : 0px 10px;}
+.erreurProdListeCommande {color : red; font-size: 1.2em; margin : 0px 20px;}
+.lienTelecharger {color:#0064D3; font-weight:bold}
+.lienTelecharger:hover {color:#0064D3; font-weight:bold}
+.lienTelecharger:focus {color: #0064D3;}
+
+/* QC 1736 : Affichage paiementTemplate */
+.pictoPaiementTemplate {
+	display:inline-block;
+	vertical-align:middle;
+	margin-right:"25px";
+	width : "55";
+	height : "36";	
+}
+
+/* QC 2279 */
+.checkbox-post-restante {
+	margin: auto;
+    width: 150px;
+}
+
+/* QC 2823 */
+body.detailsCommand .commandStatus {
+    padding-bottom: 15px;
+}
+
+body.detailsCommand div.RemboursementList {
+	border-top: 1px solid #CCCCCC;
+    padding: 15px;
+    position: relative;
+}
+
+body.detailsCommand .RemboursementList h4.typo-din.title3 {
+	font-family: arial, sans-serif;
+	font-size: 1.6em;
+    font-weight: 700;
+    color: #696760;
+    padding: 10px 0;
+}
+
+body.detailsCommand #tableServiceItems {
+    width: 850px;
+    padding-bottom:15px;
+    position: relative;
+}
+    
+body.detailsCommand #tableServiceItems ul.row {
+    padding: 3px 15px;
+    diplay:block;
+    clear: both;
+    position: relative;
+}
+
+body.detailsCommand #tableServiceItems ul.row li {
+	font-family: arial, sans-serif;
+    float: left;
+    padding: 0 15px;
+	font-size: 1.6em;
+}
+
+body.detailsCommand #tableServiceItems ul.row li.returnDate {
+    width:15%;
+}
+
+body.detailsCommand #tableServiceItems ul.row li.returnCode {
+    width:15%;
+}
+
+body.detailsCommand #tableServiceItems ul.row li.returnAmount {
+    width:15%;
+	color: #D75216;
+    font-weight: 700;
+}
+
+body.detailsCommand #tableServiceItems ul.row li.returnAmount {
+	color: #8F2B8C;
+}
+
+body.user-account-pro #tableServiceItems ul.row li.returnInvoice {
+	float: right;
+    text-align: left;
+    width: 40%;
+}
+
+body.detailsCommand #tableServiceItems ul.row li.returnInvoice a.pdfIcon {
+    background: url("../images/icons/ico_pdf.png") no-repeat scroll 0 50% transparent;
+    padding-left: 24px;
+    display: inline-block;
+    color: #006397;    
+    line-height: 1.2em;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+body.detailsCommand #tableServiceItems ul.row li.returnInvoice a.pdfIcon:hover {
+    text-decoration:underline;
+}
+
+/*QC 2857*/
+.mainContent {
+  overflow: hidden; /* Empêche le dépassement des flottants. */
+  zoom: 1; /* Idem pour IE 6-7 (active l'état "hasLayout") */
+}
+.mainContent:after {
+  content: ""; /* Important, sinon l'élément n'est pas généré. */
+  display: table;
+  clear: both;
+}
+.transverse.pro-identification .mainContent {
+    height: auto;
+    min-height: auto;
+}
+
+.updateContractTemporary {padding-bottom :95px;}
+
+
+/* QC 2992 */
+.pagePortAdresse .tooltip-content p {
+	margin-left: 0;
+	width: 310px;
+}
+
+.pagePortAdresse .lselEtatEnvoi .tooltip-content p {
+	margin-left: 86px;
+	width: 245px;
+}
+
+.formWrapper .formContent .formRow .error-contener, 
+#formEtapes .formRow .error-contener, 
+.blockMigration .boxMiddle .formContent .formRow .error-contener {
+    overflow: hidden;
+}
+
+/* Integration new header/footer digitas */
+#app #newsEmailError  {  
+	color: #FF0000;
+    display: block;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+
+
+.pendingMessage{
+    padding: 10px 20px 10px 60px!important;
+    margin: -3px 1px 5px 1px;
+    background: #fffde5 url(../images/icons/picto-attente.svg) 10px 10px no-repeat;
+    background-size: 35px auto;
+    font-size:13px;
+    text-align: justify;
+}
+
+.mtelPendingMessage{
+    padding: 10px 20px 10px 60px!important;
+    margin: -3px 1px 5px 1px;
+    background: #fffde5 url(../images/icons/picto-attente.svg) 10px 10px no-repeat;
+    background-size: 35px auto;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.mtelErrorMessage{
+    padding: 10px 20px 10px 70px!important;
+    margin: -3px 1px 5px 1px;
+    background: #fff url(../images/alert.png) 10px 0px no-repeat;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.eserviceErrorMessage{
+    padding: 10px 20px 10px 70px!important;
+    margin: -3px 1px 5px 1px;
+    background: #fff url(../images/alert.png) 10px 0px no-repeat;
+    font-size: 13px;
+    text-align: justify;
+}

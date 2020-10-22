@@ -19,8 +19,8 @@ import { AddFourComponent } from '../../fournisseur/add-four/add-four.component'
 })
 export class ListFourComponent implements OnInit {
 
-  
-  listData : Fournisseur[];
+  p :number = 1;
+  list : Fournisseur[];
   constructor(public crudApi: ClientService, public toastr: ToastrService,
     private router : Router,public fb: FormBuilder,
     private matDialog: MatDialog,
@@ -33,12 +33,12 @@ export class ListFourComponent implements OnInit {
   
   getData() {
     this.crudApi.getAll().subscribe(
-      response =>{this.listData = response;}
+      response =>{this.list = response;}
      );
    
   }
   
-  addclient()
+  addFour()
   {
     this.crudApi.choixmenu = "A";
     const dialogConfig = new MatDialogConfig();

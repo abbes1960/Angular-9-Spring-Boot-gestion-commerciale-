@@ -2,7 +2,8 @@ export class Llivr {
     id: number;
     annee : number;
     numero : number;
-    code_article : string;
+    code : string;
+    ligne : number;
     libart :string;
     qte : number;
     pu : number;

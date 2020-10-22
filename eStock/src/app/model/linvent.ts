@@ -1,7 +1,7 @@
 export class Linvent {
     id: number;
     numero : number;
-    code_article : string;
+    code : string;
     libart :string;
     qte1 : number;
     qte2 : number;

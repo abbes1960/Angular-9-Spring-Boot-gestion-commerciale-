@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.projet.stock.exception.ResourceNotFoundException;
+import com.projet.stock.model.Lbon;
 import com.projet.stock.model.Linvent;
 import com.projet.stock.model.Residence;
 import com.projet.stock.repository.LinventRepository;
@@ -28,25 +29,27 @@ import com.projet.stock.repository.ResidenceRepository;
 public class LinventController {
 	@Autowired
 	LinventRepository repository;
-	 @GetMapping("/LLinvents")
+	 @GetMapping("/linvents")
 	  public List<Linvent> getAllLinvents() {
 	    System.out.println("Get all Linvents...");
-	 
 	    List<Linvent> Linvents = new ArrayList<>();
 	    repository.findAll().forEach(Linvents::add);
+	    return Linvents;
+	  }
+	 
+	 @GetMapping("/linvents/{numero}")
+	  public List<Linvent> getAllByNumero(@PathVariable(value = "numero") int numero) {
+	    System.out.println("Get all Lbon...");
+	 
+	    List<Linvent> Linvents = new ArrayList<>();
+	    repository.findAllByNumero(numero).forEach(Linvents::add);
 	 
 	    return Linvents;
 	  }
 	
-	@GetMapping("/Linvents/{id}")
-	public ResponseEntity<Linvent> getLinventById(@PathVariable(value = "id") Long LinventId)
-			throws ResourceNotFoundException {
-		Linvent Linvent = repository.findById(LinventId)
-				.orElseThrow(() -> new ResourceNotFoundException("Linvent not found for this id :: " + LinventId));
-		return ResponseEntity.ok().body(Linvent);
-	}
 
-	@PostMapping("/Linvents")
+
+	@PostMapping("/linvents")
 	public @Valid Linvent createLinvent(@Valid @RequestBody Linvent Linvent) {
 		
 		return repository.save(Linvent);
@@ -55,7 +58,7 @@ public class LinventController {
 	}
 	
 
-	@DeleteMapping("/Linvents/{id}")
+	@DeleteMapping("/linvents/{id}")
 	public Map<String, Boolean> deleteLinvent(@PathVariable(value = "id") Long LinventId)
 			throws ResourceNotFoundException {
 		Linvent Linvent = repository.findById(LinventId)
@@ -68,7 +71,7 @@ public class LinventController {
 	}
 	  
 	 
-	  @DeleteMapping("/Linvents/delete")
+	  @DeleteMapping("/linvents/delete")
 	  public ResponseEntity<String> deleteAllLinvents() {
 	    System.out.println("Delete All Linvents...");
 	    repository.deleteAll();

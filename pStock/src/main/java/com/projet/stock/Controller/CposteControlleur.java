@@ -33,7 +33,7 @@ public class CposteControlleur {
 	@Autowired
 	CposteRepository repository;
 	
-	 @GetMapping("/Cpostes")
+	 @GetMapping("/cpostes")
 	  public List<Cposte> getAllCpostes() {
 	    System.out.println("Get all Cpostes...");
 	 
@@ -43,7 +43,7 @@ public class CposteControlleur {
 	    return Cpostes;
 	  }
 	
-	@GetMapping("/Cpostes/{annee}")
+	@GetMapping("/cpostes/{annee}")
 	public ResponseEntity<Cposte> getCposteByAnnee(@PathVariable(value = "annee") int annee)
 			throws ResourceNotFoundException {
 		Cposte Cposte = repository.findByAnnee(annee)
@@ -51,13 +51,13 @@ public class CposteControlleur {
 		return ResponseEntity.ok().body(Cposte);
 	}
 
-	@PostMapping("/Cpostes")
+	@PostMapping("/cpostes")
 	public Cposte createCposte(@Valid @RequestBody Cposte Cposte) {
 		return repository.save(Cposte);
 	}
 	
 
-	@DeleteMapping("/Cpostes/{id}")
+	@DeleteMapping("/cpostes/{id}")
 	public Map<String, Boolean> deleteCposte(@PathVariable(value = "id") Long CposteId)
 			throws ResourceNotFoundException {
 		Cposte Cposte = repository.findById(CposteId)
@@ -70,7 +70,7 @@ public class CposteControlleur {
 	}
 	  
 	 
-	  @DeleteMapping("/Cpostes/delete")
+	  @DeleteMapping("/cpostes/delete")
 	  public ResponseEntity<String> deleteAllCpostes() {
 	    System.out.println("Delete All Cpostes...");
 	 
@@ -81,7 +81,7 @@ public class CposteControlleur {
 	 
 	
 
-	  @PutMapping("/Cpostes/{id}")
+	  @PutMapping("/cpostes/{id}")
 	  public ResponseEntity<Cposte> updateCposte(@PathVariable("id") long id, @RequestBody Cposte Cposte) {
 	    System.out.println("Update Cposte with ID = " + id + "...");
 	 
@@ -92,7 +92,7 @@ public class CposteControlleur {
 	          
 	           cposte.setNumbon(Cposte.getNumbon());
 	           cposte.setNumbs(Cposte.getNumbs());
-	           cposte.setNumbs(Cposte.getNumbs());
+	          
 	      return new ResponseEntity<>(repository.save(Cposte), HttpStatus.OK);
 	    } else {
 	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);

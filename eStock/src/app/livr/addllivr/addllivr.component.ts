@@ -20,7 +20,7 @@ export class AddllivrComponent implements OnInit {
     isValid:boolean=true;
     wtotht = 0;
     wtotrem = 0;
-    wtotfodec = 0;
+    wtotfodec :number  = 0;
     wtottva = 0;
     wtotttc = 0;
     constructor( public service:LlivrService,private toastr :ToastrService,
@@ -61,7 +61,8 @@ export class AddllivrComponent implements OnInit {
         tottva :0,
         totttc :0,
         libart :'',
-        code_article :'',
+        code :'',
+       
       });
     } 
   
@@ -79,24 +80,28 @@ export class AddllivrComponent implements OnInit {
       this.f['fodec'].setValue(this.articleList[ctrl.selectedIndex-1].fodec);
       this.f['tva'].setValue(this.articleList[ctrl.selectedIndex-1].tva);
       this.f['libart'].setValue(this.articleList[ctrl.selectedIndex - 1].libelle);
-      this.f['code_article'].setValue( this.articleList[ctrl.selectedIndex - 1].code);
+      this.f['code'].setValue( this.articleList[ctrl.selectedIndex - 1].code);
     }
     this.cal();
   }
   
   cal(){
     this.wtotht =  parseFloat((this.formData.value.qte * this.formData.value.pu).toFixed(3));
-    this.wtotrem =  parseFloat((this.formData.value.qte * this.formData.value.pu).toFixed(3));
-    this.wtotfodec =  parseFloat((this.formData.value.qte * this.formData.value.pu).toFixed(3));
-    this.wtottva = parseFloat(((this.wtotht * this.formData.value.tva)*0.01).toFixed(3)); 
-    this.wtotttc = parseFloat((this.wtotht + this.wtottva).toFixed(3));
+    this.wtotrem =  parseFloat((this.wtotht * this.formData.value.rem *0.01).toFixed(3));
+    this.wtotfodec = this.wtotht - this.wtotrem;
+    this.wtotfodec = parseFloat((this.wtotfodec * this.formData.value.fodec *0.01).toFixed(3));
+    this.wtottva = this.wtotht + this.wtotfodec - this.wtotrem;
+    this.wtottva = parseFloat(((this.wtottva * this.formData.value.tva)*0.01).toFixed(3)); 
+    this.wtotttc = parseFloat((this.wtotht -  this.wtotrem+ this.wtotfodec +this.wtottva).toFixed(3));
     this.f['totht'].setValue(this.wtotht);
+    this.f['totrem'].setValue(this.wtotrem);
+    this.f['totfodec'].setValue(this.wtotfodec);
     this.f['tottva'].setValue(this.wtottva);
     this.f['totttc'].setValue(this.wtotttc);
   }
   
   onSubmit() {
-    if(this.data.lcommandeIndex==null)
+    if(this.data.llivrIndex==null)
     {
       this.livrService.list.push(this.formData.value)
       this.dialogRef.close();
@@ -113,7 +118,7 @@ export class AddllivrComponent implements OnInit {
   
   validateForm(formData:Llivr){
     this.isValid=true;
-    if(formData.code_article=='')
+    if(formData.code =='')
       this.isValid=false;
       else if(formData.qte ==0)
       this.isValid=false;

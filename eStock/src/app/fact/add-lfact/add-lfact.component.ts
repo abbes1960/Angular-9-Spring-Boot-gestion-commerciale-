@@ -29,12 +29,12 @@ export class AddLfactComponent implements OnInit {
     this.articleService.getAll().subscribe(
       response =>{this.articleList= response;}
      );
-    if(this.data.lcommandeIndex==null)
+    if(this.data.lfactIndex==null)
     {
       this.InfoForm();
     }
     else 
-    this.formData =this.fb.group(Object.assign({},this.factService.list[this.data.listIndex]));
+    this.formData =this.fb.group(Object.assign({},this.factService.list[this.data.lfactIndex]));
 }
 
 
@@ -77,19 +77,19 @@ calcul(){
 
 onSubmit() {
   if(this.validateForm(this.formData.value)){
-  if(this.data.lcommandeIndex==null)
+  if(this.data.lfactIndex==null)
    this.factService.list.push(this.formData.value)
 
    this.dialogRef.close();
   }
- this.factService.list[this.data.listIndex] = this.formData.value;
+ this.factService.list[this.data.lfactIndex] = this.formData.value;
   this.dialogRef.close();
   
 }
 
 validateForm(formData:Lfact){
   this.isValid=true;
-  if(formData.code_article=='')
+  if(formData.code=='')
     this.isValid=false;
     else if(formData.qte ==0)
     this.isValid=false;

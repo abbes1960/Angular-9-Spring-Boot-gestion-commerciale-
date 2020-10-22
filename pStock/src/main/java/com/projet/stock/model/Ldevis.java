@@ -18,7 +18,7 @@ public class Ldevis {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
+	  private String code;
 	  private String Libart;
 	  private int pu;
 	  private float qte;
@@ -39,11 +39,11 @@ public class Ldevis {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
 		return Libart;
@@ -81,13 +81,13 @@ public class Ldevis {
 	public void setDevis(Devis devis) {
 		this.devis = devis;
 	}
-	public Ldevis(long id, int numero, String code_article, String libart, int pu, float qte, int tva, float totht,
+	public Ldevis(long id, int numero, String code, String libart, int pu, float qte, int tva, float totht,
 			Devis devis) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
-		Libart = libart;
+		this.code = code;
+		this.Libart = libart;
 		this.pu = pu;
 		this.qte = qte;
 		this.tva = tva;
@@ -100,8 +100,8 @@ public class Ldevis {
 	}
 	@Override
 	public String toString() {
-		return "Ldevis [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", pu=" + pu + ", qte=" + qte + ", tva=" + tva + ", totht=" + totht + ", devis=" + devis + "]";
+		return "Ldevis [id=" + id + ", numero=" + numero + ", code=" + code + ", Libart=" + Libart + ", pu=" + pu
+				+ ", qte=" + qte + ", tva=" + tva + ", totht=" + totht + ", devis=" + devis + "]";
 	}
 
 }

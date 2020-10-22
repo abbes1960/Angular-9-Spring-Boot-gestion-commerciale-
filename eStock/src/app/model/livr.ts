@@ -1,13 +1,19 @@
 import { Llivr } from '../model/llivr';
 export class Livr {
     id :number;
+    numero :number;
+    annee : number;
     date_mvt : any;
-    numero   : number;
-    code_client : number;
-    libelle : String;
+    code : number;
+    libcl: string;
+    smtva : string;
+    chauffeur: string;
+    camion : string;
     totht : number;
     totrem : number;
     totfodec : number;
     tottva : number;
-    products :Array<Llivr> =[];
+    totttc : number;
+    numfac : number;
+    llivrs :Array<Llivr> =[];
 }

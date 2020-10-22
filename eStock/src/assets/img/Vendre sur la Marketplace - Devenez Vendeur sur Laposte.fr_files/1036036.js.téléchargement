@@ -1,0 +1,93 @@
+if ( typeof tldc === 'undefined' ) window.tldc = {};
+if ( typeof tlrp_transaction === 'object' ) tldc.xtra = tlrp_transaction;
+if ( typeof extra_info === 'object' ) tldc.xtra = extra_info;
+if ( typeof tldc.xtra === 'undefined' ) tldc.xtra = {};
+if ( typeof tlrp_transaction === 'object' && typeof tlrp_transaction.products === 'object' ) tldc.xtra.uids = tlrp_transaction.products;
+if ( typeof tldc.advid === 'undefined' ) tldc.advid = '2330046';
+function TLFireError(msg) {
+  var version = "3.0.3b";
+  var now = new Date();
+  var dUrl = '';
+  if (top === self) dUrl = window.location.href;
+  else dUrl = document.referrer;
+  if (dUrl === "") dUrl = parent.document.location.href;
+  var content = [now, version, msg, dUrl].join('|');
+  content += '|' + navigator.userAgent;
+  var errorUrl = "//its.tradelab.fr/?type=debug&content=" + encodeURIComponent(content);
+  var img = new Image();
+  img.src = errorUrl;
+  if ( typeof console != "undefined" ) console.log(content);
+}
+try { 
+(function(){
+
+if ( typeof tldc.cvPx === 'undefined' ) tldc.cvPx = {};
+tldc.cvPx['1036036'] = {};
+tldc.cvPx['1036036'].a = 1036036;
+tldc.cvPx['1036036'].l = [6590427,6590458,6590536,6590614,6590619,6615712,6615723,6615726,6615751,6615755,6615776,6623684,6623703,6631358,6631596,6631607,6631881,6631893,6648990,6649080,6649100,6649147,6649352,6673551,6861594,6901542,6901573,6902291,6902338,6906458,6906680,6906912,6906938,6906975,6907029,6908250,6908312,6945789,6945798,6945804,6945863,6945880,6968293,6996969,6997014,6997032,6997155,6997213,6997259,6997308,6997327,6997345,6997358,7210066,7210129,7210163,7210165,7210168,7213015,7213023,7213066,7213928,7213932,7213971,7213979,7213987,7214011,7214048,7214056,7214076,7214079,7214106,7214175,7214950,7214956,7214964,7214992,7215013,7215021,7215040,7215065,7215158,7215208,7215286,7215403,7215454,7215527,7215545,7215588,7215678,7215688,7215712,7215747,7215757,7215796,7215800,7215805,7215817,7215825,7215871,7215872,7215876,7215879,7215882,7232410,7238961,7239183,7239251,7239597,7239644,7239650,7244279,7256522,7256527,7319750,7320639,7320974,7320976,7331037,7373275,7373314,7373396,7424733,7425208,7425278,7425347,7425378,7425391,7425459,7430544,7447067,7447316,7447470,7491788,7491854,7491869,7518498,7549198,7549203,7549209,7599440,7606477,7606511,7606522,7637084,7750461,7750473,7750529,7750651,7809846,7812235,7812290,7825561,7855944,7945357,8035151,8035198,8049638,8050251,8050536,8050568,8050593,8072284,8102187,8197659,8242672,8250732,8252186,8277575,8301496,8301510,8301516,8301530,8301539,8301546,8301844,8303528,8342855,8342865,8342886,8349654,8367962,8430688,8476477,8504538,8505566,8522034,8861487,8863470,8896107,9205063,9205093,9205253,9390471,9390502,9391072,9463516,9538077,9538089,9538096,9538156,9542306,9542311,9542352,9634247,9640045,9640067,9675853,9886185,9888685,9888802,9889002,9889088,9889289,9991922,10005823,10007157,10008440,10011593,10161621,10349316,10350026,10365132,10475435,10557645,10919806,10920635,10926502,10927142,10964726,10965947,10966559,10966968,10967849,10968109,10968182,10968342,10971762,10975933,10976828,10979386,10979414,10979423,10979433,10979512,10979519,10979720,10979743,10979947,10979973,10979992,10980001,10981930,10981961,10981990,10982280,10982339,10982650,10997372,10997400,10997426,10998167,10998201,10998581,11003458,11003493,11005277,11027453,11041836,11105425,11118358,11168900,11204494,11204506,11205413,11205465,11347198,11347252,11390686,11400174,11421116,11457490,11699877];
+tldc.cvPx['1036036'].i = 3; 
+tldc.cvPx['1036036'].c = 15; 
+tldc.cvPx['1036036'].t = 'h';
+tldc.cvPx['1036036'].m = 'null';
+tldc.cvPx['1036036'].vi = 0;
+tldc.cvPx['1036036'].vc = 0;
+tldc.cvPx['1036036'].hf = 0;
+tldc.cvPx['1036036'].x = tldc.xtra;
+var urlencode=function(e){e=(e+"").toString();return encodeURIComponent(e).replace(/!/g,"%21").replace(/'/g,"%27").replace(/\(/g,"%28").replace(/\)/g,"%29").replace(/\*/g,"%2A").replace(/%20/g,"+")};var stringify=function(e){var t=typeof e;if(t!="object"||e===null){if(t=="string"){e='"'+e+'"'}return String(e)}else{var n;var r;var i=[];var s=e&&e.constructor==Array;for(n in e){if(e.hasOwnProperty(n)){r=e[n];t=typeof r;if(t=="string"){r='"'+r+'"'}else if(t=="object"&&r!==null){r=stringify(r)}i.push((s?"":'"'+n+'":')+String(r))}}return(s?"[":"{")+String(i)+(s?"]":"}")}}
+function insertInDom (el) { /*var ref = document.getElementsByTagName('script')[0]; ref.parentNode.insertBefore(el, ref);*/ return true;}
+tldc.tl_getCookie=function(a){return(a=(new RegExp("(^|;)[ ]*"+a+"=([^;]*)")).exec(document.cookie))?a[2]:0};tldc.tl_loadUUIDCookie=function(){var a=tldc.tl_getCookie("_tli");return a?a:"0"};
+var TradeLabConvTracker = function (cdata) {
+    var xval = 1, isrc; 
+  if ( typeof tldc.tl_check4xconv === 'undefined' && typeof tl_check4xconv === 'function' ) tldc.tl_check4xconv = tl_check4xconv;
+  if ( typeof tldc.tl_addXconv === 'undefined' && typeof tl_addXconv === 'function' ) tldc.tl_addXconv = tl_addXconv;
+  if ( typeof tldc.tl_getAnalyticsData === 'undefined' && typeof tl_getAnalyticsData === 'function' ) tldc.tl_getAnalyticsData = tl_getAnalyticsData;   
+    if ( typeof tldc.tl_check4xconv === 'function' ) {
+    if ( !tldc.tl_check4xconv(1036036) ) {
+        if ( typeof tldc.tl_addXconv === 'function' ) tldc.tl_addXconv(1036036);
+      }
+      else xval = 0;
+  }
+  if ( typeof document.cookie != 'undefined' ) {
+    tldc.uuid = tldc.tl_loadUUIDCookie();
+  }
+    var i = document.createElement("img");
+    i.style.position = "absolute";
+    i.style.height = 0;
+    i.style.width = 0;
+    i.setAttribute('id', 'imgConv');
+    if ( typeof tldc.ses == 'object' && typeof tldc.ses.uuid2 == 'string' && tldc.ses.uuid2 != ''  ) {
+      isrc = "//its.tradelab.fr/?type=convr&x=" + xval + "&cdata=" + urlencode(cdata) + "&advid=" + tldc.advid;
+    }
+    else {
+    isrc = "//ib.adnxs.com/getuid?//its.tradelab.fr/?type=convr&x=" + xval + "&uuid2=$UID&cdata=" + urlencode(cdata) + "&advid=" + tldc.advid; 
+    }
+    if ( typeof tldc.tl_getAnalyticsData === 'function' ) {
+      isrc += "&xur=" + urlencode(tldc.locationHref) + "&adata=" + tldc.tl_getAnalyticsData();
+    }
+    if ( typeof tldc.uuid !== 'undefined' && tldc.uuid !== "0" ) {
+      isrc += "&uuid=" + tldc.uuid;
+    }
+    i.src = isrc;
+    insertInDom(i);
+    var a=document.createElement("img");
+    var asrc = '';
+    a.style.position = "absolute";
+    a.style.height = 0;
+    a.style.width = 0;    
+    if ( document.location.protocol == 'http:' ) asrc="http://ib.adnxs.com/px?id=1036036";
+    else asrc="https://secure.adnxs.com/px?id=1036036";
+    if ( typeof tldc.xtra.redirect_url != 'undefined' ) asrc += '&redir='+tldc.xtra.redirect_url;
+    if ( typeof tldc.xtra.order_id != 'undefined' ) asrc += '&order_id='+tldc.xtra.order_id;
+    if ( typeof tldc.xtra.value != 'undefined' ) asrc += '&value='+tldc.xtra.value;
+    asrc += "&t=2";
+    a.src = asrc;
+    insertInDom(a);
+    return true;  
+}
+if ( tldc.cvPx['1036036'].hf == 0 ) {  
+  if ( TradeLabConvTracker(stringify(tldc.cvPx['1036036'])) ) tldc.cvPx['1036036'].hf = 1;
+}
+
+})();
+
+} catch(err) { TLFireError('CvPx3|'+err.message); }

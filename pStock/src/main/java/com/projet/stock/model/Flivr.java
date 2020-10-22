@@ -22,9 +22,9 @@ public class Flivr {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_four;
+	  private int code;
 	  private String lib_four;
-	  private int code_dir;
+	  private int coddir;
 	  private String lib_direction;
 	  private Date date_fact;
 	  private String libelle;
@@ -55,11 +55,11 @@ public class Flivr {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_four() {
-		return code_four;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_four(int code_four) {
-		this.code_four = code_four;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLib_four() {
 		return lib_four;
@@ -67,11 +67,11 @@ public class Flivr {
 	public void setLib_four(String lib_four) {
 		this.lib_four = lib_four;
 	}
-	public int getCode_dir() {
-		return code_dir;
+	public int getCoddir() {
+		return coddir;
 	}
-	public void setCode_dir(int code_dir) {
-		this.code_dir = code_dir;
+	public void setCoddir(int coddir) {
+		this.coddir = coddir;
 	}
 	public String getLib_direction() {
 		return lib_direction;
@@ -127,16 +127,16 @@ public class Flivr {
 	public void setLflivrs(List<Lflivr> lflivrs) {
 		this.lflivrs = lflivrs;
 	}
-	public Flivr(long id, int annee, int numero, int code_four, String lib_four, int code_dir, String lib_direction,
+	public Flivr(long id, int annee, int numero, int code, String lib_four, int coddir, String lib_direction,
 			Date date_fact, String libelle, float totht, float totrem, float totfodec, float tottva, float totttc,
 			@Valid List<Lflivr> lflivrs) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_four = code_four;
+		this.code = code;
 		this.lib_four = lib_four;
-		this.code_dir = code_dir;
+		this.coddir = coddir;
 		this.lib_direction = lib_direction;
 		this.date_fact = date_fact;
 		this.libelle = libelle;
@@ -153,10 +153,10 @@ public class Flivr {
 	}
 	@Override
 	public String toString() {
-		return "Flivr [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_four=" + code_four
-				+ ", lib_four=" + lib_four + ", code_dir=" + code_dir + ", lib_direction=" + lib_direction
-				+ ", date_fact=" + date_fact + ", libelle=" + libelle + ", totht=" + totht + ", totrem=" + totrem
-				+ ", totfodec=" + totfodec + ", tottva=" + tottva + ", totttc=" + totttc + ", lflivrs=" + lflivrs + "]";
+		return "Flivr [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", lib_four="
+				+ lib_four + ", coddir=" + coddir + ", lib_direction=" + lib_direction + ", date_fact=" + date_fact
+				+ ", libelle=" + libelle + ", totht=" + totht + ", totrem=" + totrem + ", totfodec=" + totfodec
+				+ ", tottva=" + tottva + ", totttc=" + totttc + ", lflivrs=" + lflivrs + "]";
 	}
 
 }

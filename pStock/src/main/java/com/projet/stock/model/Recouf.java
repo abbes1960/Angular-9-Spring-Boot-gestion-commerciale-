@@ -20,7 +20,7 @@ public class Recouf {
 	  private long id;
 	  private int annee;
 	  private int numero;
-	  private int code_four;
+	  private int code;
 	  private String lib_four;
 	  @JsonFormat(pattern = "dd/MM/yyyy")
 	  private LocalDate date_reg;
@@ -48,11 +48,11 @@ public class Recouf {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public int getCode_four() {
-		return code_four;
+	public int getCode() {
+		return code;
 	}
-	public void setCode_four(int code_four) {
-		this.code_four = code_four;
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public String getLib_four() {
 		return lib_four;
@@ -84,13 +84,13 @@ public class Recouf {
 	public void setLrecoufs(List<Lrecouf> lrecoufs) {
 		this.lrecoufs = lrecoufs;
 	}
-	public Recouf(long id, int annee, int numero, int code_four, String lib_four, LocalDate date_reg, String libelle,
+	public Recouf(long id, int annee, int numero, int code, String lib_four, LocalDate date_reg, String libelle,
 			float total, @Valid List<Lrecouf> lrecoufs) {
 		super();
 		this.id = id;
 		this.annee = annee;
 		this.numero = numero;
-		this.code_four = code_four;
+		this.code = code;
 		this.lib_four = lib_four;
 		this.date_reg = date_reg;
 		this.libelle = libelle;
@@ -103,9 +103,9 @@ public class Recouf {
 	}
 	@Override
 	public String toString() {
-		return "Recouf [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code_four=" + code_four
-				+ ", lib_four=" + lib_four + ", date_reg=" + date_reg + ", libelle=" + libelle + ", total=" + total
-				+ ", lrecoufs=" + lrecoufs + "]";
+		return "Recouf [id=" + id + ", annee=" + annee + ", numero=" + numero + ", code=" + code + ", lib_four="
+				+ lib_four + ", date_reg=" + date_reg + ", libelle=" + libelle + ", total=" + total + ", lrecoufs="
+				+ lrecoufs + "]";
 	}
 
 }

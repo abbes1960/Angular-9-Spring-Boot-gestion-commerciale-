@@ -26,7 +26,7 @@ import com.projet.stock.exception.ResourceNotFoundException;
 import com.projet.stock.model.B1016;
 
 import com.projet.stock.model.Lb1016;
-
+import com.projet.stock.model.Patrimoine;
 import com.projet.stock.model.Cposte;
 import com.projet.stock.repository.B1016Repository;
 
@@ -41,8 +41,12 @@ public class B1016Controller {
 	@Autowired  CposteRepository cposterepo;
 	@Autowired  Lb1016Repository repo;
 	@Autowired  ServletContext context;
-	 @GetMapping("/b1016s")
-	  public List<B1016> getAllB1016s() {
+	 
+	
+	
+	@GetMapping("/b1016s")
+	 
+	  public List<B1016> getAllB1016() {
 	    System.out.println("Get all B1016s...");
 	    List<B1016> B1016s = new ArrayList<>();
 	    repository.findAll().forEach(B1016s::add);

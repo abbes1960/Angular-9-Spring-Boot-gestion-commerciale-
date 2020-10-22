@@ -11,11 +11,15 @@ public class Scategorie {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private String code;
-	  private String code_categ;
+	  private String ccateg;
 	  private String libelle;
+	  private String libcateg;
 	  private int rang;
 	public long getId() {
 		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getCode() {
 		return code;
@@ -23,11 +27,11 @@ public class Scategorie {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public String getCode_categ() {
-		return code_categ;
+	public String getCcateg() {
+		return ccateg;
 	}
-	public void setCode_categ(String code_categ) {
-		this.code_categ = code_categ;
+	public void setCcateg(String ccateg) {
+		this.ccateg = ccateg;
 	}
 	public String getLibelle() {
 		return libelle;
@@ -35,18 +39,25 @@ public class Scategorie {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+	public String getLibcateg() {
+		return libcateg;
+	}
+	public void setLibcateg(String libcateg) {
+		this.libcateg = libcateg;
+	}
 	public int getRang() {
 		return rang;
 	}
 	public void setRang(int rang) {
 		this.rang = rang;
 	}
-	public Scategorie(long id, String code, String code_categ, String libelle, int rang) {
+	public Scategorie(long id, String code, String ccateg, String libelle, String libcateg, int rang) {
 		super();
 		this.id = id;
 		this.code = code;
-		this.code_categ = code_categ;
+		this.ccateg = ccateg;
 		this.libelle = libelle;
+		this.libcateg = libcateg;
 		this.rang = rang;
 	}
 	public Scategorie() {
@@ -55,8 +66,8 @@ public class Scategorie {
 	}
 	@Override
 	public String toString() {
-		return "Scategorie [id=" + id + ", code=" + code + ", code_categ=" + code_categ + ", libelle=" + libelle
-				+ ", rang=" + rang + "]";
+		return "Scategorie [id=" + id + ", code=" + code + ", ccateg=" + ccateg + ", libelle=" + libelle + ", libcateg="
+				+ libcateg + ", rang=" + rang + "]";
 	}
 
 }

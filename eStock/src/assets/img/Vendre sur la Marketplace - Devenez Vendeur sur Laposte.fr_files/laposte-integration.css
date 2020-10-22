@@ -1,0 +1,195 @@
+/*.header .topSection { height:38px; overflow:visible; position:relative; z-index: 1000000;}*/
+
+
+.header .headerContent { width: 964px; margin: 0 auto; height:122px; position:relative; z-index:11000;}
+/*.header .headerContent.pro{background: url(../images/bg/bg_boutique-courrier_pro.png) no-repeat left top;}*/
+
+
+
+.headerContent .myAccount .basketBtn { text-decoration:none; width:106px; height:23px; display:block; color:#363636; background:url(../images/btn/btn_sprite.png) no-repeat 0 -27px; padding-left: 11px;}
+.headerContent .myAccount .basketBtn span.link-label { display:block; float:left; background:url(../images/btn/btn_sprite.png) no-repeat right 0px; cursor:pointer; padding: 4px 13px 2px 0; color:#006397; width: 91px; font: bold 1.2em Arial, Helvetica, sans-serif; height:17px;}
+
+
+
+.navWrap.scriptNav .nav_main li.onelinemenu a span.blockHover { bottom: -1px;}
+
+
+.push3cols .item .title { position:absolute; font-weight:400; left:20px; top:20px; display:block; font-size:2.5em; line-height:1em; font-family:'JPHandStraight', Arial, Helvetica, sans-serif; color:#363636; width: 200px; }
+
+
+.blockTrackOrder .wrapTrackOrder { width:728px; height:121px; background:url(../images/bg/bg_track-order.png) no-repeat 0 0; background-repeat: no-repeat;}
+
+.showResults thead th.statut{ width:155px;}
+.showResults tbody{}
+.showResults tbody td{ /*JIRA 915 padding:0 0 0 0; */ margin:0;}
+.showResults tbody td.messageStatut{ /*JIRA 915 padding:0 0 0 0; */width:150px; }
+.showResults tbody td a { margin:0;}
+
+
+.mainContent { width:962px; /*height:100%;*/ /*overflow: hidden;*/ min-height: 476px; }
+
+
+.reshipment .step1 .errorDisplay{ display:none; color:#F00; font-size:1.5em; width:850px; padding:0 0 10px 0; overflow:hidden; }
+
+
+
+/*.blockHpCarousel .carrWrapper.pro .blockCarItem { background:url(../images/bg/bg_item-carousel.png) no-repeat 18px 0;}*/
+
+
+.blockConsomationService .blockService.nouvelleAdresse .blockLinks .contrat span { color: #e10038; }
+
+
+.blockConsomationService .blockService.nouvelleAdresse .blockLinks .contrat a:focus, .blockConsomationService .blockService.nouvelleAdresse .blockLinks .contrat a:hover { color: #e10038; text-decoration: underline; }
+
+.blockConsomationService .blockService .blockLinks{ height: 142px; left: 0; overflow: auto; padding: 16px 0 0 20px; position: absolute; top: 93px; width: 250px;}
+
+.blockConsomationService .nouvelleAdresse h4{color:#e10038; top:25px; width:165px;}
+
+.blockPlanduSite .services h4.rose{ color:#e10038;}
+
+
+/*.blockCompteDoneesInfo .formWrapper .blockButton span input{ border:0; display:inline-block; font-size:1em; font-weight:bold; color:#ffffff; height:43px; padding:0 35px 0 0; cursor:pointer; background:url(../images/btn/btn_sprite.png) no-repeat right -1313px;}*/
+
+
+.blockFileSubmission h2{font-family: 'DINMediumRegular'; font-size:3.2em; line-height:1em; color:#007185; text-transform:uppercase; letter-spacing:-1px; padding:0 0 40px 0;}
+
+
+.blockBottomPrices span{ color:#ffffff;}
+
+
+.wrapCaroucel.partenaires .itemCaroucel .description h3 {color: #e10038; font-family: 'DINMediumRegular',Arial,Helvetica,sans-serif; font-size: 3.4em; font-weight: 700; letter-spacing: -0.04em;line-height: 1.2em;}
+.mainContent.partenaires .article .articleBox h3 { font-size:1.6em; font-weight:700; color:#e10038;}
+.mainContent.partenaires .article .articleBox h2 { font-size:1.6em; font-weight:700; color:#e10038; letter-spacing:normal; line-height:normal; padding:0; width:auto;}
+
+
+.mainContent.partenaires .asideMenu li.selected a { color:#e10038;}
+
+.mainContent.partenaires .article .asideMenu li.selected a { color:#e10038;}
+
+.articleBox .txt_partenaires .pink {color:#e10038; font-weight: 700;}
+
+
+.tarifs p.pink { font-size:3em; color:#e10038; text-transform:uppercase; font-weight:700; float:left; padding-top:50px;}
+
+.tarifs p.pink { font-size:3em; color:#e10038; text-transform:uppercase; font-weight:700; margin-top:50px; height: 25px; padding:10px; display:block; float:left; }
+
+.mainContent.partenaires .article .tarifs h3.pink {color:#e10038; padding-left:0; }
+
+.wrapCaroucel.eserviceReex .itemCaroucel .description h2.partenair { color:#e10038; text-transform:uppercase; }
+.wrapCaroucel.eserviceReex .itemCaroucel .description h1.partenair { color:#e10038; text-transform:uppercase; }
+
+.description .smallTitle .pink{ color:#e10038; font-family: 'DINBlackRegular'; }
+
+
+.wrapDispacht .dispacthContent .dispacthLeft .dispacthLeftContent .dispacthLefttBox h3{ font-family: 'JPHandStraight'; color:#e10038; font-size:2.2em; font-weight:400; padding-left: 36px; padding-top: 10px; height:22px; display:block; overflow:hidden;}
+
+
+.decouvrirPink ul li a{ font-size:1.4em; color:#e10038;  text-decoration:none; font-weight:400; background:url(../images/btn/btn_arrow-circle-pink.png) no-repeat left top; float:left; height:25px; left:36px; top:20px; padding:5px 10px 0 30px; position:relative; display:block;}
+
+.wrapDispachtX  .dispacthContent h2 {font-family: 'JPHandStraight'; color:#e10038; font-size:3em; font-weight:400; text-transform:uppercase; line-height:1.2em;  text-align: center;}
+
+.wrapDispachtX  .dispacthContent .dispacthLeftX .dispacthLeftContent .dispacthLefttBox h4{ font-family: 'JPHandStraight'; color:#e10038; font-size:2em; font-weight:400; padding-left: 36px; padding-top: 5px;}
+
+.decouvrirPinkX ul li a{ font-size:1.4em; color:#e10038;  text-decoration:none; font-weight:400; text-transform:uppercase; background:url(../images/btn/btn_arrow-circle-pink.png) no-repeat left top; float:left; height:25px; left:36px; top:20px; padding:6px 10px 0 30px; position:relative; display:block;}
+
+
+
+/* MesBrouillons */
+.mesBrouillons .content-left {width:643px; float:left;}
+.mesBrouillons .notice {font-size: 1.2em; padding: 12px 0 17px;}
+.mesBrouillons .blockFilter {margin: 0 0 10px;}
+.mesBrouillons .blockFilter .block-bg-corner {overflow: hidden; padding: 0.5em 1em;}
+.mesBrouillons .blockFilter .search-wrap {display: none;}
+.mesBrouillons .blockFilter .type-select {float: left; width:100%;}
+.mesBrouillons .blockFilter .type-select label {float:left; font-size:1.8em; font-weight: 700; margin: 0.5em 0 0 1em;}
+.mesBrouillons .blockFilter .type-select .selector {float:right; width:220px;}
+.mesBrouillons .blockFilter .type-select .selector span {width:175px;}
+.mesBrouillons .blockFilter .type-select .selector select {color:#565A5C; font-size: 1em;}
+.mesBrouillons .block-bg-corner.pagination {width:623px;}
+.mesBrouillons .btn-cancel span {background:url("../images/btn/cancel_right_260.png") repeat scroll right 0 transparent !important;}
+.mesBrouillons table#tableServiceItems {width:645px;}
+.mesBrouillons .tableMyCommands thead {height:62px;}
+.mesBrouillons .tableMyCommands th:first-child {text-align:center;}
+.mesBrouillons .tableMyCommands thead th {vertical-align:middle;}
+.mesBrouillons .tableMyCommands tbody {background-attachment:scroll; background-clip:border-box; background-color:white !important; background-image:url("../images/bg/bg_white-1x1.gif"); background-origin:padding-box; background-position:0 0; background-repeat:repeat; background-size:auto auto;}
+.mesBrouillons .tableMyCommands tbody tr {background-color:#fff; border-bottom:2px solid #F5F5F3;}
+.mesBrouillons .tableMyCommands tbody th {padding-bottom:20px;}
+.mesBrouillons .tableMyCommands .item-name span {text-align:left;}
+.mesBrouillons .tableMyCommands .sectionTitle {width:170px;}
+.mesBrouillons .tableMyCommands tbody span.brouillonTitle {font-size:0.8em; font-style:italic; font-weight:400; margin:12px 0 0;}
+.mesBrouillons .tableMyCommands .serviceTitle a {color:#E64809; font-size:0.938em; text-decoration:underline;}
+.mesBrouillons .tableMyCommands tbody td {padding:35px 10px 40px;}
+#myBrouillon {display: block; margin-top: 70px;}
+#myBrouillon .block-bg-corner {padding:0;}
+
+
+.blockTransferezBox .blockTransferezBox.pink {background:url(../images/bg/bg_tranferez_sprites.png) no-repeat right -234px; color:#e10038;}
+
+/*
+.blockModifPass .formWrapper .formContent .leftFormItems {padding-top: 10px;}
+.blockModifPass .formWrapper .formContent .leftFormItems .formRow label { float:left; width: 180px; padding-top: 6px;}
+.blockModifPass .formWrapper .formContent .leftFormItems .formRow .wrapInput input{ float:right; width: 180px; }
+.blockModifPass .formWrapper .formContent .formRow .inputInfo { color:#565a5c; font-size:1em; padding: 6px 0 0 116px; font-style: italic; font-weight:400; line-height:1.8em;} 
+ */
+
+/*  form modify mail */
+.blockModifMail .formWrapper .formContent .leftFormItems {padding-top: 10px;}
+.blockModifMail .formWrapper .formContent .leftFormItems .formRow label { float:left; width: 180px; padding-top: 6px;}
+.blockModifMail .formWrapper .formContent .leftFormItems .formRow .wrapInput input{ float:right; width: 180px; }
+
+.blockModifMail .blockButtons { padding: 15px 0; overflow:hidden;}
+.blockModifMail .blockButtons .leftBtn{ float:left; display:block; height:43px;}
+.blockModifMail .blockButtons .rightBtn { float:right; display:block;}
+
+.blockModifMail .blockButtons .linkGrey2 span { font-size: 1em; color:#fff; padding: 16px 21px 0 10px;}
+.blockModifMail .blockButtons .linkOrange { margin-top: 2px; display:inline-block; height:49px; padding:0 0 0 21px !important; font-size:1.6em; color:#fff; background:url(../images/btn/btn_sprite.png) no-repeat 0 -1667px; text-decoration:none;}
+.blockModifMail .blockButtons .linkOrange span { display:inline-block; cursor:pointer;}
+.blockModifMail .blockButtons .linkOrange input { display:inline-block; height:43px; padding:0 35px 0 0; cursor:pointer; background:url(../images/btn/btn_sprite.png) no-repeat right -1621px; border: none; margin: 0; color: #FFF; font-size: 1em; font-weight: 700; }
+
+
+.mainContent.migration .blockCompteDonees2 .blockModifPass .formWrapper input.error  {color: #000000;}
+
+.mainContent.migration .blockCompteDonees2 .blockModifMail .formWrapper .errorDisplay label.error {color: #FF0000;display: block;font-size: 0.8em; overflow: hidden;padding: 0 0 3px;}
+.mainContent.migration .blockCompteDonees2 .blockModifMail .formWrapper input.error  {color: #000000;}
+
+#newsEmail span.txtInput1 input { background-color:#F0F0F0; width:100px;}
+
+
+
+.LREL a.linkGreen3 {
+	text-decoration: none;
+	border: none;
+}
+.LREL a.linkGreen3 {
+	text-decoration: none;
+	border: none;
+}
+
+.blockModifMail .formWrapper .formContent .leftFormItems .formRow .wrapInput input,
+.blockModifMail .formWrapper .formContent .rightFormItems .formRow .wrapInput input,
+
+
+#formEtapes .formRow .error-contener ,
+/*.blockMigration .boxMiddle .formContent .formRow .error-contener input,
+.blockModifPass .formWrapper .formContent .leftFormItems .formRow .error-contener input,
+.blockModifPass .formWrapper .formContent .rightFormItems .formRow .error-contener input, 
+.blockModifMail .formWrapper .formContent .leftFormItems .formRow .error-contener input,
+.blockModifMail .formWrapper .formContent .rightFormItems .formRow .error-contener input, 
+.blockCompteDoneesInfo .formWrapper .formContent .left .formRow .error-contener strong input, 
+.blockCompteDoneesInfo .formWrapper .formContent .left .formRow .error-contener input, 
+.blockCompteDoneesInfo .formWrapper .formContent .right .formRow .error-contener strong input, 
+.blockCompteDoneesInfo .formWrapper .formContent .right .formRow .error-contener input {background: #FDE8E8;}
+*/
+
+
+.mainContentpart .mainContent {
+    overflow: visible;
+}
+.mainContentpro .mainContent {
+    overflow: visible;
+}
+
+/***** SEO ******/
+
+/* instead of .wrapCaroucel.eserviceReex .itemCaroucel .description h2.partenair */
+#reexPackDem-mainTitle { font-family:'DINMediumRegular', Arial, Helvetica, sans-serif; color:#e10038; font-size: 3.4em;font-weight: 700; text-transform:uppercase; line-height: 1.2em; letter-spacing:-0.04em; width: 627px; position:absolute; }

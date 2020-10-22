@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>colis-localize</title>
+    <desc>Created with Sketch.</desc>
+    <g id="colis-localize" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(22.000000, 11.000000)" fill-rule="nonzero" stroke="#20458F" stroke-width="4">
+            <path d="M25.9639416,72.9949965 C20.7226478,67.5013779 2.48689958e-14,44.5918193 2.48689958e-14,25.9935376 C2.48689958e-14,11.6615767 11.6458226,-2.13162821e-14 25.9639416,-2.13162821e-14 C40.2820606,-2.13162821e-14 51.9278833,11.6615767 51.9278833,25.9935376 C51.9278833,44.5783325 31.2007443,67.5013779 25.9639416,72.9949965" id="Path" stroke-linecap="round" stroke-linejoin="round"></path>
+            <polygon id="Path-4" fill="#FFC928" stroke-linejoin="round" points="12.9639416 16.7348571 12.9639416 32.670341 25.9639416 40.6380829 38.9639416 32.670341 38.9639416 16.7348571 25.9639416 8.76711515"></polygon>
+            <polyline id="Path-5" points="13.3832965 16.7348571 25.9639416 24.702599 38.5445868 16.7348571"></polyline>
+            <line x1="25.9639416" y1="24.702599" x2="25.9639416" y2="40.218728" id="Path-6"></line>
+        </g>
+    </g>
+</svg>

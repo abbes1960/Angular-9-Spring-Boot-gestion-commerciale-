@@ -18,7 +18,7 @@ public class Lflivr {
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
 	  private int numero;
-	  private String code_article;
+	  private String code;
 	  private String Libart;
 	  private float qte;
 	  private float pu;
@@ -41,11 +41,11 @@ public class Lflivr {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getCode_article() {
-		return code_article;
+	public String getCode() {
+		return code;
 	}
-	public void setCode_article(String code_article) {
-		this.code_article = code_article;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getLibart() {
 		return Libart;
@@ -95,12 +95,12 @@ public class Lflivr {
 	public void setFlivr(Flivr flivr) {
 		this.flivr = flivr;
 	}
-	public Lflivr(long id, int numero, String code_article, String libart, float qte, float pu, int tva, float rem,
-			int fodec, float totht, Flivr flivr) {
+	public Lflivr(long id, int numero, String code, String libart, float qte, float pu, int tva, float rem, int fodec,
+			float totht, Flivr flivr) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.code_article = code_article;
+		this.code = code;
 		Libart = libart;
 		this.qte = qte;
 		this.pu = pu;
@@ -116,10 +116,9 @@ public class Lflivr {
 	}
 	@Override
 	public String toString() {
-		return "Lflivr [id=" + id + ", numero=" + numero + ", code_article=" + code_article + ", Libart=" + Libart
-				+ ", qte=" + qte + ", pu=" + pu + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht="
-				+ totht + ", flivr=" + flivr + "]";
+		return "Lflivr [id=" + id + ", numero=" + numero + ", code=" + code + ", Libart=" + Libart + ", qte=" + qte
+				+ ", pu=" + pu + ", tva=" + tva + ", rem=" + rem + ", fodec=" + fodec + ", totht=" + totht + ", flivr="
+				+ flivr + "]";
 	}
-	
 
 }

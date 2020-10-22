@@ -19,6 +19,7 @@ import { AddArticleComponent } from '../../article/add-article/add-article.compo
 })
 export class ListArticleComponent implements OnInit {
   article : Article;
+  p: number = 1;
   control: FormControl = new FormControl('');
   constructor(public crudApi: ArticleService, public toastr: ToastrService,
     private router : Router,public fb: FormBuilder,
@@ -46,7 +47,7 @@ export class ListArticleComponent implements OnInit {
   
   getData() {
     this.crudApi.getAll().subscribe(
-      response =>{this.crudApi.listData = response;}
+      response =>{this.crudApi.list = response;}
      );
    
   }

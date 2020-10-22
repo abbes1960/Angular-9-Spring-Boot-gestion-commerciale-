@@ -1,0 +1,493 @@
+Globalize
+		.addCultureInfo(
+				"fr_FR",
+				{
+					messages : { 
+						// Générique
+						"Fermer" : "Fermer",
+						"Fermer la fenêtre" : "Fermer la fenêtre",
+						"(ouvert)" : "(ouvert)",
+						"(fermé)" : "(fermé)",
+						"Refermer" : "Refermer",
+						"Ajouter" : "Ajouter",
+						"Modifier" : "Modifier",
+						"En savoir plus" : "En savoir plus",
+						"Please enter only digits." : "Veuillez saisir des chiffres",
+						"Please enter a valid email address." : "Veuillez entrer une adresse électronique valide",
+						"This field is required." : "Ce champ est obligatoire.",
+						"Please enter at least {0} characters." : "Merci de saisir au moins {0} caractères.",
+						"Please enter no more than {0} characters." : "Merci de saisir au plus {0} caractères.",
+						"Veuillez sélectionner un moyen de paiement." : "Veuillez sélectionner un moyen de paiement.",
+						// ******** MAIN.JS
+						"Stopper le défilement" : "Stopper le défilement",
+						"rubrique sélectionnée" : "rubrique sélectionnée",
+						"Saissez l'adresse <br>du destinataire" : "Saissez l'adresse <br>du destinataire",
+						"Diminue le nombre de timbres (XX actuellement)" : "Diminuer la quantité (XX actuellement)",
+						"Augmente le nombre de timbres (XX actuellement)" : "Augmenter la quantité (XX actuellement)",
+						"Avance le point de départ (XX sur YY actuellement)" : "Avance le point de départ (XX sur YY actuellement)",
+						"Recule le point de départ (XX sur YY actuellement)" : "Recule le point de départ (XX sur YY actuellement)",
+						"Augmente le nombre de timbres (XX sur YY actuellement)" : "Augmente le nombre de timbres (XX sur YY actuellement)",
+						"Diminue le nombre de timbres (XX sur YY actuellement)" : "Diminuer la quantité (XX sur YY actuellement)",
+						"Afficher la diapositive" : "Afficher la diapositive",
+
+						// F6.UI.courrierData
+						"Le numéro saisi est incorrect." : "Le numéro saisi est incorrect.",
+						"Votre colis est pris en charge par La Poste. Il est en cours d’acheminement" : "Votre colis est pris en charge par La Poste. Il est en cours d’acheminement",
+						"Plus d'informations sur mon colis" : "Plus d'informations sur mon colis",
+
+						// F6.UI.activeUniform
+						"Aucun fichier sélectionné" : "Aucun fichier sélectionné",
+						"Parcourir" : "Parcourir",
+						/** ** F6.UI.executeSheetstampPicker *** */
+						// constructor
+						"Planche de XX étiquettes" : "Planche de XX étiquettes",
+
+						// displayPagination
+						"aller à la page" : "aller à la page",
+
+
+						// defineTextSheetNumber
+						"Planche" : "Planche",
+						"planche" : "planche",
+						"planches" : "planches",
+
+						// F6.UI.executeCounterIncremental
+						"(XX sur YY actuellement)" : "(XX sur YY actuellement)",
+
+						// F6.UI.draftData
+						"Veuillez nommer votre brouillon" : "Veuillez nommer votre brouillon",
+						"draftname_invalid" : "Le nom de ce brouillon n'est pas valide ou est déjà utilisé.",
+						"brouillon_creation_success" : "Votre brouillon vient d'être sauvegardé",
+						"Continuer la gestion de mes brouillons" : "Continuer la gestion de mes brouillons",
+
+						// F6.UI.popinLettreVerte
+						"(Retourner au formulaire)" : "(Retourner au formulaire)",
+
+						// F6.UI.popinVotreAdresse
+						"Visualiser une adresse" : "Visualiser une adresse",
+
+						// F6.UI.popDestinatairesStep1
+						"Ajouter des destinataires" : "Ajouter des destinataires",
+
+						// F6.UI.mnaEnvoiSMS
+						"ajouter un formulaire pour un autre numéro (actuellement XX affiché" : "Ajouter un formulaire pour un autre numéro (actuellement XX affiché",
+						"s)" : "s)", // pour le type de phrase au dessus
+
+						"ajouter un formulaire pour une autre personne concernée par le contrat (actuellement XX affiché" : "ajouter un formulaire pour une autre personne concernée par le contrat (actuellement XX affiché",
+
+						// F6.UI.activeContactDeleting
+						"Supprimer les contacts sélectionnés (actuelement aucun)" : "Supprimer les contacts sélectionnés (actuelement aucun)",
+						"Supprimer les contacts sélectionnés (actuelement " : "Supprimer les contacts sélectionnés (actuelement ",
+						")" : ")",
+
+						// F6.UI.manageResumeLelEtape2
+						"Distribuée par le facteur" : "Par le facteur",
+						"Par voie numérique" : "Numérique",
+						"Lettre suivie" : "Lettre suivie",
+						"Lettre non suivie" : "Lettre non suivie",
+						"Noir & Blanc" : "Noir & Blanc",
+						"Couleur" : "Couleur",
+						"Recto / Verso" : "Recto / Verso",
+						"Recto" : "Recto",
+						"Sur courrier" : "Sur courrier",
+						"Sur page blanche" : "Sur page blanche",
+						"Oui" : "Oui",
+						"Non" : "Non",
+
+						// F6.UI.tableCommandStampsCollapse
+						"Afficher la première ligne du tableau" : "Afficher la première ligne du tableau",
+						"Voir toute la commande en détail" : "Voir toute la commande en détail",
+						"Afficher la totalité des lignes du tableau" : "Afficher la totalité des lignes du tableau",
+
+						// F6.UI.promptLelRemoveDownloadMail
+						"Annuler la suppression du document et revenir à la gestion de vos documents" : "Annuler la suppression du document et revenir à la gestion de vos documents",
+						"Confirmer la suppression du document" : "Confirmer la suppression du document",
+
+						// F6.UI.activeAjoutPersonneContrat
+						"ajouter un formulaire pour une autre personne concernée par le contrat" : "ajouter un formulaire pour une autre personne concernée par le contrat",
+
+						/** ****** MESSAGES POUR LES FORMULAIRES ******** */
+						"default message not found" : "default message not found",
+						"Ce champ est obligatoire." : "Ce champ est obligatoire.",
+						// F6.VALIDATIONS.MESSAGES
+						"Vous n'avez saisi aucun montant" : "Vous n'avez saisi aucun montant",
+						"Merci de remplir au moins un champ" : "Merci de remplir au moins un champ",
+
+        				//F6.VALIDATIONS.tCompteMotdepasse01
+        				"Veuillez entrer une adresse électronique valide": "Le format de l'e-mail est erroné",
+
+						// F6.VALIDATIONS.formFieldNumber
+						"Premier numéro est nécessaire" : "Premier numéro est nécessaire",
+						"Nombre de plis est nécessaire" : "Nombre de plis est nécessaire",
+						"Dernier numéro est nécessaire" : "Dernier numéro est nécessaire",
+
+						// F6.VALIDATIONS.formParnumero
+						"Mandatory Field" : "Mandatory Field",
+
+						// F6.VALIDATIONS.formContact
+						"Nom est nécessaire" : "Nom obligatoire", // $('#formPersonnel2').validate
+						"Nom non conforme" : "Le nom doit être composé de lettres et des caractères spéciaux suivants : - é è ç '",
+                        "Nom non conforme - caractères spéciaux" : "Seuls les caractères spéciaux - et ‘ sont autorisés dans le champ 'Nom'",
+						"Nom n'est pas conforme" : "Le nom saisi n'est pas conforme",
+						// |
+						// F6.VALIDATIONS.formVisualiserAdresse
+						// |
+						// F6.VALIDATIONS.formReexpeditionStep1
+						// |
+						// F6.VALIDATIONS.formBookCoordonneesDestinataireParticulier
+						// |
+						// F6.VALIDATIONS.modifierAdresse
+						// |
+						// F6.VALIDATIONS.lrelAdressRecommande
+						"Prénom est nécessaire" : "Prénom obligatoire", // $('#formPersonnel2').validate
+						"Prénom non conforme" : "Le prénom doit être composé de lettres et des caractères spéciaux suivants : - é è ç '",
+                        "Prénom non conforme - caractères spéciaux" : "Seuls les caractères spéciaux - et ‘ sont autorisés dans le champ 'Prénom'",
+                        "Prénom n'est pas conforme" : "Le prénom saisi n'est pas conforme",
+						"Nom Trop long" :"Le nombre total de caractères des champs Civilité + (espace) + Prénom + (espace) + Nom ne doit pas dépasser 38 caractères",
+						"Code postal est nécessaire" : "Code postal obligatoire",
+
+                        "Ville non conforme - caractères spéciaux" : "Seuls les caractères spéciaux - et ‘ sont autorisés dans le champ 'Ville'",
+						// |
+						// F6.VALIDATIONS.formVisualiserAdresse
+						// |
+						// F6.VALIDATIONS.formReexpeditionStep1
+						// |
+						// F6.VALIDATIONS.formBookCoordonneesDestinataireParticulier
+						// |
+						// F6.VALIDATIONS.modifierAdresse
+						// |
+						// F6.VALIDATIONS.lrelAdressRecommande
+						"Email est nécessaire" : "L'email est obligatoire", // F6.VALIDATIONS.formModifyPass|
+						"Numéro de colis est nécessaire" : "Le numéro de colis est obligatoire", // F6.VALIDATIONS.formInbentaDuplicataRemboursement|
+						"Votre colis ou email ne sont pas reconnus, veuillez recommencer." : "Votre colis ou email ne sont pas reconnus, veuillez recommencer.", // F6.VALIDATIONS.formInbentaDuplicataRemboursement|
+						// F6.VALIDATIONS.formConnect
+						// |
+						// F6.VALIDATIONS.popupValidation
+						// |
+						// F6.VALIDATIONS.formCree
+						// |
+						// F6.VALIDATIONS.popupValidation
+						// mantis 23 - ggi 23/07/2012 -> mauvais wording
+						 "Entrer une adresse email valide.": "Le format de l'email saisi n’est pas conforme.", // F6.VALIDATIONS.formModifyPass| F6.VALIDATIONS.formConnect | F6.VALIDATIONS.popupValidation | F6.VALIDATIONS.formCree | F6.VALIDATIONS.popupValidation | F6.VALIDATIONS.persoPro | F6.VALIDATIONS.saiseEmail
+					    // adresse email valide.", //
+						// F6.VALIDATIONS.formModifyPass|
+						// F6.VALIDATIONS.formConnect |
+						// F6.VALIDATIONS.popupValidation |
+						// F6.VALIDATIONS.formCree |
+						// F6.VALIDATIONS.popupValidation |
+						// F6.VALIDATIONS.persoPro | F6.VALIDATIONS.saiseEmail
+						"Entrer une adresse email valide." : "Le format de l'email saisi n’est pas conforme.", // F6.VALIDATIONS.formModifyPass|
+						// F6.VALIDATIONS.saiseEmail
+                        "Email erronee" : "Le format de votre e-mail est erroné. La forme doit être similaire à xxx@yyy.zz ou xxx@yy.zz.tt et vous pouvez utiliser les caractères arobase, underscore, tiret, et le point",
+						// fin mantis 23/07/2012
+						"Confirmation email est nécessaire" : "Confirmation email obligatoire", // F6.VALIDATIONS.persoPro
+						// |
+						// F6.VALIDATIONS.saiseEmail
+						"E-mail ne correspond pas" : "E-mail ne correspond pas",
+						"Objet est nécessaire" : "Objet obligatoire",
+						"Message est nécessaire" : "Message obligatoire",
+						"Sujet est nécessaire" : "Sujet obligatoire",
+
+						// F6.VALIDATIONS.formModifyPass
+						"Mot de passe est nécessaire" : "Saisie du mot de passe actuel obligatoire", // F6.VALIDATIONS.formConnect
+						"Mot de passe est obligatoire" : "Le champ mot de passe est obligatoire", // F6.VALIDATIONS.formConnect
+						"Mot de passe nécessaire": "Saisie du mot de passe actuel obligatoire", // F6.VALIDATIONS.formConnect | F6.VALIDATIONS.popupValidation | F6.VALIDATIONS.popupValidation | F6.VALIDATIONS.persoPro
+				        
+						// |
+						// F6.VALIDATIONS.popupValidation
+						// |
+						// F6.VALIDATIONS.popupValidation
+						// |
+						// F6.VALIDATIONS.persoPro
+						"Mon nouveau est nécessaire" : "Mon nouveau est nécessaire",
+						"ConfirmPassRequired" : "Confirmation mot de passe obligatoire",
+						"NewPassRequired" : "Le nouveau mot de passe est obligatoire",
+						"ConfirmNewPassRequired" : "La confirmation du nouveau mot de passe est obligatoire",
+						"8 caractères minimum" : "Le mot de passe n'est pas conforme. Il doit comprendre 8 caractères minimum, dont au moins une majuscule, une minuscule et un chiffre. Caractères spéciaux autorisés: !\"#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+						"Not Equal": "La confirmation du mot de passe est différente du mot de passe saisi.",
+
+						// F6.VALIDATIONS.persoPro
+						"Les champs mon adresse e-mail et confirmation de mon e-mail doivent être identiques" : "Les champs mon adresse e-mail et confirmation de mon e-mail doivent être identiques",
+						"Les champs ma nouvelle adresse e-mail et confirmation de ma nouvelle adresse e-mail doivent être identiques": "Les champs ma nouvelle adresse e-mail et confirmation de ma nouvelle adresse e-mail doivent être identiques",
+				        "Merci de saisir un mot de passe d'au moins 8 caractères" : "Le mot de passe n'est pas conforme. Il doit comprendre 8 caractères minimum, dont au moins une majuscule, une minuscule et un chiffre. Caractères spéciaux autorisés: !\"#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+						"Pas d'espace" : "Pas d'espace",
+						"Confirmation du mot de passe différente du mot de passe saisi" : "Confirmation du mot de passe différente du mot de passe saisi",
+						"Les mots de passe saisis doivent être identiques." : "Les mots de passe saisis doivent être identiques.",
+						"Ce domaine est nécessaire" : "Domaine obligatoire",
+						"Téléphone est nécessaire" : "Téléphone obligatoire",
+						"Téléphone est invalide" : "Téléphone obligatoire",
+						"Nom saisi invalide" : "Nom saisi invalide",
+						"S'il vous plaît ne pas entrer plus de 10 caractères" : "Le format saisi n’est pas conforme",
+						"N° et libellé de la voie obligatoire" : "N° et libellé de la voie obligatoire", // F6.VALIDATIONS.formVisualiserAdresse
+						"N° et libellé de la voie est nécessaire" : "N° et libellé de la voie obligatoire", // F6.VALIDATIONS.formVisualiserAdresse
+						"N° de téléphone obligatoire" : "N° de téléphone obligatoire",
+						"N° de téléphone non conforme" : "Le numéro de téléphone doit comprendre 10 chiffres minimum et éventuellement le signe +",
+						"Adresse Appartement, Etage non conforme" : "Seuls les caractères spéciaux . % ' / - & sont autorisés dans le champ 'Appartement, Étage'",
+                        "Adresse Batiment, Immeuble non conforme" : "Seuls les caractères spéciaux . % ' / - & sont autorisés dans le champ 'Bâtiment, Immeuble'",
+                        "Adresse Lieu-dit ou BP non conforme" : "Seuls les caractères spéciaux . % ' / - & sont autorisés dans le champ 'Lieu-dit ou BP'",
+                        "Bâtiment, Immeuble non conforme" : "Seuls les caractères spéciaux . % ' / - & sont autorisés dans le champ 'Bâtiment, Immeuble'",
+                        "Adresse N° et libellé de la voie non conforme" : "Seuls les caractères spéciaux . % ' / - & sont autorisés dans le champ 'N° et libellé de la voie'",
+                        "Adresse service non conforme" : "Seuls les caractères spéciaux . % ' / - & sont autorisés dans le champ 'Service'",
+                        "Adresse raison sociale non conforme" : "Seuls les caractères spéciaux . % ' / - & sont autorisés dans le champ 'Raison Sociale'",
+						// |
+						// F6.VALIDATIONS.formCoordonneesDestinataireProfessionnel
+						// |
+						// F6.VALIDATIONS.formReexpeditionStep1
+						// |
+						// F6.VALIDATIONS.formBookCoordonneesDestinataireParticulier
+						// |
+						// F6.VALIDATIONS.formBookCoordonneesDestinataireProfessionnel
+						// |
+						// F6.VALIDATIONS.modifierAdresse
+						// |
+						// F6.VALIDATIONS.rechercheEmail
+						// |
+						// F6.VALIDATIONS.lrelAdressRecommande
+						"Code Postal est nécessaire" : "Le code postal est obligatoire", //
+						"Merci de saisir un code postal valide" : "Merci de saisir un code postal valide",
+						"S'il vous plaît ne pas entrer plus de 5 caractères" : "S'il vous plaît ne pas entrer plus de 5 caractères",
+						"Localité est nécessaire" : "Localité obligatoire",
+						"Ville est nécessaire" : "Ville obligatoire",
+						"Localité est incorrecte" : "La localité est incorrecte.",
+						"Civilité est nécessaire" : "Civilité obligatoire",
+						"dangerousGoods est necessaire" : "Pour valider votre colis, veuillez prendre connaissance de l’information concernant les marchandises dangereuses et interdites et l'accepter.",
+						"address.concatCiviliteMrNomPrenomMaxCharacter" : "Le nombre total de caractères des champs Prénom et Nom ne doit pas dépasser 34 caractères",
+						"address.concatCiviliteMmeNomPrenomMaxCharacter" : "Le nombre total de caractères des champs Prénom et Nom ne doit pas dépasser 33 caractères",
+						"La concaténation des champs Code postal + (espace) + Localité ne doit pas dépasser 38 caractères" : "La concaténation des champs Code postal + (espace) + Localité ne doit pas dépasser 38 caractères",
+						//"Date de naissance est nécessaire" : "Date de naissance obligatoire",
+						"Pays est nécessaire" : "Pays obligatoire",
+						"lreCountries" : "Le service LRE est seulement disponible à destination de la France métropolitaine, la Corse, les départements d'Outre-Mer (Guadeloupe, Martinique, Guyane, Réunion, Mayotte) et Monaco.",
+						"Connaissance des conditions générales est nécessaire" : "L'acceptation des conditions générales de vente est obligatoire pour accéder à la Boutique",
+
+						// F6.VALIDATIONS.lrelAdressRecommande
+						"Merci de saisir un code postal valide" : "Merci de saisir un code postal valide",
+						"S'il vous plaît ne pas entrer plus de 5 caractères" : "S'il vous plaît ne pas entrer plus de 5 caractères",
+
+						// F6.VALIDATIONS.formAjouterDestinataire
+						"Merci de sélectionner au moins un destinataire" : "Merci de sélectionner au moins un destinataire",
+
+						// F6.VALIDATIONS.formReexpeditionStep1
+						"Une date est necessaire" : "Date obligatoire",
+						"Merci de rentrer une adresse valide JJ/MM/AAAA" : "Merci de rentrer une adresse valide JJ/MM/AAAA",
+						"Prénom de l'ayant droit est nécessaire" : "Prénom de l'ayant-droit obligatoire",
+						"N° et libellé de la voie dans nouvelles coordonnées est nécessaire" : "N° et libellé de la voie dans nouvelles coordonnées obligatoires",
+						"Code Postal dans nouvelles coordonnées est nécessaire" : "Code Postal dans nouvelles coordonnées obligatoire",
+						"Merci de saisir un code postal dans nouvelles coordonnées valide" : "Merci de saisir un code postal dans nouvelles coordonnées valide",
+						"S'il vous plaît ne pas entrer plus de 5 caractères pour le code postal dans nouvelles coordonnées" : "S'il vous plaît ne pas entrer plus de 5 caractères pour le code postal dans nouvelles coordonnées",
+						"Localité dans nouvelles coordonnées est nécessaire" : "Localité dans nouvelles coordonnées obligatoire",
+						"Connaissance des conditions générales est nécessaire" : "L'acceptation des conditions générales de vente est obligatoire pour accéder à la Boutique",
+
+						// F6.VALIDATIONS.formReexpeditionStep3
+						"merci de remplir toutes les informations nécessaires" : "merci de remplir toutes les informations obligatoires",
+						"Reexpédier est nécessaire" : "Reexpédier obligatoire",
+						"Demande reexpedition est nécessaire" : "Demande réexpédition obligatoire",
+						"Reexpedtion minimum est nécessaire" : "Réexpédition minimum obligatoire",
+						"Reexpedtion majeur est nécessaire" : "Réexpédition majeur obligatoire",
+						"Affaires famailales est nécessaire" : "Affaires familiales obligatoire",
+						"Demenage entreprise est nécessaire" : "Déménage entreprise obligatoire",
+
+						// F6.VALIDATIONS.formCoordonneesDestinataireProfessionnel
+						"Raison sociale est nécessaire" : "Raison sociale obligatoire", // F6.VALIDATIONS.formBookCoordonneesDestinataireProfessionnel
+						"Adresse email est nécessaire" : "Adresse email obligatoire",
+						// |
+						// F6.VALIDATIONS.rechercheEmail
+
+						// F6.VALIDATIONS.lrelEtape2
+						"Merci de choisir le type d'impression" : "Merci de choisir le type d'impression",
+						"Merci de choisir le format d'impression" : "Merci de choisir le format d'impression",
+						"Merci de choisir l'adresse du destinataire" : "Merci de choisir l'adresse du destinataire",
+
+						// F6.VALIDATIONS.verificationBAT
+						"Merci de confirmer la conformité du document." : "Merci de confirmer la conformité du document.",
+
+						// F6.VALIDATIONS.historiqueComptePrepaye
+						"Le montant maximum ne peut être inférieur au montant minimum" : "Le montant maximum ne peut être inférieur au montant minimum",
+						"Le montant minimum ne peut être supérieur au montant maximum" : "Le montant minimum ne peut être supérieur au montant maximum",
+						"la date de fin ne peut être antérieure à la date de début" : "la date de fin ne peut être antérieure à la date de début",
+						"Veuillez vérifier le format de la date de fin" : "la date de fin saisie doit être au format JJ/MM/AAAA",
+						"La date de debut doit être antérieure à la date de fin" : "La date de debut doit être antérieure à la date de fin",
+						"Veuillez vérifier le format de la date de début" : "la date de début saisie doit être au format JJ/MM/AAAA",
+						"Merci de remplir au moins un champ" : "Merci de remplir au moins un champ",
+
+						//
+						"Nombre attendu" : "Nombre attendu",
+						"Retour vers la page d'accueil du compte" : "Retour vers la page d'accueil du compte",
+						"Retour.page.accueil" : "Retour vers la page d'accueil",
+
+						//
+						"Destinataire est nécessaire" : "Destinataire obligatoire",
+						"La date choisie doit être supérieure à la date du jour" : "La date choisie doit être supérieure à la date du jour",
+
+						"Please enter a valid date." : "Veuillez renseignez une date valide",
+						"Code structure est obligatoire" : "Code structure obligatoire",
+						"Numéro code générateur est obligatoire" : "Numéro code générateur obligatoire",
+						"La période est obligatoire" : "La période obligatoire",
+
+						"Nom de l'adresse est nécessaire" : "Nom de l'adresse est nécessaire",
+						"Aucune case à cocher est sélectionnée" : "Aucune case à cocher est sélectionnée",
+						"Toutes les cases à cocher sont sélectionnées" : "Toutes les cases à cocher sont sélectionnées",
+						"Désélectionne les cases à cocher identifiant les états" : "Désélectionne les cases à cocher identifiant les états",
+						"Sélectionne toutes les cases à cocher identifiant les états" : "Sélectionne toutes les cases à cocher identifiant les états",
+						"tous les états" : "tous les états",
+						"Sélectionner les états" : "Sélectionner les états",
+
+						"Un fichier est nécessaire" : "Un fichier est nécessaire",
+						"Indiquez la colonne contenant le(s) numéro(s) de suivi(s)" : "Indiquez la colonne contenant le(s) numéro(s) de suivi(s)",
+						"Indiquez à partir de quelle colonne renseigner les informations de suivi" : "Indiquez à partir de quelle colonne renseigner les informations de suivi",
+						"Option d'affichage est nécessaire" : "Option d'affichage est nécessaire",
+						"Indiquez la méthode d'affichage" : "Indiquez la méthode d'affichage",
+						"La date de début de période est obligatoire" : "La date de début de période est obligatoire",
+						"Numéro de courrier suivi obligatoire" : "Numéro de courrier suivi obligatoire",
+
+						"Votre code promo est obligatoire" : "Vous n'avez saisi aucun code. Veuillez saisir un code de réduction et le valider.",
+						"Les adresse e-mails doivent être identiques" : "Les adresse e-mails doivent être identiques",
+						"Entrez 13 caractères minimum" : "Entrez 13 caractères minimum",
+						"Entrez 13 caractères maximum" : "Entrez 13 caractères maximum",
+						"Le nom de l'Adresse est nécessaire" : "Le nom de l'Adresse est nécessaire",
+
+						"Modifier cette adresse personnelle" : "Modifier cette adresse personnelle",
+						"Ajouter cette nouvelle adresse à mes adresses personnelles" : "Ajouter cette nouvelle adresse à mes adresses personnelles",
+						"Adresse supprimée avec succès" : "Adresse supprim&eacute;e avec succ&egrave;s",
+						"Problème lors de la suppression" : "Problème lors de la suppression",
+						"Etes-vous certain de vouloir définir cette adresse par défaut ?" : "Etes-vous certain de vouloir définir cette adresse par défaut ?",
+						"Etes-vous certain de vouloir supprimer cette adresse ?" : "Etes-vous certain de vouloir supprimer cette adresse ?",
+						"Adresse modifiée avec succès" : "Adresse modifiée avec succès",
+						"Problème lors de la mise à jour" : "Problème lors de la mise à jour",
+						"Etes-vous certain de vouloir ajouter cette adresse à votre carnet ?" : "Etes-vous certain de vouloir ajouter cette adresse à votre carnet ?",
+						"Adresse ajoutée avec succès" : "Adresse ajoutée avec succès",
+						"Ligne de commande supprimée avec succès" : "Ligne de commande supprimée avec succès",
+						"Etes-vous certain de vouloir supprimer ce produit ?" : "Etes-vous certain de vouloir supprimer ce produit ?",
+						"Etes-vous certain de vouloir supprimer ce document ?" : "Etes-vous certain(e) de vouloir supprimer ce document ?",
+						"Etes-vous certain de vouloir supprimer tous les documents ?" : "Etes-vous certain(e) de vouloir supprimer tous les documents ?",
+						"Etes-vous certain de vouloir supprimer " : "Etes-vous certain de vouloir supprimer ",
+						"Les contacts sélectionnés ont été supprimés" : "Les contacts sélectionnés ont été supprimés",
+						"Tous vos articles ont bien été supprimés" : "Tous vos articles ont bien été supprimés",
+						"Tous vos brouillons ont bien été supprimés" : "Tous vos brouillons ont bien été supprimés",
+						"Le contact sélectionné a été supprimé" : "Le contact sélectionné a été supprimé",
+						"Etes-vous certain de vouloir supprimer ce courrier ?" : "Etes-vous certain de vouloir supprimer ce courrier ?",
+						"Courrier supprimée avec succès" : "Document supprimé avec succès",
+						"Documents supprimées avec succès" : "Documents supprimées avec succès",
+						"Etes-vous certain de vouloir supprimer cette commande ?" : "Etes-vous certain de vouloir supprimer cette commande ?",
+						"Commande supprimée avec succès" : "Commande supprimée avec succès",
+						"Etes-vous certain de vouloir supprimer ce destinataire ?" : "Etes-vous certain de vouloir supprimer ce destinataire ?",
+						"Etes-vous certain de vouloir ajouter ce destinataire à votre carnet d'adresse ?" : "Etes-vous certain de vouloir ajouter ce destinataire à votre carnet d'adresse ?",
+						"Etes-vous certain de vouloir supprimer tous les destinataires ?" : "Etes-vous certain de vouloir supprimer tous les destinataires ?",
+
+						"Ce destinataire a été ajouté à votre carnet d'adresse avec succès" : "Ce destinataire a été ajouté à votre carnet d'adresse avec succès",
+						"Etes-vous certain de vouloir supprimer cet article ?" : "Etes-vous certain de vouloir supprimer cet article ?",
+						"Etes-vous certain de vouloir supprimer l'ensemble de vos colis ?" : "Etes-vous certain de vouloir supprimer l'ensemble de vos colis ?",
+						"Etes-vous certain de vouloir supprimer l’ensemble de vos vignettes recommandées ?" : "Etes-vous certain de vouloir supprimer l’ensemble de vos vignettes recommandées ?",
+						"Etes-vous certain de vouloir supprimer ce brouillon ?" : "Etes-vous certain de vouloir supprimer ce brouillon ?",
+						"Etes-vous certain de vouloir supprimer tous vos brouillons ?" : "Etes-vous certain de vouloir supprimer tous vos brouillons ?",
+						"Article supprimé avec succès" : "Article supprimé avec succès",
+						"Brouillon supprimé avec succès" : "Brouillon supprimé avec succès",
+						"Continuer la consultation de la page" : "Continuer la consultation de la page",
+						"Continuer la consultation des documents téléchargés" : "Continuer la consultation des documents téléchargés",
+						"Retour vers la page profil" : "Retour vers la page profil",
+						"Continuer la gestion de mon panier" : "Continuer la gestion de mon panier",
+						"Continuer la consultation de votre commande" : "Continuer la consultation de votre commande",
+						"Destinataire supprimé avec succès" : "Destinataire supprimé avec succès",
+
+						"Continuer à gérer les destinataires" : "Continuer à gérer les destinataires",
+						"Continuer à gérer les adresses" : "Continuer la consultation de mes adresses personnelles",
+						"Continuer à gérer les contacts" : "Continuer à gérer les contacts",
+						"Continuer la consultation de la page" : "Continuer la consultation de la page",
+						"Ce destinataire a été ajouté à  votre carnet d'adresse avec succès" : "Ce destinataire a été ajouté à  votre carnet d'adresse avec succès",
+						"Continuer à  gérer les destinataires" : "Continuer à  gérer les destinataires",
+						// lel étape 3
+						"Etes-vous certain de vouloir ajouter cette adresse à  votre carnet ?" : "Etes-vous certain de vouloir ajouter cette adresse à  votre carnet ?",
+						
+						// formulaire de la page /adresses-personnelles : form id : #editAdresse
+						"editAddress.raisonSociale" : "La raison sociale est obligatoire.",
+			            "editAddress.addressName" : "Le nom de l'adresse est obligatoire.",
+			            "editAddress.titleCode" : "La civilité est obligatoire.",
+			            "editAddress.lastName.required" : "Le nom est obligatoire.",
+			            "editAddress.firstName.required" : "Le prénom est obligatoire.",
+			            "editAddress.lastName.valid" : "Le nom n'est pas conforme.",
+			            "editAddress.firstName.valid" : "Le prénom n'est pas conforme.",
+			            "editAddress.numLibelle" : "Le n° et libellé de la voie sont obligatoires.",
+			            "editAddress.numLibelle.format" : "Seuls les caractères spéciaux . % / - & sont autorisés dans le champ N° et libellé de la voie.",
+			            "editAddress.codePostal" : "Le code postal est obligatoire.",
+			            "editAddress.codePostal.number" : "Veuillez saisir un Code Postal valide.",
+			            "editAddress.codePostal.maxlength" : "Le code postal doit être composé de 5 chiffres.",
+			            "editAddress.localite" : "La localité est obligatoire.",
+			            "editAddress.countryCode" : "Le pays est obligatoire.",
+			            "editAddress.additionalInformation" :  "Pour faciliter votre livraison.",
+			            "editAddress.phone" :  "Le téléphone portable est obligatoire.",
+                        "editAddress.localite.format" : "Seuls les caractères spéciaux - et ' sont autorisés dans le champ Localité.",
+						"editAddress.batiment.format" : "Seuls les caractères spéciaux . % / - & sont autorisés dans le champ Bâtiment, résidence.",
+						"editAddress.appartement.format" : "Seuls les caractères spéciaux . % / - & sont autorisés dans le champ Appartement, escalier, étage.",
+						"editAddress.lieuDit.format" : "Seuls les caractères spéciaux . % / - & sont autorisés dans le champ Lieu-dit.",
+						"editAddress.phone.format" : "Le numéro de téléphone doit comprendre des chiffres et éventuellement le signe +.",
+
+				         // formulaire de la page /carnet-adresse : form id : #bookCoordonneesProfessionnel
+						"address.raisonSociale.required" : "La raison sociale est obligatoire",
+			            "address.addressName.required" : "Le nom de l'adresse est obligatoire",
+			            "address.titleCode.required" : "La civilité est obligatoire",
+			            "address.lastName.required" : "Le nom est obligatoire",
+			            "address.firstName.required" : "Le prénom est obligatoire",
+			            "address.lastName.valid" : "Le nom n'est pas conforme.",
+			            "address.firstName.valid" : "Le prénom n'est pas conforme.",
+			            "address.numLibelle.required" : "Le n° et libellé de la voie sont obligatoires",
+			            "address.numLibelle.format" : "Seuls les caractères spéciaux - ' sont autorisés dans le champ 'N° et libellé de la voie'",
+			            "address.codePostal.required" : "Le code postal est obligatoire",
+			            "address.codePostal.valid" : "Merci de saisir un code postal valide",
+			            "address.codePostal.maxlength" : "Le code postal doit être composé de 5 chiffres.",
+			            "address.localite.required" : "La localité est obligatoire",
+			            "address.countryCode.required" : "Le pays est obligatoire",
+						"address.concatCiviliteNomPrenom.MaxCharacter" : "Le nombre total de caractères des champs Civilité + (espace) + Prénom + (espace) + Nom ne doit pas dépasser 38 caractères",
+	
+
+			            // formulaire des pages /declaration-honneur-reex :
+			            // form id : #declarationHonneur et #declarationHonneurPro
+			            "declarationHonneur.nomDeclarant" : "Le nom du déclarant est obligatoire",
+			            "declarationHonneur.nomDeclarant.required" : "Veuillez saisir le nom du déclarant.",
+			            "declarationHonneur.nomDeclarant.maxlength" : "Le nom du déclarant ne doit pas dépasser 38 caractères.",
+			            "declarationHonneur.aTort" : "La déclaration 2 est obligatoire",
+			            "declarationHonneur.personneDecedee" : "La déclaration 2 est obligatoire",
+			            "declarationHonneur.enfantMineur" : "La déclaration 3 est obligatoire",
+			            "declarationHonneur.majeurTutelle" : "La déclaration 4 est obligatoire",
+			            "declarationHonneur.parentsDivorces" : "La déclaration 5 est obligatoire",
+			            "declarationHonneur.declarationGroup.required" : "Veuillez répondre aux 7 déclarations sur l’honneur pour accéder à l’étape suivante.",
+			            
+				        "declarationHonneurPro.titleCode" : "Civilité obligatoire",
+				        "declarationHonneurPro.firstName" : "Nom obligatoire",
+			            "declarationHonneurPro.firstName.maxlength" : "Le nom du déclarant ne doit pas comporter plus de 38 caractères.",
+			            "declarationHonneurPro.nomDeclarant.required" : "Veuillez saisir le nom et le prénom du déclarant.",
+			            "declarationHonneurPro.nomDeclarant.maxlength" : "Le nom du déclarant ne doit pas dépasser 38 caractères.",
+				        "declarationHonneurPro.lastName" : "Prénom obligatoire",
+				        "declarationHonneurPro.lastName.maxlength" : "Le prénom du déclarant ne doit pas comporter plus de 38 caractères",
+			            "declarationHonneurPro.declarationGroup.required" : "Veuillez répondre aux 2 déclarations sur l’honneur pour accéder à l’étape suivante.",
+			            
+			            // mot de passe oublié : nouveau (étape 3)
+			            "newPasswordForm.pwd.required" : "Nouveau mot de passe obligatoire.",
+			            "newPasswordForm.checkPwd.required" : "Confirmation nouveau mot de passe obligatoire.",
+			            "newPasswordForm.pwd.invalidPart" : "Le mot de passe n'est pas conforme. Il doit comprendre 8 caractères minimum, dont au moins une majuscule, une minuscule et un chiffre. Caractères spéciaux autorisés: !\"#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+			            "newPasswordForm.pwd.invalid" : "Le mot de passe n’est pas conforme. Il doit comprendre 8 caractères minimum dont au moins un chiffre et une lettre." ,
+			            "newPasswordForm.checkPwd.notEquals" : "Le mot de passe de confirmation ne correspond pas à votre mot de passe.",
+
+				        //compte prepaye
+				        "credit.valide" : "Ce caractère n’est pas autorisé. Seuls '.' et ',' sont autorisés",
+				        "credit.decimalValue.valide" : "Veuillez saisir un montant avec 2 décimales maximum",
+				        
+				        "activation.code.validation" : "Code d'activation obligatoire",
+				        
+				        //digiposte
+				        "digiposte.start.msg":"Votre demande d'archivage est lancée. Vous pourrez consulter votre document dans votre coffre  Digiposte.",
+				        	
+				        //CCU
+					    "ccu.login.ko":"Le service est momentanément indisponible.<br> Nous vous invitons à réessayer ultérieuremnt.",
+					    	
+					    //mode guest
+					    "suiviCommandeGuest.numCommande.required" : "Le numéro de commande est obligatoire.",
+					    "suiviCommandeGuest.numCommande.numerique" : "Le numéro de commande doit être composé de 9 caractères numériques.",
+					    "suiviCommandeGuest.Email.required" : "Le champs email est obligatoire.",
+					    "suiviCommandeGuest.Email.format" : "Le format de l'email est erroné.",
+					    "suiviCommandeGuest.Nom.required" : "Le nom est obligatoire.",
+					    "suiviCommandeGuest.Nom.validate" : "Le nom n'est pas conforme."
+					    
+					    
+				        
+				        	
+					}
+				});

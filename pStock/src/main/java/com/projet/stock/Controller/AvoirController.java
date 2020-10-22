@@ -23,11 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.projet.stock.exception.ResourceNotFoundException;
+import com.projet.stock.model.Article;
 import com.projet.stock.model.Avoir;
 import com.projet.stock.model.Comm;
 import com.projet.stock.model.Compteur;
 import com.projet.stock.model.Lavoir;
 import com.projet.stock.model.Lcomm;
+import com.projet.stock.repository.ArticleRepository;
 import com.projet.stock.repository.AvoirRepository;
 import com.projet.stock.repository.CompteurRepository;
 import com.projet.stock.repository.LavoirRepository;
@@ -39,6 +41,7 @@ public class AvoirController {
 	@Autowired 	AvoirRepository repository;
 	@Autowired LavoirRepository repo;
 	@Autowired CompteurRepository comptrepo;
+	@Autowired ArticleRepository artRepository;
 	@Autowired  ServletContext context;
 	 @GetMapping("/Avoirs")
 	  public List<Avoir> getAllAvoirs() {
@@ -61,6 +64,12 @@ public class AvoirController {
 			repository.save(Avoir);
 			List<Lavoir> lavoirs = Avoir.getLavoirs();
 		    for (Lavoir lc : lavoirs) {
+		    	Optional<Article> ArticleInfo = artRepository.findByCode(lc.getCode());
+		     	if (ArticleInfo.isPresent()) {
+			    	Article art = ArticleInfo.get();
+			           art.setStock((int) (art.getStock()+lc.getQte()));
+			           art =   artRepository.save(art);
+		     	}
 		        lc.setNumero(Avoir.getNumero());
 	       		repo.save(lc);
 		       }	 

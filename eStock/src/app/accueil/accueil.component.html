@@ -1,0 +1,47 @@
+
+ <ngb-carousel
+ [showNavigationArrows]="true" 
+ [showNavigationIndicators]="true"
+ interval="12000"
+ [keyboard]="true"
+
+ [activeId]="'secondSlide'"
+ >
+    <ng-template ngbSlide id="firstSlide">
+      <div class="picsum-img-wrapper">
+        <img src="assets/img/rapide1.jpg" alt="Angular Carousel 1">
+      </div>
+      <div class="carousel-caption">
+       
+					<div class="row">
+						<div class="col-xl-6 col-lg-7 text-white">
+							<span>New Packaging</span>
+							<h2>PaperBoard</h2>
+							<p>le partenariatt d'excellence pour mieux vous satisfaire</p>
+							<p>Rapide poste trusted partner</p>
+						</div>
+					</div>
+				
+			
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="secondSlide">
+      <div class="picsum-img-wrapper">
+        <img src="assets/img/ariana.jpg" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+       
+						<div class="col-xl-6 col-lg-7 text-white">
+							<div class="col-xl-6 col-lg-7 text-white">
+								<span>New Packaging</span>
+								<h2>PaperBoard</h2>
+								<p>le partenariat d'excellence pour mieux vous satisfaire</p>
+								<p>Rapide poste trusted partner</p>
+							</div>
+						</div>
+					</div>
+					
+  
+    </ng-template>
+  </ngb-carousel>
+  

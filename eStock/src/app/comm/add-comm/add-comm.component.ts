@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 import { ClientService} from '../../service/client.service';
-import { DirectionService} from '../../service/direction.service';
+
 import { CompteurService} from '../../service/compteur.service';
 import { Client} from '../../model/client';
 import { Compteur} from '../../model/compteur';
@@ -47,7 +47,7 @@ export class AddCommComponent implements OnInit {
    
 ngOnInit() {
 
-   if (this.service.choixmenu == "A"){
+   if (this.service.choixmenu == 1){
     this.InfoForm();
     this.service.list = [];
     this.Date = this.transformDate(new Date(Date.now()));
@@ -57,10 +57,7 @@ ngOnInit() {
     }
       else
     {
-    //this.service.getData(this.service.formData.value.id).subscribe(res=> {
-   // this.service.formData =this.fb.group(Object.assign({},res));
-   // });
-    this.lcommservice.getAll(this.service.formData.value.numero).subscribe(
+     this.lcommservice.getAll(this.service.formData.value.numero).subscribe(
      response =>{this.service.list = response}
      );
      this.f['date_comm'].setValue(this.service.formData.value.date_comm);
@@ -92,7 +89,7 @@ InfoForm() {
       annee : 0,
       numero : 0,
       date_comm : '',
-      code_client : 0,
+      code : 0,
       lib_client : '',
       libelle : '',
       totht : 0,
@@ -160,15 +157,16 @@ onSubmit(){
 transformDate(date){
      return this.datePipe.transform(date, 'yyyy-MM-dd');
    }
+   
 OnSelectClient(ctrl)
    {
       if(ctrl.selectedIndex == 0){
        this.f['lib_client'].setValue('');
-       this.f['code_client'].setValue('');
+       this.f['code'].setValue('');
       }
       else{
          this.f['lib_client'].setValue(this.ClientList[ctrl.selectedIndex - 1].libelle);
-         this.f['code_client'].setValue(this.ClientList[ctrl.selectedIndex - 1].code);
+         this.f['code'].setValue(this.ClientList[ctrl.selectedIndex - 1].code);
       }
     }
     

@@ -1,12 +1,14 @@
-div.scroll
+.scrollable
 {
 
 height:500PX;
 FLOAT: left;
 
 padding: 1%;
-overflow:scroll;
+overflow-y:scroll;
 }
+
+ 
 h1
 {
     font-size: 80px; 

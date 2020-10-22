@@ -1,0 +1,194 @@
+/**************************/
+/*       P A T C H        */
+/**************************/
+
+
+/* Correction couleur slide pro idt */
+.professionnel .blockHpCarousel .blockCarItem .price.pro-idt, 
+.professionnel .blockHpCarousel .addInfo.pro-idt .price .wrapPrice .lettre, 
+.professionnel .blockHpCarousel .addInfo.pro-idt .price .partirde {
+	color: #005f73;	
+}
+.professionnel .blockHpCarousel .btn-action-major.pro-idt span {background: url("/_ui/eboutique/images/btn_slide_pro_idtimbre_right.png") repeat-y right -5px}
+.professionnel .blockHpCarousel .btn-action-major.pro-idt  {background: url("/_ui/eboutique/images/btn_slide_pro_idtimbre_left.png") repeat-y 0 0}
+
+
+/* BANNER PROMO PRO ENVOIS-COURANTS */
+/* Correction positionnement banner pro idt */
+.banner-vertical-promo.id-timbre {
+	background:url("../images/banners/push-b-PRO_IDT_img.png") no-repeat scroll -3px -9px;
+}
+
+/* Correction positionnement prix banner pro idt */
+div.id-timbre > .product-price > span.price-from {
+	position:relative;
+	float:left;
+	font-size:12px;
+	color:#655c53;
+}
+div.id-timbre > .product-price > span.price-from + span.price-value {
+	clear:left;
+}
+div.id-timbre > .product-price > div.clear + span {
+	position:relative;
+	top:-5px;
+}
+.banner-vertical-promo .action-button.id-timbre {
+	bottom:70px;
+}
+.blockMigration .boxMiddle #formCree .blockButton.blockButtonWidth {
+	padding-top:24px;
+}
+
+
+/*  CSS - BLOC TUTO  */
+/* Note : Convertir les PX en EM */
+div#bloc-tuto {	position:relative; width:828px; height:267px; padding-left:30px; margin:20px 0;}
+div#bloc-tuto.bloc-tuto-pro {background:url("/_ui/eboutique/images/bandeaux/tuto-bloc-bg-pro.png") no-repeat scroll 0 0}
+div#bloc-tuto.authContentPro {background:url("/_ui/eboutique/images/bandeaux/tuto-bloc-bg-pro.png") no-repeat scroll 0 0/ 849px 321px; height: 323px}
+div#bloc-tuto.bloc-tuto-part {background:url("/_ui/eboutique/images/bandeaux/tuto-bloc-bg-part.png") no-repeat scroll 0 0}
+div#bloc-tuto.authContentPart {background:url("/_ui/eboutique/images/bandeaux/tuto-bloc-bg-part.png") no-repeat scroll 0 0/854px 289px; height: 290px}
+div#bloc-tuto a {font-weight:bold; font-size:19px; font-family:arial, sans-serif; text-decoration:none; color:#363636}
+div#bloc-tuto a div{display:block; display:inline-block; float:left}
+div#bloc-tuto a span{width:21px; height:21px; margin-left:10px; display:block; display:inline-block; float:left; margin-top:-3px}
+div#bloc-tuto a.authContent span {width:30px; height:25px;}
+div#bloc-tuto a.authContent span {float:none;}
+div#bloc-tuto.bloc-tuto-part a.authContent span.bloc-tuto-bullet {background-position: 1px 4px;position: absolute;}
+div#bloc-tuto.bloc-tuto-pro a.authContent span.bloc-tuto-bullet {background-position: 1px 4px;position: absolute;}
+div#bloc-tuto.bloc-tuto-pro  a span.bloc-tuto-bullet{background:url("/_ui/eboutique/images/bandeaux/tuto-bloc-pro-trigger.png") no-repeat scroll 0 0}
+div#bloc-tuto.bloc-tuto-part a span.bloc-tuto-bullet{background:url("/_ui/eboutique/images/bandeaux/tuto-bloc-part-trigger.png") no-repeat scroll 0 0}
+
+div#bloc-tuto h1 { font-size:46px; font-family: "DINLightRegular",Arial,Helvetica,sans-serif; color:#575757; margin-bottom:15px; padding-top:25px; margin-left:-3px; line-height: 46px}
+div#bloc-tuto h1 span{ font-family:'JPHandStraight',Arial,Helvetica,sans-serif; font-size:24px }
+div#bloc-tuto p { font-family:arial, sans-serif; font-size:15px; margin-bottom:20px; padding-right:410px; line-height:22px}
+div#bloc-tuto.bloc-tuto-pro  p strong{color:#7a477e}
+div#bloc-tuto.bloc-tuto-part p strong{color:#e7a900}
+div#bloc-tuto p strong{font-weight:bold}
+div#bloc-tuto p.bloc-tuto-titre {top:100px}
+
+/* positionnement des vignettes des hp */
+.particulier .that_you_want li.order_stamps {background-position: 20px -3px;}
+.particulier .that_you_want li.send_letter {background-position: -180px 0;}
+.particulier .that_you_want li.parcel {background-position: -600px 0;}
+.particulier .that_you_want li.send_word {background-position: -800px -3px;}
+
+.collectionneur .that_you_want li.order_stamps_colec {background-position: 45px -8px;}
+.collectionneur .that_you_want li.order_pocketbooks {background-position: -250px -8px;}
+.collectionneur .that_you_want li.send_books {background-position: -470px -8px;}
+.collectionneur .that_you_want li.send_albuns {background-position: -680px -8px;}
+
+.professionnel .that_you_want li.order_stamps {background-position: 20px -3px;}
+.professionnel .that_you_want li.send_letter {background-position: -196px -8px;}
+.professionnel .that_you_want li.send_recommanded {background-position: -395px -3px}
+.professionnel .that_you_want li.parcel {background-position: -614px -6px;}
+.professionnel .that_you_want li.send_word {background-position: -769px -8px;}
+
+li span.jours-ouvres {display: block;font-size: 12px;padding-left: 25px;}
+
+/* Correction superposition menu on selector dans les pages de recherches */
+.content .resultTriOrder {z-index:1;}
+
+/* Correction largeur bloc contenant push produits */
+.home .product-push .product-group {width: 662px;}
+
+.collectionneur .push3cols .item .title, .push3cols .item .title {z-index:1;}
+.push3cols .item.pushPresentation .desc {width: 170px;}
+.particulier .push3cols .item.pushPresentation {border-right: 1px solid #b2b2b2;}
+
+/* Ajout de 1px pour éviter un retour à la ligne dans un push */
+.particulier .push3cols .item .desc {width:167px;}
+
+.collectionneur .home .push3cols .outerImage {left: 226px;top: 15px;}
+.collectionneur .home .push3cols .pushPostal .circleArrow span {background-position: 0 -25px;}
+.collectionneur .push3cols .pushPostal .title {color: #0c89b8;}
+.collectionneur .home .push3cols .pushPostal .circleArrow span, 
+.professionnel .home .push3cols .pushPostal .circleArrow span {background-image: url("../images/bg/push_home/bg_btn.png")}
+.particulier .home .pushPresentation .circleArrow span {background: url("../images/bg/push_home/btn-orange-push.png") no-repeat scroll 0 0;}
+.collectionneur .home .push3cols .pushPostal .imgPush {left:175px;top:0;}
+
+
+.home .product-push {width: 920px;}
+.home .product-push-bottom-wrap {width: 640px;}
+.product-push .product-slot, .t-catalogue .product-push .product-slot {min-height:330px;}
+.product-buy {min-height:90px;}
+
+
+/*  Positionnement image pushs personnalisation  */
+div.collectionneur .home .push3cols .pushTimbre .outerImage {left:185px}
+div.particulier .home .push3cols .pushTimbre .outerImage {left:185px}
+
+/*  Correction bloc "Courrier Suivi" sur Homepage PRO et PART */
+#courrierDataHome .error {margin-bottom:5px;margin-top:-5px}
+
+/*  Recaler les boutons des blocs services mon timbre en ligne  */
+.push3cols.eservice > .item > .buttons {bottom:10px}
+
+.transverse .step-list .step2 span {padding: 18px 0 0;}
+
+
+/* CGU */
+.cgvDownload {float:right}
+ul.cg-list   {padding-bottom: 20px;
+    			padding-left: 40px}
+
+ul.cg-list u, 
+ol.cg-list u, 
+ul.cg-list strong, 
+ol.cg-list strong{font-size:12px;font-weight:bold}
+ul.cg-list li, ol.cg-list li {
+	font-size: 12px; 
+	line-height: 2em; 
+	padding: 0 50px 10px 10px; 
+	list-style-type: disc !important;
+    padding-left: 10px;
+}
+
+
+/* -------------------- */
+/*  M A J  P I C T O S  */
+/* -------------------- */
+div  #nav-main .product_all .product .list-send h4 span {
+	padding-top:15px;
+	padding-left:70px;
+}
+
+/* PART */
+div #nav-main .product_all .list-service .item_5 a.pict-pinceau, 
+div #nav-main .product_all .list-service .item_5 a.pict-pinceau:hover {
+	 background-position: 4px -330px;
+}
+
+/* COL */
+	/* produits phil*/
+html body.collectionneur #nav-main .product_all .list-produitsPhilatelique h4 span {
+	background: url("../images/nav/bg_send2.png") no-repeat scroll 0 0 !important;
+    padding: 28px 0 5px 54px !important;
+}
+	/* livres */
+html body.collectionneur #nav-main .product_all .list-livresAccessoires h4 span {
+	background: url("../images/nav/bg_reex3.png") no-repeat scroll 0 12px !important;	
+	padding: 28px 0 5px 59px !important;
+}
+	/* beaux timbres */
+html body.collectionneur #nav-main .product_all .list-beauxTimbres h4 span {
+	background: url("../images/nav/bg_beaux_timbres_col.png") no-repeat scroll 0 12px !important;
+    padding: 28px 0 5px 55px !important;
+}
+	/* collections */
+html body.collectionneur #nav-main .product_all .list-collections h4 span {
+	background: url("../images/nav/bg_collectors_col.png") no-repeat scroll 0 12px !important;
+    padding: 28px 0 5px 60px !important;
+}
+
+/* PRO */
+div #nav-main .product_all .product .list-reex h4 span.pict-preaf {
+	background:url("../images/nav/bg_item_submenu2.png") no-repeat scroll;
+	background-position: 4px -395px;
+	height:20px;
+	padding-top:20px;
+}
+
+html .dlbi-container #header.professionnels .header-section {
+    padding-left: 10px;
+    padding-right: 0px;
+}

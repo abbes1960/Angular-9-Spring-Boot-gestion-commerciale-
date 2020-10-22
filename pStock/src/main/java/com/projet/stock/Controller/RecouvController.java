@@ -36,9 +36,8 @@ import com.projet.stock.repository.RecouvRepository;
 @RestController
 @RequestMapping("/api")
 public class RecouvController {
-	@Autowired
-	RecouvRepository repository;
-	LrecouvRepository repo;
+	@Autowired 	RecouvRepository repository;
+	@Autowired LrecouvRepository repo;
 	@Autowired CompteurRepository comptrepo;
 	@Autowired  ServletContext context;
 	 @GetMapping("/Recouvs")

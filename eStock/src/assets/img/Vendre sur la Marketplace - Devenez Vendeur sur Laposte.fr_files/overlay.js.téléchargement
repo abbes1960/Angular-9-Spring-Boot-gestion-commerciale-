@@ -1,0 +1,655 @@
+// type = 0 mobile, 1 tablet, 2 PC
+
+var MetrixLab_OverlayTypeName = 2;
+
+var MODETECT = MODETECT || {};
+
+MODETECT.device = (function() {
+  'use strict';
+
+  var device = {};
+
+  device.phone = false;
+  device.tablet = false;
+  //iPhone
+  device.iphone = (testNavigator(/iPhone/i, 'platform')) ? true : false;
+  if(device.iphone) { device.phone = true; }
+  //iPad
+  device.ipad = (testNavigator(/iPad/i, 'platform')) ? true : false;
+  if(device.ipad) { device.tablet = true; }
+  //iPod
+  device.ipod = (testNavigator(/iPod/i, 'platform')) ? true : false;
+  if(device.ipod) { device.phone = true; }
+  //Android device
+  device.android = testNavigator(/Android/i, 'userAgent');
+  if(device.android) {
+    //Android v3 built as tablet-only version of the OS
+    //Can definitively say it's a tablet at this point
+    if(testVersion(/Android\s(\d+\.\d+)/i, 3, 'match') ) {
+		if((testNavigator(/tablet/i, 'userAgent')) || (testNavigator(/Tablet/i, 'userAgent')))
+		{
+			device.tablet = true;
+			device.tablet = true;
+		}
+		else
+		{
+			device.phone = true;
+		}
+    }
+    //Checking for "mobile" in userAgent string for Mobile Safari.
+    //Also checking resolution here (max portrait of 800), simply because so
+    //many Android tablets that are popular use Android v2.x or now v4.x
+    else if(testResolution(800) && testNavigator(/Mobile/i, 'userAgent')) {
+		if((testNavigator(/tablet/i, 'userAgent')) || (testNavigator(/Tablet/i, 'userAgent')))
+		{
+			device.tablet = true;
+		}
+		else 
+		{
+			device.phone = true;
+		}
+    }
+    //Default phone vs. tablet value? Defaulting to phone for now until I can think
+    //of a better alternative approach to narrow down better.
+    else {
+      device.phone = true;
+    }
+  }
+  //Blackberry Phone with WebKit
+  device.blackberry = (testNavigator(/Blackberry/i, 'userAgent') && testNavigator(/Mobile/i, 'userAgent')) ? true : false;
+  if(device.blackberry) { device.phone = true; }
+  //Blackberry Playbook
+  device.blackberryplaybook = testNavigator(/RIM\sTablet/i, 'userAgent');
+  if(device.blackberryplaybook) { device.tablet = true; }
+  //Windows Phone
+  device.windowsphone = testNavigator(/Windows\sPhone/i, 'userAgent');
+  if(device.windowsphone) { device.phone = true; }
+  //Kindle Fire
+  device.kindlefire = testNavigator(/Silk/i, 'userAgent');
+  if(device.kindlefire) { device.tablet = true; }
+  //other mobile
+  device.othermobile = (device.phone || device.tablet || device.ipod) ? false : testResolution(320);
+  if(device.othermobile) { device.phone = true; }
+  //desktop user?
+  device.desktop = (device.phone || device.tablet || device.ipod) ? false : true;
+
+  //Test window.navigator object for a match
+  //return - Boolean
+  function testNavigator(pattern, property) {
+    return pattern.test(window.navigator[property]);
+  }
+  
+  
+  //Test window.navigator object for a match
+  //return - Boolean
+  function testNavigator(pattern, property) {
+    return pattern.test(window.navigator[property]);
+  }
+
+  //Test if maximum portrait width set in platform is less than the current screen width
+  //return - Boolean
+  function testResolution(maxPortraitWidth) {
+    var portraitWidth = Math.min(screen.width, screen.height) / ("devicePixelRatio" in window ? window.devicePixelRatio : 1);
+    if(portraitWidth <= maxPortraitWidth) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  //Test OS Version
+  //param - pattern - Regex pattern
+  //param - version - Integer - Major version to compare against
+  //param - versionComparison - String - How version matching is done "match", "greaterThan", "lessThan"
+  //return - Boolean
+  function testVersion(pattern, version, versionComparison) {
+    var fullVersion = pattern.exec(window.navigator.userAgent),
+        majorVersion = parseInt(fullVersion[1], 10);
+        
+    if(versionComparison === "match" && majorVersion === version ) {
+      return true;
+    }
+    else if(versionComparison === "greaterThan" && majorVersion > version) {
+      return true;
+    }
+    else if(versionComparison === "lessThan" && majorVersion < version) {
+      return true;
+    }
+	else if(screen.width==1024 || screen.width==1280 || screen.width==640){
+			return true;
+	}
+    else { 
+      return false;
+    }
+  }
+  
+  return device;
+
+}());
+
+if (MODETECT.device.desktop)
+{
+	MetrixLab_OverlayTypeName = 2;
+}
+else if (MODETECT.device.tablet)
+{
+	MetrixLab_OverlayTypeName = 1;	
+}
+else if (MODETECT.device.phone)
+{
+	MetrixLab_OverlayTypeName = 0;
+}
+
+//if true the MetrixLab_CookieFolderName name should be the same in all projects
+var	MetrixLab_ForceData=''; 
+var	MetrixLab_CookieName= "MetrixLab"+MetrixLab_PopupFolderName;
+var	MetrixLab_UserID='';  
+var	MetrixLab_Protocol= document.location.protocol;
+var	MetrixLab_Url= document.location.href; 
+var MetrixLabGLOB_cookie;  
+var MetrixLabGLOB_Try_count = 20;
+var MetrixLab_Protocol = document.location.protocol;
+var MetrixLab_Referrer =document.referrer;
+var MetrixLab_InviteURl = document.location.href;
+var MetrixLab_Display_After=0;
+var MetrixLab_Display_OnPage=0;
+var MetrixLab_Display_WithInPage=0;
+var MetrixLab_cookie_help="MetrixLab_help";
+var MetrixLab_DarkLayer=false;
+var MetrixLab_Overlay_Delay=false;
+
+// type = 0 mobile, 1 tablet, 2 PC
+switch(MetrixLab_OverlayTypeName)
+{
+	case 0: //Mobile
+		MetrixLab_Intercept = MetrixLab_Mobile_Intercept;
+		MetrixLab_OverlayType = MetrixLab_Mobile_OverlayType;
+		MetrixLab_PopupFolderName = MetrixLab_PopupFolderName;
+		MetrixLab_ProjectNumber = MetrixLab_mProjectNumber;
+		MetrixLab_CookieFolderName = MetrixLab_PopupFolderName;
+		MetrixLab_OverlayImg = MetrixLab_mOverlayImg;
+		MetrixLab_OverlayWidth = MetrixLab_mOverlayWidth;
+		MetrixLab_OverlayHeight = MetrixLab_mOverlayHeight;
+		MetrixLab_Coordinate_YesButton = MetrixLab_Coordinate_mYesButton;
+		MetrixLab_Coordinate_NoButton = MetrixLab_Coordinate_mNoButton;
+		MetrixLab_Coordinate_CloseButton = MetrixLab_Coordinate_mCloseButton;
+		MetrixLab_Coordinate_PrivacyButton = MetrixLab_Coordinate_mPrivacyButton;
+		MetrixLab_Coordinate_MetrixButton = MetrixLab_Coordinate_mMetrixButton;
+		//MetrixLab_Ch = 'mobile';
+		if(Metrixlab_Advanced_Mobile){ //Advanced Settings
+			if(Metrixlab_Mobile_Seconds!=0) MetrixLab_Display_After=Metrixlab_Mobile_Seconds;
+			if(Metrixlab_Mobile_OnPage!=0)  MetrixLab_Display_OnPage=Metrixlab_Mobile_OnPage;
+			if(Metrixlab_Mobile_WithInPage!=0)  MetrixLab_Display_WithInPage=Metrixlab_Mobile_WithInPage;
+			if(Metrixlab_Mobile_Referrer_ID!="0")   MetrixLab_ForceData=MetrixLab_ForceData+';'+Metrixlab_Mobile_Referrer_ID+","+MetrixLab_Referrer;
+			if(Metrixlab_Mobile_InviteURL_ID!="0")   MetrixLab_ForceData=MetrixLab_ForceData+';'+Metrixlab_Mobile_InviteURL_ID+","+MetrixLab_InviteURl;
+			MetrixLab_DarkLayer = MetrixLab_Mobile_DarkLayer; 
+		}
+	break;
+	
+	case 1: //Tablet
+		MetrixLab_Intercept = MetrixLab_Tablet_Intercept; 
+		MetrixLab_OverlayType = MetrixLab_Tablet_OverlayType;
+		MetrixLab_PopupFolderName = MetrixLab_PopupFolderName;
+		MetrixLab_ProjectNumber = MetrixLab_tProjectNumber;
+		MetrixLab_CookieFolderName = MetrixLab_PopupFolderName;
+		MetrixLab_OverlayImg = MetrixLab_tOverlayImg;
+		MetrixLab_OverlayWidth = MetrixLab_tOverlayWidth;
+		MetrixLab_OverlayHeight = MetrixLab_tOverlayHeight;
+		MetrixLab_Coordinate_YesButton = MetrixLab_Coordinate_tYesButton;
+		MetrixLab_Coordinate_NoButton = MetrixLab_Coordinate_tNoButton;
+		MetrixLab_Coordinate_CloseButton = MetrixLab_Coordinate_tCloseButton;
+		MetrixLab_Coordinate_PrivacyButton = MetrixLab_Coordinate_tPrivacyButton;
+		MetrixLab_Coordinate_MetrixButton = MetrixLab_Coordinate_tMetrixButton;
+		if(Metrixlab_Advanced_Tablet){ //Advanced Settings
+			if(Metrixlab_Tablet_Seconds!=0) MetrixLab_Display_After=Metrixlab_Tablet_Seconds;
+			if(Metrixlab_Tablet_OnPage!=0)  MetrixLab_Display_OnPage=Metrixlab_Tablet_OnPage;
+			if(Metrixlab_Tablet_WithInPage!=0)  MetrixLab_Display_WithInPage=Metrixlab_Tablet_WithInPage;
+			if(Metrixlab_Tablet_Referrer_ID!="0")   MetrixLab_ForceData=MetrixLab_ForceData+';'+Metrixlab_Tablet_Referrer_ID+","+MetrixLab_Referrer;
+			if(Metrixlab_Tablet_InviteURL_ID!="0")   MetrixLab_ForceData=MetrixLab_ForceData+';'+Metrixlab_Tablet_InviteURL_ID+","+MetrixLab_InviteURl;
+			MetrixLab_DarkLayer = MetrixLab_Tablet_DarkLayer;
+		}
+		//MetrixLab_Ch = 'tablette';
+	break;
+	
+	case 2: //Desktop
+		MetrixLab_Intercept = MetrixLab_Desktop_Intercept;
+		MetrixLab_OverlayType = MetrixLab_Desktop_OverlayType;
+		MetrixLab_PopupFolderName = MetrixLab_PopupFolderName;
+		MetrixLab_ProjectNumber = MetrixLab_dProjectNumber;
+		MetrixLab_CookieFolderName = MetrixLab_PopupFolderName;
+		MetrixLab_OverlayImg = MetrixLab_dOverlayImg;
+		MetrixLab_OverlayWidth = MetrixLab_dOverlayWidth;
+		MetrixLab_OverlayHeight = MetrixLab_dOverlayHeight;
+		MetrixLab_Coordinate_YesButton = MetrixLab_Coordinate_dYesButton;
+		MetrixLab_Coordinate_NoButton = MetrixLab_Coordinate_dNoButton;
+		MetrixLab_Coordinate_CloseButton = MetrixLab_Coordinate_dCloseButton;
+		MetrixLab_Coordinate_PrivacyButton = MetrixLab_Coordinate_dPrivacyButton;
+		MetrixLab_Coordinate_MetrixButton = MetrixLab_Coordinate_dMetrixButton;
+		if(Metrixlab_Advanced_Desktop){ //Advanced Settings
+			if(Metrixlab_Desktop_Seconds!=0) MetrixLab_Display_After=Metrixlab_Desktop_Seconds;
+			if(Metrixlab_Desktop_OnPage!=0)  MetrixLab_Display_OnPage=Metrixlab_Desktop_OnPage;
+			if(Metrixlab_Desktop_WithInPage!=0)  MetrixLab_Display_WithInPage=Metrixlab_Desktop_WithInPage;
+			if(Metrixlab_Desktop_Referrer_ID!="0")   MetrixLab_ForceData=MetrixLab_ForceData+';'+Metrixlab_Desktop_Referrer_ID+","+MetrixLab_Referrer;
+			if(Metrixlab_Desktop_InviteURL_ID!="0")   MetrixLab_ForceData=MetrixLab_ForceData+';'+Metrixlab_Desktop_InviteURL_ID+","+MetrixLab_InviteURl;
+			MetrixLab_DarkLayer = MetrixLab_Desktop_DarkLayer; 
+			
+		}
+		
+		//MetrixLab_Ch = 'pc'; 
+	break;
+	
+}
+if(MetrixLab_Display_After!=0){
+	MetrixLab_Overlay_Delay=true;	
+	if(document.cookie.indexOf(MetrixLab_cookie_help)==-1){
+		var MetrixLab_expires = new Date();
+		MetrixLab_expires.setTime(MetrixLab_expires.getTime() + (MetrixLab_Display_After*1000));
+		document.cookie = MetrixLab_cookie_help+"=1; expires=" + MetrixLab_expires.toGMTString() + "; path=/;";
+	}
+}
+else if(MetrixLab_Display_OnPage!=0){
+	MetrixLab_Overlay_Delay=true;	
+	MetrixLab_CheckPageCountCookie(MetrixLab_Display_OnPage);
+}
+else {
+	if(MetrixLab_Display_WithInPage!=0)	 {
+		MetrixLab_CheckPageCountCookie(MetrixLab_Display_WithInPage);
+		MetrixLab_Overlay_Delay=true;	 
+	}	
+}
+
+if(window.location.href.indexOf("//boutique.laposte.fr/mon-timbre-en-ligne/personalisation?action=reprise") > -1 || window.location.href.indexOf("//boutique.laposte.fr/colissimo-pass/pos/") > -1 || window.location.href.indexOf("//www.laposte.fr/mon-timbre-en-ligne/personalisation?action=reprise") > -1 || window.location.href.indexOf("//www.laposte.fr/colissimo-pass/pos") > -1 || window.location.href.indexOf("lpfr.recette.laposte.fr") > -1 || window.location.href.indexOf("//dpart7.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart7.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//dpart2.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart1.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart1.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//dpart5.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart5.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//dpart6.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart6.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//dpart10.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart10.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//dpart11.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart11.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//dpart12.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart12.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//dpart13.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//dpart13.boutique.dcos.buildbnum.fr/professionnel") > -1 || window.location.href.indexOf("//preprod.laposte.fr") > -1 || window.location.href.indexOf("//perf.laposte.fr") > -1 || window.location.href.indexOf("//dpart3.boutique.dcos.buildbnum.fr") > -1 || window.location.href.indexOf("//www.csuivi.courrier.laposte.fr/suivi") > -1  || window.location.href.indexOf("//recette.laposte.fr/outils/suivre-vos-envois") > -1  || window.location.href.indexOf("https://recette.laposte.fr") > -1 || window.location.href.indexOf("https://www.laposte.fr/particulier/outils/trouver-un-bureau-de-poste") > -1 || window.location.href.indexOf("https://www.laposte.fr/professionnel/outils/trouver-un-bureau-de-poste") > -1 ) 	{
+	
+	MetrixLab_Intercept = 0;
+	
+}
+else if(window.location.href.indexOf("https://www.laposte.fr/professionnel") > -1 ){
+	MetrixLab_Intercept = 3 //0; //0;//10;
+}
+else if(window.location.href.indexOf("www.laposte.fr") > -1 ){
+	MetrixLab_Intercept = 10 // 0; //0;//10;
+}
+
+
+function MetrixLab_CheckPageCountCookie(PageLimit){
+	if(document.cookie.indexOf(MetrixLab_cookie_help)==-1){
+		MetrixLab_SetFrequencyCookie(1);
+	}
+	else{
+		var pageCount= parseInt(MetrixLab_GetCookieValue(MetrixLab_cookie_help))+1;
+		if(pageCount<=(PageLimit+1))
+			MetrixLab_SetFrequencyCookie(pageCount);
+	}	
+}
+
+function MetrixLab_GetCookieValue(CookieName)
+{
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	for (i=0;i<ARRcookies.length;i++)
+	{
+		x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+		y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+		x=x.replace(/^\s+|\s+$/g,"");
+		if (x==CookieName)
+		{
+			return unescape(y);
+		}
+	}
+	return 0;
+}
+
+function MetrixLab_SetFrequencyCookie(MetrixLab_value)
+{
+    var MetrixLab_expires = new Date();
+	MetrixLab_expires.setTime(MetrixLab_expires.getTime() + (30*24*60*60*1000));
+	document.cookie = MetrixLab_cookie_help+"="+MetrixLab_value+"; expires=" + MetrixLab_expires.toGMTString() + "; path=/;";
+}
+
+function MetrixLab_SetUserID()
+{
+	var Today = new Date();
+	MetrixLab_UserID=''+Today.getFullYear()+'_'+(Today.getMonth()+1)+'_'+Today.getDate()+'_'+Today.getHours()+'_'+Today.getMinutes()+'_'+Today.getSeconds()+'_'+Today.getMilliseconds();	
+}
+
+function MetrixLab_isCookieEnabled()
+{
+    var cookieEnabled=(navigator.cookieEnabled)? true : false;
+    
+    if (typeof navigator.cookieEnabled=="undefined" && !cookieEnabled)
+    { 
+	    document.cookie="MetrixLabTestCookie";
+	    cookieEnabled=(document.cookie.indexOf("MetrixLabTestCookie")!=-1)? true : false;
+    }    
+    return cookieEnabled;      	
+}
+
+function MetrixLab_GetRandomNumber(MetrixLab_minValue,MetrixLab_maxValue)
+{
+    var MetrixLab_result = 0;
+
+    if (MetrixLab_minValue<=MetrixLab_maxValue)
+    {
+	    MetrixLab_result=Math.round((Math.random()*(MetrixLab_maxValue-MetrixLab_minValue+1))+MetrixLab_minValue-0.5);
+	}	
+	return MetrixLab_result;
+}
+
+
+function MetrixLab_SetCookie()
+{
+    var MetrixLab_expires = new Date();
+	MetrixLab_expires.setTime(MetrixLab_expires.getTime() + (MetrixLab_CookieLifeTime*24*60*60*1000)); 
+	document.cookie = MetrixLab_CookieName+"=1; expires=" + MetrixLab_expires.toGMTString() + "; path=/;";
+
+	if (MetrixLab_GLOB_CookieSetup)
+	{	
+		MetrixLab_GLOB_setCookie(); 
+	}
+}
+
+
+function MetrixLab_ShowOverlay()
+{
+	MetrixLab_SetUserID();
+    MetrixLab_LoadOverlay(); 
+    if (MetrixLab_AutoCloseInterval>0)
+    {
+            setTimeout("MetrixLab_CloseBanner();",MetrixLab_AutoCloseInterval*1000);
+    }
+}
+
+
+function MetrixLab_GLOB_setCookie()
+{
+	var MetrixLabGLOB_Time = new Date();
+	var MetrixLabGLOB_Script = document.createElement('script');
+	MetrixLabGLOB_Script.src=MetrixLab_Protocol+'//invitation.opinionbar.com/wit/popups/'+MetrixLab_PopupFolderName+'/cookie.asp?s='+MetrixLab_CookieName+'_GLOB&m=set&t='+MetrixLabGLOB_Time.getTime();
+	MetrixLabGLOB_Script.type='text/javascript'; 
+	var MetrixLabGLOB_Body = document.getElementsByTagName('body').item(0);
+	MetrixLabGLOB_Body.appendChild(MetrixLabGLOB_Script); 
+}
+
+
+
+function MetrixLab_GLOB_getCookie()
+{
+	var MetrixLabGLOB_Time = new Date();
+	var MetrixLabGLOB_Script = document.createElement('script');
+	MetrixLabGLOB_Script.src=MetrixLab_Protocol+'//invitation.opinionbar.com/wit/popups/'+MetrixLab_PopupFolderName+'/cookie.asp?s='+MetrixLab_CookieName+'_GLOB&m=get&t='+MetrixLabGLOB_Time.getTime(); 
+	MetrixLabGLOB_Script.type='text/javascript';
+	var MetrixLabGLOB_Body = document.getElementsByTagName('body').item(0);
+	MetrixLabGLOB_Body.appendChild(MetrixLabGLOB_Script); 
+}
+
+
+function MetrixLabGLOB_checkCookie()
+{                
+    if (typeof MetrixLabGLOB_cookie != "undefined")
+    {     
+		if (MetrixLabGLOB_cookie==false)     
+		{                         
+			//cookie not set
+			MetrixLab_ShowOverlay();
+		}
+		else
+		{
+			//cookie set
+		}
+		
+    }
+	else
+	{ 
+		MetrixLabGLOB_Try_count--;
+		if (MetrixLabGLOB_Try_count>0)
+		{
+			setTimeout('MetrixLabGLOB_checkCookie();',500);
+		}
+	}
+}
+
+function MetrixLab_CheckCookie()
+{
+	if (document.cookie.indexOf(MetrixLab_CookieName)==-1)
+	{
+		if (MetrixLab_GLOB_CookieSetup)
+		{
+			MetrixLab_GLOB_getCookie();
+			MetrixLabGLOB_checkCookie();
+		}
+		else
+			MetrixLab_ShowOverlay();
+	}
+	 
+}
+
+function MetrixLab_check_helpcookie(){
+	if(document.cookie.indexOf(MetrixLab_cookie_help)==-1 && document.cookie.indexOf(MetrixLab_CookieName)==-1)
+			MetrixLab_CheckCookie(); 
+	else{
+		setTimeout('MetrixLab_check_helpcookie();',MetrixLab_Display_After*1000); 
+	} 	
+} 
+function MetrixLab_PageAllowed(){
+	if(MetrixLab_Display_After!=0) 
+		MetrixLab_check_helpcookie();   
+	else if(MetrixLab_Display_OnPage!=0){
+		var MetrixLab_pageCount = parseInt(MetrixLab_GetCookieValue(MetrixLab_cookie_help));
+		if(MetrixLab_pageCount==MetrixLab_Display_OnPage) 	MetrixLab_CheckCookie(); 
+	}
+	else{
+		if(MetrixLab_Display_WithInPage!=0){
+			var MetrixLab_pageCount = parseInt(MetrixLab_GetCookieValue(MetrixLab_cookie_help));
+			if(MetrixLab_pageCount<=MetrixLab_Display_WithInPage) 	MetrixLab_CheckCookie();  
+		} 
+	}	
+}
+
+function MetrixLab_CheckIntercept()
+{
+	var MetrixLab_RandomNumber = MetrixLab_GetRandomNumber(1,MetrixLab_Intercept);
+	console.log(MetrixLab_RandomNumber);
+	if (MetrixLab_RandomNumber==1)
+	{
+		console.log("SOly");
+		if(!MetrixLab_Overlay_Delay)  	MetrixLab_CheckCookie();
+		else 	MetrixLab_PageAllowed(); 
+	}	 
+}
+
+function MetrixLab_GoToPrivacy()
+{
+	if(Metrixlab_PrivacyLink!='nolink')
+	{
+		//console.log(Metrixlab_PrivacyLink);
+		PopupPrivacy = window.open(Metrixlab_PrivacyLink,'PopupPrivacy','resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,width=750,height=450');	
+	}
+	else{
+		PopupPrivacy = window.open(MetrixLab_Protocol+'://www.opinionbar.com/'+MetrixLab_PrivacyLanguage+'/privacy.asp','PopupPrivacy','resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,width=750,height=450');	
+	}
+	
+}
+
+function MetrixLab_GoToMetrixLab()
+{
+	PopupPrivacy = window.open(MetrixLab_Protocol+'://www.MetrixLab.com/','PopupPrivacy','resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,width=750,height=450');
+}
+
+function MetrixLab_GoToWebSurvey()
+{
+    if(MetrixLab_DarkLayer) {
+		try{
+			var the_darkbox_layer = document.getElementById('metrixlab_darkbox');
+			the_darkbox_layer.style.display='none'; 
+		} 
+		catch(error){} 
+	}
+	
+	
+	switch(MetrixLab_OverlayType)
+    {
+        case 'entry':
+            MetrixLab_GoToWebSurveyEntry();
+        break;
+        case 'exit':
+            MetrixLab_GoToWebSurveyExit();
+        break;
+        case 'entryexit':
+            MetrixLab_GoToWebSurveyEntryExit();
+        break;
+    }
+}
+
+function MetrixLab_GoToWebSurveyEntry()
+{       
+	if (MetrixLab_ForceData=='')     
+    {					
+        PopupWebSurvey = window.open(MetrixLab_Protocol+'://websurvey2.opinionbar.com/go.asp?s='+MetrixLab_ProjectNumber+'&c=overlay&t=4','PopupWebSurvey','resizable=yes,scrollbars=yes,toolbar=no,menubar=no,width=850,height=450');					
+    }
+    else
+    {
+        PopupWebSurvey = window.open(MetrixLab_Protocol+'://websurvey2.opinionbar.com/go.asp?s='+MetrixLab_ProjectNumber+'&c=overlay&t=4&f='+MetrixLab_ForceData+'','PopupWebSurvey','resizable=yes,scrollbars=yes,toolbar=no,menubar=no,width=850,height=450');
+    }				
+
+    MetrixLab_CloseBanner(); 
+}
+
+function MetrixLab_GoToWebSurveyExit()
+{
+   MetrixLab_SetCookie();
+   MetrixLab_ShowPopupEntryExit();
+   MetrixLab_CloseBanner();
+}
+
+function GoTowebSurveyEntryExit()
+{
+   MetrixLab_SetCookie();
+   MetrixLab_ShowPopupEntryExit();
+   MetrixLab_CloseBanner();
+}
+
+function MetrixLab_CloseBanner()
+{
+    var MetrixLab_Div=document.getElementById('MetrixLab_Div');
+    if (MetrixLab_Div)
+    {
+        MetrixLab_Div.parentNode.removeChild(MetrixLab_Div);
+    }
+	
+	if(MetrixLab_DarkLayer) {
+		try{
+			var the_darkbox_layer = document.getElementById('metrixlab_darkbox');
+			the_darkbox_layer.style.display='none'; 
+		}
+		catch(error){}
+	}		
+}
+
+function MetrixLab_ShowPopupEntryExit()
+{
+	
+	
+	MetrixLab_PopupAttributes="resizable=yes,scrollbars=yes,toolbar=no,menubar=no,width="+(Metrixlab_project_exit_image_width+50)+",height="+(Metrixlab_project_exit_image_height+50)+""; 
+	
+	MetrixLab_PopupWin=open('inv.htm', 'new_window', MetrixLab_PopupAttributes);
+	MetrixLab_PopupWin.document.write('<html><head><title>Opinionbar Websurvey</title></head>');
+	MetrixLab_PopupWin.document.write('<body>');
+	
+	
+	MetrixLab_PopupWin.document.write('<scr'+'ipt>');
+	MetrixLab_PopupWin.document.write("var metrixlab_userid='"+MetrixLab_UserID+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_ForceData='"+MetrixLab_ForceData+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_popup_exit_folder='"+MetrixLab_PopupFolderName+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_privacyLanguage='"+MetrixLab_PrivacyLanguage+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_project_exit_folder='"+Metrixlab_project_exit_folder+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_image_width='"+Metrixlab_project_exit_image_width+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_image_height='"+Metrixlab_project_exit_image_height+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_coordinate_privacybutton='"+Metrixlab_project_exit_privacybutton+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_coordinate_metrixbutton='"+Metrixlab_project_exit_metrixbutton+"';");
+	MetrixLab_PopupWin.document.write("var metrixlab_project_exit_Img='"+Metrixlab_project_exit_Img+"';"); 	  
+	MetrixLab_PopupWin.document.write('</scr'+'ipt>');	  
+	MetrixLab_PopupWin.document.write("<script language='javascript' src='"+MetrixLab_Protocol+"//invitation.opinionbar.com/wit/popups/"+MetrixLab_PopupFolderName+"/exit.js'>"); 
+	MetrixLab_PopupWin.document.write('</scr'+'ipt>');
+	
+	
+	MetrixLab_PopupWin.document.write('</body></html>'); 
+	if (navigator.userAgent.indexOf('Firefox') !=-1)
+	{
+		MetrixLab_PopupWin.window.open('about:blank').close();
+	}
+	MetrixLab_PopupWin.blur();
+
+	try {
+	window.blur();
+	window.focus();
+	} catch(error){}
+	
+}
+
+function Metrixlab_SetDivVisible()
+{
+	document.getElementById('MetrixLab_overlay').style.display='block';
+	if(MetrixLab_DarkLayer) {
+		try
+		{
+			var the_darkbox_layer = document.getElementById('metrixlab_darkbox');
+			the_darkbox_layer.style.display='block';
+		}
+		catch(error){} 
+	}	
+}  
+
+function metrixlab_onready(el, func){
+	this.args = new Array(el, func)
+	this.doTry = function(){
+			try{
+					var el = eval(this.args[0]);
+					el.onloading = this.args[1];
+					el.onloading();
+					clearInterval(this.args[2]);
+			}
+			catch(e){}
+	}
+	this.doTry.bind = function(object){
+			var method = this;
+			return function(){
+					method.apply(object);
+			}
+	}
+	this.args[2] = setInterval(this.doTry.bind(this), 250);
+	return this;  
+}
+
+function MetrixLab_LoadOverlay()
+{    
+    MetrixLab_SetCookie();
+	var MetrixLab_HTMLString="";
+    MetrixLab_HTMLString += "<MAP name='MetrixLab_Popup_Map'>\n";
+    MetrixLab_HTMLString += " <AREA shape='rect' coords='"+MetrixLab_Coordinate_YesButton+"' href='javascript:MetrixLab_GoToWebSurvey();' target='_self'>\n";
+    MetrixLab_HTMLString += " <AREA shape='rect' coords='"+MetrixLab_Coordinate_NoButton+"' href='javascript:MetrixLab_CloseBanner();' target='_self'>\n";
+    MetrixLab_HTMLString += " <AREA shape='rect' coords='"+MetrixLab_Coordinate_CloseButton+"' href='javascript:MetrixLab_CloseBanner();' target='_self'>\n";
+    MetrixLab_HTMLString += " <AREA shape='rect' coords='"+MetrixLab_Coordinate_PrivacyButton+"' href='javascript:MetrixLab_GoToPrivacy();' target='_self'>\n";
+    MetrixLab_HTMLString += " <AREA shape='rect' coords='"+MetrixLab_Coordinate_MetrixButton+"' href='javascript:MetrixLab_GoToMetrixLab();' target='_self'>\n";    
+    MetrixLab_HTMLString += "</MAP>\n";
+    MetrixLab_HTMLString += "<div id='MetrixLab_overlay' style='display:none;position:fixed; z-index:99999; right:10px; top:250px; margin-left: -"+(MetrixLab_OverlayWidth/2)+"px; margin-top: -"+(MetrixLab_OverlayHeight/2)+"px;'>";      
+    MetrixLab_HTMLString += "<img onload='Metrixlab_SetDivVisible();' src='"+MetrixLab_Protocol+"//invitation.opinionbar.com/wit/popups/"+MetrixLab_PopupFolderName+"/"+MetrixLab_OverlayImg+"' USEMAP='#MetrixLab_Popup_Map' alt='' border='0' width='"+MetrixLab_OverlayWidth+"' height='"+MetrixLab_OverlayHeight+"' name='MetrixLab_overlay_gif' id='MetrixLab_gif'>";    
+    MetrixLab_HTMLString += "</div>";
+	if(MetrixLab_DarkLayer) {
+		MetrixLab_HTMLString += '<div id="metrixlab_darkbox" onclick="MetrixLab_CloseBanner()" style="z-index: 99995; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; opacity: 0.5; display: none; padding: 0px;"></div>';
+	}
+    var MetrixLab_Body=document.getElementsByTagName('body').item(0);
+    var MetrixLab_Div = document.createElement('div');
+    MetrixLab_Div.style.display='block';
+    MetrixLab_Div.id='MetrixLab_Div';
+    MetrixLab_Div.innerHTML = MetrixLab_HTMLString;
+    MetrixLab_Body.appendChild(MetrixLab_Div);
+
+    setTimeout(function(){
+    	MetrixLab_CloseBanner();
+    }, 10000);
+}
+
+if (MetrixLab_isCookieEnabled())
+{
+    new metrixlab_onready("document", function(){MetrixLab_CheckIntercept()});
+}

@@ -7,7 +7,7 @@ import { Compteur}            from '../../model/compteur';
 import { ToastrService }      from 'ngx-toastr';
 import { Router, ActivatedRoute  } from '@angular/router';
 import { NgForm }             from '@angular/forms';
-import { Fcommande }          from '../../model/fcommande';
+import { Fcomm }              from '../../model/fcomm';
 import { FcommandeService}    from '../../service/fcommande.service';
 import { LfcommandeService}   from '../../service/lfcommande.service'
 import { DatePipe }           from '@angular/common';

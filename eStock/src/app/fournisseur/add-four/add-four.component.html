@@ -1,7 +1,6 @@
-<div class="row">
-
-    <div class="col-md-12 col-md-offset-2">
-      <h1>Client </h1>
+<div style="overflow-y: scroll; height:600px;" class="row justify-content-center">
+     <div class="col-md-12 col-md-offset-2">
+      <h1>Fournisseur </h1>
       <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
         <input type="hidden"  formControlName="id" id="id">
         
@@ -40,7 +39,11 @@
             <input type="password" class="form-control" formControlName="pwd" id="pwd">
            
           </div>
-        <button class="btn btn-primary">Save</button>
+          <div class="form-group">
+              <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+              <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                  <i class="fa fa-close"></i> Close</button>
+            </div>
         
       </form>
     </div>

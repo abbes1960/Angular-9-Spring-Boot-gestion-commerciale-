@@ -53,7 +53,7 @@ InfoForm() {
       qte4 : 0,
       total : 0,
       libart :'',
-      code_article :'',
+      code :'',
 
      
    
@@ -102,7 +102,7 @@ this.dialogRef.close();
 
 validateForm(formData:Linvent){
   this.isValid=true;
-  if(formData.code_article=='')
+  if(formData.code =='')
     this.isValid=false;
     else if(formData.qte1 ==0)
     this.isValid=false;
